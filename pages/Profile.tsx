@@ -1,14 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { CURRENT_USER, REVIEWS } from '../data';
+import { useAuth } from '../contexts/AuthContext';
+import { REVIEWS } from '../data';
 import ReviewCard from '../components/ReviewCard';
-import { Award, DollarSign, Star } from 'lucide-react';
+import EditProfileModal from '../components/EditProfileModal';
+import AuthModal from '../components/AuthModal';
+import { Award, DollarSign, Star, LogOut, Edit } from 'lucide-react';
 
 const Profile: React.FC = () => {
   const { t } = useLanguage();
-  const userReviews = REVIEWS.filter(r => r.user.id === CURRENT_USER.id); // In mock data, might be empty if IDs don't match, so we can fallback or show empty state. 
-  // Let's pretend the user has some reviews for demo purposes if list is empty
+  const { user, isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  // 如果未登录，显示登录提示
+  if (!isAuthenticated || !user) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12 px-4 flex items-center justify-center">
+        <div className="text-center max-w-md">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('auth.login')}</h2>
+          <p className="text-gray-600 mb-6">{t('auth.loginSubtitle')}</p>
+          <button
+            onClick={() => setShowAuthModal(true)}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+          >
+            {t('auth.login')}
+          </button>
+        </div>
+        <AuthModal
+          isOpen={showAuthModal}
+          onClose={() => setShowAuthModal(false)}
+          initialMode="login"
+        />
+      </div>
+    );
+  }
+
+  const userReviews = REVIEWS.filter(r => r.user.id === user.id);
   const displayReviews = userReviews.length > 0 ? userReviews : REVIEWS.slice(0, 1);
+
+  const handleLogout = () => {
+    if (window.confirm(t('auth.logoutConfirm'))) {
+      logout();
+      navigate('/');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
@@ -19,15 +57,28 @@ const Profile: React.FC = () => {
           <div className="px-8 pb-8">
             <div className="relative flex justify-between items-end -mt-12 mb-6">
               <div className="flex items-end gap-6">
-                <img src={CURRENT_USER.avatar} alt="Profile" className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-white" />
+                <img src={user.avatar} alt="Profile" className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-white" />
                 <div className="mb-2">
-                  <h1 className="text-2xl font-bold text-gray-900">{CURRENT_USER.name}</h1>
-                  <p className="text-gray-500">@{CURRENT_USER.id} • Joined Dec 2024</p>
+                  <h1 className="text-2xl font-bold text-gray-900">{user.name}</h1>
+                  <p className="text-gray-500">{user.email} • Joined Dec 2024</p>
                 </div>
               </div>
-              <button className="bg-gray-100 hover:bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-medium text-sm transition-colors">
-                {t('profile.editProfile')}
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setShowEditModal(true)}
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-medium text-sm transition-colors flex items-center gap-2"
+                >
+                  <Edit size={16} />
+                  {t('profile.editProfile')}
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="bg-red-50 hover:bg-red-100 text-red-600 px-4 py-2 rounded-lg font-medium text-sm transition-colors flex items-center gap-2"
+                >
+                  <LogOut size={16} />
+                  {t('auth.logout')}
+                </button>
+              </div>
             </div>
 
             {/* Stats Grid */}
@@ -37,8 +88,8 @@ const Profile: React.FC = () => {
                   <DollarSign size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Total Earnings</p>
-                  <p className="text-xl font-bold text-gray-900">$1,250</p>
+                  <p className="text-sm text-gray-500">{t('profile.totalEarnings')}</p>
+                  <p className="text-xl font-bold text-gray-900">${user.earnings.toLocaleString()}</p>
                 </div>
               </div>
               
@@ -47,8 +98,8 @@ const Profile: React.FC = () => {
                   <Award size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Reputation Level</p>
-                  <p className="text-xl font-bold text-gray-900">Level 4 Expert</p>
+                  <p className="text-sm text-gray-500">{t('profile.reputationLevel')}</p>
+                  <p className="text-xl font-bold text-gray-900">{user.levelName}</p>
                 </div>
               </div>
 
@@ -75,7 +126,7 @@ const Profile: React.FC = () => {
                     <div className="absolute top-4 right-4 z-10 bg-gray-900 text-white text-xs px-2 py-1 rounded">
                         {t('profile.statusLive')}
                     </div>
-                    <ReviewCard review={{...review, user: CURRENT_USER}} />
+                    <ReviewCard review={{...review, user: user}} />
                 </div>
               ))}
               {displayReviews.length === 0 && (
@@ -114,6 +165,12 @@ const Profile: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Edit Profile Modal */}
+      <EditProfileModal
+        isOpen={showEditModal}
+        onClose={() => setShowEditModal(false)}
+      />
     </div>
   );
 };

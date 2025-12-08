@@ -151,6 +151,32 @@ export const zh = {
     selectLanguage: '选择语言',
   },
   
+  // Auth
+  auth: {
+    login: '登录',
+    signup: '注册',
+    logout: '退出登录',
+    loginSubtitle: '欢迎回来！请登录您的账户。',
+    signupSubtitle: '创建新账户以开始使用。',
+    email: '邮箱',
+    emailPlaceholder: 'your@email.com',
+    password: '密码',
+    passwordPlaceholder: '请输入密码',
+    passwordHint: '至少6个字符',
+    passwordTooShort: '密码至少需要6个字符',
+    name: '姓名',
+    namePlaceholder: '您的姓名',
+    loginButton: '登录',
+    signupButton: '注册',
+    noAccount: '还没有账户？',
+    haveAccount: '已有账户？',
+    fillAllFields: '请填写所有字段',
+    errorOccurred: '发生错误，请重试。',
+    processing: '处理中...',
+    logoutConfirm: '确定要退出登录吗？',
+    logoutSuccess: '已成功退出登录',
+  },
+  
   
   // Home Additional
   home: {
@@ -294,6 +320,13 @@ export const zh = {
     totalEarnings: '总收益',
     reputationLevel: '声誉等级',
     statusLive: '状态：在线',
+    saveChanges: '保存更改',
+    cancel: '取消',
+    name: '姓名',
+    email: '邮箱',
+    avatar: '头像',
+    updateSuccess: '资料更新成功！',
+    updateError: '更新失败，请重试。',
   },
   
   // Payments

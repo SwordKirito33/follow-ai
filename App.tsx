@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { AuthProvider } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import SubmitReview from './pages/SubmitReview';
@@ -25,7 +26,8 @@ const ScrollToTop = () => {
 const App: React.FC = () => {
   return (
     <LanguageProvider>
-      <Router>
+      <AuthProvider>
+        <Router>
         <ScrollToTop />
         <div className="flex flex-col min-h-screen font-sans text-gray-900">
           <Navbar />
@@ -47,6 +49,7 @@ const App: React.FC = () => {
         <Footer />
       </div>
     </Router>
+      </AuthProvider>
     </LanguageProvider>
   );
 };

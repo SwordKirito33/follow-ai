@@ -156,6 +156,32 @@ export const en = {
     selectLanguage: 'Select Language',
   },
   
+  // Auth
+  auth: {
+    login: 'Login',
+    signup: 'Sign Up',
+    logout: 'Logout',
+    loginSubtitle: 'Welcome back! Please login to your account.',
+    signupSubtitle: 'Create a new account to get started.',
+    email: 'Email',
+    emailPlaceholder: 'your@email.com',
+    password: 'Password',
+    passwordPlaceholder: 'Enter your password',
+    passwordHint: 'At least 6 characters',
+    passwordTooShort: 'Password must be at least 6 characters',
+    name: 'Name',
+    namePlaceholder: 'Your name',
+    loginButton: 'Login',
+    signupButton: 'Sign Up',
+    noAccount: "Don't have an account?",
+    haveAccount: 'Already have an account?',
+    fillAllFields: 'Please fill in all fields',
+    errorOccurred: 'An error occurred. Please try again.',
+    processing: 'Processing...',
+    logoutConfirm: 'Are you sure you want to logout?',
+    logoutSuccess: 'Logged out successfully',
+  },
+  
   // Submit Review Additional (merged into submitReview above)
   
   // Home Additional
@@ -300,6 +326,13 @@ export const en = {
     totalEarnings: 'Total Earnings',
     reputationLevel: 'Reputation Level',
     statusLive: 'Status: Live',
+    saveChanges: 'Save Changes',
+    cancel: 'Cancel',
+    name: 'Name',
+    email: 'Email',
+    avatar: 'Avatar',
+    updateSuccess: 'Profile updated successfully!',
+    updateError: 'Failed to update profile. Please try again.',
   },
   
   // Payments
