@@ -1,9 +1,11 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import { CURRENT_USER, REVIEWS } from '../data';
 import ReviewCard from '../components/ReviewCard';
 import { Award, DollarSign, Star } from 'lucide-react';
 
 const Profile: React.FC = () => {
+  const { t } = useLanguage();
   const userReviews = REVIEWS.filter(r => r.user.id === CURRENT_USER.id); // In mock data, might be empty if IDs don't match, so we can fallback or show empty state. 
   // Let's pretend the user has some reviews for demo purposes if list is empty
   const displayReviews = userReviews.length > 0 ? userReviews : REVIEWS.slice(0, 1);
@@ -24,7 +26,7 @@ const Profile: React.FC = () => {
                 </div>
               </div>
               <button className="bg-gray-100 hover:bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-medium text-sm transition-colors">
-                Edit Profile
+                {t('profile.editProfile')}
               </button>
             </div>
 
@@ -66,19 +68,19 @@ const Profile: React.FC = () => {
         {/* Content Tabs */}
         <div className="grid lg:grid-cols-[2fr_1fr] gap-8">
           <div>
-            <h2 className="text-xl font-bold text-gray-900 mb-6">My Reviews</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">{t('profile.myReviews')}</h2>
             <div className="space-y-6">
               {displayReviews.map(review => (
                 <div key={review.id} className="relative">
                     <div className="absolute top-4 right-4 z-10 bg-gray-900 text-white text-xs px-2 py-1 rounded">
-                        Status: Live
+                        {t('profile.statusLive')}
                     </div>
                     <ReviewCard review={{...review, user: CURRENT_USER}} />
                 </div>
               ))}
               {displayReviews.length === 0 && (
                   <div className="text-center py-12 bg-white rounded-xl border border-gray-200 border-dashed">
-                      <p className="text-gray-500">No reviews yet.</p>
+                      <p className="text-gray-500">{t('profile.noReviewsYet')}</p>
                   </div>
               )}
             </div>

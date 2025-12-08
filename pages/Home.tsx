@@ -69,9 +69,9 @@ const Home: React.FC = () => {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr>
-                  <th className="p-4 border-b-2 border-gray-100 text-gray-500 font-medium">Feature</th>
-                  <th className="p-4 border-b-2 border-gray-100 text-gray-400 font-medium">Product Hunt</th>
-                  <th className="p-4 border-b-2 border-blue-100 bg-blue-50 text-blue-800 font-bold rounded-t-lg">Follow.ai</th>
+                  <th className="p-4 border-b-2 border-gray-100 text-gray-500 font-medium">{t('home.feature')}</th>
+                  <th className="p-4 border-b-2 border-gray-100 text-gray-400 font-medium">{t('home.productHunt')}</th>
+                  <th className="p-4 border-b-2 border-blue-100 bg-blue-50 text-blue-800 font-bold rounded-t-lg">{t('home.followAi')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -128,21 +128,21 @@ const Home: React.FC = () => {
               <h3 className="font-bold text-xl mb-2">Want to earn money?</h3>
               <p className="text-blue-100 text-sm mb-4">Complete specific testing tasks for guaranteed rewards.</p>
               <Link to="/tasks" className="block w-full bg-white text-blue-600 font-bold py-2 rounded-lg text-sm hover:bg-blue-50 transition-colors text-center">
-                View Tasks
+                {t('home.viewTasks')}
               </Link>
             </div>
 
             <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-2">📬 Weekly AI Tools Digest</h3>
-              <p className="text-sm text-gray-600 mb-3">Get the top 10 AI tools every Monday. No spam, unsubscribe anytime.</p>
+              <h3 className="font-bold text-gray-900 mb-2">{t('home.weeklyDigest')}</h3>
+              <p className="text-sm text-gray-600 mb-3">{t('home.weeklyDigestDesc')}</p>
               <form
                 onSubmit={(e) => { e.preventDefault(); alert('Subscribed!'); }}
                 className="space-y-3"
               >
                 <input type="email" required placeholder="you@example.com" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
-                <button type="submit" className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700">Subscribe</button>
+                <button type="submit" className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700">{t('home.subscribe')}</button>
               </form>
-              <p className="text-xs text-gray-400 mt-2">Join 2,340 subscribers.</p>
+              <p className="text-xs text-gray-400 mt-2">{t('home.subscribers').replace('{count}', '2,340')}</p>
             </div>
           </div>
         </div>
@@ -153,10 +153,10 @@ const Home: React.FC = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900">🔮 Coming Soon</h2>
-              <p className="text-gray-600 text-sm">Be the first to review new AI tools.</p>
+              <h2 className="text-3xl font-bold text-gray-900">{t('home.comingSoon')}</h2>
+              <p className="text-gray-600 text-sm">{t('home.comingSoonDesc')}</p>
             </div>
-            <Link to="/submit" className="text-blue-600 text-sm font-semibold hover:text-blue-700">Notify me →</Link>
+            <Link to="/submit" className="text-blue-600 text-sm font-semibold hover:text-blue-700">{t('home.notifyMe')}</Link>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -169,10 +169,10 @@ const Home: React.FC = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
                 <p className="text-sm text-gray-600 mb-3">{item.teaser}</p>
                 <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
-                  <span>{item.interest} people interested</span>
-                  <button className="text-blue-600 font-semibold hover:text-blue-700">🔔 Notify</button>
+                  <span>{item.interest} {t('home.peopleInterested')}</span>
+                  <button className="text-blue-600 font-semibold hover:text-blue-700">{t('home.notify')}</button>
                 </div>
-                <button className="w-full bg-gray-900 text-white py-2 rounded-lg text-sm font-semibold hover:bg-black">Preview</button>
+                <button className="w-full bg-gray-900 text-white py-2 rounded-lg text-sm font-semibold hover:bg-black">{t('home.preview')}</button>
               </div>
             ))}
           </div>

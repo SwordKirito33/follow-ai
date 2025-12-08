@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { UploadCloud, CheckCircle, AlertCircle, Bot, Loader2, ShieldCheck, ShieldAlert } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import AchievementNotification from '../components/AchievementNotification';
 import SocialShareModal from '../components/SocialShareModal';
 import { Achievement } from '../types';
 
 const SubmitReview: React.FC = () => {
+  const { t } = useLanguage();
   const [file, setFile] = useState<File | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -57,12 +59,12 @@ const SubmitReview: React.FC = () => {
       setQualityScore(simulated);
       setAnalysisComplete(true);
       const flags: string[] = [];
-      if (simulated < 7.5) flags.push('Low quality score, needs human review');
+      if (simulated < 7.5) flags.push(t('submitReview.lowQualityScore'));
       if (!file?.type.startsWith('image') && !file?.name.match(/\.(py|js|jsx|tsx|html|css|pdf)$/)) {
-        flags.push('Uncommon file type, manually verify authenticity');
+        flags.push(t('submitReview.uncommonFileType'));
       }
       if (reviewText.trim().length < 400) {
-        flags.push('Short narrative (<400 chars), ask for more context if high value');
+        flags.push(t('submitReview.shortNarrative'));
       }
       setAiFlags(flags);
     }, 2000);
@@ -105,18 +107,18 @@ const SubmitReview: React.FC = () => {
 
       <div className="max-w-2xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Submit a Review</h1>
-          <p className="text-gray-600">Share your real experience. Get paid.</p>
+          <h1 className="text-3xl font-bold text-gray-900">{t('submitReview.title')}</h1>
+          <p className="text-gray-600">{t('submitReview.subtitle')}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Tool Selection */}
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
             <label className="block text-sm font-bold text-gray-700 mb-2">
-              Which AI tool are you reviewing?
+              {t('submitReview.toolSelection')}
             </label>
             <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
-              <option value="">Select a tool...</option>
+              <option value="">{t('submitReview.selectTool')}</option>
               <option value="cursor">Cursor</option>
               <option value="claude">Claude 3.5 Sonnet</option>
               <option value="midjourney">Midjourney</option>
@@ -126,9 +128,9 @@ const SubmitReview: React.FC = () => {
           {/* Mandatory Upload Section - BLACK TECH #1 Integration */}
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
             <label className="block text-sm font-bold text-gray-700 mb-2">
-              Upload Your Work Output <span className="text-red-500">*</span>
+              {t('submitReview.uploadWork')} <span className="text-red-500">{t('submitReview.mandatory')}</span>
             </label>
-            <p className="text-xs text-gray-500 mb-4">Mandatory. No output, no review.</p>
+            <p className="text-xs text-gray-500 mb-4">{t('submitReview.mandatoryNote')}</p>
 
             <div 
               className={`border-2 border-dashed rounded-xl p-8 text-center transition-colors relative overflow-hidden ${
@@ -147,14 +149,14 @@ const SubmitReview: React.FC = () => {
               {!file && uploadProgress === 0 && (
                 <div className="cursor-pointer">
                   <UploadCloud className="mx-auto h-10 w-10 text-gray-400 mb-2" />
-                  <p className="text-sm font-medium text-gray-600">Click to upload or drag & drop</p>
-                  <p className="text-xs text-gray-400 mt-1">Code files, Images, Videos (Max 50MB)</p>
+                  <p className="text-sm font-medium text-gray-600">{t('submitReview.clickToUpload')}</p>
+                  <p className="text-xs text-gray-400 mt-1">{t('submitReview.fileTypes')}</p>
                 </div>
               )}
 
               {uploadProgress > 0 && uploadProgress < 100 && (
                  <div className="w-full">
-                    <p className="text-sm font-bold text-blue-600 mb-2">Uploading... {uploadProgress}%</p>
+                    <p className="text-sm font-bold text-blue-600 mb-2">{t('submitReview.uploading')} {uploadProgress}%</p>
                     <div className="w-full bg-gray-200 rounded-full h-2.5">
                       <div className="bg-blue-600 h-2.5 rounded-full transition-all duration-100" style={{ width: `${uploadProgress}%` }}></div>
                     </div>
@@ -176,7 +178,7 @@ const SubmitReview: React.FC = () => {
                       setUploadProgress(0);
                     }}
                   >
-                    Remove
+                    {t('submitReview.remove')}
                   </button>
                 </div>
               )}
@@ -186,7 +188,7 @@ const SubmitReview: React.FC = () => {
             {analyzing && (
                <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-100 flex items-center gap-3">
                  <Loader2 className="animate-spin text-blue-600" size={20} />
-                 <span className="text-sm font-medium text-blue-700">AI Analyzing output complexity & authenticity...</span>
+                 <span className="text-sm font-medium text-blue-700">{t('submitReview.analyzing')}</span>
                </div>
             )}
 
@@ -198,7 +200,7 @@ const SubmitReview: React.FC = () => {
                     </div>
                     <div className="flex items-center gap-2 mb-3">
                         <Bot size={20} className="text-blue-400" />
-                        <h4 className="font-bold text-sm uppercase tracking-wide text-blue-200">AI Quality Analysis</h4>
+                        <h4 className="font-bold text-sm uppercase tracking-wide text-blue-200">{t('submitReview.aiQualityAnalysis')}</h4>
                     </div>
                     
                     <div className="flex items-end gap-2 mb-4">
@@ -208,25 +210,25 @@ const SubmitReview: React.FC = () => {
 
                     <div className="grid grid-cols-2 gap-2 text-xs">
                         <div className="bg-white/10 p-2 rounded flex justify-between">
-                            <span>Complexity</span>
-                            <span className="text-green-300 font-bold">High</span>
+                            <span>{t('submitReview.complexity')}</span>
+                            <span className="text-green-300 font-bold">{t('submitReview.high')}</span>
                         </div>
                         <div className="bg-white/10 p-2 rounded flex justify-between">
-                            <span>Originality</span>
+                            <span>{t('submitReview.originality')}</span>
                             <span className="text-blue-300 font-bold">98%</span>
                         </div>
                         <div className="bg-white/10 p-2 rounded flex justify-between">
-                            <span>Metadata</span>
-                            <span className="text-green-300 font-bold">Verified</span>
+                            <span>{t('submitReview.metadata')}</span>
+                            <span className="text-green-300 font-bold">{t('submitReview.verified')}</span>
                         </div>
                     </div>
                     <p className="text-xs text-gray-400 mt-3 italic">
-                        "Great work! Your output demonstrates advanced usage of the tool."
+                        "{t('submitReview.greatWork')}"
                     </p>
                   {aiFlags.length > 0 && (
                     <div className="mt-3 bg-white/10 border border-white/20 rounded-lg p-3 text-xs space-y-1">
                       <div className="flex items-center gap-2 text-amber-200 font-semibold">
-                        <ShieldAlert size={14} /> AI flags for manual review
+                        <ShieldAlert size={14} /> {t('submitReview.aiFlagsTitle')}
                       </div>
                       <ul className="list-disc list-inside text-amber-100">
                         {aiFlags.map((flag, idx) => <li key={idx}>{flag}</li>)}
@@ -241,18 +243,18 @@ const SubmitReview: React.FC = () => {
           {/* Review Text */}
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
              <label className="block text-sm font-bold text-gray-700 mb-2">
-              Your Experience
+              {t('submitReview.yourExperience')}
             </label>
             <textarea 
               className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none h-40"
-              placeholder="What did you create? How was the process?"
+              placeholder={t('submitReview.experiencePlaceholder')}
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
             ></textarea>
             <div className="flex justify-between mt-2 text-xs text-gray-500">
-              <span>Minimum {MIN_WORDS} words</span>
+              <span>{t('submitReview.minimumWords').replace('{count}', MIN_WORDS.toString())}</span>
               <span className={wordCount < MIN_WORDS ? "text-red-500" : "text-green-600"}>
-                  {wordCount} words
+                  {wordCount} {t('submitReview.words')}
                 </span>
             </div>
           </div>
@@ -261,12 +263,12 @@ const SubmitReview: React.FC = () => {
           <div className="flex items-start gap-2 text-sm text-gray-700">
             <ShieldCheck size={18} className="text-green-600 mt-0.5" />
             <div>
-              <p className="font-semibold text-gray-900">Verification checklist</p>
+              <p className="font-semibold text-gray-900">{t('submitReview.verificationChecklist')}</p>
               <ul className="list-disc list-inside text-xs text-gray-600 space-y-1 mt-1">
-                <li className={file ? 'text-gray-700' : 'text-red-600'}>Output uploaded (mandatory)</li>
-                <li className={analysisComplete ? 'text-gray-700' : 'text-red-600'}>AI analysis completed</li>
-                <li className={wordCount >= MIN_WORDS ? 'text-gray-700' : 'text-red-600'}>Narrative ≥ {MIN_WORDS} words</li>
-                <li className={qualityScore && qualityScore >= 5 ? 'text-gray-700' : 'text-red-600'}>Quality score ≥ 5/10</li>
+                <li className={file ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.outputUploaded')}</li>
+                <li className={analysisComplete ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.aiAnalysisCompleted')}</li>
+                <li className={wordCount >= MIN_WORDS ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.narrativeWords').replace('{count}', MIN_WORDS.toString())}</li>
+                <li className={qualityScore && qualityScore >= 5 ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.qualityScoreMin')}</li>
               </ul>
             </div>
           </div>
@@ -276,7 +278,7 @@ const SubmitReview: React.FC = () => {
               checked={manualReviewRequested}
               onChange={(e) => setManualReviewRequested(e.target.checked)}
             />
-            Request manual reviewer to double-check this submission
+            {t('submitReview.requestManualReviewer')}
           </label>
         </div>
 
@@ -293,21 +295,21 @@ const SubmitReview: React.FC = () => {
               {isSubmitting ? (
                   <>
                     <Loader2 className="animate-spin" size={24} />
-                    Submitting Review...
+                    {t('submitReview.submitting')}
                   </>
               ) : (
-                  "Submit Review"
+                  t('submitReview.submitReview')
               )}
             </button>
             {!canSubmit && (
               <div className="flex items-start gap-2 text-xs text-gray-600 bg-white rounded-lg border border-gray-200 p-3">
                 <AlertCircle size={16} className="text-amber-500 mt-0.5" />
                 <div className="space-y-1">
-                  <p className="font-semibold text-gray-800">Complete these steps to submit:</p>
+                  <p className="font-semibold text-gray-800">{t('submitReview.completeSteps')}</p>
                   <ul className="list-disc list-inside space-y-0.5">
-                    <li className={file ? "text-gray-600" : "text-red-600"}>Upload at least one output file</li>
-                    <li className={analysisComplete && qualityScore !== null ? "text-gray-600" : "text-red-600"}>Wait for AI analysis to finish</li>
-                    <li className={wordCount >= MIN_WORDS ? "text-gray-600" : "text-red-600"}>Write at least {MIN_WORDS} words</li>
+                    <li className={file ? "text-gray-600" : "text-red-600"}>{t('submitReview.uploadFile')}</li>
+                    <li className={analysisComplete && qualityScore !== null ? "text-gray-600" : "text-red-600"}>{t('submitReview.waitAnalysis')}</li>
+                    <li className={wordCount >= MIN_WORDS ? "text-gray-600" : "text-red-600"}>{t('submitReview.writeWords').replace('{count}', MIN_WORDS.toString())}</li>
                   </ul>
                 </div>
               </div>

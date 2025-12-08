@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ThumbsUp, MessageCircle, Star, Check, Info } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Review } from '../types';
 import Tooltip from './Tooltip';
 
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const ReviewCard: React.FC<Props> = ({ review }) => {
+  const { t } = useLanguage();
   const [likes, setLikes] = useState(review.likes);
   const [isLiked, setIsLiked] = useState(false);
 
@@ -29,7 +31,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
         <div>
           <div className="flex items-center gap-2">
             <h4 className="font-bold text-gray-900 text-sm">{review.user.name}</h4>
-            <Tooltip content="Level based on verified reviews submitted">
+            <Tooltip content={t('reviewCard.levelBasedOn')}>
               <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded cursor-help">
                 {review.user.levelName}
               </span>
@@ -54,10 +56,10 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
           ))}
           <span className="ml-1 text-sm font-bold text-gray-700">{review.rating}</span>
         </div>
-        <Tooltip content="AI-analyzed score based on output complexity and authenticity">
+        <Tooltip content={t('reviewCard.aiAnalyzedScore')}>
           <div className="flex items-center gap-1 text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full border border-green-100 cursor-help">
             <Check size={12} strokeWidth={3} />
-            Quality: {review.qualityScore}/10
+            {t('reviewCard.quality')}: {review.qualityScore}/10
           </div>
         </Tooltip>
       </div>
@@ -73,7 +75,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
       <div className="bg-gray-100 h-48 relative group cursor-pointer overflow-hidden">
         <img src={review.outputImage} alt="Work Output" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-            <span className="text-white font-medium border border-white/50 px-4 py-2 rounded-full backdrop-blur-sm">View Output</span>
+            <span className="text-white font-medium border border-white/50 px-4 py-2 rounded-full backdrop-blur-sm">{t('reviewCard.viewOutput')}</span>
         </div>
       </div>
 
@@ -84,11 +86,11 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
           className={`flex items-center gap-1.5 text-xs font-medium transition-colors ${isLiked ? 'text-blue-600' : 'text-gray-500 hover:text-gray-900'}`}
         >
           <ThumbsUp size={16} fill={isLiked ? "currentColor" : "none"} />
-          {likes} Likes
+          {likes} {t('reviewCard.likes')}
         </button>
         <button className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-gray-900 transition-colors">
           <MessageCircle size={16} />
-          Reply
+          {t('reviewCard.reply')}
         </button>
       </div>
     </div>
