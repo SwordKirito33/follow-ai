@@ -35,28 +35,44 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path ? 'text-blue-600 font-semibold' : 'text-gray-600 hover:text-gray-900';
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 h-[70px] flex items-center shadow-sm">
+    <nav className="sticky top-0 z-50 glass-nav h-[70px] flex items-center">
       <div className="container mx-auto px-4 flex justify-between items-center h-full">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 text-xl font-bold text-gray-900">
-          <div className="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+        <Link to="/" className="flex items-center gap-2 text-xl font-bold text-gray-900 group transition-transform hover:scale-105">
+          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-lg flex items-center justify-center font-bold text-lg shadow-lg group-hover:shadow-xl transition-all animate-glow">
             F
           </div>
-          Follow.ai
+          <span className="gradient-text">Follow.ai</span>
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <Link to="/" className={isActive('/')}>{t('nav.browseTools')}</Link>
-          <Link to="/tasks" className={isActive('/tasks')}>
+          <Link to="/" className={`${isActive('/')} transition-all hover:scale-105 relative group`}>
+            {t('nav.browseTools')}
+            {location.pathname === '/' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"></span>}
+          </Link>
+          <Link to="/tasks" className={`${isActive('/tasks')} transition-all hover:scale-105 relative group`}>
             <span className="flex items-center gap-1">
               {t('nav.earnMoney')}
             </span>
+            {location.pathname === '/tasks' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"></span>}
           </Link>
-          <Link to="/payments" className={isActive('/payments')}>{t('nav.payments')}</Link>
-          <Link to="/rankings" className={isActive('/rankings')}>{t('nav.rankings')}</Link>
-          <Link to="/news" className={isActive('/news')}>{t('nav.aiNews')}</Link>
-          <Link to="/about" className={isActive('/about')}>{t('nav.about')}</Link>
+          <Link to="/payments" className={`${isActive('/payments')} transition-all hover:scale-105 relative group`}>
+            {t('nav.payments')}
+            {location.pathname === '/payments' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"></span>}
+          </Link>
+          <Link to="/rankings" className={`${isActive('/rankings')} transition-all hover:scale-105 relative group`}>
+            {t('nav.rankings')}
+            {location.pathname === '/rankings' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"></span>}
+          </Link>
+          <Link to="/news" className={`${isActive('/news')} transition-all hover:scale-105 relative group`}>
+            {t('nav.aiNews')}
+            {location.pathname === '/news' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"></span>}
+          </Link>
+          <Link to="/about" className={`${isActive('/about')} transition-all hover:scale-105 relative group`}>
+            {t('nav.about')}
+            {location.pathname === '/about' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"></span>}
+          </Link>
         </div>
 
         {/* Desktop Right */}
@@ -64,16 +80,16 @@ const Navbar: React.FC = () => {
           <LanguageSelector />
           {isAuthenticated ? (
             <>
-              <Link to="/submit" className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors">
+              <Link to="/submit" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-5 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
                 {t('nav.submitReview')}
               </Link>
-              <Link to="/profile" className="bg-gray-100 hover:bg-gray-200 text-gray-900 px-5 py-2.5 rounded-lg font-medium transition-colors flex items-center gap-2">
+              <Link to="/profile" className="glass-card hover:bg-white/90 text-gray-900 px-5 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 flex items-center gap-2">
                 <User size={18} />
                 {user?.name || t('nav.profile')}
               </Link>
               <button
                 onClick={handleLogout}
-                className="bg-red-50 hover:bg-red-100 text-red-600 px-5 py-2.5 rounded-lg font-medium transition-colors flex items-center gap-2"
+                className="bg-red-50 hover:bg-red-100 text-red-600 px-5 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 flex items-center gap-2"
               >
                 <LogOut size={18} />
                 {t('auth.logout')}
@@ -89,7 +105,7 @@ const Navbar: React.FC = () => {
               </button>
               <button
                 onClick={handleSignupClick}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-5 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 {t('auth.signup')}
               </button>

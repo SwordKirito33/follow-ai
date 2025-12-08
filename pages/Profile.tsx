@@ -49,11 +49,14 @@ const Profile: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="container mx-auto max-w-5xl">
+    <div className="min-h-screen py-12 px-4 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="container mx-auto max-w-5xl relative z-10">
         {/* Header Card */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden mb-8">
-          <div className="h-32 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+        <div className="glass-card rounded-2xl shadow-xl overflow-hidden mb-8 animate-slideDown">
+          <div className="h-32 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
+          </div>
           <div className="px-8 pb-8">
             <div className="relative flex justify-between items-end -mt-12 mb-6">
               <div className="flex items-end gap-6">
@@ -83,7 +86,7 @@ const Profile: React.FC = () => {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-gray-50 rounded-xl p-4 border border-gray-100 flex items-center gap-4">
+              <div className="glass-card rounded-xl p-4 flex items-center gap-4 hover:bg-white/90 transition-all transform hover:scale-105">
                 <div className="bg-green-100 p-3 rounded-lg text-green-600">
                   <DollarSign size={24} />
                 </div>
@@ -93,7 +96,7 @@ const Profile: React.FC = () => {
                 </div>
               </div>
               
-              <div className="bg-gray-50 rounded-xl p-4 border border-gray-100 flex items-center gap-4">
+              <div className="glass-card rounded-xl p-4 flex items-center gap-4 hover:bg-white/90 transition-all transform hover:scale-105">
                 <div className="bg-blue-100 p-3 rounded-lg text-blue-600">
                   <Award size={24} />
                 </div>
@@ -103,7 +106,7 @@ const Profile: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-xl p-4 border border-gray-100 flex items-center gap-4">
+              <div className="glass-card rounded-xl p-4 flex items-center gap-4 hover:bg-white/90 transition-all transform hover:scale-105">
                 <div className="bg-purple-100 p-3 rounded-lg text-purple-600">
                   <Star size={24} />
                 </div>
@@ -139,7 +142,7 @@ const Profile: React.FC = () => {
 
           <div>
              <h2 className="text-xl font-bold text-gray-900 mb-6">Achievements</h2>
-             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
+             <div className="glass-card rounded-xl shadow-xl p-6 space-y-4">
                 <div className="flex items-center gap-3 opacity-100">
                     <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-xl">🏆</div>
                     <div>

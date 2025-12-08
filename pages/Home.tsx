@@ -22,13 +22,15 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen page-transition">
       <ActivityFeed />
       <Hero />
       <Rankings />
       
       {/* Category Showcase */}
-      <section id="categories" className="bg-white py-16 px-4 border-y border-gray-100">
+      <section id="categories" className="relative py-16 px-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-blue-50/10"></div>
+        <div className="container mx-auto max-w-5xl relative z-10">
         <div className="container mx-auto max-w-5xl">
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -45,27 +47,30 @@ const Home: React.FC = () => {
               { icon: '🎬', title: 'Video Generation', stats: '45 tools • 520 reviews', badge: '🚀 New' },
               { icon: '🎵', title: 'Audio & Voice', stats: '67 tools • 640 reviews', badge: '' },
               { icon: '📊', title: 'Data & Analytics', stats: '72 tools • 810 reviews', badge: '' },
-            ].map((cat) => (
-              <Link key={cat.title} to="/rankings" className="block bg-gray-50 hover:bg-white border border-gray-200 hover:border-blue-200 rounded-xl p-4 transition-all shadow-sm hover:shadow-md">
+            ].map((cat, idx) => (
+              <Link key={cat.title} to="/rankings" className="block glass-card hover:bg-white/95 border border-white/30 rounded-xl p-5 transition-all transform hover:scale-105 hover:shadow-xl card-3d animate-slideUp" style={{ animationDelay: `${idx * 0.05}s` }}>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-2xl">{cat.icon}</span>
-                  {cat.badge && <span className="text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-800 font-semibold">{cat.badge}</span>}
+                  <span className="text-3xl transform hover:scale-110 transition-transform">{cat.icon}</span>
+                  {cat.badge && <span className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 font-semibold border border-amber-200 animate-pulse">{cat.badge}</span>}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900">{cat.title}</h3>
-                <p className="text-sm text-gray-600 mt-1">{cat.stats}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-1">{cat.title}</h3>
+                <p className="text-sm text-gray-600">{cat.stats}</p>
               </Link>
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       {/* Why Different Section */}
-      <section className="bg-white py-16 px-4 border-y border-gray-100">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">{t('whyDifferent.title')}</h2>
+      <section className="relative py-16 px-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/20 to-white"></div>
+        <div className="container mx-auto max-w-4xl relative z-10">
+          <div className="text-center mb-12 animate-slideDown">
+            <h2 className="text-3xl font-bold gradient-text">{t('whyDifferent.title')}</h2>
           </div>
           <div className="overflow-x-auto">
+            <div className="glass-card rounded-2xl p-2 shadow-xl">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr>
@@ -92,13 +97,15 @@ const Home: React.FC = () => {
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Main Content Area */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-6xl grid lg:grid-cols-[2fr_1fr] gap-8">
+      <section className="relative py-16 px-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50/50 to-white"></div>
+        <div className="container mx-auto max-w-6xl grid lg:grid-cols-[2fr_1fr] gap-8 relative z-10">
           {/* Feed */}
           <div>
              <div className="flex items-center justify-between mb-8">
@@ -124,55 +131,59 @@ const Home: React.FC = () => {
           <div className="space-y-8">
             <NewsWidget />
             
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl p-6 text-white shadow-lg">
-              <h3 className="font-bold text-xl mb-2">Want to earn money?</h3>
-              <p className="text-blue-100 text-sm mb-4">Complete specific testing tasks for guaranteed rewards.</p>
-              <Link to="/tasks" className="block w-full bg-white text-blue-600 font-bold py-2 rounded-lg text-sm hover:bg-blue-50 transition-colors text-center">
-                {t('home.viewTasks')}
-              </Link>
+            <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-xl p-6 text-white shadow-2xl relative overflow-hidden animate-glow">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+              <div className="relative z-10">
+                <h3 className="font-bold text-xl mb-2">Want to earn money?</h3>
+                <p className="text-blue-100 text-sm mb-4">Complete specific testing tasks for guaranteed rewards.</p>
+                <Link to="/tasks" className="block w-full bg-white text-blue-600 font-bold py-2 rounded-lg text-sm hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg text-center">
+                  {t('home.viewTasks')}
+                </Link>
+              </div>
             </div>
 
-            <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-2">{t('home.weeklyDigest')}</h3>
-              <p className="text-sm text-gray-600 mb-3">{t('home.weeklyDigestDesc')}</p>
-              <form
-                onSubmit={(e) => { e.preventDefault(); alert('Subscribed!'); }}
-                className="space-y-3"
-              >
-                <input type="email" required placeholder="you@example.com" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
-                <button type="submit" className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700">{t('home.subscribe')}</button>
-              </form>
-              <p className="text-xs text-gray-400 mt-2">{t('home.subscribers').replace('{count}', '2,340')}</p>
-            </div>
+                   <div className="glass-card rounded-xl p-5 shadow-xl">
+                     <h3 className="font-bold text-gray-900 mb-2">{t('home.weeklyDigest')}</h3>
+                     <p className="text-sm text-gray-600 mb-3">{t('home.weeklyDigestDesc')}</p>
+                     <form
+                       onSubmit={(e) => { e.preventDefault(); alert('Subscribed!'); }}
+                       className="space-y-3"
+                     >
+                       <input type="email" required placeholder="you@example.com" className="w-full px-3 py-2 border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white/50 backdrop-blur-sm" />
+                       <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg">{t('home.subscribe')}</button>
+                     </form>
+                     <p className="text-xs text-gray-400 mt-2">{t('home.subscribers').replace('{count}', '2,340')}</p>
+                   </div>
           </div>
         </div>
       </section>
 
       {/* Coming Soon */}
-      <section className="bg-white py-16 px-4 border-t border-gray-100">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex items-center justify-between mb-8">
+      <section className="relative py-16 px-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-purple-50/20"></div>
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="flex items-center justify-between mb-8 animate-slideDown">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900">{t('home.comingSoon')}</h2>
+              <h2 className="text-3xl font-bold gradient-text">{t('home.comingSoon')}</h2>
               <p className="text-gray-600 text-sm">{t('home.comingSoonDesc')}</p>
             </div>
-            <Link to="/submit" className="text-blue-600 text-sm font-semibold hover:text-blue-700">{t('home.notifyMe')}</Link>
+            <Link to="/submit" className="text-blue-600 text-sm font-semibold hover:text-blue-700 transition-all transform hover:scale-105">{t('home.notifyMe')}</Link>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { title: 'ToolName AI', date: 'Launching Dec 15', interest: 247, teaser: 'Revolutionary approach to design automation' },
               { title: 'VoiceCraft', date: 'Launching Jan 02', interest: 188, teaser: 'Ultra-natural multilingual voice synthesis' },
               { title: 'DataPilot', date: 'Launching Jan 10', interest: 162, teaser: 'Autonomous data analysis with compliance guardrails' },
-            ].map((item) => (
-              <div key={item.title} className="border border-gray-200 rounded-xl p-5 bg-gray-50 hover:bg-white hover:shadow-md transition-all">
-                <div className="text-xs font-semibold text-amber-700 bg-amber-100 px-2 py-1 rounded-full inline-block mb-3">{item.date}</div>
+            ].map((item, idx) => (
+              <div key={item.title} className="glass-card rounded-xl p-5 card-3d hover:shadow-2xl transition-all duration-300 animate-slideUp" style={{ animationDelay: `${idx * 0.1}s` }}>
+                <div className="text-xs font-semibold text-amber-700 bg-gradient-to-r from-amber-100 to-orange-100 px-3 py-1 rounded-full inline-block mb-3 border border-amber-200">{item.date}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
                 <p className="text-sm text-gray-600 mb-3">{item.teaser}</p>
                 <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
                   <span>{item.interest} {t('home.peopleInterested')}</span>
-                  <button className="text-blue-600 font-semibold hover:text-blue-700">{t('home.notify')}</button>
+                  <button className="text-blue-600 font-semibold hover:text-blue-700 transition-all transform hover:scale-110">{t('home.notify')}</button>
                 </div>
-                <button className="w-full bg-gray-900 text-white py-2 rounded-lg text-sm font-semibold hover:bg-black">{t('home.preview')}</button>
+                <button className="w-full bg-gradient-to-r from-gray-900 to-gray-800 text-white py-2 rounded-lg text-sm font-semibold hover:from-gray-800 hover:to-gray-700 transition-all transform hover:scale-105 shadow-lg">{t('home.preview')}</button>
               </div>
             ))}
           </div>

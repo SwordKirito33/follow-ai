@@ -14,24 +14,25 @@ const Rankings: React.FC = () => {
   ];
 
   return (
-    <section id="rankings" className="py-12 px-4 bg-gray-50">
-      <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+    <section id="rankings" className="py-12 px-4 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4 animate-slideDown">
           <div>
             <h2 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-              <span className="text-2xl">🏆</span> {t('rankings.title')}
+              <span className="text-2xl animate-float">🏆</span> <span className="gradient-text">{t('rankings.title')}</span>
             </h2>
             <p className="text-gray-500 mt-2">{t('rankings.subtitle')}</p>
           </div>
-          <span className="text-sm font-medium text-gray-400 bg-white px-3 py-1 rounded-full border border-gray-200 shadow-sm">
+          <span className="glass-card text-sm font-medium text-gray-600 px-4 py-2 rounded-full shadow-sm">
             {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
           </span>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {topTools.map((tool, index) => (
-            <div key={tool.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 relative hover:shadow-lg transition-shadow">
-              <div className={`absolute -top-4 -left-4 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold border-4 border-white shadow-md ${ranks[index].class}`}>
+            <div key={tool.id} className="glass-card rounded-xl p-6 relative card-3d hover:shadow-2xl transition-all duration-300 animate-slideUp" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className={`absolute -top-4 -left-4 w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold border-4 border-white shadow-xl bg-gradient-to-br ${index === 0 ? 'from-yellow-400 to-yellow-600 text-white' : index === 1 ? 'from-gray-300 to-gray-500 text-white' : 'from-orange-400 to-orange-600 text-white'} transform hover:scale-110 transition-transform animate-float`} style={{ animationDelay: `${index * 0.2}s` }}>
                 {index === 0 ? ranks[index].icon : ranks[index].label}
               </div>
               
@@ -72,7 +73,7 @@ const Rankings: React.FC = () => {
                   </div>
                   <Link 
                     to={`/tool/${tool.id}`}
-                    className="block w-full text-center bg-gray-900 hover:bg-gray-800 text-white font-medium py-2.5 rounded-lg transition-colors"
+                    className="block w-full text-center bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white font-medium py-2.5 rounded-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
                   >
                     {t('rankings.reviewAndEarn')} ${50 - (index * 5)}
                   </Link>

@@ -113,7 +113,7 @@ const SubmitReview: React.FC = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Tool Selection */}
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+               <div className="glass-card p-6 rounded-xl shadow-xl">
             <label className="block text-sm font-bold text-gray-700 mb-2">
               {t('submitReview.toolSelection')}
             </label>
@@ -126,7 +126,7 @@ const SubmitReview: React.FC = () => {
           </div>
 
           {/* Mandatory Upload Section - BLACK TECH #1 Integration */}
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+               <div className="glass-card p-6 rounded-xl shadow-xl">
             <label className="block text-sm font-bold text-gray-700 mb-2">
               {t('submitReview.uploadWork')} <span className="text-red-500">{t('submitReview.mandatory')}</span>
             </label>
@@ -241,7 +241,7 @@ const SubmitReview: React.FC = () => {
           </div>
 
           {/* Review Text */}
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+               <div className="glass-card p-6 rounded-xl shadow-xl">
              <label className="block text-sm font-bold text-gray-700 mb-2">
               {t('submitReview.yourExperience')}
             </label>
@@ -283,15 +283,15 @@ const SubmitReview: React.FC = () => {
         </div>
 
         <div className="flex flex-col gap-3 items-stretch">
-            <button 
-              type="submit" 
-            disabled={!canSubmit}
-            className={`flex-1 py-4 rounded-xl font-bold text-lg shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 ${
-              !canSubmit
-              ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-              : 'bg-blue-600 hover:bg-blue-700 text-white'
-              }`}
-            >
+                   <button 
+                     type="submit" 
+                   disabled={!canSubmit}
+                   className={`flex-1 py-4 rounded-xl font-bold text-lg shadow-lg transition-all transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center gap-2 ${
+                     !canSubmit
+                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                     : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white'
+                     }`}
+                   >
               {isSubmitting ? (
                   <>
                     <Loader2 className="animate-spin" size={24} />

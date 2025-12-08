@@ -8,7 +8,12 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
   
   return (
-    <section className="bg-white pt-16 pb-20 px-4">
+    <section className="relative pt-16 pb-20 px-4 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+      <div className="relative z-10">
       <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 items-center">
         {/* Content */}
         <div className="space-y-8 text-center lg:text-left">
@@ -24,10 +29,10 @@ const Hero: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link to="/submit" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+            <Link to="/submit" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transition-all transform hover:-translate-y-1 hover:scale-105 animate-glow">
               {t('hero.startEarning')}
             </Link>
-            <Link to="/tasks" className="bg-white border-2 border-gray-200 hover:border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-bold text-lg transition-colors text-center">
+            <Link to="/tasks" className="glass-card border-2 border-white/50 hover:border-white text-gray-700 px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:-translate-y-1 hover:scale-105 text-center">
               {t('hero.getValidated')}
             </Link>
           </div>
@@ -49,9 +54,9 @@ const Hero: React.FC = () => {
         </div>
         
         {/* Hero Image / Demo Card */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-full">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-20 animate-pulse"></div>
-            <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
+        <div className="relative mx-auto w-full max-w-md lg:max-w-full animate-slideUp">
+            <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur-xl opacity-30 animate-pulse"></div>
+            <div className="relative glass-card rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
               <div className="bg-gray-50 px-4 py-3 border-b border-gray-100 flex items-center justify-between">
                 <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t('common.verified')} Output</span>
                 <Tooltip content="Work output verified by our community consensus algorithm">
@@ -80,6 +85,7 @@ const Hero: React.FC = () => {
               </div>
             </div>
         </div>
+      </div>
       </div>
     </section>
   );
