@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 import Hero from '../components/Hero';
 import Rankings from '../components/Rankings';
 import ActivityFeed from '../components/ActivityFeed';
@@ -9,6 +10,7 @@ import NewsWidget from '../components/NewsWidget';
 import { REVIEWS } from '../data';
 
 const Home: React.FC = () => {
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -30,10 +32,10 @@ const Home: React.FC = () => {
         <div className="container mx-auto max-w-5xl">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900">Browse by Category</h2>
-              <p className="text-gray-600 text-sm">Pick a lane and see validated tools with real outputs.</p>
+              <h2 className="text-3xl font-bold text-gray-900">{t('categories.title')}</h2>
+              <p className="text-gray-600 text-sm">{t('categories.subtitle')}</p>
             </div>
-            <Link to="/rankings" className="text-blue-600 text-sm font-semibold hover:text-blue-700">View rankings →</Link>
+            <Link to="/rankings" className="text-blue-600 text-sm font-semibold hover:text-blue-700">{t('categories.viewRankings')}</Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
@@ -61,7 +63,7 @@ const Home: React.FC = () => {
       <section className="bg-white py-16 px-4 border-y border-gray-100">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">Why We're Different</h2>
+            <h2 className="text-3xl font-bold text-gray-900">{t('whyDifferent.title')}</h2>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
@@ -74,18 +76,18 @@ const Home: React.FC = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td className="p-4 border-b border-gray-100 font-medium">Proof Required</td>
-                  <td className="p-4 border-b border-gray-100 text-red-500">❌ No</td>
-                  <td className="p-4 border-b border-blue-100 bg-blue-50/50 text-green-600 font-bold">✅ Yes (Mandatory)</td>
+                  <td className="p-4 border-b border-gray-100 font-medium">{t('whyDifferent.proofRequired')}</td>
+                  <td className="p-4 border-b border-gray-100 text-red-500">❌ {t('whyDifferent.no')}</td>
+                  <td className="p-4 border-b border-blue-100 bg-blue-50/50 text-green-600 font-bold">✅ {t('whyDifferent.yes')} {t('whyDifferent.mandatory')}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 border-b border-gray-100 font-medium">Real Outputs</td>
-                  <td className="p-4 border-b border-gray-100 text-red-500">❌ No</td>
-                  <td className="p-4 border-b border-blue-100 bg-blue-50/50 text-green-600 font-bold">✅ Every Review</td>
+                  <td className="p-4 border-b border-gray-100 font-medium">{t('whyDifferent.realOutputs')}</td>
+                  <td className="p-4 border-b border-gray-100 text-red-500">❌ {t('whyDifferent.no')}</td>
+                  <td className="p-4 border-b border-blue-100 bg-blue-50/50 text-green-600 font-bold">✅ {t('whyDifferent.everyReview')}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 border-b border-gray-100 font-medium">Earn Money</td>
-                  <td className="p-4 border-b border-gray-100 text-red-500">❌ No</td>
+                  <td className="p-4 border-b border-gray-100 font-medium">{t('whyDifferent.earnMoney')}</td>
+                  <td className="p-4 border-b border-gray-100 text-red-500">❌ {t('whyDifferent.no')}</td>
                   <td className="p-4 border-b border-blue-100 bg-blue-50/50 text-green-600 font-bold">✅ $20-200/review</td>
                 </tr>
               </tbody>
@@ -100,11 +102,11 @@ const Home: React.FC = () => {
           {/* Feed */}
           <div>
              <div className="flex items-center justify-between mb-8">
-               <h2 className="text-2xl font-bold text-gray-900">Recent Validated Reviews</h2>
+               <h2 className="text-2xl font-bold text-gray-900">{t('reviews.title')}</h2>
                <div className="hidden sm:flex gap-2">
-                 <button className="px-3 py-1 bg-gray-900 text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">All</button>
-                 <button className="px-3 py-1 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">Coding</button>
-                 <button className="px-3 py-1 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">Design</button>
+                 <button className="px-3 py-1 bg-gray-900 text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">{t('reviews.all')}</button>
+                 <button className="px-3 py-1 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">{t('reviews.coding')}</button>
+                 <button className="px-3 py-1 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">{t('reviews.design')}</button>
                </div>
              </div>
              

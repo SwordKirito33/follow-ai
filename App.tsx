@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { LanguageProvider } from './contexts/LanguageContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import SubmitReview from './pages/SubmitReview';
@@ -11,6 +12,7 @@ import NewsPage from './pages/NewsPage';
 import About from './pages/About';
 import Terms from './pages/Terms';
 import ToolDetail from './pages/ToolDetail';
+import Footer from './components/Footer';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -22,11 +24,12 @@ const ScrollToTop = () => {
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen font-sans text-gray-900">
-        <Navbar />
-        <main className="flex-grow">
+    <LanguageProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="flex flex-col min-h-screen font-sans text-gray-900">
+          <Navbar />
+          <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/submit" element={<SubmitReview />} />
@@ -41,26 +44,10 @@ const App: React.FC = () => {
             <Route path="/tool/:id" element={<ToolDetail />} />
           </Routes>
         </main>
-        
-        <footer className="bg-white border-t border-gray-200 py-12 mt-auto">
-          <div className="container mx-auto px-4 text-center">
-            <div className="flex items-center justify-center gap-2 text-xl font-bold text-gray-900 mb-4">
-              <div className="w-6 h-6 bg-blue-600 text-white rounded flex items-center justify-center font-bold text-xs">F</div>
-              Follow.ai
-            </div>
-            <p className="text-gray-500 text-sm mb-6">
-              © 2025 Follow.ai. All rights reserved. <br/>
-              The first AI tool review platform with mandatory real work verification.
-            </p>
-            <div className="flex justify-center gap-6 text-sm text-gray-600">
-              <Link to="/about" className="hover:text-blue-600">About</Link>
-              <Link to="/terms" className="hover:text-blue-600">Terms</Link>
-              <a href="mailto:hello@follow.ai" className="hover:text-blue-600">Contact</a>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </Router>
+    </LanguageProvider>
   );
 };
 

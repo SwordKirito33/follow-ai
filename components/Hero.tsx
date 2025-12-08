@@ -2,46 +2,48 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle } from 'lucide-react';
 import Tooltip from './Tooltip';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="bg-white pt-16 pb-20 px-4">
       <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 items-center">
         {/* Content */}
         <div className="space-y-8 text-center lg:text-left">
           <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.1]">
-            Where AI Tools Show Their <br />
+            {t('hero.title')} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Real Work
+              {t('hero.titleHighlight')}
             </span>
           </h1>
           
           <p className="text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0">
-            No fake reviews. No upvote farms. Just real outputs from real users. 
-            Join 500+ testers earning $50-200/week.
+            {t('hero.subtitle')} {t('hero.joinCount')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link to="/submit" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
-              Start Earning
+              {t('hero.startEarning')}
             </Link>
             <Link to="/tasks" className="bg-white border-2 border-gray-200 hover:border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-bold text-lg transition-colors text-center">
-              Get Validated
+              {t('hero.getValidated')}
             </Link>
           </div>
 
           <div className="flex justify-center lg:justify-start gap-8 pt-4">
             <div className="text-center lg:text-left">
               <strong className="block text-2xl font-bold text-gray-900">3,458</strong>
-              <span className="text-sm text-gray-500">Real Reviews</span>
+              <span className="text-sm text-gray-500">{t('hero.stats.reviews')}</span>
             </div>
             <div className="text-center lg:text-left">
               <strong className="block text-2xl font-bold text-gray-900">127</strong>
-              <span className="text-sm text-gray-500">Validated Tools</span>
+              <span className="text-sm text-gray-500">{t('hero.stats.tools')}</span>
             </div>
             <div className="text-center lg:text-left">
               <strong className="block text-2xl font-bold text-gray-900">$45,820</strong>
-              <span className="text-sm text-gray-500">Earned by Testers</span>
+              <span className="text-sm text-gray-500">{t('hero.stats.earned')}</span>
             </div>
           </div>
         </div>
