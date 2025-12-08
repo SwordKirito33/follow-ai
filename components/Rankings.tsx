@@ -48,7 +48,19 @@ const Rankings: React.FC = () => {
 
                 <div className="mb-4">
                   <h3 className="text-xl font-bold text-gray-900">{tool.name}</h3>
-                  <p className="text-sm text-gray-500">{tool.category}</p>
+                  <p className="text-sm text-gray-500 mb-2">{tool.category}</p>
+                  {tool.useCases && tool.useCases.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5">
+                      {tool.useCases.slice(0, 3).map((useCase, idx) => (
+                        <span key={idx} className="text-xs px-2 py-0.5 bg-blue-50 text-blue-700 rounded-full font-medium border border-blue-100">
+                          {useCase}
+                        </span>
+                      ))}
+                      {tool.useCases.length > 3 && (
+                        <span className="text-xs text-gray-400">+{tool.useCases.length - 3}</span>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-auto">

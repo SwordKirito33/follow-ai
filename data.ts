@@ -18,7 +18,8 @@ export const TOOLS: Tool[] = [
     rating: 4.8,
     reviewCount: 45,
     growth: '+120%',
-    description: 'The AI-first code editor.'
+    description: 'The AI-first code editor.',
+    useCases: ['Coding', 'Refactoring', 'Debugging', 'Code Review']
   },
   {
     id: 'claude',
@@ -28,7 +29,8 @@ export const TOOLS: Tool[] = [
     rating: 4.9,
     reviewCount: 38,
     growth: '+85%',
-    description: 'Anthropic\'s most intelligent model.'
+    description: 'Anthropic\'s most intelligent model.',
+    useCases: ['Analysis', 'Writing', 'Coding', 'Research', 'Data Processing']
   },
   {
     id: 'midjourney',
@@ -38,7 +40,8 @@ export const TOOLS: Tool[] = [
     rating: 4.7,
     reviewCount: 32,
     growth: 'NEW',
-    description: 'Hyper-realistic image generation.'
+    description: 'Hyper-realistic image generation.',
+    useCases: ['Logo Design', 'Concept Art', 'Marketing Visuals', 'Illustration']
   }
 ];
 

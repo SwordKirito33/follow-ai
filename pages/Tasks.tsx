@@ -1,14 +1,24 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Clock, Users, DollarSign, ArrowRight } from 'lucide-react';
 import { TASKS } from '../data';
 
 const Tasks: React.FC = () => {
+  const navigate = useNavigate();
+  const startTask = () => {
+    // Placeholder: direct users to submit page to complete the task output
+    navigate('/submit');
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Earn Money Testing AI</h1>
           <p className="text-xl text-gray-600">Complete verified tasks to earn guaranteed rewards.</p>
+          <div className="mt-4 text-sm text-gray-600 bg-white inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+            <span className="text-green-600 font-semibold">AI pre-check</span> + <span className="text-blue-600 font-semibold">Manual verification</span> required for payout
+          </div>
         </div>
 
         <div className="grid gap-6">
@@ -28,7 +38,13 @@ const Tasks: React.FC = () => {
                   <span className="flex items-center gap-1">
                     <Users size={16} /> {task.spots} spots remaining
                   </span>
+                  <span className="flex items-center gap-1 text-emerald-600">
+                    AI check + human review
+                  </span>
                 </div>
+                <p className="text-xs text-gray-500 mt-2">
+                  Deliverables: Upload outputs + short narrative; AI will pre-score, payout after manual verification.
+                </p>
               </div>
 
               <div className="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
@@ -38,7 +54,10 @@ const Tasks: React.FC = () => {
                     <DollarSign size={20} strokeWidth={3} />{task.reward}
                   </p>
                 </div>
-                <button className="bg-gray-900 hover:bg-black text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <button
+                  onClick={() => startTask()}
+                  className="bg-gray-900 hover:bg-black text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-colors"
+                >
                   Start Task <ArrowRight size={18} />
                 </button>
               </div>

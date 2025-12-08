@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { UploadCloud, CheckCircle, AlertCircle, Bot, Loader2 } from 'lucide-react';
+import { UploadCloud, CheckCircle, AlertCircle, Bot, Loader2, ShieldCheck, ShieldAlert } from 'lucide-react';
 import AchievementNotification from '../components/AchievementNotification';
 import SocialShareModal from '../components/SocialShareModal';
 import { Achievement } from '../types';
@@ -12,12 +12,18 @@ const SubmitReview: React.FC = () => {
   const [analysisComplete, setAnalysisComplete] = useState(false);
   const [reviewText, setReviewText] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [aiFlags, setAiFlags] = useState<string[]>([]);
+  const [manualReviewRequested, setManualReviewRequested] = useState(false);
+  const MIN_WORDS = 100;
   
   // Modals state
   const [achievement, setAchievement] = useState<Achievement | null>(null);
   const [showShareModal, setShowShareModal] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const wordCount = reviewText.trim().split(/\s+/).filter(Boolean).length;
+  const meetsRequirements = !!file && analysisComplete && qualityScore !== null && wordCount >= MIN_WORDS;
+  const canSubmit = meetsRequirements && !isSubmitting;
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -47,14 +53,24 @@ const SubmitReview: React.FC = () => {
     // Simulate AI Analysis
     setTimeout(() => {
       setAnalyzing(false);
-      setQualityScore(8.7);
+      const simulated = 8.7;
+      setQualityScore(simulated);
       setAnalysisComplete(true);
+      const flags: string[] = [];
+      if (simulated < 7.5) flags.push('Low quality score, needs human review');
+      if (!file?.type.startsWith('image') && !file?.name.match(/\.(py|js|jsx|tsx|html|css|pdf)$/)) {
+        flags.push('Uncommon file type, manually verify authenticity');
+      }
+      if (reviewText.trim().length < 400) {
+        flags.push('Short narrative (<400 chars), ask for more context if high value');
+      }
+      setAiFlags(flags);
     }, 2000);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!file || !qualityScore || reviewText.length < 100) return;
+    if (!meetsRequirements) return;
 
     setIsSubmitting(true);
 
@@ -207,6 +223,16 @@ const SubmitReview: React.FC = () => {
                     <p className="text-xs text-gray-400 mt-3 italic">
                         "Great work! Your output demonstrates advanced usage of the tool."
                     </p>
+                  {aiFlags.length > 0 && (
+                    <div className="mt-3 bg-white/10 border border-white/20 rounded-lg p-3 text-xs space-y-1">
+                      <div className="flex items-center gap-2 text-amber-200 font-semibold">
+                        <ShieldAlert size={14} /> AI flags for manual review
+                      </div>
+                      <ul className="list-disc list-inside text-amber-100">
+                        {aiFlags.map((flag, idx) => <li key={idx}>{flag}</li>)}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -224,21 +250,44 @@ const SubmitReview: React.FC = () => {
               onChange={(e) => setReviewText(e.target.value)}
             ></textarea>
             <div className="flex justify-between mt-2 text-xs text-gray-500">
-                <span>Minimum 100 words</span>
-                <span className={reviewText.split(" ").filter(w => w.length > 0).length < 100 ? "text-red-500" : "text-green-600"}>
-                    {reviewText.split(" ").filter(w => w.length > 0).length} words
+              <span>Minimum {MIN_WORDS} words</span>
+              <span className={wordCount < MIN_WORDS ? "text-red-500" : "text-green-600"}>
+                  {wordCount} words
                 </span>
             </div>
           </div>
 
-          <div className="flex gap-4 items-center">
+        <div className="bg-white rounded-xl border border-gray-200 p-4 space-y-2">
+          <div className="flex items-start gap-2 text-sm text-gray-700">
+            <ShieldCheck size={18} className="text-green-600 mt-0.5" />
+            <div>
+              <p className="font-semibold text-gray-900">Verification checklist</p>
+              <ul className="list-disc list-inside text-xs text-gray-600 space-y-1 mt-1">
+                <li className={file ? 'text-gray-700' : 'text-red-600'}>Output uploaded (mandatory)</li>
+                <li className={analysisComplete ? 'text-gray-700' : 'text-red-600'}>AI analysis completed</li>
+                <li className={wordCount >= MIN_WORDS ? 'text-gray-700' : 'text-red-600'}>Narrative ≥ {MIN_WORDS} words</li>
+                <li className={qualityScore && qualityScore >= 5 ? 'text-gray-700' : 'text-red-600'}>Quality score ≥ 5/10</li>
+              </ul>
+            </div>
+          </div>
+          <label className="flex items-center gap-2 text-xs text-gray-700">
+            <input
+              type="checkbox"
+              checked={manualReviewRequested}
+              onChange={(e) => setManualReviewRequested(e.target.checked)}
+            />
+            Request manual reviewer to double-check this submission
+          </label>
+        </div>
+
+        <div className="flex flex-col gap-3 items-stretch">
             <button 
               type="submit" 
-              disabled={!file || !analysisComplete || isSubmitting}
-              className={`flex-1 py-4 rounded-xl font-bold text-lg shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 ${
-                !file || !analysisComplete || isSubmitting
-                ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                : 'bg-blue-600 hover:bg-blue-700 text-white'
+            disabled={!canSubmit}
+            className={`flex-1 py-4 rounded-xl font-bold text-lg shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 ${
+              !canSubmit
+              ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+              : 'bg-blue-600 hover:bg-blue-700 text-white'
               }`}
             >
               {isSubmitting ? (
@@ -250,6 +299,19 @@ const SubmitReview: React.FC = () => {
                   "Submit Review"
               )}
             </button>
+            {!canSubmit && (
+              <div className="flex items-start gap-2 text-xs text-gray-600 bg-white rounded-lg border border-gray-200 p-3">
+                <AlertCircle size={16} className="text-amber-500 mt-0.5" />
+                <div className="space-y-1">
+                  <p className="font-semibold text-gray-800">Complete these steps to submit:</p>
+                  <ul className="list-disc list-inside space-y-0.5">
+                    <li className={file ? "text-gray-600" : "text-red-600"}>Upload at least one output file</li>
+                    <li className={analysisComplete && qualityScore !== null ? "text-gray-600" : "text-red-600"}>Wait for AI analysis to finish</li>
+                    <li className={wordCount >= MIN_WORDS ? "text-gray-600" : "text-red-600"}>Write at least {MIN_WORDS} words</li>
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
           
         </form>

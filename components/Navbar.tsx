@@ -29,8 +29,10 @@ const Navbar: React.FC = () => {
               Earn Money
             </span>
           </Link>
-          <Link to="/#rankings" className="text-gray-600 hover:text-gray-900">Rankings</Link>
-          <Link to="/#news" className="text-gray-600 hover:text-gray-900">AI News</Link>
+          <Link to="/payments" className={isActive('/payments')}>Payments</Link>
+          <Link to="/rankings" className={isActive('/rankings')}>Rankings</Link>
+          <Link to="/news" className={isActive('/news')}>AI News</Link>
+          <Link to="/about" className={isActive('/about')}>About</Link>
         </div>
 
         {/* Desktop Right */}
@@ -54,6 +56,10 @@ const Navbar: React.FC = () => {
         <div className="absolute top-[70px] left-0 w-full bg-white border-b border-gray-200 shadow-lg md:hidden flex flex-col p-4 gap-4">
           <Link to="/" onClick={toggleMobileMenu} className="text-lg font-medium">Browse Tools</Link>
           <Link to="/tasks" onClick={toggleMobileMenu} className="text-lg font-medium">Earn Money</Link>
+          <Link to="/payments" onClick={toggleMobileMenu} className="text-lg font-medium">Payments</Link>
+          <Link to="/rankings" onClick={toggleMobileMenu} className="text-lg font-medium">Rankings</Link>
+          <Link to="/news" onClick={toggleMobileMenu} className="text-lg font-medium">AI News</Link>
+          <Link to="/about" onClick={toggleMobileMenu} className="text-lg font-medium">About</Link>
           <Link to="/submit" onClick={toggleMobileMenu} className="bg-blue-600 text-white px-4 py-3 rounded-lg text-center font-medium">Submit Review</Link>
           <Link to="/profile" onClick={toggleMobileMenu} className="bg-gray-100 text-gray-900 px-4 py-3 rounded-lg text-center font-medium">Profile</Link>
         </div>

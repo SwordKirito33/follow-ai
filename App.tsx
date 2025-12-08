@@ -1,10 +1,16 @@
 import React, { useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import SubmitReview from './pages/SubmitReview';
 import Profile from './pages/Profile';
 import Tasks from './pages/Tasks';
+import Payments from './pages/Payments';
+import RankingsPage from './pages/RankingsPage';
+import NewsPage from './pages/NewsPage';
+import About from './pages/About';
+import Terms from './pages/Terms';
+import ToolDetail from './pages/ToolDetail';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -26,8 +32,13 @@ const App: React.FC = () => {
             <Route path="/submit" element={<SubmitReview />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/tasks" element={<Tasks />} />
+            <Route path="/payments" element={<Payments />} />
+            <Route path="/rankings" element={<RankingsPage />} />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/terms" element={<Terms />} />
             {/* Tool detail route would go here, reusing parts of Home or a dedicated component */}
-            <Route path="/tool/:id" element={<div className="p-20 text-center text-xl">Tool Detail Page (Placeholder)</div>} />
+            <Route path="/tool/:id" element={<ToolDetail />} />
           </Routes>
         </main>
         
@@ -42,10 +53,9 @@ const App: React.FC = () => {
               The first AI tool review platform with mandatory real work verification.
             </p>
             <div className="flex justify-center gap-6 text-sm text-gray-600">
-              <a href="#" className="hover:text-blue-600">About</a>
-              <a href="#" className="hover:text-blue-600">Terms</a>
-              <a href="#" className="hover:text-blue-600">Privacy</a>
-              <a href="#" className="hover:text-blue-600">Contact</a>
+              <Link to="/about" className="hover:text-blue-600">About</Link>
+              <Link to="/terms" className="hover:text-blue-600">Terms</Link>
+              <a href="mailto:hello@follow.ai" className="hover:text-blue-600">Contact</a>
             </div>
           </div>
         </footer>

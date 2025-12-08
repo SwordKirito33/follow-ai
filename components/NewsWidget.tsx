@@ -14,12 +14,12 @@ const NewsWidget: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 sticky top-24">
+    <div id="news" className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 sticky top-24">
       <div className="flex items-center justify-between mb-6">
         <h3 className="font-bold text-gray-900 flex items-center gap-2">
           🔥 Latest AI News
         </h3>
-        <button className="text-xs font-medium text-blue-600 hover:text-blue-700">View All</button>
+        <a href="/#/news" className="text-xs font-medium text-blue-600 hover:text-blue-700">View All</a>
       </div>
 
       <div className="space-y-6">

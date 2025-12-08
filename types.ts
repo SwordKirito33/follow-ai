@@ -16,6 +16,7 @@ export interface Tool {
   reviewCount: number;
   growth: string;
   description: string;
+  useCases?: string[]; // e.g., ['Coding', 'Analysis', 'Writing']
 }
 
 export interface Review {
