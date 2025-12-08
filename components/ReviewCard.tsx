@@ -24,7 +24,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+    <div className="glass-card rounded-xl overflow-hidden card-3d hover:shadow-2xl transition-all duration-300 group">
       {/* Header */}
       <div className="p-4 flex items-center gap-3">
         <img src={review.user.avatar} alt={review.user.name} className="w-10 h-10 rounded-full" />
@@ -72,10 +72,10 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
       </div>
 
       {/* Output Preview */}
-      <div className="bg-gray-100 h-48 relative group cursor-pointer overflow-hidden">
-        <img src={review.outputImage} alt="Work Output" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-            <span className="text-white font-medium border border-white/50 px-4 py-2 rounded-full backdrop-blur-sm">{t('reviewCard.viewOutput')}</span>
+      <div className="bg-gradient-to-br from-gray-100 to-gray-200 h-48 relative cursor-pointer overflow-hidden">
+        <img src={review.outputImage} alt="Work Output" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span className="text-white font-medium border-2 border-white/70 px-6 py-3 rounded-full backdrop-blur-md bg-white/10 transform scale-90 group-hover:scale-100 transition-transform duration-300">{t('reviewCard.viewOutput')}</span>
         </div>
       </div>
 

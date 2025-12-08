@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-ro
 import { LanguageProvider } from './contexts/LanguageContext';
 import { AuthProvider } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
+import VisitTracker from './components/VisitTracker';
 import Home from './pages/Home';
 import SubmitReview from './pages/SubmitReview';
 import Profile from './pages/Profile';
@@ -30,8 +31,9 @@ const App: React.FC = () => {
         <Router>
         <ScrollToTop />
         <div className="flex flex-col min-h-screen font-sans text-gray-900">
+          <VisitTracker />
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow page-transition">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/submit" element={<SubmitReview />} />

@@ -35,18 +35,19 @@ const RankingsPage: React.FC = () => {
   const badgeClasses = ['bg-yellow-100 text-yellow-800', 'bg-gray-100 text-gray-700', 'bg-orange-100 text-orange-800'];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="container mx-auto max-w-6xl space-y-10">
-        <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div className="min-h-screen py-12 px-4 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="container mx-auto max-w-6xl space-y-10 relative z-10">
+        <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 animate-slideDown">
           <div>
             <h1 className="text-4xl font-bold text-gray-900 flex items-center gap-3">
-              <span className="text-3xl">🏆</span> {t('rankingsPage.title')}
+              <span className="text-3xl animate-float">🏆</span> <span className="gradient-text">{t('rankingsPage.title')}</span>
             </h1>
             <p className="text-gray-600 mt-2">{t('rankingsPage.subtitle')}</p>
           </div>
           <div className="flex flex-wrap gap-2">
             {[t('rankingsPage.today'), t('rankingsPage.thisWeek'), t('rankingsPage.thisMonth'), t('rankingsPage.allTime')].map((label, idx) => (
-              <button key={label} className={`px-4 py-2 rounded-full text-sm font-semibold border ${idx === 0 ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'}`}>
+              <button key={label} className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all transform hover:scale-105 ${idx === 0 ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white border-transparent shadow-lg' : 'glass-card text-gray-700 border-white/30 hover:bg-white/90'}`}>
                 {label}
               </button>
             ))}
@@ -55,7 +56,7 @@ const RankingsPage: React.FC = () => {
 
         <section className="grid lg:grid-cols-3 gap-6">
           {extendedTools.slice(0, 3).map((tool, index) => (
-            <div key={tool.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 relative hover:shadow-lg transition-shadow">
+            <div key={tool.id} className="glass-card rounded-xl p-6 relative card-3d hover:shadow-2xl transition-all duration-300 animate-slideUp" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className={`absolute -top-4 -left-4 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold border-4 border-white shadow-md ${badgeClasses[index] || badgeClasses[0]}`}>
                 {index === 0 ? '🏆' : index + 1}
               </div>
@@ -93,7 +94,7 @@ const RankingsPage: React.FC = () => {
                 <span className="flex items-center gap-1">
                   <Trophy size={16} className="text-blue-500" /> {tool.reviewCount} reviews today
                 </span>
-                <Link to={`/tool/${tool.id}`} className="px-4 py-2 rounded-lg bg-gray-900 text-white text-sm font-semibold hover:bg-black transition-colors">
+                <Link to={`/tool/${tool.id}`} className="px-4 py-2 rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 text-white text-sm font-semibold hover:from-gray-800 hover:to-gray-700 transition-all transform hover:scale-105 shadow-lg">
                   Review & Earn ${50 - index * 5}
                 </Link>
               </div>
@@ -101,13 +102,13 @@ const RankingsPage: React.FC = () => {
           ))}
         </section>
 
-        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+        <section className="glass-card rounded-2xl shadow-xl p-6 animate-slideUp">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">{t('rankingsPage.dailyTop10')}</h2>
+              <h2 className="text-2xl font-bold gradient-text">{t('rankingsPage.dailyTop10')}</h2>
               <p className="text-sm text-gray-500">{t('rankingsPage.updatedHourly')}</p>
             </div>
-            <span className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full">{t('rankingsPage.live')}</span>
+            <span className="text-xs text-gray-600 glass-card px-3 py-1 rounded-full animate-pulse">{t('rankingsPage.live')}</span>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">

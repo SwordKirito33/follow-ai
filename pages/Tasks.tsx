@@ -13,19 +13,20 @@ const Tasks: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('tasks.title')}</h1>
+    <div className="min-h-screen py-12 px-4 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="container mx-auto max-w-5xl relative z-10">
+        <div className="text-center mb-12 animate-slideDown">
+          <h1 className="text-4xl font-bold gradient-text mb-4">{t('tasks.title')}</h1>
           <p className="text-xl text-gray-600">{t('tasks.subtitle')}</p>
-          <div className="mt-4 text-sm text-gray-600 bg-white inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+          <div className="mt-4 text-sm text-gray-600 glass-card inline-flex items-center gap-2 px-4 py-2 rounded-full shadow-sm">
             <span className="text-green-600 font-semibold">{t('tasks.preCheck')}</span> + <span className="text-blue-600 font-semibold">{t('tasks.manualVerification')}</span> {t('tasks.requiredForPayout')}
           </div>
         </div>
 
         <div className="grid gap-6">
-          {TASKS.map((task) => (
-            <div key={task.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-blue-300 transition-colors">
+          {TASKS.map((task, idx) => (
+            <div key={task.id} className="glass-card rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 card-3d hover:shadow-2xl transition-all duration-300 animate-slideUp" style={{ animationDelay: `${idx * 0.1}s` }}>
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded">
@@ -58,7 +59,7 @@ const Tasks: React.FC = () => {
                 </div>
                 <button
                   onClick={() => startTask()}
-                  className="bg-gray-900 hover:bg-black text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-colors"
+                  className="bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   {t('tasks.startTask')} <ArrowRight size={18} />
                 </button>
