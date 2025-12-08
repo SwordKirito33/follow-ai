@@ -53,10 +53,10 @@ const Hero: React.FC = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-20 animate-pulse"></div>
             <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
               <div className="bg-gray-50 px-4 py-3 border-b border-gray-100 flex items-center justify-between">
-                <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Verified Output</span>
+                <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t('common.verified')} Output</span>
                 <Tooltip content="Work output verified by our community consensus algorithm">
                   <span className="flex items-center text-green-600 text-xs font-bold gap-1 cursor-help">
-                    <CheckCircle size={14} /> Verified by Follow.ai
+                    <CheckCircle size={14} /> {t('common.verifiedBy')}
                   </span>
                 </Tooltip>
               </div>
@@ -65,10 +65,10 @@ const Hero: React.FC = () => {
                    <img src="https://picsum.photos/seed/user1/40/40" className="w-10 h-10 rounded-full" alt="User" />
                    <div>
                      <h3 className="font-bold text-sm">Alex's Review of Cursor</h3>
-                     <p className="text-xs text-gray-500">Coding • 2 hours ago</p>
+                     <p className="text-xs text-gray-500">Coding • 2 {t('common.hoursAgo')}</p>
                    </div>
                    <div className="ml-auto bg-green-50 text-green-700 px-2 py-1 rounded text-xs font-bold">
-                     Earned $50
+                     {t('common.earned')} $50
                    </div>
                  </div>
                  <p className="text-sm text-gray-700 mb-4">

@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
         </p>
         <div className="flex justify-center gap-6 text-sm text-gray-600">
           <Link to="/about" className="hover:text-blue-600">{t('nav.about')}</Link>
-          <Link to="/terms" className="hover:text-blue-600">Terms</Link>
+          <Link to="/terms" className="hover:text-blue-600">{t('common.terms')}</Link>
           <a href="mailto:hello@follow.ai" className="hover:text-blue-600">{t('footer.contact')}</a>
         </div>
       </div>

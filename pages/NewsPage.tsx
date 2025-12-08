@@ -1,16 +1,18 @@
 import React, { useMemo, useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import { NEWS } from '../data';
 
-const tabs: { key: string; label: string; types: string[] }[] = [
-  { key: 'all', label: 'All News', types: ['launch', 'update', 'trending', 'highlight'] },
-  { key: 'launch', label: 'New Launches 🚀', types: ['launch'] },
-  { key: 'update', label: 'Updates ⚡', types: ['update'] },
-  { key: 'trending', label: 'Trending 📈', types: ['trending'] },
-  { key: 'community', label: 'Community ⭐', types: ['highlight'] },
-];
-
 const NewsPage: React.FC = () => {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState('all');
+  
+  const tabs: { key: string; label: string; types: string[] }[] = [
+    { key: 'all', label: t('news.allNews'), types: ['launch', 'update', 'trending', 'highlight'] },
+    { key: 'launch', label: t('news.newLaunches'), types: ['launch'] },
+    { key: 'update', label: t('news.updates'), types: ['update'] },
+    { key: 'trending', label: t('news.trending'), types: ['trending'] },
+    { key: 'community', label: t('news.community'), types: ['highlight'] },
+  ];
 
   const filtered = useMemo(() => {
     const tab = tabs.find(t => t.key === activeTab);
@@ -22,8 +24,8 @@ const NewsPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="container mx-auto max-w-5xl space-y-8">
         <header className="space-y-2">
-          <h1 className="text-4xl font-bold text-gray-900">📰 AI Tools News & Updates</h1>
-          <p className="text-gray-600">Stay updated with the latest launches, version updates, trends, and community highlights.</p>
+          <h1 className="text-4xl font-bold text-gray-900">📰 {t('news.title')}</h1>
+          <p className="text-gray-600">{t('news.subtitle')}</p>
         </header>
 
         <div className="flex flex-wrap gap-2">

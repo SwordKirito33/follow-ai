@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 import { NEWS } from '../data';
 import { Rocket, Zap, TrendingUp, Star } from 'lucide-react';
 
 const NewsWidget: React.FC = () => {
+  const { t } = useLanguage();
   const getIcon = (type: string) => {
     switch(type) {
       case 'launch': return <Rocket size={16} className="text-purple-500" />;
@@ -17,9 +20,9 @@ const NewsWidget: React.FC = () => {
     <div id="news" className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 sticky top-24">
       <div className="flex items-center justify-between mb-6">
         <h3 className="font-bold text-gray-900 flex items-center gap-2">
-          🔥 Latest AI News
+          {t('news.latestNews')}
         </h3>
-        <a href="/#/news" className="text-xs font-medium text-blue-600 hover:text-blue-700">View All</a>
+        <Link to="/news" className="text-xs font-medium text-blue-600 hover:text-blue-700">{t('common.viewAll')}</Link>
       </div>
 
       <div className="space-y-6">

@@ -2,8 +2,10 @@ import React from 'react';
 import { TOOLS } from '../data';
 import { Star, TrendingUp, Trophy } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const RankingsPage: React.FC = () => {
+  const { t } = useLanguage();
   const extendedTools = [
     ...TOOLS,
     {
@@ -38,12 +40,12 @@ const RankingsPage: React.FC = () => {
         <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <h1 className="text-4xl font-bold text-gray-900 flex items-center gap-3">
-              <span className="text-3xl">🏆</span> AI Tools Rankings
+              <span className="text-3xl">🏆</span> {t('rankingsPage.title')}
             </h1>
-            <p className="text-gray-600 mt-2">Real rankings based on verified reviews, quality scores, and momentum.</p>
+            <p className="text-gray-600 mt-2">{t('rankingsPage.subtitle')}</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            {['Today', 'This Week', 'This Month', 'All Time'].map((label, idx) => (
+            {[t('rankingsPage.today'), t('rankingsPage.thisWeek'), t('rankingsPage.thisMonth'), t('rankingsPage.allTime')].map((label, idx) => (
               <button key={label} className={`px-4 py-2 rounded-full text-sm font-semibold border ${idx === 0 ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'}`}>
                 {label}
               </button>
@@ -102,22 +104,22 @@ const RankingsPage: React.FC = () => {
         <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Daily Top 10</h2>
-              <p className="text-sm text-gray-500">Updated hourly based on verified output quality.</p>
+              <h2 className="text-2xl font-bold text-gray-900">{t('rankingsPage.dailyTop10')}</h2>
+              <p className="text-sm text-gray-500">{t('rankingsPage.updatedHourly')}</p>
             </div>
-            <span className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Live</span>
+            <span className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full">{t('rankingsPage.live')}</span>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
               <thead className="text-gray-500">
                 <tr className="border-b">
-                  <th className="py-2 pr-4">Rank</th>
-                  <th className="py-2 pr-4">Tool</th>
-                  <th className="py-2 pr-4">Category</th>
-                  <th className="py-2 pr-4">Reviews (24h)</th>
-                  <th className="py-2 pr-4">Avg Rating</th>
-                  <th className="py-2 pr-4">Growth</th>
-                  <th className="py-2 pr-4 text-right">Action</th>
+                  <th className="py-2 pr-4">{t('rankingsPage.rank')}</th>
+                  <th className="py-2 pr-4">{t('rankingsPage.tool')}</th>
+                  <th className="py-2 pr-4">{t('rankingsPage.category')}</th>
+                  <th className="py-2 pr-4">{t('rankingsPage.reviews24h')}</th>
+                  <th className="py-2 pr-4">{t('rankingsPage.avgRating')}</th>
+                  <th className="py-2 pr-4">{t('rankingsPage.growth')}</th>
+                  <th className="py-2 pr-4 text-right">{t('rankingsPage.action')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -133,7 +135,7 @@ const RankingsPage: React.FC = () => {
                         <img src={tool.logo} alt={tool.name} className="w-8 h-8 rounded" />
                         <div>
                           <div className="font-semibold text-gray-900">{tool.name}</div>
-                          <div className="text-xs text-gray-500">Validated</div>
+                          <div className="text-xs text-gray-500">{t('rankingsPage.validated')}</div>
                           {tool.useCases && tool.useCases.length > 0 && (
                             <div className="flex flex-wrap gap-1 mt-1">
                               {tool.useCases.slice(0, 3).map((useCase, idx) => (
@@ -159,7 +161,7 @@ const RankingsPage: React.FC = () => {
                     </td>
                     <td className="py-3 pr-0 text-right">
                       <Link to={`/tool/${tool.id}`} className="inline-block px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700">
-                        Review
+                        {t('rankingsPage.review')}
                       </Link>
                     </td>
                   </tr>
