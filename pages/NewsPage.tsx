@@ -59,20 +59,21 @@ const NewsPage: React.FC = () => {
                 <div className="flex items-center gap-3 text-xs text-gray-500">
                   <span>{item.meta2}</span>
                   <span>•</span>
-                  <a className="text-blue-600 hover:text-blue-700 font-semibold" href="/#/submit">Review this</a>
+                  <a className="text-blue-600 hover:text-blue-700 font-semibold transition-all transform hover:scale-105" href="/#/submit">Review this</a>
                 </div>
               </article>
             ))}
             {filtered.length === 0 && (
-              <div className="bg-white border border-dashed border-gray-200 rounded-xl p-6 text-center text-gray-500">
+              <div className="glass-card border-2 border-dashed border-gray-300 rounded-xl p-6 text-center text-gray-500">
                 No news in this category yet.
               </div>
             )}
           </div>
+        </div>
 
-          <aside className="space-y-4">
-            <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
-              <h4 className="text-sm font-bold text-gray-900 mb-2">🔥 Trending This Week</h4>
+          <aside className="space-y-8">
+            <div className="glass-card rounded-xl shadow-xl p-5 animate-slideUp">
+              <h4 className="text-sm font-bold gradient-text mb-2">🔥 {t('news.trendingThisWeek')}</h4>
               <div className="space-y-2 text-sm text-gray-700">
                 <div className="flex justify-between"><span># AI Coding</span><span className="text-green-600 font-semibold">+234%</span></div>
                 <div className="flex justify-between"><span># Video Gen</span><span className="text-green-600 font-semibold">+180%</span></div>
