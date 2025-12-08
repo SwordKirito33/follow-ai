@@ -366,6 +366,50 @@ export const en = {
     aiAnalyzedScore: 'AI-analyzed score based on output complexity and authenticity',
   },
   
+  // Search
+  search: {
+    placeholder: 'Search AI tools, reviews, categories...',
+    advancedFilters: 'Advanced Filters',
+    category: 'Category',
+    allCategories: 'All Categories',
+    minRating: 'Minimum Rating',
+    anyRating: 'Any Rating',
+    useCase: 'Use Case',
+    allUseCases: 'All Use Cases',
+    clearFilters: 'Clear Filters',
+    noResults: 'No results found',
+    resultsCount: '{count} results found',
+  },
+  
+  // Comparison
+  comparison: {
+    title: 'Compare AI Tools',
+    subtitle: 'Side-by-side comparison to help you choose the best tool',
+    addTool: 'Add Tool',
+    noMoreTools: 'No more tools available',
+    selectTools: 'Select tools to compare',
+    addFirstTool: 'Add First Tool',
+    feature: 'Feature',
+    rating: 'Rating',
+    reviews: 'Reviews',
+    growth: 'Growth',
+    category: 'Category',
+    useCases: 'Use Cases',
+  },
+  
+  // Reviews Filter
+  reviewsFilter: {
+    sortBy: 'Sort By',
+    newest: 'Newest',
+    oldest: 'Oldest',
+    highestRated: 'Highest Rated',
+    mostLiked: 'Most Liked',
+    filterBy: 'Filter By',
+    allRatings: 'All Ratings',
+    verifiedOnly: 'Verified Only',
+    withOutput: 'With Output',
+  },
+  
   // Common Additional
   common: {
     loading: 'Loading...',
@@ -388,6 +432,7 @@ export const en = {
     hoursAgo: 'hours ago',
     earned: 'Earned',
     terms: 'Terms',
+    compare: 'Compare',
   },
 };
 

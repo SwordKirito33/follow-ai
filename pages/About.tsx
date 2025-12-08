@@ -4,14 +4,15 @@ import { useLanguage } from '../contexts/LanguageContext';
 const About: React.FC = () => {
   const { t } = useLanguage();
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="container mx-auto max-w-4xl space-y-8">
-        <header>
-          <h1 className="text-4xl font-bold text-gray-900">{t('about.title')}</h1>
+    <div className="min-h-screen py-12 px-4 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="container mx-auto max-w-4xl space-y-8 relative z-10">
+        <header className="animate-slideDown">
+          <h1 className="text-4xl font-bold gradient-text">{t('about.title')}</h1>
           <p className="text-gray-600 mt-3 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.intro') }} />
         </header>
 
-        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 space-y-4">
+        <section className="glass-card rounded-2xl shadow-xl p-6 space-y-4 animate-slideUp">
           <h2 className="text-2xl font-bold text-gray-900">{t('about.whyWeExist')}</h2>
           <p className="text-gray-700">
             {t('about.whyWeExistText')}
@@ -25,22 +26,17 @@ const About: React.FC = () => {
         </section>
 
         <section className="grid md:grid-cols-2 gap-4">
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-5">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">{t('about.forTesters')}</h3>
-            <p className="text-gray-700">{t('about.forTestersText')}</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-5">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">{t('about.forBuilders')}</h3>
-            <p className="text-gray-700">{t('about.forBuildersText')}</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-5">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">{t('about.forInvestors')}</h3>
-            <p className="text-gray-700">{t('about.forInvestorsText')}</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-5">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">{t('about.forCommunity')}</h3>
-            <p className="text-gray-700">{t('about.forCommunityText')}</p>
-          </div>
+          {[
+            { title: t('about.forTesters'), text: t('about.forTestersText'), delay: '0s' },
+            { title: t('about.forBuilders'), text: t('about.forBuildersText'), delay: '0.1s' },
+            { title: t('about.forInvestors'), text: t('about.forInvestorsText'), delay: '0.2s' },
+            { title: t('about.forCommunity'), text: t('about.forCommunityText'), delay: '0.3s' },
+          ].map((item, idx) => (
+            <div key={idx} className="glass-card rounded-2xl shadow-xl p-5 hover:shadow-2xl transition-all duration-300 card-3d animate-slideUp" style={{ animationDelay: item.delay }}>
+              <h3 className="text-xl font-bold gradient-text mb-2">{item.title}</h3>
+              <p className="text-gray-700">{item.text}</p>
+            </div>
+          ))}
         </section>
       </div>
     </div>

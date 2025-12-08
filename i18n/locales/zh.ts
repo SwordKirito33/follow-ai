@@ -360,6 +360,50 @@ export const zh = {
     aiAnalyzedScore: '基于作品复杂度和真实性的AI分析评分',
   },
   
+  // Search
+  search: {
+    placeholder: '搜索AI工具、评测、类别...',
+    advancedFilters: '高级筛选',
+    category: '类别',
+    allCategories: '所有类别',
+    minRating: '最低评分',
+    anyRating: '任意评分',
+    useCase: '使用场景',
+    allUseCases: '所有使用场景',
+    clearFilters: '清除筛选',
+    noResults: '未找到结果',
+    resultsCount: '找到 {count} 个结果',
+  },
+  
+  // Comparison
+  comparison: {
+    title: '对比AI工具',
+    subtitle: '并排对比，帮你选择最佳工具',
+    addTool: '添加工具',
+    noMoreTools: '没有更多工具',
+    selectTools: '选择要对比的工具',
+    addFirstTool: '添加第一个工具',
+    feature: '功能',
+    rating: '评分',
+    reviews: '评测数',
+    growth: '增长',
+    category: '类别',
+    useCases: '使用场景',
+  },
+  
+  // Reviews Filter
+  reviewsFilter: {
+    sortBy: '排序方式',
+    newest: '最新',
+    oldest: '最旧',
+    highestRated: '评分最高',
+    mostLiked: '点赞最多',
+    filterBy: '筛选',
+    allRatings: '所有评分',
+    verifiedOnly: '仅已验证',
+    withOutput: '有作品',
+  },
+  
   // Common Additional
   common: {
     loading: '加载中...',
@@ -382,6 +426,7 @@ export const zh = {
     hoursAgo: '小时前',
     earned: '已赚取',
     terms: '服务条款',
+    compare: '对比',
   },
 };
 

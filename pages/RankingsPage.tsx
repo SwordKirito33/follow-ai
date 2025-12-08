@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TOOLS } from '../data';
-import { Star, TrendingUp, Trophy } from 'lucide-react';
+import { Star, TrendingUp, Trophy, GitCompare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import SearchBar from '../components/SearchBar';
+import ToolComparison from '../components/ToolComparison';
 
 const RankingsPage: React.FC = () => {
   const { t } = useLanguage();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showComparison, setShowComparison] = useState(false);
+  const [filters, setFilters] = useState<any>({});
+  
   const extendedTools = [
     ...TOOLS,
     {
@@ -34,10 +40,42 @@ const RankingsPage: React.FC = () => {
 
   const badgeClasses = ['bg-yellow-100 text-yellow-800', 'bg-gray-100 text-gray-700', 'bg-orange-100 text-orange-800'];
 
+  // Filter tools based on search and filters
+  const filteredTools = extendedTools.filter(tool => {
+    if (searchQuery && !tool.name.toLowerCase().includes(searchQuery.toLowerCase()) && 
+        !tool.description.toLowerCase().includes(searchQuery.toLowerCase())) {
+      return false;
+    }
+    if (filters.category && tool.category !== filters.category) return false;
+    if (filters.minRating && tool.rating < filters.minRating) return false;
+    if (filters.useCase && tool.useCases && !tool.useCases.includes(filters.useCase)) return false;
+    return true;
+  });
+
   return (
     <div className="min-h-screen py-12 px-4 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
       <div className="container mx-auto max-w-6xl space-y-10 relative z-10">
+        {/* Search and Compare */}
+        <div className="space-y-4 animate-slideDown">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex-1">
+              <SearchBar 
+                onSearch={setSearchQuery}
+                onFilterChange={setFilters}
+                showAdvanced={true}
+              />
+            </div>
+            <button
+              onClick={() => setShowComparison(true)}
+              className="flex items-center gap-2 glass-card px-6 py-3 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg"
+            >
+              <GitCompare size={20} />
+              {t('common.compare')}
+            </button>
+          </div>
+        </div>
+
         <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 animate-slideDown">
           <div>
             <h1 className="text-4xl font-bold text-gray-900 flex items-center gap-3">
@@ -124,7 +162,14 @@ const RankingsPage: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {extendedTools.map((tool, idx) => (
+                {filteredTools.length === 0 ? (
+                  <tr>
+                    <td colSpan={7} className="py-12 text-center text-gray-500">
+                      {t('search.noResults')}
+                    </td>
+                  </tr>
+                ) : (
+                  filteredTools.map((tool, idx) => (
                   <tr key={tool.id} className="border-b last:border-0">
                     <td className="py-3 pr-4">
                       <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold ${idx === 0 ? 'bg-yellow-100 text-yellow-800' : idx === 1 ? 'bg-gray-100 text-gray-700' : idx === 2 ? 'bg-orange-100 text-orange-800' : 'bg-gray-50 text-gray-600'}`}>
@@ -166,12 +211,19 @@ const RankingsPage: React.FC = () => {
                       </Link>
                     </td>
                   </tr>
-                ))}
+                  ))
+                )}
               </tbody>
             </table>
           </div>
         </section>
       </div>
+      
+      {/* Comparison Modal */}
+      <ToolComparison
+        isOpen={showComparison}
+        onClose={() => setShowComparison(false)}
+      />
     </div>
   );
 };

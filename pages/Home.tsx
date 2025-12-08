@@ -109,11 +109,11 @@ const Home: React.FC = () => {
           {/* Feed */}
           <div>
              <div className="flex items-center justify-between mb-8">
-               <h2 className="text-2xl font-bold text-gray-900">{t('reviews.title')}</h2>
+               <h2 className="text-2xl font-bold gradient-text">{t('reviews.title')}</h2>
                <div className="hidden sm:flex gap-2">
-                 <button className="px-3 py-1 bg-gray-900 text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">{t('reviews.all')}</button>
-                 <button className="px-3 py-1 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">{t('reviews.coding')}</button>
-                 <button className="px-3 py-1 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-medium transition-colors">{t('reviews.design')}</button>
+                 <button className="px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-full text-sm font-medium hover:from-gray-800 hover:to-gray-700 transition-all transform hover:scale-105 shadow-lg">{t('reviews.all')}</button>
+                 <button className="px-4 py-2 glass-card text-gray-700 rounded-full text-sm font-medium hover:bg-white/90 transition-all transform hover:scale-105">{t('reviews.coding')}</button>
+                 <button className="px-4 py-2 glass-card text-gray-700 rounded-full text-sm font-medium hover:bg-white/90 transition-all transform hover:scale-105">{t('reviews.design')}</button>
                </div>
              </div>
              

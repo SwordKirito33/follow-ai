@@ -21,7 +21,9 @@ const NewsPage: React.FC = () => {
   }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
+    <div className="min-h-screen py-12 px-4 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="container mx-auto max-w-6xl grid lg:grid-cols-[2fr_1fr] gap-8 relative z-10">
       <div className="container mx-auto max-w-5xl space-y-8">
         <header className="space-y-2">
           <h1 className="text-4xl font-bold text-gray-900">📰 {t('news.title')}</h1>

@@ -1,16 +1,42 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Star, TrendingUp, CheckCircle, ArrowLeft, DollarSign, Clock, Users } from 'lucide-react';
+import { Star, TrendingUp, CheckCircle, ArrowLeft, DollarSign, Clock, Users, GitCompare, Filter, ArrowUpDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { TOOLS, REVIEWS } from '../data';
+import ToolComparison from '../components/ToolComparison';
 
 const ToolDetail: React.FC = () => {
   const { t } = useLanguage();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [showComparison, setShowComparison] = useState(false);
+  const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'highestRated' | 'mostLiked'>('newest');
+  const [filterRating, setFilterRating] = useState<number | null>(null);
   
   const tool = TOOLS.find(t => t.id === id);
   const toolReviews = REVIEWS.filter(r => r.toolId === id);
+  
+  // Sort and filter reviews
+  const sortedReviews = useMemo(() => {
+    let filtered = [...toolReviews];
+    
+    if (filterRating !== null) {
+      filtered = filtered.filter(r => Math.floor(r.rating) >= filterRating);
+    }
+    
+    switch (sortBy) {
+      case 'newest':
+        return filtered;
+      case 'oldest':
+        return filtered.reverse();
+      case 'highestRated':
+        return filtered.sort((a, b) => b.rating - a.rating);
+      case 'mostLiked':
+        return filtered.sort((a, b) => b.likes - a.likes);
+      default:
+        return filtered;
+    }
+  }, [toolReviews, sortBy, filterRating]);
 
   if (!tool) {
     return (
@@ -27,8 +53,9 @@ const ToolDetail: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="container mx-auto max-w-6xl">
+    <div className="min-h-screen py-8 px-4 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <button
           onClick={() => navigate(-1)}
@@ -39,7 +66,7 @@ const ToolDetail: React.FC = () => {
         </button>
 
         {/* Tool Header Card */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+        <div className="glass-card rounded-xl shadow-xl p-8 mb-8 animate-slideDown">
           <div className="flex flex-col md:flex-row gap-6">
             <img src={tool.logo} alt={tool.name} className="w-24 h-24 rounded-xl object-cover" />
             <div className="flex-1">
@@ -81,18 +108,25 @@ const ToolDetail: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-3 mt-6">
                 <Link
                   to="/submit"
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold text-center transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-bold text-center transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                 >
                   <DollarSign size={20} />
                   {t('toolDetail.submitReviewAndEarn')}
                 </Link>
                 <Link
                   to="/tasks"
-                  className="flex-1 bg-gray-900 hover:bg-black text-white px-6 py-3 rounded-lg font-bold text-center transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white px-6 py-3 rounded-lg font-bold text-center transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                 >
                   <Clock size={20} />
                   {t('toolDetail.viewPaidTasks')}
                 </Link>
+                <button
+                  onClick={() => setShowComparison(true)}
+                  className="flex-1 glass-card border-2 border-white/30 hover:bg-white/90 text-gray-900 px-6 py-3 rounded-lg font-bold text-center transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                >
+                  <GitCompare size={20} />
+                  {t('common.compare')}
+                </button>
               </div>
             </div>
           </div>
@@ -100,7 +134,7 @@ const ToolDetail: React.FC = () => {
 
         {/* Stats Grid */}
         <div className="grid md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <div className="glass-card rounded-xl shadow-xl p-6 hover:bg-white/90 transition-all transform hover:scale-105">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-blue-50 rounded-lg">
                 <CheckCircle size={20} className="text-blue-600" />
@@ -136,15 +170,47 @@ const ToolDetail: React.FC = () => {
         </div>
 
         {/* Reviews Section */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">{t('toolDetail.verifiedReviews')}</h2>
-            <Link
-              to="/submit"
-              className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1"
-            >
-              {t('toolDetail.writeReview')} <ArrowLeft size={16} className="rotate-180" />
-            </Link>
+        <div className="glass-card rounded-xl shadow-xl p-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+            <h2 className="text-2xl font-bold gradient-text">{t('toolDetail.verifiedReviews')}</h2>
+            <div className="flex items-center gap-3">
+              {/* Sort Dropdown */}
+              <div className="relative">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as any)}
+                  className="appearance-none glass-card border border-white/30 px-4 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white/50 backdrop-blur-sm"
+                >
+                  <option value="newest">{t('reviewsFilter.newest')}</option>
+                  <option value="oldest">{t('reviewsFilter.oldest')}</option>
+                  <option value="highestRated">{t('reviewsFilter.highestRated')}</option>
+                  <option value="mostLiked">{t('reviewsFilter.mostLiked')}</option>
+                </select>
+                <ArrowUpDown size={16} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+              </div>
+              
+              {/* Rating Filter */}
+              <div className="relative">
+                <select
+                  value={filterRating || ''}
+                  onChange={(e) => setFilterRating(e.target.value ? Number(e.target.value) : null)}
+                  className="appearance-none glass-card border border-white/30 px-4 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white/50 backdrop-blur-sm"
+                >
+                  <option value="">{t('reviewsFilter.allRatings')}</option>
+                  <option value="5">5 ⭐</option>
+                  <option value="4">4+ ⭐</option>
+                  <option value="3">3+ ⭐</option>
+                </select>
+                <Filter size={16} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+              </div>
+              
+              <Link
+                to="/submit"
+                className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1 transition-all transform hover:scale-105"
+              >
+                {t('toolDetail.writeReview')} <ArrowLeft size={16} className="rotate-180" />
+              </Link>
+            </div>
           </div>
 
           {toolReviews.length === 0 ? (
@@ -159,7 +225,12 @@ const ToolDetail: React.FC = () => {
             </div>
           ) : (
             <div className="space-y-6">
-              {toolReviews.map(review => (
+              {sortedReviews.length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="text-gray-500">{t('search.noResults')}</p>
+                </div>
+              ) : (
+                sortedReviews.map(review => (
                 <div key={review.id} className="border-b border-gray-100 last:border-0 pb-6 last:pb-0">
                   <div className="flex items-start gap-4 mb-3">
                     <img src={review.user.avatar} alt={review.user.name} className="w-12 h-12 rounded-full" />
@@ -199,11 +270,18 @@ const ToolDetail: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+                ))
+              )}
             </div>
           )}
         </div>
       </div>
+      
+      {/* Comparison Modal */}
+      <ToolComparison
+        isOpen={showComparison}
+        onClose={() => setShowComparison(false)}
+      />
     </div>
   );
 };
