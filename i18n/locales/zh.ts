@@ -404,6 +404,13 @@ export const zh = {
     withOutput: '有作品',
   },
   
+  // Intro Animation
+  intro: {
+    tagline: 'AI工具展示真实作品的地方',
+    skip: '跳过',
+    loading: '加载中...',
+  },
+  
   // Common Additional
   common: {
     loading: '加载中...',
