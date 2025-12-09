@@ -37,12 +37,34 @@ const Navbar: React.FC = () => {
   return (
     <nav className="sticky top-0 z-50 glass-nav h-[70px] flex items-center">
       <div className="container mx-auto px-4 flex justify-between items-center h-full">
-        {/* Logo */}
+        {/* Logo - 使用你的logo设计风格 */}
         <Link to="/" className="flex items-center gap-2 text-xl font-bold text-gray-900 group transition-transform hover:scale-105">
-          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-lg flex items-center justify-center font-bold text-lg shadow-lg group-hover:shadow-xl transition-all animate-glow">
-            F
+          <div 
+            className="w-10 h-10 rounded-xl flex items-center justify-center font-extrabold text-xl shadow-2xl group-hover:shadow-blue-500/50 transition-all relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1e 100%)',
+              border: '2px solid rgba(59, 130, 246, 0.3)',
+              boxShadow: '0 0 20px rgba(59, 130, 246, 0.4), inset 0 0 20px rgba(59, 130, 246, 0.1)'
+            }}
+          >
+            {/* 内部光效 */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-purple-500/10" />
+            {/* F字母 - 蓝色渐变 */}
+            <span 
+              className="relative z-10"
+              style={{
+                background: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: 'drop-shadow(0 0 8px rgba(59, 130, 246, 0.6))',
+                letterSpacing: '-0.05em'
+              }}
+            >
+              F
+            </span>
           </div>
-          <span className="gradient-text">Follow.ai</span>
+          <span className="gradient-text font-extrabold">Follow.ai</span>
         </Link>
 
         {/* Desktop Nav */}

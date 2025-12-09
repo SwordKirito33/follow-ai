@@ -15,8 +15,8 @@
     <meta name="twitter:title" content="Follow.ai - Where AI Tools Show Their Real Work" />
     <meta name="twitter:description" content="The world's first AI tool review platform where real work outputs are mandatory." />
     
-    <!-- Favicon (SVG F Logo) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563EB'/><text x='50' y='70' font-family='Arial' font-size='60' font-weight='bold' fill='white' text-anchor='middle'>F</text></svg>" />
+    <!-- Favicon (SVG F Logo - 深色背景蓝色渐变，匹配你的logo设计) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='fGrad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%2360a5fa;stop-opacity:1' /><stop offset='50%' style='stop-color:%233b82f6;stop-opacity:1' /><stop offset='100%' style='stop-color:%232563eb;stop-opacity:1' /></linearGradient></defs><rect width='100' height='100' rx='20' fill='%230a0a0f'/><text x='50' y='70' font-family='Inter' font-size='60' font-weight='800' fill='url(%23fGrad)' text-anchor='middle' letter-spacing='-0.05em'>F</text></svg>" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
               'pulse-fast': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'slide-in': 'slideIn 0.5s ease-out forwards',
               'fadeIn': 'fadeIn 0.3s ease-out',
-              'fadeOut': 'fadeOut 0.5s ease-out forwards',
+              'fadeOut': 'fadeOut 0.8s ease-out forwards',
               'slideUp': 'slideUp 0.4s ease-out',
               'shake': 'shake 0.5s ease-in-out',
               'float': 'float 3s ease-in-out infinite',
@@ -53,6 +53,10 @@
               'slideDown': 'slideDown 0.4s ease-out',
               'scaleIn': 'scaleIn 0.3s ease-out',
               'pulse': 'pulse 2s ease-in-out infinite',
+              'rotate': 'rotate 10s linear infinite',
+              'glowPulse': 'glowPulse 2s ease-in-out infinite',
+              'scan': 'scan 3s linear infinite',
+              'gridPulse': 'gridPulse 3s ease-in-out infinite',
             },
             keyframes: {
               slideIn: {
@@ -95,6 +99,28 @@
               pulse: {
                 '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
                 '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+              },
+              rotate: {
+                '0%': { transform: 'rotate(0deg)' },
+                '100%': { transform: 'rotate(360deg)' },
+              },
+              glowPulse: {
+                '0%, 100%': { 
+                  filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))',
+                  textShadow: '0 0 40px rgba(59, 130, 246, 0.8), 0 0 80px rgba(59, 130, 246, 0.4)'
+                },
+                '50%': { 
+                  filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 1))',
+                  textShadow: '0 0 60px rgba(59, 130, 246, 1), 0 0 120px rgba(59, 130, 246, 0.6)'
+                },
+              },
+              scan: {
+                '0%': { transform: 'translateX(-100%) translateY(-100%)' },
+                '100%': { transform: 'translateX(200%) translateY(200%)' },
+              },
+              gridPulse: {
+                '0%, 100%': { opacity: '0.2' },
+                '50%': { opacity: '0.4' },
               }
             }
           },
