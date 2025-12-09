@@ -11,11 +11,12 @@ const ActivityFeed: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden py-3 relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
+    <div className="w-full bg-gradient-to-r from-[#0a0a0f] via-[#1a1a2e] to-[#0a0a0f] text-white overflow-hidden py-3 relative border-b border-blue-500/20">
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent animate-shimmer"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(59,130,246,0.1)_50%,transparent_100%)] animate-[shimmer_3s_ease-in-out_infinite]"></div>
       <div className="container mx-auto px-4 flex items-center gap-6 overflow-x-auto whitespace-nowrap no-scrollbar relative z-10">
-        <span className="text-xs font-bold uppercase tracking-wider text-gray-400 flex-shrink-0 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse-fast"></span>
+        <span className="text-xs font-bold uppercase tracking-wider text-blue-300 flex-shrink-0 flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse-fast shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
           Live Activity
         </span>
         
