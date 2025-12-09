@@ -410,6 +410,13 @@ export const en = {
     withOutput: 'With Output',
   },
   
+  // Intro Animation
+  intro: {
+    tagline: 'Where AI Tools Show Their Real Work',
+    skip: 'Skip',
+    loading: 'Loading...',
+  },
+  
   // Common Additional
   common: {
     loading: 'Loading...',
