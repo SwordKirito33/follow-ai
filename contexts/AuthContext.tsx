@@ -278,8 +278,25 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
       // Profile已由authService自动创建
       const userData = profileToUser(result.data.profile, email);
+      
+      // Add default progression data for new users
+      if (!userData.progression) {
+        userData.progression = {
+          xp: 0,
+          level: 1,
+          xpToNextLevel: 100,
+          unlockedFeatures: ['xp_challenges', 'output_submission'],
+          profileCompletion: 0,
+          badges: [],
+        };
+      }
+      
       setUser(userData);
       console.log('Signup successful:', userData);
+      
+      // Redirect to onboarding for new users
+      // Note: This will be handled by App.tsx or a route guard
+      // For now, we'll let the AuthModal handle navigation
     } catch (error) {
       console.error('Signup error:', error);
       throw error;

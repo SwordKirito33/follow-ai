@@ -119,11 +119,18 @@ const Navbar: React.FC = () => {
                 Submit output
               </FollowButton>
               <Link 
+                to="/dashboard" 
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              >
+                <User size={18} />
+                <span className="hidden lg:inline">Dashboard</span>
+              </Link>
+              <Link 
                 to="/profile" 
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               >
                 <User size={18} />
-                <span className="hidden lg:inline">{user?.name || t('nav.profile')}</span>
+                <span className="hidden lg:inline">{t('nav.profile')}</span>
               </Link>
             </>
           ) : (
