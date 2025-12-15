@@ -14,6 +14,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,6 +28,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
       setEmail('');
       setPassword('');
       setName('');
+      setUsername('');
       setError('');
       setShowPassword(false);
     }
@@ -46,15 +48,23 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
         await login(email, password);
         onClose();
       } else {
-        if (!email || !password || !name) {
+        if (!email || !password || !name || !username) {
           setError(t('auth.fillAllFields'));
+          return;
+        }
+        if (username.length < 3 || username.length > 20) {
+          setError(t('auth.usernameLength') || 'Username must be between 3 and 20 characters');
+          return;
+        }
+        if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+          setError(t('auth.usernameInvalid') || 'Username can only contain letters, numbers, and underscores');
           return;
         }
         if (password.length < 6) {
           setError(t('auth.passwordTooShort'));
           return;
         }
-        await signup(email, password, name);
+        await signup(email, password, name, username);
         onClose();
       }
     } catch (err: any) {
@@ -94,22 +104,48 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
           )}
 
           {mode === 'signup' && (
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                {t('auth.name')}
-              </label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                  placeholder={t('auth.namePlaceholder')}
-                  disabled={isSubmitting}
-                />
+            <>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  {t('auth.username') || 'Username'}
+                </label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ''))}
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                    placeholder={t('auth.usernamePlaceholder') || 'username (3-20 characters)'}
+                    minLength={3}
+                    maxLength={20}
+                    pattern="[a-zA-Z0-9_]+"
+                    disabled={isSubmitting}
+                    required
+                  />
+                </div>
+                <p className="text-xs text-gray-500 mt-1">
+                  {t('auth.usernameHint') || 'Only letters, numbers, and underscores'}
+                </p>
               </div>
-            </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  {t('auth.name')}
+                </label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                    placeholder={t('auth.namePlaceholder')}
+                    disabled={isSubmitting}
+                    required
+                  />
+                </div>
+              </div>
+            </>
           )}
 
           <div>
