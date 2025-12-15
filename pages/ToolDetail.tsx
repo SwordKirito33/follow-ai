@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Star, TrendingUp, CheckCircle, ArrowLeft, DollarSign, Clock, Users, GitCompare, Filter, ArrowUpDown, Trophy, Info, Zap, ExternalLink } from 'lucide-react';
+import { Star, TrendingUp, CheckCircle, ArrowLeft, DollarSign, Clock, Users, GitCompare, Filter, ArrowUpDown, Trophy, Info, Zap, ExternalLink, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { TOOLS, REVIEWS } from '../data';
 import ToolComparison from '../components/ToolComparison';
