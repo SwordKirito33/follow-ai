@@ -106,9 +106,9 @@ const SubmitReview: React.FC = () => {
       />
 
       <div className="max-w-2xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">{t('submitReview.title')}</h1>
-          <p className="text-gray-600">{t('submitReview.subtitle')}</p>
+        <div className="mb-10">
+          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight mb-2">{t('submitReview.title')}</h1>
+          <p className="text-lg text-gray-600 font-medium">{t('submitReview.subtitle')}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">

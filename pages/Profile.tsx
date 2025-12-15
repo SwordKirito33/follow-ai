@@ -62,8 +62,8 @@ const Profile: React.FC = () => {
               <div className="flex items-end gap-6">
                 <img src={user.avatar} alt="Profile" className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-white" />
                 <div className="mb-2">
-                  <h1 className="text-2xl font-bold text-gray-900">{user.name}</h1>
-                  <p className="text-gray-500">{user.email} • Joined Dec 2024</p>
+                  <h1 className="text-3xl font-black text-gray-900 tracking-tight">{user.name}</h1>
+                  <p className="text-gray-600 font-medium">{user.email} • Joined Dec 2024</p>
                 </div>
               </div>
               <div className="flex gap-2">
@@ -141,7 +141,7 @@ const Profile: React.FC = () => {
           </div>
 
           <div>
-             <h2 className="text-xl font-bold text-gray-900 mb-6">Achievements</h2>
+             <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Achievements</h2>
              <div className="glass-card rounded-xl shadow-xl p-6 space-y-4">
                 <div className="flex items-center gap-3 opacity-100">
                     <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-xl">🏆</div>

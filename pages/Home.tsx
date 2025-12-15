@@ -33,8 +33,8 @@ const Home: React.FC = () => {
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900">{t('categories.title')}</h2>
-              <p className="text-gray-600 text-sm">{t('categories.subtitle')}</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">{t('categories.title')}</h2>
+              <p className="text-gray-600 text-sm font-medium mt-1">{t('categories.subtitle')}</p>
             </div>
             <Link to="/rankings" className="text-blue-600 text-sm font-semibold hover:text-blue-700">{t('categories.viewRankings')}</Link>
           </div>
@@ -52,8 +52,8 @@ const Home: React.FC = () => {
                   <span className="text-3xl transform hover:scale-110 transition-transform">{cat.icon}</span>
                   {cat.badge && <span className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 font-semibold border border-amber-200 animate-pulse">{cat.badge}</span>}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{cat.title}</h3>
-                <p className="text-sm text-gray-600">{cat.stats}</p>
+                <h3 className="text-lg font-black text-gray-900 mb-1 tracking-tight">{cat.title}</h3>
+                <p className="text-sm font-medium text-gray-600">{cat.stats}</p>
               </Link>
             ))}
           </div>
@@ -65,7 +65,7 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/20 to-white"></div>
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="text-center mb-12 animate-slideDown">
-            <h2 className="text-3xl font-bold gradient-text">{t('whyDifferent.title')}</h2>
+            <h2 className="text-3xl sm:text-4xl font-black gradient-text tracking-tight">{t('whyDifferent.title')}</h2>
           </div>
           <div className="overflow-x-auto">
             <div className="glass-card rounded-2xl p-2 shadow-xl">
@@ -107,7 +107,7 @@ const Home: React.FC = () => {
           {/* Feed */}
           <div>
              <div className="flex items-center justify-between mb-8">
-               <h2 className="text-2xl font-bold gradient-text">{t('reviews.title')}</h2>
+               <h2 className="text-2xl sm:text-3xl font-black gradient-text tracking-tight">{t('reviews.title')}</h2>
                <div className="hidden sm:flex gap-2">
                  <button className="px-4 py-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white rounded-full text-sm font-medium hover:from-gray-800 hover:via-gray-700 hover:to-gray-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl border border-gray-700/50">{t('reviews.all')}</button>
                  <button className="px-4 py-2 glass-card text-gray-700 rounded-full text-sm font-medium hover:bg-white/90 transition-all transform hover:scale-105 border border-white/30">{t('reviews.coding')}</button>
@@ -162,8 +162,8 @@ const Home: React.FC = () => {
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="flex items-center justify-between mb-8 animate-slideDown">
             <div>
-              <h2 className="text-3xl font-bold gradient-text">{t('home.comingSoon')}</h2>
-              <p className="text-gray-600 text-sm">{t('home.comingSoonDesc')}</p>
+              <h2 className="text-3xl sm:text-4xl font-black gradient-text tracking-tight">{t('home.comingSoon')}</h2>
+              <p className="text-gray-600 text-sm font-medium mt-1">{t('home.comingSoonDesc')}</p>
             </div>
             <Link to="/submit" className="text-blue-600 text-sm font-semibold hover:text-blue-700 transition-all transform hover:scale-105">{t('home.notifyMe')}</Link>
           </div>

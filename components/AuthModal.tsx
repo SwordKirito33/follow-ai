@@ -114,10 +114,10 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
           >
             <X size={24} />
           </button>
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="text-3xl font-black text-gray-900 tracking-tight">
             {mode === 'login' ? t('auth.login') : t('auth.signup')}
           </h2>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-gray-600 mt-2 font-medium">
             {mode === 'login' ? t('auth.loginSubtitle') : t('auth.signupSubtitle')}
           </p>
         </div>

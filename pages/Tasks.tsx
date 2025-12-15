@@ -17,8 +17,8 @@ const Tasks: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
       <div className="container mx-auto max-w-5xl relative z-10">
         <div className="text-center mb-12 animate-slideDown">
-          <h1 className="text-4xl font-bold gradient-text mb-4">{t('tasks.title')}</h1>
-          <p className="text-xl text-gray-600">{t('tasks.subtitle')}</p>
+          <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-4 tracking-tight">{t('tasks.title')}</h1>
+          <p className="text-xl text-gray-600 font-medium">{t('tasks.subtitle')}</p>
           <div className="mt-4 text-sm text-gray-600 glass-card inline-flex items-center gap-2 px-4 py-2 rounded-full shadow-sm">
             <span className="text-green-600 font-semibold">{t('tasks.preCheck')}</span> + <span className="text-blue-600 font-semibold">{t('tasks.manualVerification')}</span> {t('tasks.requiredForPayout')}
           </div>

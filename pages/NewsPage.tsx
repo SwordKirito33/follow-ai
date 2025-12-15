@@ -26,10 +26,10 @@ const NewsPage: React.FC = () => {
       <div className="container mx-auto max-w-6xl grid lg:grid-cols-[2fr_1fr] gap-8 relative z-10">
         <div>
           <header className="mb-8 animate-slideDown">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2 flex items-center gap-3">
-              <span className="text-3xl animate-float">📰</span> <span className="gradient-text">{t('news.title')}</span>
+            <h1 className="text-4xl sm:text-5xl font-black text-gray-900 mb-2 flex items-center gap-3 tracking-tight">
+              <span className="text-4xl animate-float">📰</span> <span className="gradient-text">{t('news.title')}</span>
             </h1>
-            <p className="text-gray-600">{t('news.subtitle')}</p>
+            <p className="text-lg text-gray-600 font-medium">{t('news.subtitle')}</p>
           </header>
 
           {/* Filter Tabs */}

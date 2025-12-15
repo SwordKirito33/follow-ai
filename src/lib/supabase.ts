@@ -13,9 +13,10 @@ function getSupabaseClient() {
   const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
   if (!supabaseUrl || !supabaseAnonKey) {
-    console.error('Missing Supabase environment variables')
-    console.error('VITE_SUPABASE_URL:', supabaseUrl ? 'Found' : 'Missing')
-    console.error('VITE_SUPABASE_ANON_KEY:', supabaseAnonKey ? 'Found' : 'Missing')
+    // 静默处理，只在开发环境显示警告
+    if (import.meta.env.DEV) {
+      console.warn('⚠️ Supabase environment variables not found. Using mock client for development.')
+    }
     
     // 返回一个mock客户端，让应用至少能渲染
     // 实际使用时会在AuthContext中检查并显示错误

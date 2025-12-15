@@ -30,7 +30,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
         <img src={review.user.avatar} alt={review.user.name} className="w-10 h-10 rounded-full" />
         <div>
           <div className="flex items-center gap-2">
-            <h4 className="font-bold text-gray-900 text-sm">{review.user.name}</h4>
+            <h4 className="font-black text-gray-900 text-sm tracking-tight">{review.user.name}</h4>
             <Tooltip content={t('reviewCard.levelBasedOn')}>
               <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded cursor-help">
                 {review.user.levelName}
@@ -44,7 +44,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
       {/* Tool Info */}
       <div className="px-4 pb-3 flex items-center gap-2">
         <img src={review.toolLogo} alt={review.toolName} className="w-6 h-6 rounded" />
-        <span className="font-semibold text-sm text-gray-800">{review.toolName}</span>
+        <span className="font-bold text-sm text-gray-800 tracking-tight">{review.toolName}</span>
         <span className="text-xs text-gray-400">• {review.toolCategory}</span>
       </div>
 
