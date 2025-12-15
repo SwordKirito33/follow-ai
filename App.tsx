@@ -5,6 +5,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
 import VisitTracker from './components/VisitTracker';
 import IntroAnimation from './components/IntroAnimation';
+import SupabaseTest from './src/components/SupabaseTest';
 import Home from './pages/Home';
 import SubmitReview from './pages/SubmitReview';
 import Profile from './pages/Profile';
@@ -37,6 +38,7 @@ const App: React.FC = () => {
           <Navbar />
           <main className="flex-grow page-transition">
           <Routes>
+            <Route path="/test-supabase" element={<SupabaseTest />} />
             <Route path="/" element={<Home />} />
             <Route path="/submit" element={<SubmitReview />} />
             <Route path="/profile" element={<Profile />} />
