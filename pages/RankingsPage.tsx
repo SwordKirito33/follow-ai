@@ -78,10 +78,10 @@ const RankingsPage: React.FC = () => {
 
         <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 animate-slideDown">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 flex items-center gap-3">
-              <span className="text-3xl animate-float">🏆</span> <span className="gradient-text">{t('rankingsPage.title')}</span>
+            <h1 className="text-4xl sm:text-5xl font-black text-gray-900 flex items-center gap-3 tracking-tight">
+              <span className="text-4xl animate-float">🏆</span> <span className="gradient-text">{t('rankingsPage.title')}</span>
             </h1>
-            <p className="text-gray-600 mt-2">{t('rankingsPage.subtitle')}</p>
+            <p className="text-gray-600 mt-2 font-medium">{t('rankingsPage.subtitle')}</p>
           </div>
           <div className="flex flex-wrap gap-2">
             {[t('rankingsPage.today'), t('rankingsPage.thisWeek'), t('rankingsPage.thisMonth'), t('rankingsPage.allTime')].map((label, idx) => (

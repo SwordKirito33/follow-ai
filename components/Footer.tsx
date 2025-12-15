@@ -8,9 +8,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-gray-200 py-12 mt-auto">
       <div className="container mx-auto px-4 text-center">
-        <div className="flex items-center justify-center gap-2 text-xl font-bold text-gray-900 mb-4">
-          <div className="w-6 h-6 bg-blue-600 text-white rounded flex items-center justify-center font-bold text-xs">F</div>
-          Follow.ai
+        <div className="flex items-center justify-center gap-3 text-xl font-black text-gray-900 mb-4">
+          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-xl flex items-center justify-center font-black text-sm shadow-lg">F</div>
+          <span className="gradient-text font-black tracking-tight">Follow.ai</span>
         </div>
         <p className="text-gray-500 text-sm mb-6">
           © 2025 Follow.ai. {t('footer.rights')} <br/>

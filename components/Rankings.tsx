@@ -19,10 +19,10 @@ const Rankings: React.FC = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4 animate-slideDown">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-              <span className="text-2xl animate-float">🏆</span> <span className="gradient-text">{t('rankings.title')}</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 flex items-center gap-3 tracking-tight">
+              <span className="text-3xl animate-float">🏆</span> <span className="gradient-text">{t('rankings.title')}</span>
             </h2>
-            <p className="text-gray-500 mt-2">{t('rankings.subtitle')}</p>
+            <p className="text-gray-600 mt-2 font-medium">{t('rankings.subtitle')}</p>
           </div>
           <span className="glass-card text-sm font-medium text-gray-600 px-4 py-2 rounded-full shadow-sm">
             {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
@@ -50,8 +50,8 @@ const Rankings: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-gray-900">{tool.name}</h3>
-                  <p className="text-sm text-gray-500 mb-2">{tool.category}</p>
+                  <h3 className="text-xl font-black text-gray-900 mb-1 tracking-tight">{tool.name}</h3>
+                  <p className="text-sm font-medium text-gray-600 mb-2">{tool.category}</p>
                   {tool.useCases && tool.useCases.length > 0 && (
                     <div className="flex flex-wrap gap-1.5">
                       {tool.useCases.slice(0, 3).map((useCase, idx) => (

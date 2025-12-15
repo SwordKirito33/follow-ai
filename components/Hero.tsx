@@ -15,39 +15,51 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
       <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Content */}
-        <div className="space-y-8 text-center lg:text-left">
-          <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.1]">
+        <div className="space-y-10 text-center lg:text-left">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 leading-[1.05]">
             {t('hero.title')} <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 animate-gradient bg-[length:200%_auto]">
               {t('hero.titleHighlight')}
             </span>
           </h1>
           
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0">
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
             {t('hero.subtitle')} {t('hero.joinCount')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link to="/submit" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transition-all transform hover:-translate-y-1 hover:scale-105 animate-glow">
-              {t('hero.startEarning')}
+            <Link 
+              to="/submit" 
+              className="group relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-10 py-5 rounded-2xl font-bold text-lg sm:text-xl shadow-2xl hover:shadow-blue-500/60 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] overflow-hidden"
+            >
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                {t('hero.startEarning')}
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Link>
-            <Link to="/tasks" className="glass-card border-2 border-white/50 hover:border-white text-gray-700 px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:-translate-y-1 hover:scale-105 text-center">
+            <Link 
+              to="/tasks" 
+              className="glass-card border-2 border-gray-200/50 hover:border-gray-300/80 text-gray-800 px-10 py-5 rounded-2xl font-bold text-lg sm:text-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] text-center shadow-lg hover:shadow-xl bg-white/90 hover:bg-white"
+            >
               {t('hero.getValidated')}
             </Link>
           </div>
 
-          <div className="flex justify-center lg:justify-start gap-8 pt-4">
+          <div className="flex justify-center lg:justify-start gap-8 sm:gap-12 pt-6">
             <div className="text-center lg:text-left">
-              <strong className="block text-2xl font-bold text-gray-900">3,458</strong>
-              <span className="text-sm text-gray-500">{t('hero.stats.reviews')}</span>
+              <strong className="block text-3xl sm:text-4xl font-black text-gray-900 mb-1">3,458</strong>
+              <span className="text-sm font-medium text-gray-600">{t('hero.stats.reviews')}</span>
             </div>
             <div className="text-center lg:text-left">
-              <strong className="block text-2xl font-bold text-gray-900">127</strong>
-              <span className="text-sm text-gray-500">{t('hero.stats.tools')}</span>
+              <strong className="block text-3xl sm:text-4xl font-black text-gray-900 mb-1">127</strong>
+              <span className="text-sm font-medium text-gray-600">{t('hero.stats.tools')}</span>
             </div>
             <div className="text-center lg:text-left">
-              <strong className="block text-2xl font-bold text-gray-900">$45,820</strong>
-              <span className="text-sm text-gray-500">{t('hero.stats.earned')}</span>
+              <strong className="block text-3xl sm:text-4xl font-black text-gray-900 mb-1">$45,820</strong>
+              <span className="text-sm font-medium text-gray-600">{t('hero.stats.earned')}</span>
             </div>
           </div>
         </div>

@@ -15,8 +15,8 @@ const ActivityFeed: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent animate-shimmer"></div>
       <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(59,130,246,0.1)_50%,transparent_100%)] animate-[shimmer_3s_ease-in-out_infinite]"></div>
       <div className="container mx-auto px-4 flex items-center gap-6 overflow-x-auto whitespace-nowrap no-scrollbar relative z-10">
-        <span className="text-xs font-bold uppercase tracking-wider text-blue-300 flex-shrink-0 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse-fast shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+        <span className="text-xs font-black uppercase tracking-widest text-blue-300 flex-shrink-0 flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse-fast shadow-[0_0_12px_rgba(59,130,246,1)]"></span>
           Live Activity
         </span>
         
