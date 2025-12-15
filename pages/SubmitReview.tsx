@@ -17,15 +17,21 @@ const SubmitReview: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [aiFlags, setAiFlags] = useState<string[]>([]);
   const [manualReviewRequested, setManualReviewRequested] = useState(false);
-  const MIN_WORDS = 100;
   
   // Modals state
   const [achievement, setAchievement] = useState<Achievement | null>(null);
   const [showShareModal, setShowShareModal] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const wordCount = reviewText.trim().split(/\s+/).filter(Boolean).length;
-  const meetsRequirements = !!file && analysisComplete && qualityScore !== null && wordCount >= MIN_WORDS;
+  
+  // Helper function to properly count characters including Chinese characters
+  const getCharacterCount = (text: string): number => {
+    return Array.from(text.trim()).length;
+  };
+  
+  const characterCount = getCharacterCount(reviewText);
+  const MIN_CHARACTERS = 100;
+  const meetsRequirements = !!file && analysisComplete && qualityScore !== null && characterCount >= MIN_CHARACTERS;
   const canSubmit = meetsRequirements && !isSubmitting;
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +70,7 @@ const SubmitReview: React.FC = () => {
       if (!file?.type.startsWith('image') && !file?.name.match(/\.(py|js|jsx|tsx|html|css|pdf)$/)) {
         flags.push(t('submitReview.uncommonFileType'));
       }
-      if (reviewText.trim().length < 400) {
+      if (getCharacterCount(reviewText) < 400) {
         flags.push(t('submitReview.shortNarrative'));
       }
       setAiFlags(flags);
@@ -126,7 +132,7 @@ const SubmitReview: React.FC = () => {
               {[
                 file ? 1 : 0,
                 analysisComplete ? 1 : 0,
-                wordCount >= MIN_WORDS ? 1 : 0,
+                characterCount >= MIN_CHARACTERS ? 1 : 0,
               ].reduce((a, b) => a + b, 0)}/3 Complete
             </span>
           </div>
@@ -137,7 +143,7 @@ const SubmitReview: React.FC = () => {
                 width: `${([
                   file ? 1 : 0,
                   analysisComplete ? 1 : 0,
-                  wordCount >= MIN_WORDS ? 1 : 0,
+                  characterCount >= MIN_CHARACTERS ? 1 : 0,
                 ].reduce((a, b) => a + b, 0) / 3) * 100}%`,
               }}
             />
@@ -291,10 +297,10 @@ const SubmitReview: React.FC = () => {
             ></textarea>
             <div className="flex justify-between mt-2 text-xs">
               <span className="text-gray-500 dark:text-gray-400">
-                {t('submitReview.minimumWords').replace('{count}', MIN_WORDS.toString())}
+                {t('submitReview.minimumWords').replace('{count}', MIN_CHARACTERS.toString())}
               </span>
-              <span className={wordCount < MIN_WORDS ? "text-red-500 font-semibold" : "text-green-600 font-semibold"}>
-                {wordCount} / {MIN_WORDS} {t('submitReview.words')}
+              <span className={characterCount < MIN_CHARACTERS ? "text-red-500 font-semibold" : "text-green-600 font-semibold"}>
+                {characterCount} / {MIN_CHARACTERS} {t('submitReview.words')}
               </span>
             </div>
           </div>
@@ -318,7 +324,7 @@ const SubmitReview: React.FC = () => {
               <ul className="list-disc list-inside text-xs text-gray-600 space-y-1 mt-1">
                 <li className={file ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.outputUploaded')}</li>
                 <li className={analysisComplete ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.aiAnalysisCompleted')}</li>
-                <li className={wordCount >= MIN_WORDS ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.narrativeWords').replace('{count}', MIN_WORDS.toString())}</li>
+                <li className={characterCount >= MIN_CHARACTERS ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.narrativeWords').replace('{count}', MIN_CHARACTERS.toString())}</li>
                 <li className={qualityScore && qualityScore >= 5 ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.qualityScoreMin')}</li>
               </ul>
             </div>
@@ -368,12 +374,12 @@ const SubmitReview: React.FC = () => {
                     {t('submitReview.waitAnalysis')}
                   </li>
                   <li className={`flex items-center gap-2 ${
-                    wordCount >= MIN_WORDS ? "text-gray-700 dark:text-gray-300" : "text-red-600 dark:text-red-400"
+                    characterCount >= MIN_CHARACTERS ? "text-gray-700 dark:text-gray-300" : "text-red-600 dark:text-red-400"
                   }`}>
-                    <span className={wordCount >= MIN_WORDS ? "text-green-600" : "text-red-500"}>
-                      {wordCount >= MIN_WORDS ? '✓' : '✗'}
+                    <span className={characterCount >= MIN_CHARACTERS ? "text-green-600" : "text-red-500"}>
+                      {characterCount >= MIN_CHARACTERS ? '✓' : '✗'}
                     </span>
-                    {t('submitReview.writeWords').replace('{count}', MIN_WORDS.toString())}
+                    {t('submitReview.writeWords').replace('{count}', MIN_CHARACTERS.toString())}
                   </li>
                 </ul>
               </div>
