@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { supabase } from '../src/lib/supabase'
 import { addToWaitlist } from '../src/services/waitlistService'
 import { CheckCircle, XCircle, Loader2 } from 'lucide-react'
@@ -26,8 +26,8 @@ const SupabaseTest: React.FC = () => {
     try {
       // Test 1: Check Supabase client initialization
       try {
-        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-        const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+        const supabaseUrl = (import.meta as any).env?.VITE_SUPABASE_URL
+        const supabaseKey = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY
 
         if (!supabaseUrl || !supabaseKey) {
           throw new Error('Missing environment variables')

@@ -140,6 +140,8 @@ export const en = {
     verifiedBy: 'Verified by Follow.ai',
     hoursAgo: 'hours ago',
     earned: 'Earned',
+    terms: 'Terms',
+    compare: 'Compare',
   },
   
   // Footer
@@ -415,31 +417,6 @@ export const en = {
     tagline: 'Where AI Tools Show Their Real Work',
     skip: 'Skip',
     loading: 'Loading...',
-  },
-  
-  // Common Additional
-  common: {
-    loading: 'Loading...',
-    error: 'Error',
-    success: 'Success',
-    cancel: 'Cancel',
-    confirm: 'Confirm',
-    save: 'Save',
-    delete: 'Delete',
-    edit: 'Edit',
-    back: 'Back',
-    next: 'Next',
-    previous: 'Previous',
-    close: 'Close',
-    viewMore: 'View More',
-    viewAll: 'View All',
-    remove: 'Remove',
-    verified: 'Verified',
-    verifiedBy: 'Verified by Follow.ai',
-    hoursAgo: 'hours ago',
-    earned: 'Earned',
-    terms: 'Terms',
-    compare: 'Compare',
   },
 };
 
