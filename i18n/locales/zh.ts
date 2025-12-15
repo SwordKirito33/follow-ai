@@ -410,30 +410,5 @@ export const zh = {
     skip: '跳过',
     loading: '加载中...',
   },
-  
-  // Common Additional
-  common: {
-    loading: '加载中...',
-    error: '错误',
-    success: '成功',
-    cancel: '取消',
-    confirm: '确认',
-    save: '保存',
-    delete: '删除',
-    edit: '编辑',
-    back: '返回',
-    next: '下一步',
-    previous: '上一步',
-    close: '关闭',
-    viewMore: '查看更多',
-    viewAll: '查看全部',
-    remove: '删除',
-    verified: '已验证',
-    verifiedBy: '由 Follow.ai 验证',
-    hoursAgo: '小时前',
-    earned: '已赚取',
-    terms: '服务条款',
-    compare: '对比',
-  },
 };
 
