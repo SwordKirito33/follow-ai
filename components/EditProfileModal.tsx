@@ -30,10 +30,8 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose }) 
     setSuccess(false);
 
     try {
-      // TODO: 替换为真实的API调用
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      updateUser({
+      // 使用真实的API调用
+      await updateUser({
         name,
         email,
       });
@@ -43,8 +41,9 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose }) 
         onClose();
         setSuccess(false);
       }, 1500);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Update error:', error);
+      // 可以在这里添加错误提示
     } finally {
       setIsSubmitting(false);
     }
