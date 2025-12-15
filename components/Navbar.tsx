@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
     <nav className="sticky top-0 z-50 glass-nav h-[70px] flex items-center">
       <div className="container mx-auto px-4 flex justify-between items-center h-full">
         {/* Logo with wordmark */}
-        <Link to="/" className="flex items-center gap-3 group transition-all hover:scale-[1.02]">
+        <Link to="/" className="flex items-center gap-3 group transition-all hover:scale-[1.02]" data-navbar-logo>
           <FollowLogo size={40} showWordmark={true} />
         </Link>
 
