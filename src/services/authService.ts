@@ -68,11 +68,18 @@ export async function signUp(params: SignUpParams): Promise<ServiceResponse<{ us
     }
 
     // 检查用户名是否已存在
-    const { data: existingProfile } = await supabase
+    // 注意：在用户注册前，我们无法使用auth.uid()，所以需要允许匿名查询
+    const { data: existingProfile, error: checkError } = await supabase
       .from('profiles')
       .select('id')
       .eq('username', params.username)
-      .single()
+      .maybeSingle()
+    
+    // 如果查询失败但不是因为表不存在，记录错误
+    if (checkError && checkError.code !== 'PGRST116') {
+      console.warn('Error checking username:', checkError)
+      // 继续注册流程，让数据库约束处理重复用户名
+    }
 
     if (existingProfile) {
       return {
