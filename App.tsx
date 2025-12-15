@@ -18,6 +18,8 @@ import Terms from './pages/Terms';
 import ToolDetail from './pages/ToolDetail';
 import Leaderboard from './pages/Leaderboard';
 import Help from './pages/Help';
+import Privacy from './pages/Privacy';
+import CookiePolicy from './pages/CookiePolicy';
 import Footer from './components/Footer';
 
 const ScrollToTop = () => {
@@ -39,23 +41,25 @@ const App: React.FC = () => {
           <VisitTracker />
           <Navbar />
           <main className="flex-grow page-transition">
-          <Routes>
-            <Route path="/test-supabase" element={<SupabaseTest />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/submit" element={<SubmitReview />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/tasks" element={<Tasks />} />
-            <Route path="/payments" element={<Payments />} />
-            <Route path="/rankings" element={<RankingsPage />} />
-            <Route path="/leaderboard" element={<Leaderboard />} />
-            <Route path="/news" element={<NewsPage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Terms />} />
-            <Route path="/cookie-policy" element={<Terms />} />
-            <Route path="/tool/:id" element={<ToolDetail />} />
-          </Routes>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/test-supabase" element={<SupabaseTest />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/submit" element={<SubmitReview />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/tasks" element={<Tasks />} />
+              <Route path="/payments" element={<Payments />} />
+              <Route path="/rankings" element={<RankingsPage />} />
+              <Route path="/leaderboard" element={<Leaderboard />} />
+              <Route path="/news" element={<NewsPage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/help" element={<Help />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/cookie-policy" element={<CookiePolicy />} />
+              <Route path="/tool/:id" element={<ToolDetail />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

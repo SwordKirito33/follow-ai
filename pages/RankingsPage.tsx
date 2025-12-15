@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { TOOLS } from '../data';
 import { Star, TrendingUp, Trophy, GitCompare, Filter } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,10 @@ import SearchBar from '../components/SearchBar';
 import ToolComparison from '../components/ToolComparison';
 import ToolCard from '../components/ToolCard';
 import Button from '../components/ui/Button';
+import LazyImage from '../components/LazyImage';
+
+// Lazy load heavy components
+const LazyToolComparison = lazy(() => import('../components/ToolComparison'));
 
 const RankingsPage: React.FC = () => {
   const { t } = useLanguage();
@@ -165,7 +169,7 @@ const RankingsPage: React.FC = () => {
                     </td>
                     <td className="py-3 pr-4">
                       <div className="flex items-center gap-2">
-                        <img src={tool.logo} alt={tool.name} className="w-8 h-8 rounded" />
+                        <LazyImage src={tool.logo} alt={tool.name} className="w-8 h-8 rounded" />
                         <div>
                           <div className="font-semibold text-gray-900">{tool.name}</div>
                           <div className="text-xs text-gray-500">{t('rankingsPage.validated')}</div>
@@ -206,11 +210,15 @@ const RankingsPage: React.FC = () => {
         </section>
       </div>
       
-      {/* Comparison Modal */}
-      <ToolComparison
-        isOpen={showComparison}
-        onClose={() => setShowComparison(false)}
-      />
+      {/* Comparison Modal - Lazy Loaded */}
+      {showComparison && (
+        <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"><div className="text-white">Loading...</div></div>}>
+          <LazyToolComparison
+            isOpen={showComparison}
+            onClose={() => setShowComparison(false)}
+          />
+        </Suspense>
+      )}
     </div>
   );
 };

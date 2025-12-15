@@ -95,7 +95,7 @@ const SubmitReview: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-12 px-4">
       {/* Components for "Black Tech" interactions */}
       <AchievementNotification achievement={achievement} onClose={() => setAchievement(null)} />
       <SocialShareModal 
@@ -105,10 +105,42 @@ const SubmitReview: React.FC = () => {
         rating={5} 
       />
 
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-10">
-          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight mb-2">{t('submitReview.title')}</h1>
-          <p className="text-lg text-gray-600 font-medium">{t('submitReview.subtitle')}</p>
+      <div className="max-w-3xl mx-auto">
+        <div className="mb-10 text-center">
+          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-2">
+            {t('submitReview.title')}
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">
+            {t('submitReview.subtitle')}
+          </p>
+        </div>
+
+        {/* Progress Indicator */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+              Submission Progress
+            </span>
+            <span className="text-sm text-gray-500 dark:text-gray-500">
+              {[
+                file ? 1 : 0,
+                analysisComplete ? 1 : 0,
+                wordCount >= MIN_WORDS ? 1 : 0,
+              ].reduce((a, b) => a + b, 0)}/3 Complete
+            </span>
+          </div>
+          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+            <div
+              className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-300"
+              style={{
+                width: `${([
+                  file ? 1 : 0,
+                  analysisComplete ? 1 : 0,
+                  wordCount >= MIN_WORDS ? 1 : 0,
+                ].reduce((a, b) => a + b, 0) / 3) * 100}%`,
+              }}
+            />
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -241,22 +273,40 @@ const SubmitReview: React.FC = () => {
           </div>
 
           {/* Review Text */}
-               <div className="glass-card p-6 rounded-xl shadow-xl">
-             <label className="block text-sm font-bold text-gray-700 mb-2">
-              {t('submitReview.yourExperience')}
+          <div className="glass-card p-6 rounded-xl shadow-xl">
+            <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+              {t('submitReview.yourExperience')} <span className="text-red-500">*</span>
             </label>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+              Describe your experience using the tool. Include the prompt you used, what you expected, 
+              and what you actually got. Be specific and honest.
+            </p>
             <textarea 
-              className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none h-40"
+              className="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-40 bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-y"
               placeholder={t('submitReview.experiencePlaceholder')}
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
+              required
             ></textarea>
-            <div className="flex justify-between mt-2 text-xs text-gray-500">
-              <span>{t('submitReview.minimumWords').replace('{count}', MIN_WORDS.toString())}</span>
-              <span className={wordCount < MIN_WORDS ? "text-red-500" : "text-green-600"}>
-                  {wordCount} {t('submitReview.words')}
-                </span>
+            <div className="flex justify-between mt-2 text-xs">
+              <span className="text-gray-500 dark:text-gray-400">
+                {t('submitReview.minimumWords').replace('{count}', MIN_WORDS.toString())}
+              </span>
+              <span className={wordCount < MIN_WORDS ? "text-red-500 font-semibold" : "text-green-600 font-semibold"}>
+                {wordCount} / {MIN_WORDS} {t('submitReview.words')}
+              </span>
             </div>
+          </div>
+          
+          {/* Additional Context (Optional) */}
+          <div className="glass-card p-6 rounded-xl shadow-xl">
+            <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+              Additional Context (Optional)
+            </label>
+            <textarea 
+              className="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-32 bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-y"
+              placeholder="Any additional context, constraints, or goals you had when using the tool..."
+            ></textarea>
           </div>
 
         <div className="bg-white rounded-xl border border-gray-200 p-4 space-y-2">
@@ -282,39 +332,53 @@ const SubmitReview: React.FC = () => {
           </label>
         </div>
 
-        <div className="flex flex-col gap-3 items-stretch">
-                   <button 
-                     type="submit" 
-                   disabled={!canSubmit}
-                   className={`flex-1 py-4 rounded-xl font-bold text-lg shadow-lg transition-all transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center gap-2 ${
-                     !canSubmit
-                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                     : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white'
-                     }`}
-                   >
-              {isSubmitting ? (
-                  <>
-                    <Loader2 className="animate-spin" size={24} />
-                    {t('submitReview.submitting')}
-                  </>
-              ) : (
-                  t('submitReview.submitReview')
-              )}
-            </button>
-            {!canSubmit && (
-              <div className="flex items-start gap-2 text-xs text-gray-600 bg-white rounded-lg border border-gray-200 p-3">
-                <AlertCircle size={16} className="text-amber-500 mt-0.5" />
-                <div className="space-y-1">
-                  <p className="font-semibold text-gray-800">{t('submitReview.completeSteps')}</p>
-                  <ul className="list-disc list-inside space-y-0.5">
-                    <li className={file ? "text-gray-600" : "text-red-600"}>{t('submitReview.uploadFile')}</li>
-                    <li className={analysisComplete && qualityScore !== null ? "text-gray-600" : "text-red-600"}>{t('submitReview.waitAnalysis')}</li>
-                    <li className={wordCount >= MIN_WORDS ? "text-gray-600" : "text-red-600"}>{t('submitReview.writeWords').replace('{count}', MIN_WORDS.toString())}</li>
-                  </ul>
-                </div>
+        <div className="flex flex-col gap-4 items-stretch">
+          <Button
+            type="submit"
+            variant="primary"
+            size="lg"
+            disabled={!canSubmit}
+            isLoading={isSubmitting}
+            className="w-full"
+          >
+            {isSubmitting ? t('submitReview.submitting') : t('submitReview.submitReview')}
+          </Button>
+          
+          {!canSubmit && (
+            <div className="flex items-start gap-3 text-sm glass-card rounded-xl p-4 border-l-4 border-amber-500">
+              <AlertCircle size={20} className="text-amber-600 dark:text-amber-400 mt-0.5 flex-shrink-0" />
+              <div className="space-y-2">
+                <p className="font-black text-gray-900 dark:text-white">{t('submitReview.completeSteps')}</p>
+                <ul className="space-y-1.5">
+                  <li className={`flex items-center gap-2 ${
+                    file ? "text-gray-700 dark:text-gray-300" : "text-red-600 dark:text-red-400"
+                  }`}>
+                    <span className={file ? "text-green-600" : "text-red-500"}>
+                      {file ? '✓' : '✗'}
+                    </span>
+                    {t('submitReview.uploadFile')}
+                  </li>
+                  <li className={`flex items-center gap-2 ${
+                    analysisComplete && qualityScore !== null ? "text-gray-700 dark:text-gray-300" : "text-red-600 dark:text-red-400"
+                  }`}>
+                    <span className={analysisComplete && qualityScore !== null ? "text-green-600" : "text-red-500"}>
+                      {analysisComplete && qualityScore !== null ? '✓' : '✗'}
+                    </span>
+                    {t('submitReview.waitAnalysis')}
+                  </li>
+                  <li className={`flex items-center gap-2 ${
+                    wordCount >= MIN_WORDS ? "text-gray-700 dark:text-gray-300" : "text-red-600 dark:text-red-400"
+                  }`}>
+                    <span className={wordCount >= MIN_WORDS ? "text-green-600" : "text-red-500"}>
+                      {wordCount >= MIN_WORDS ? '✓' : '✗'}
+                    </span>
+                    {t('submitReview.writeWords').replace('{count}', MIN_WORDS.toString())}
+                  </li>
+                </ul>
               </div>
-            )}
-          </div>
+            </div>
+          )}
+        </div>
           
         </form>
       </div>

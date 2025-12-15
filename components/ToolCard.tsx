@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, TrendingUp, DollarSign } from 'lucide-react';
+import { Star, TrendingUp, DollarSign, Heart } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 import Badge from './ui/Badge';
+import LazyImage from './LazyImage';
 
 interface ToolCardProps {
   tool: {
@@ -21,18 +23,30 @@ interface ToolCardProps {
 }
 
 const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
+  const { isAuthenticated } = useAuth();
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  const handleFavoriteClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isAuthenticated) {
+      setIsFavorited(!isFavorited);
+    }
+  };
+
   return (
-    <Link
-      to={`/tool/${tool.id}`}
-      className="group block glass-card rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 card-3d"
-    >
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex items-center gap-4 flex-1">
-          <img
-            src={tool.logo}
-            alt={tool.name}
-            className="w-16 h-16 rounded-xl object-cover flex-shrink-0"
-          />
+    <div className="group glass-card rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 card-3d relative">
+      <Link
+        to={`/tool/${tool.id}`}
+        className="block"
+      >
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex items-center gap-4 flex-1">
+            <LazyImage
+              src={tool.logo}
+              alt={tool.name}
+              className="w-16 h-16 rounded-xl object-cover flex-shrink-0"
+            />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
               <h3 className="text-xl font-black text-gray-900 dark:text-white tracking-tight truncate">
@@ -101,7 +115,23 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
           View tool →
         </span>
       </div>
-    </Link>
+      </Link>
+      
+      {/* Favorite Button */}
+      {isAuthenticated && (
+        <button
+          onClick={handleFavoriteClick}
+          className={`absolute top-4 right-4 p-2 rounded-lg transition-all ${
+            isFavorited
+              ? 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400'
+              : 'bg-white/80 dark:bg-gray-800/80 text-gray-400 hover:text-red-600 dark:hover:text-red-400'
+          }`}
+          title={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
+        >
+          <Heart size={18} fill={isFavorited ? "currentColor" : "none"} />
+        </button>
+      )}
+    </div>
   );
 };
 
