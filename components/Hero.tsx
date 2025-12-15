@@ -17,14 +17,14 @@ const Hero: React.FC = () => {
         {/* Content */}
         <div className="space-y-10 text-center lg:text-left">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 leading-[1.05]">
-            {t('hero.title')} <br />
+            Where AI tools prove themselves <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 animate-gradient bg-[length:200%_auto]">
-              {t('hero.titleHighlight')}
+              with real work
             </span>
           </h1>
           
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
-            {t('hero.subtitle')} {t('hero.joinCount')}
+            Follow.ai is the benchmark platform for AI tools. Users submit real prompts and outputs, we verify and score them, and you earn money for high-quality results.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

@@ -16,6 +16,8 @@ import NewsPage from './pages/NewsPage';
 import About from './pages/About';
 import Terms from './pages/Terms';
 import ToolDetail from './pages/ToolDetail';
+import Leaderboard from './pages/Leaderboard';
+import Help from './pages/Help';
 import Footer from './components/Footer';
 
 const ScrollToTop = () => {
@@ -45,10 +47,13 @@ const App: React.FC = () => {
             <Route path="/tasks" element={<Tasks />} />
             <Route path="/payments" element={<Payments />} />
             <Route path="/rankings" element={<RankingsPage />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/about" element={<About />} />
+            <Route path="/help" element={<Help />} />
             <Route path="/terms" element={<Terms />} />
-            {/* Tool detail route would go here, reusing parts of Home or a dedicated component */}
+            <Route path="/privacy" element={<Terms />} />
+            <Route path="/cookie-policy" element={<Terms />} />
             <Route path="/tool/:id" element={<ToolDetail />} />
           </Routes>
         </main>

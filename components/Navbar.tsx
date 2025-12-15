@@ -5,6 +5,8 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
 import AuthModal from './AuthModal';
+import FollowLogo from './FollowLogo';
+import Button from './ui/Button';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,102 +39,81 @@ const Navbar: React.FC = () => {
   return (
     <nav className="sticky top-0 z-50 glass-nav h-[70px] flex items-center">
       <div className="container mx-auto px-4 flex justify-between items-center h-full">
-        {/* Logo - 现代化设计 */}
-        <Link to="/" className="flex items-center gap-3 text-xl font-bold text-gray-900 group transition-all hover:scale-[1.02]">
-          <div 
-            className="w-12 h-12 rounded-2xl flex items-center justify-center font-black text-2xl shadow-2xl group-hover:shadow-blue-500/60 transition-all duration-300 relative overflow-hidden"
-            style={{
-              background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)',
-              border: '2px solid rgba(59, 130, 246, 0.4)',
-              boxShadow: '0 0 30px rgba(59, 130, 246, 0.5), inset 0 0 30px rgba(59, 130, 246, 0.15)'
-            }}
-          >
-            {/* 动态光效 */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-transparent to-purple-500/20 animate-pulse" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.4),transparent_70%)] opacity-60" />
-            {/* F字母 - 增强渐变和发光 */}
-            <span 
-              className="relative z-10 font-black"
-              style={{
-                background: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 30%, #2563eb 60%, #1d4ed8 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 12px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 24px rgba(59, 130, 246, 0.4))',
-                letterSpacing: '-0.08em',
-                fontSize: '1.5rem'
-              }}
-            >
-              F
-            </span>
-          </div>
-          <span className="gradient-text font-black text-2xl tracking-tight">Follow.ai</span>
+        {/* Logo with wordmark */}
+        <Link to="/" className="flex items-center gap-3 group transition-all hover:scale-[1.02]">
+          <FollowLogo size={40} showWordmark={true} />
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          <Link to="/" className={`${isActive('/')} transition-all hover:scale-105 relative group`}>
+        <div className="hidden lg:flex items-center gap-1">
+          <Link 
+            to="/rankings" 
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              location.pathname === '/rankings' 
+                ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20' 
+                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+            }`}
+          >
             {t('nav.browseTools')}
-            {location.pathname === '/' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"></span>}
           </Link>
-          <Link to="/tasks" className={`${isActive('/tasks')} font-semibold transition-all hover:scale-105 relative group tracking-tight`}>
-            <span className="flex items-center gap-1">
-              {t('nav.earnMoney')}
-            </span>
-            {location.pathname === '/tasks' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>}
+          <Link 
+            to="/tasks" 
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              location.pathname === '/tasks' 
+                ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20' 
+                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+            }`}
+          >
+            {t('nav.earnMoney')}
           </Link>
-          <Link to="/payments" className={`${isActive('/payments')} font-semibold transition-all hover:scale-105 relative group tracking-tight`}>
-            {t('nav.payments')}
-            {location.pathname === '/payments' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>}
-          </Link>
-          <Link to="/rankings" className={`${isActive('/rankings')} font-semibold transition-all hover:scale-105 relative group tracking-tight`}>
-            {t('nav.rankings')}
-            {location.pathname === '/rankings' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>}
-          </Link>
-          <Link to="/news" className={`${isActive('/news')} font-semibold transition-all hover:scale-105 relative group tracking-tight`}>
-            {t('nav.aiNews')}
-            {location.pathname === '/news' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>}
-          </Link>
-          <Link to="/about" className={`${isActive('/about')} font-semibold transition-all hover:scale-105 relative group tracking-tight`}>
-            {t('nav.about')}
-            {location.pathname === '/about' && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>}
+          <Link 
+            to="/leaderboard" 
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              location.pathname === '/leaderboard' 
+                ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20' 
+                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+            }`}
+          >
+            Leaderboard
           </Link>
         </div>
 
         {/* Desktop Right */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <LanguageSelector />
           {isAuthenticated ? (
             <>
-              <Link to="/submit" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-5 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
-                {t('nav.submitReview')}
-              </Link>
-              <Link to="/profile" className="glass-card hover:bg-white/90 text-gray-900 px-5 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 flex items-center gap-2">
-                <User size={18} />
-                {user?.name || t('nav.profile')}
-              </Link>
-              <button
-                onClick={handleLogout}
-                className="bg-red-50 hover:bg-red-100 text-red-600 px-5 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 flex items-center gap-2"
+              <Button 
+                to="/submit"
+                as="link"
+                variant="primary"
+                size="md"
               >
-                <LogOut size={18} />
-                {t('auth.logout')}
-              </button>
+                {t('nav.submitReview')}
+              </Button>
+              <Link 
+                to="/profile" 
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              >
+                <User size={18} />
+                <span className="hidden lg:inline">{user?.name || t('nav.profile')}</span>
+              </Link>
             </>
           ) : (
             <>
               <button
                 onClick={handleLoginClick}
-                className="text-gray-600 hover:text-gray-900 px-4 py-2.5 font-medium transition-colors"
+                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 {t('auth.login')}
               </button>
-              <button
+              <Button
                 onClick={handleSignupClick}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-5 py-2.5 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+                variant="primary"
+                size="md"
               >
                 {t('auth.signup')}
-              </button>
+              </Button>
             </>
           )}
         </div>
