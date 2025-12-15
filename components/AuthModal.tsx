@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Mail, Lock, User, Loader2, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import FollowButton from './ui/follow-button';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -221,20 +222,16 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
             )}
           </div>
 
-          <button
+          <FollowButton
             type="submit"
+            variant="primary"
+            size="lg"
             disabled={isSubmitting}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+            isLoading={isSubmitting}
+            className="w-full"
           >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="animate-spin" size={20} />
-                {t('auth.processing')}
-              </>
-            ) : (
-              mode === 'login' ? t('auth.loginButton') : t('auth.signupButton')
-            )}
-          </button>
+            {mode === 'login' ? 'Log in' : 'Sign up'}
+          </FollowButton>
         </form>
 
         {/* Footer */}

@@ -8,7 +8,7 @@ import BountyCard from '../components/BountyCard';
 import CommentSystem from '../components/CommentSystem';
 import LazyImage from '../components/LazyImage';
 import Badge from '../components/ui/Badge';
-import Button from '../components/ui/Button';
+import FollowButton from '../components/ui/follow-button';
 
 const ToolDetail: React.FC = () => {
   const { t } = useLanguage();
@@ -235,27 +235,35 @@ const ToolDetail: React.FC = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                <Link
+                <FollowButton
                   to="/submit"
-                  className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-bold text-center transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                  as="link"
+                  variant="primary"
+                  size="lg"
+                  icon={DollarSign}
+                  className="flex-1"
                 >
-                  <DollarSign size={20} />
-                  {t('toolDetail.submitReviewAndEarn')}
-                </Link>
-                <Link
+                  Submit output
+                </FollowButton>
+                <FollowButton
                   to="/tasks"
-                  className="flex-1 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white px-6 py-3 rounded-lg font-bold text-center transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                  as="link"
+                  variant="secondary"
+                  size="lg"
+                  icon={Clock}
+                  className="flex-1"
                 >
-                  <Clock size={20} />
-                  {t('toolDetail.viewPaidTasks')}
-                </Link>
-                <button
+                  View tasks
+                </FollowButton>
+                <FollowButton
                   onClick={() => setShowComparison(true)}
-                  className="flex-1 glass-card border-2 border-white/30 hover:bg-white/90 text-gray-900 px-6 py-3 rounded-lg font-bold text-center transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                  variant="ghost"
+                  size="lg"
+                  icon={GitCompare}
+                  className="flex-1"
                 >
-                  <GitCompare size={20} />
-                  {t('common.compare')}
-                </button>
+                  Compare tools
+                </FollowButton>
               </div>
             </div>
           </div>
@@ -534,9 +542,9 @@ const ToolDetail: React.FC = () => {
               <h2 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight">
                 Active Bounties for {tool.name}
               </h2>
-              <Button to="/tasks" as="link" variant="secondary" size="sm">
-                View All Bounties
-              </Button>
+                     <FollowButton to="/tasks" as="link" variant="secondary" size="sm">
+                       View all bounties
+                     </FollowButton>
             </div>
             
             {activeBounties.length === 0 ? (

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 import Tooltip from './Tooltip';
 import { useLanguage } from '../contexts/LanguageContext';
+import FollowButton from './ui/follow-button';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -28,24 +28,24 @@ const Hero: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link 
-              to="/submit" 
-              className="group relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-10 py-5 rounded-2xl font-bold text-lg sm:text-xl shadow-2xl hover:shadow-blue-500/60 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] overflow-hidden"
+            <FollowButton
+              to="/submit"
+              as="link"
+              variant="primary"
+              size="lg"
+              icon={ArrowRight}
+              iconPosition="right"
             >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                {t('hero.startEarning')}
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </Link>
-            <Link 
-              to="/tasks" 
-              className="glass-card border-2 border-gray-200/50 hover:border-gray-300/80 text-gray-800 px-10 py-5 rounded-2xl font-bold text-lg sm:text-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] text-center shadow-lg hover:shadow-xl bg-white/90 hover:bg-white"
+              Start earning
+            </FollowButton>
+            <FollowButton
+              to="/tasks"
+              as="link"
+              variant="secondary"
+              size="lg"
             >
-              {t('hero.getValidated')}
-            </Link>
+              Browse tools
+            </FollowButton>
           </div>
 
           <div className="flex justify-center lg:justify-start gap-8 sm:gap-12 pt-6">

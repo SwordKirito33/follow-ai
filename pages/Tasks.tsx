@@ -57,12 +57,15 @@ const Tasks: React.FC = () => {
                     <DollarSign size={20} strokeWidth={3} />{task.reward}
                   </p>
                 </div>
-                <button
+                <FollowButton
                   onClick={() => startTask()}
-                  className="bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  variant="primary"
+                  size="md"
+                  icon={ArrowRight}
+                  iconPosition="right"
                 >
-                  {t('tasks.startTask')} <ArrowRight size={18} />
-                </button>
+                  Start task
+                </FollowButton>
               </div>
             </div>
           ))}

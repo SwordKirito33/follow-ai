@@ -6,7 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
 import AuthModal from './AuthModal';
 import FollowLogo from './FollowLogo';
-import Button from './ui/Button';
+import FollowButton from './ui/follow-button';
 import NotificationCenter from './NotificationCenter';
 import Badge from './ui/Badge';
 
@@ -100,14 +100,14 @@ const Navbar: React.FC = () => {
                   3
                 </Badge>
               </button>
-              <Button 
+              <FollowButton 
                 to="/submit"
                 as="link"
                 variant="primary"
                 size="md"
               >
-                {t('nav.submitReview')}
-              </Button>
+                Submit output
+              </FollowButton>
               <Link 
                 to="/profile" 
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -118,19 +118,20 @@ const Navbar: React.FC = () => {
             </>
           ) : (
             <>
-              <button
+              <FollowButton
                 onClick={handleLoginClick}
-                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                variant="ghost"
+                size="md"
               >
-                {t('auth.login')}
-              </button>
-              <Button
+                Log in
+              </FollowButton>
+              <FollowButton
                 onClick={handleSignupClick}
                 variant="primary"
                 size="md"
               >
-                {t('auth.signup')}
-              </Button>
+                Sign up
+              </FollowButton>
             </>
           )}
         </div>
@@ -155,39 +156,63 @@ const Navbar: React.FC = () => {
           </div>
           {isAuthenticated ? (
             <>
-              <Link to="/submit" onClick={toggleMobileMenu} className="bg-blue-600 text-white px-4 py-3 rounded-lg text-center font-medium">{t('nav.submitReview')}</Link>
-              <Link to="/profile" onClick={toggleMobileMenu} className="bg-gray-100 text-gray-900 px-4 py-3 rounded-lg text-center font-medium">{t('nav.profile')}</Link>
-              <button
+              <FollowButton
+                to="/submit"
+                as="link"
+                variant="primary"
+                size="md"
+                className="w-full"
+                onClick={toggleMobileMenu}
+              >
+                Submit output
+              </FollowButton>
+              <FollowButton
+                to="/profile"
+                as="link"
+                variant="secondary"
+                size="md"
+                className="w-full"
+                onClick={toggleMobileMenu}
+              >
+                View profile
+              </FollowButton>
+              <FollowButton
                 onClick={() => {
                   handleLogout();
                   toggleMobileMenu();
                 }}
-                className="bg-red-50 text-red-600 px-4 py-3 rounded-lg text-center font-medium flex items-center justify-center gap-2"
+                variant="destructive"
+                size="md"
+                icon={LogOut}
+                className="w-full"
               >
-                <LogOut size={18} />
-                {t('auth.logout')}
-              </button>
+                Log out
+              </FollowButton>
             </>
           ) : (
             <>
-              <button
+              <FollowButton
                 onClick={() => {
                   handleLoginClick();
                   toggleMobileMenu();
                 }}
-                className="text-gray-900 px-4 py-3 rounded-lg text-center font-medium"
+                variant="ghost"
+                size="md"
+                className="w-full"
               >
-                {t('auth.login')}
-              </button>
-              <button
+                Log in
+              </FollowButton>
+              <FollowButton
                 onClick={() => {
                   handleSignupClick();
                   toggleMobileMenu();
                 }}
-                className="bg-blue-600 text-white px-4 py-3 rounded-lg text-center font-medium"
+                variant="primary"
+                size="md"
+                className="w-full"
               >
-                {t('auth.signup')}
-              </button>
+                Sign up
+              </FollowButton>
             </>
           )}
         </div>
