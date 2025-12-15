@@ -31,7 +31,6 @@ const Home: React.FC = () => {
       <section id="categories" className="relative py-16 px-4">
         <div className="absolute inset-0 bg-gradient-to-b from-white to-blue-50/10"></div>
         <div className="container mx-auto max-w-5xl relative z-10">
-        <div className="container mx-auto max-w-5xl">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-3xl font-bold text-gray-900">{t('categories.title')}</h2>
@@ -58,7 +57,6 @@ const Home: React.FC = () => {
               </Link>
             ))}
           </div>
-        </div>
         </div>
       </section>
 
