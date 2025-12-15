@@ -30,7 +30,7 @@ const SupabaseTest: React.FC = () => {
         const supabaseKey = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY
 
         if (!supabaseUrl || !supabaseKey) {
-          throw new Error('Missing environment variables')
+          throw new Error('Missing environment variables. Please create .env.local file with VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY. See ENV_SETUP_GUIDE.md for details.')
         }
 
         testResults.push({
@@ -223,10 +223,31 @@ const SupabaseTest: React.FC = () => {
                 </button>
               </div>
 
+              {/* Environment Variables Note */}
+              {overallStatus === 'error' && (
+                <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                  <h3 className="font-bold text-amber-900 mb-2">⚠️ Configuration Required</h3>
+                  <p className="text-sm text-amber-800 mb-2">
+                    If you see "Failed to fetch" errors, you need to configure Supabase environment variables.
+                  </p>
+                  <div className="text-sm text-amber-700 space-y-1">
+                    <p><strong>Steps:</strong></p>
+                    <ol className="list-decimal list-inside space-y-1 ml-2">
+                      <li>Create <code className="bg-amber-100 px-1 rounded">.env.local</code> file in project root</li>
+                      <li>Add your Supabase URL and API key</li>
+                      <li>Restart the development server</li>
+                    </ol>
+                    <p className="mt-2">
+                      <strong>See:</strong> <code className="bg-amber-100 px-1 rounded">ENV_SETUP_GUIDE.md</code> for detailed instructions
+                    </p>
+                  </div>
+                </div>
+              )}
+
               {/* Console Note */}
               <div className="mt-6 p-3 bg-blue-50 border border-blue-200 rounded-lg">
                 <p className="text-sm text-gray-700">
-                  <strong>Note:</strong> Check the browser console (F12) for detailed logs.
+                  <strong>Note:</strong> Check the browser console (Cmd + Option + J) for detailed logs.
                 </p>
               </div>
             </>
