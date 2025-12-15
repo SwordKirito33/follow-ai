@@ -13,8 +13,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-      <div className="relative z-10">
-      <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Content */}
         <div className="space-y-8 text-center lg:text-left">
           <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.1]">
@@ -85,7 +84,6 @@ const Hero: React.FC = () => {
               </div>
             </div>
         </div>
-      </div>
       </div>
     </section>
   );
