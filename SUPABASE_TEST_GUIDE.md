@@ -10,15 +10,16 @@ npm run dev
 
 ### 2. 访问测试页面
 
+**重要：项目使用 HashRouter，URL 需要包含 `#` 符号！**
+
 打开浏览器，访问：
 ```
-http://localhost:5173/#/test-supabase
+http://localhost:3000/#/test-supabase
 ```
 
-或者直接访问：
-```
-http://localhost:5173/test-supabase
-```
+**注意：**
+- ✅ 正确：`http://localhost:3000/#/test-supabase`（带 #）
+- ❌ 错误：`http://localhost:3000/test-supabase`（不带 #，会显示首页）
 
 ### 3. 查看测试结果
 
