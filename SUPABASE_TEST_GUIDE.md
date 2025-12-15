@@ -10,16 +10,32 @@ npm run dev
 
 ### 2. 访问测试页面
 
-**重要：项目使用 HashRouter，URL 需要包含 `#` 符号！**
+**重要提示：**
 
-打开浏览器，访问：
+1. **项目使用 HashRouter，URL 需要包含 `#` 符号！**
+2. **端口号可能不是3000！检查终端输出的实际端口号**
+
+**查看终端输出，找到实际端口：**
 ```
-http://localhost:3000/#/test-supabase
+VITE ready in xxx ms
+➜  Local:   http://localhost:XXXX/
 ```
+
+**打开浏览器，访问：**
+```
+http://localhost:XXXX/#/test-supabase
+```
+（XXXX是终端显示的实际端口号）
+
+**常见情况：**
+- ✅ 如果显示 `localhost:3000`，访问：`http://localhost:3000/#/test-supabase`
+- ✅ 如果显示 `localhost:3001`，访问：`http://localhost:3001/#/test-supabase`
+- ✅ 如果显示 `localhost:5173`，访问：`http://localhost:5173/#/test-supabase`
 
 **注意：**
-- ✅ 正确：`http://localhost:3000/#/test-supabase`（带 #）
+- ✅ 正确：`http://localhost:XXXX/#/test-supabase`（带 #，端口号匹配）
 - ❌ 错误：`http://localhost:3000/test-supabase`（不带 #，会显示首页）
+- ❌ 错误：`http://localhost:3000/#/test-supabase`（端口号不匹配，如果服务器在3001）
 
 ### 3. 查看测试结果
 
