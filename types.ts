@@ -1,3 +1,5 @@
+import { UserProgression, PortfolioItem } from './types/progression';
+
 export interface User {
   id: string;
   name: string;
@@ -5,6 +7,18 @@ export interface User {
   level: number;
   levelName: string;
   earnings: number;
+  // Follow.ai 2.0 additions
+  email?: string;
+  displayName?: string;
+  avatarUrl?: string;
+  bio?: string;
+  location?: string;
+  timezone?: string;
+  languages?: string[];
+  skills?: string[];
+  aiTools?: string[];
+  portfolioItems?: PortfolioItem[];
+  progression?: UserProgression;
 }
 
 export interface Tool {
@@ -44,7 +58,12 @@ export interface NewsItem {
   meta2: string;
 }
 
-export interface Task {
+import { TaskType, XpChallenge, Bounty, HireTask } from './types/progression';
+
+export type Task = XpChallenge | Bounty | HireTask;
+
+// Legacy Task interface for backward compatibility
+export interface LegacyTask {
   id: number;
   title: string;
   reward: number;

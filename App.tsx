@@ -1,11 +1,13 @@
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { useEffect, lazy, Suspense, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { AuthProvider } from './contexts/AuthContext';
+import { ToastProvider } from './components/ui/toast';
 import Navbar from './components/Navbar';
 import VisitTracker from './components/VisitTracker';
 import IntroAnimation from './components/IntroAnimation/IntroAnimation';
+import CommandPalette from './components/CommandPalette';
 import Footer from './components/Footer';
 import { hasSeenIntro } from './components/IntroAnimation/utils';
 
@@ -24,6 +26,10 @@ const Leaderboard = lazy(() => import('./pages/Leaderboard'));
 const Help = lazy(() => import('./pages/Help'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
+const Hire = lazy(() => import('./pages/Hire'));
+const Onboarding = lazy(() => import('./pages/Onboarding'));
+const HireNew = lazy(() => import('./pages/HireNew'));
+const HireDetail = lazy(() => import('./pages/HireDetail'));
 const SupabaseTest = lazy(() => import('./components/SupabaseTest'));
 
 // Loading fallback component
@@ -45,12 +51,32 @@ const ScrollToTop = () => {
 };
 
 const App: React.FC = () => {
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+
+  // Command palette keyboard shortcut
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <LanguageProvider>
       <AuthProvider>
-        <Router>
+        <ToastProvider>
+          <Router>
         <ScrollToTop />
         <IntroAnimation />
+        <CommandPalette
+          isOpen={isCommandPaletteOpen}
+          onClose={() => setIsCommandPaletteOpen(false)}
+        />
         <motion.div
           className="flex flex-col min-h-screen font-sans text-gray-900"
           initial={{ opacity: hasSeenIntro() ? 1 : 0 }}
@@ -77,12 +103,17 @@ const App: React.FC = () => {
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/cookie-policy" element={<CookiePolicy />} />
               <Route path="/tool/:id" element={<ToolDetail />} />
+              <Route path="/hire" element={<Hire />} />
+              <Route path="/hire/new" element={<HireNew />} />
+              <Route path="/hire/:id" element={<HireDetail />} />
+              <Route path="/onboarding" element={<Onboarding />} />
             </Routes>
           </Suspense>
         </main>
         <Footer />
         </motion.div>
     </Router>
+        </ToastProvider>
       </AuthProvider>
     </LanguageProvider>
   );
