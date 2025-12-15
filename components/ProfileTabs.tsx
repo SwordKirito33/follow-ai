@@ -5,8 +5,9 @@ import { useToast } from './ui/toast';
 import FollowButton from './ui/follow-button';
 import Badge from './ui/Badge';
 import { PortfolioItem } from '../types/progression';
-import { getLevelFromXp } from '../lib/xp-system';
+import { getLevelFromXp, calculateProfileCompletion } from '../lib/xp-system';
 import { trackEvent } from '../lib/analytics';
+import { useAuth } from '../contexts/AuthContext';
 
 interface ProfileTabsProps {
   user: {
@@ -27,6 +28,7 @@ interface ProfileTabsProps {
 const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
   const { t } = useLanguage();
   const toast = useToast();
+  const { updateUser: updateUserContext } = useAuth();
   const [activeTab, setActiveTab] = useState<'overview' | 'skills' | 'portfolio'>('overview');
   const [newSkill, setNewSkill] = useState('');
   const [newAiTool, setNewAiTool] = useState('');
@@ -42,37 +44,44 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
     ? getLevelFromXp(user.progression.xp)
     : { level: 1, progress: 0, xpToNext: 100, xpInCurrentLevel: 0 };
 
-  const handleAddSkill = () => {
+  const handleAddSkill = async () => {
     if (!newSkill.trim()) return;
     const updated = [...(user.skills || []), newSkill.trim()];
+    
+    // Update via context to trigger profile completion recalculation
+    await updateUserContext({ skills: updated });
     onUpdate({ skills: updated });
+    
     setNewSkill('');
     toast.success('Skill added');
     trackEvent('skill_added', { skill: newSkill.trim() });
   };
 
-  const handleRemoveSkill = (skill: string) => {
+  const handleRemoveSkill = async (skill: string) => {
     const updated = (user.skills || []).filter((s) => s !== skill);
+    await updateUserContext({ skills: updated });
     onUpdate({ skills: updated });
     toast.info('Skill removed');
   };
 
-  const handleAddAiTool = () => {
+  const handleAddAiTool = async () => {
     if (!newAiTool.trim()) return;
     const updated = [...(user.aiTools || []), newAiTool.trim()];
+    await updateUserContext({ aiTools: updated });
     onUpdate({ aiTools: updated });
     setNewAiTool('');
     toast.success('AI tool added');
     trackEvent('ai_tool_added', { tool: newAiTool.trim() });
   };
 
-  const handleRemoveAiTool = (tool: string) => {
+  const handleRemoveAiTool = async (tool: string) => {
     const updated = (user.aiTools || []).filter((t) => t !== tool);
+    await updateUserContext({ aiTools: updated });
     onUpdate({ aiTools: updated });
     toast.info('AI tool removed');
   };
 
-  const handleAddPortfolioItem = () => {
+  const handleAddPortfolioItem = async () => {
     if (!portfolioForm.title.trim() || !portfolioForm.description.trim()) {
       toast.error('Please fill in title and description');
       return;
@@ -89,6 +98,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
     };
 
     const updated = [...(user.portfolioItems || []), newItem];
+    await updateUserContext({ portfolioItems: updated });
     onUpdate({ portfolioItems: updated });
     setPortfolioForm({ title: '', description: '', link: '', relatedTools: [] });
     setShowPortfolioForm(false);

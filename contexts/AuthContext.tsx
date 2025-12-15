@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { supabase } from '../src/lib/supabase';
 import * as authService from '../src/services/authService';
 import type { Database } from '../src/types/database.types';
+import { calculateProfileCompletion, getLevelFromXp, getUnlockedFeatures } from '../lib/xp-system';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
@@ -345,8 +346,17 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (userData.name) {
         updateParams.fullName = userData.name;
       }
+      if (userData.displayName) {
+        updateParams.fullName = userData.displayName;
+      }
       if (userData.avatar) {
         updateParams.avatarUrl = userData.avatar;
+      }
+      if (userData.avatarUrl) {
+        updateParams.avatarUrl = userData.avatarUrl;
+      }
+      if (userData.bio) {
+        updateParams.bio = userData.bio;
       }
       // bio等字段可以通过profile访问
       
@@ -359,7 +369,39 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (result.data) {
         // 获取最新的用户数据（包括email）
         const { data: { user: authUser } } = await supabase.auth.getUser();
+        
+        // Merge with existing user data to preserve skills, aiTools, portfolioItems
         const updatedUser = profileToUser(result.data, authUser?.email || user.email);
+        
+        // Update progression with recalculated profile completion
+        if (updatedUser.progression) {
+          const newProfileCompletion = calculateProfileCompletion({
+            displayName: userData.displayName || updatedUser.displayName || updatedUser.name,
+            avatarUrl: userData.avatarUrl || updatedUser.avatarUrl,
+            bio: userData.bio || updatedUser.bio,
+            skills: userData.skills || updatedUser.skills || [],
+            aiTools: userData.aiTools || updatedUser.aiTools || [],
+            portfolioItems: userData.portfolioItems || updatedUser.portfolioItems || [],
+          });
+          
+          updatedUser.progression.profileCompletion = newProfileCompletion;
+          updatedUser.progression.unlockedFeatures = getUnlockedFeatures(
+            updatedUser.progression.level,
+            newProfileCompletion
+          );
+        }
+        
+        // Preserve skills, aiTools, portfolioItems if provided
+        if (userData.skills) {
+          updatedUser.skills = userData.skills;
+        }
+        if (userData.aiTools) {
+          updatedUser.aiTools = userData.aiTools;
+        }
+        if (userData.portfolioItems) {
+          updatedUser.portfolioItems = userData.portfolioItems;
+        }
+        
         setUser(updatedUser);
         console.log('User updated:', updatedUser);
       }
