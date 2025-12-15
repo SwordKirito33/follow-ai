@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { ThumbsUp, MessageCircle, Star, Check, Info } from 'lucide-react';
+import { ThumbsUp, MessageCircle, Star, Check, Info, Heart } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useAuth } from '../contexts/AuthContext';
 import { Review } from '../types';
 import Tooltip from './Tooltip';
+import LazyImage from './LazyImage';
 
 interface Props {
   review: Review;
@@ -10,8 +12,10 @@ interface Props {
 
 const ReviewCard: React.FC<Props> = ({ review }) => {
   const { t } = useLanguage();
+  const { isAuthenticated } = useAuth();
   const [likes, setLikes] = useState(review.likes);
   const [isLiked, setIsLiked] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(false);
 
   const handleLike = () => {
     if (isLiked) {
@@ -43,7 +47,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
 
       {/* Tool Info */}
       <div className="px-4 pb-3 flex items-center gap-2">
-        <img src={review.toolLogo} alt={review.toolName} className="w-6 h-6 rounded" />
+        <LazyImage src={review.toolLogo} alt={review.toolName} className="w-6 h-6 rounded" />
         <span className="font-bold text-sm text-gray-800 tracking-tight">{review.toolName}</span>
         <span className="text-xs text-gray-400">• {review.toolCategory}</span>
       </div>
@@ -73,7 +77,11 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
 
       {/* Output Preview */}
       <div className="bg-gradient-to-br from-gray-100 to-gray-200 h-48 relative cursor-pointer overflow-hidden">
-        <img src={review.outputImage} alt="Work Output" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <LazyImage
+          src={review.outputImage}
+          alt="Work Output"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <span className="text-white font-medium border-2 border-white/70 px-6 py-3 rounded-full backdrop-blur-md bg-white/10 transform scale-90 group-hover:scale-100 transition-transform duration-300">{t('reviewCard.viewOutput')}</span>
         </div>
@@ -81,17 +89,36 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
 
       {/* Footer */}
       <div className="p-4 flex items-center justify-between border-t border-gray-100 bg-gray-50/50">
-        <button 
-          onClick={handleLike}
-          className={`flex items-center gap-1.5 text-xs font-medium transition-colors ${isLiked ? 'text-blue-600' : 'text-gray-500 hover:text-gray-900'}`}
-        >
-          <ThumbsUp size={16} fill={isLiked ? "currentColor" : "none"} />
-          {likes} {t('reviewCard.likes')}
-        </button>
-        <button className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-gray-900 transition-colors">
-          <MessageCircle size={16} />
-          {t('reviewCard.reply')}
-        </button>
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={handleLike}
+            className={`flex items-center gap-1.5 text-xs font-medium transition-colors ${isLiked ? 'text-blue-600' : 'text-gray-500 hover:text-gray-900'}`}
+            disabled={!isAuthenticated}
+          >
+            <ThumbsUp size={16} fill={isLiked ? "currentColor" : "none"} />
+            {likes} {t('reviewCard.likes')}
+          </button>
+          <button 
+            className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-gray-900 transition-colors"
+            disabled={!isAuthenticated}
+          >
+            <MessageCircle size={16} />
+            {t('reviewCard.reply')}
+          </button>
+        </div>
+        {isAuthenticated && (
+          <button
+            onClick={() => setIsFavorited(!isFavorited)}
+            className={`p-1.5 rounded transition-colors ${
+              isFavorited
+                ? 'text-red-600 hover:text-red-700'
+                : 'text-gray-400 hover:text-gray-600'
+            }`}
+            title={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
+          >
+            <Heart size={16} fill={isFavorited ? "currentColor" : "none"} />
+          </button>
+        )}
       </div>
     </div>
   );

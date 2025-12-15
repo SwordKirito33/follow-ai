@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Zap, LogOut, User } from 'lucide-react';
+import { Menu, X, Zap, LogOut, User, Bell } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
 import AuthModal from './AuthModal';
 import FollowLogo from './FollowLogo';
 import Button from './ui/Button';
+import NotificationCenter from './NotificationCenter';
+import Badge from './ui/Badge';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
+  const [showNotifications, setShowNotifications] = useState(false);
   const location = useLocation();
   const { t } = useLanguage();
   const { isAuthenticated, user, logout } = useAuth();
@@ -83,6 +86,20 @@ const Navbar: React.FC = () => {
           <LanguageSelector />
           {isAuthenticated ? (
             <>
+              <button
+                onClick={() => setShowNotifications(!showNotifications)}
+                className="relative p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                title="Notifications"
+              >
+                <Bell size={20} />
+                <Badge
+                  variant="danger"
+                  size="sm"
+                  className="absolute -top-1 -right-1 min-w-[18px] h-[18px] flex items-center justify-center text-[10px] px-1"
+                >
+                  3
+                </Badge>
+              </button>
               <Button 
                 to="/submit"
                 as="link"
@@ -181,6 +198,12 @@ const Navbar: React.FC = () => {
         isOpen={showAuthModal}
         onClose={() => setShowAuthModal(false)}
         initialMode={authMode}
+      />
+      
+      {/* Notification Center */}
+      <NotificationCenter
+        isOpen={showNotifications}
+        onClose={() => setShowNotifications(false)}
       />
     </nav>
   );

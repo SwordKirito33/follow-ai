@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Trophy, Medal, Award, TrendingUp, Star, DollarSign } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Badge from '../components/ui/Badge';
+import LazyImage from '../components/LazyImage';
 
 const Leaderboard: React.FC = () => {
   const { t } = useLanguage();
@@ -164,7 +165,7 @@ const Leaderboard: React.FC = () => {
                   <div className="flex-shrink-0">
                     {getRankBadge(tool.rank)}
                   </div>
-                  <img
+                  <LazyImage
                     src={tool.logo}
                     alt={tool.name}
                     className="w-16 h-16 rounded-xl object-cover"

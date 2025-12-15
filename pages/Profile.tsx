@@ -60,7 +60,7 @@ const Profile: React.FC = () => {
           <div className="px-8 pb-8">
             <div className="relative flex justify-between items-end -mt-12 mb-6">
               <div className="flex items-end gap-6">
-                <img src={user.avatar} alt="Profile" className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-white" />
+                <LazyImage src={user.avatar} alt="Profile" className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-white" />
                 <div className="mb-2">
                   <h1 className="text-3xl font-black text-gray-900 tracking-tight">{user.name}</h1>
                   <p className="text-gray-600 font-medium">{user.email} • Joined Dec 2024</p>
