@@ -6,7 +6,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import SearchBar from '../components/SearchBar';
 import ToolComparison from '../components/ToolComparison';
 import ToolCard from '../components/ToolCard';
-import Button from '../components/ui/Button';
+import FollowButton from '../components/ui/follow-button';
 import LazyImage from '../components/LazyImage';
 
 // Lazy load heavy components
@@ -72,13 +72,14 @@ const RankingsPage: React.FC = () => {
                 showAdvanced={true}
               />
             </div>
-            <button
+            <FollowButton
               onClick={() => setShowComparison(true)}
-              className="flex items-center gap-2 glass-card px-6 py-3 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg"
+              variant="secondary"
+              size="md"
+              icon={GitCompare}
             >
-              <GitCompare size={20} />
-              {t('common.compare')}
-            </button>
+              Compare tools
+            </FollowButton>
           </div>
         </div>
 

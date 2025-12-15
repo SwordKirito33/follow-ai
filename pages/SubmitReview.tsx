@@ -4,6 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import AchievementNotification from '../components/AchievementNotification';
 import SocialShareModal from '../components/SocialShareModal';
 import { Achievement } from '../types';
+import FollowButton from '../components/ui/follow-button';
 
 const SubmitReview: React.FC = () => {
   const { t } = useLanguage();
@@ -333,7 +334,7 @@ const SubmitReview: React.FC = () => {
         </div>
 
         <div className="flex flex-col gap-4 items-stretch">
-          <Button
+          <FollowButton
             type="submit"
             variant="primary"
             size="lg"
@@ -341,8 +342,8 @@ const SubmitReview: React.FC = () => {
             isLoading={isSubmitting}
             className="w-full"
           >
-            {isSubmitting ? t('submitReview.submitting') : t('submitReview.submitReview')}
-          </Button>
+            Submit output
+          </FollowButton>
           
           {!canSubmit && (
             <div className="flex items-start gap-3 text-sm glass-card rounded-xl p-4 border-l-4 border-amber-500">

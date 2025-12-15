@@ -1,5 +1,6 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { AlertCircle, RefreshCw } from 'lucide-react';
+import { AlertCircle, RefreshCw, Home } from 'lucide-react';
+import FollowButton from './ui/follow-button';
 
 interface Props {
   children: ReactNode;
@@ -51,20 +52,25 @@ class ErrorBoundary extends Component<Props, State> {
                 </pre>
               </details>
             )}
-            <div className="flex gap-3">
-              <button
+            <div className="flex gap-4">
+              <FollowButton
                 onClick={this.handleReset}
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
+                variant="primary"
+                size="md"
+                icon={Home}
+                className="flex-1"
               >
-                <RefreshCw size={18} />
-                Go Home
-              </button>
-              <button
+                Go home
+              </FollowButton>
+              <FollowButton
                 onClick={() => window.location.reload()}
-                className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-900 px-4 py-3 rounded-lg font-semibold transition-colors"
+                variant="secondary"
+                size="md"
+                icon={RefreshCw}
+                className="flex-1"
               >
-                Reload Page
-              </button>
+                Reload page
+              </FollowButton>
             </div>
           </div>
         </div>
