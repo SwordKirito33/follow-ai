@@ -1,26 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { AuthProvider } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
 import VisitTracker from './components/VisitTracker';
 import IntroAnimation from './components/IntroAnimation';
-import SupabaseTest from './components/SupabaseTest';
-import Home from './pages/Home';
-import SubmitReview from './pages/SubmitReview';
-import Profile from './pages/Profile';
-import Tasks from './pages/Tasks';
-import Payments from './pages/Payments';
-import RankingsPage from './pages/RankingsPage';
-import NewsPage from './pages/NewsPage';
-import About from './pages/About';
-import Terms from './pages/Terms';
-import ToolDetail from './pages/ToolDetail';
-import Leaderboard from './pages/Leaderboard';
-import Help from './pages/Help';
-import Privacy from './pages/Privacy';
-import CookiePolicy from './pages/CookiePolicy';
 import Footer from './components/Footer';
+
+// Lazy load pages for code splitting
+const Home = lazy(() => import('./pages/Home'));
+const SubmitReview = lazy(() => import('./pages/SubmitReview'));
+const Profile = lazy(() => import('./pages/Profile'));
+const Tasks = lazy(() => import('./pages/Tasks'));
+const Payments = lazy(() => import('./pages/Payments'));
+const RankingsPage = lazy(() => import('./pages/RankingsPage'));
+const NewsPage = lazy(() => import('./pages/NewsPage'));
+const About = lazy(() => import('./pages/About'));
+const Terms = lazy(() => import('./pages/Terms'));
+const ToolDetail = lazy(() => import('./pages/ToolDetail'));
+const Leaderboard = lazy(() => import('./pages/Leaderboard'));
+const Help = lazy(() => import('./pages/Help'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
+const SupabaseTest = lazy(() => import('./components/SupabaseTest'));
+
+// Loading fallback component
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20">
+    <div className="text-center">
+      <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-gray-600 dark:text-gray-400 font-medium">Loading...</p>
+    </div>
+  </div>
+);
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
