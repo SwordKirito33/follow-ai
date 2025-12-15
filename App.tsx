@@ -5,7 +5,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
 import VisitTracker from './components/VisitTracker';
 import IntroAnimation from './components/IntroAnimation';
-import SupabaseTest from './src/components/SupabaseTest';
+import SupabaseTest from './components/SupabaseTest';
 import Home from './pages/Home';
 import SubmitReview from './pages/SubmitReview';
 import Profile from './pages/Profile';
