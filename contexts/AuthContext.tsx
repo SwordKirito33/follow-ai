@@ -23,7 +23,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<void>;
-  signup: (email: string, password: string, name: string) => Promise<void>;
+  signup: (email: string, password: string, name: string, username: string) => Promise<void>;
   logout: () => Promise<void>;
   updateUser: (userData: Partial<User>) => Promise<void>;
 }
@@ -236,19 +236,23 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   // 注册函数
-  const signup = async (email: string, password: string, name: string) => {
+  const signup = async (email: string, password: string, name: string, username: string) => {
     setIsLoading(true);
     try {
-      console.log('Attempting signup for:', email, name);
+      console.log('Attempting signup for:', email, name, username);
       
-      // 从name中提取username（使用email前缀或name）
-      const username = name.toLowerCase().replace(/\s+/g, '_').substring(0, 20) || 
-                      email.split('@')[0].substring(0, 20);
+      // 验证username格式
+      if (username.length < 3 || username.length > 20) {
+        throw new Error('Username must be between 3 and 20 characters');
+      }
+      if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+        throw new Error('Username can only contain letters, numbers, and underscores');
+      }
       
       const result = await authService.signUp({
         email,
         password,
-        username,
+        username: username.toLowerCase(),
         fullName: name,
       });
 
