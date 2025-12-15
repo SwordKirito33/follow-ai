@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { TOOLS } from '../data';
-import { Star, TrendingUp, Trophy, GitCompare } from 'lucide-react';
+import { Star, TrendingUp, Trophy, GitCompare, Filter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import SearchBar from '../components/SearchBar';
 import ToolComparison from '../components/ToolComparison';
+import ToolCard from '../components/ToolCard';
+import Button from '../components/ui/Button';
 
 const RankingsPage: React.FC = () => {
   const { t } = useLanguage();
@@ -92,53 +94,38 @@ const RankingsPage: React.FC = () => {
           </div>
         </header>
 
-        <section className="grid lg:grid-cols-3 gap-6">
-          {extendedTools.slice(0, 3).map((tool, index) => (
-            <div key={tool.id} className="glass-card rounded-xl p-6 relative card-3d hover:shadow-2xl transition-all duration-300 animate-slideUp" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className={`absolute -top-4 -left-4 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold border-4 border-white shadow-md ${badgeClasses[index] || badgeClasses[0]}`}>
-                {index === 0 ? '🏆' : index + 1}
-              </div>
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center gap-3">
-                  <img src={tool.logo} alt={tool.name} className="w-14 h-14 rounded-xl object-cover" />
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900">{tool.name}</h3>
-                    <p className="text-sm text-gray-500">{tool.category}</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="flex items-center gap-1 text-amber-500 font-bold justify-end">
-                    <Star size={16} fill="currentColor" /> {tool.rating}
-                  </div>
-                  <div className="text-xs text-green-600 font-medium bg-green-50 px-2 py-0.5 rounded mt-1 inline-block">
-                    {tool.growth}
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-gray-600 mb-3">{tool.description}</p>
-              {tool.useCases && tool.useCases.length > 0 && (
-                <div className="mb-4">
-                  <p className="text-xs text-gray-500 mb-1.5 font-medium">Use Cases:</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {tool.useCases.map((useCase, idx) => (
-                      <span key={idx} className="text-xs px-2 py-0.5 bg-blue-50 text-blue-700 rounded-full font-medium border border-blue-100">
-                        {useCase}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              <div className="flex items-center justify-between text-sm text-gray-600">
-                <span className="flex items-center gap-1">
-                  <Trophy size={16} className="text-blue-500" /> {tool.reviewCount} reviews today
-                </span>
-                <Link to={`/tool/${tool.id}`} className="px-4 py-2 rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 text-white text-sm font-semibold hover:from-gray-800 hover:to-gray-700 transition-all transform hover:scale-105 shadow-lg">
-                  Review & Earn ${50 - index * 5}
-                </Link>
-              </div>
-            </div>
+        {/* Tools Grid */}
+        <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredTools.map((tool, index) => (
+            <ToolCard
+              key={tool.id}
+              tool={{
+                ...tool,
+                hasBounty: index < 3,
+                bountyAmount: index < 3 ? 50 + (index * 10) : undefined
+              }}
+              rank={index < 3 ? index + 1 : undefined}
+            />
           ))}
         </section>
+        
+        {/* Empty State */}
+        {filteredTools.length === 0 && (
+          <div className="text-center py-16 glass-card rounded-2xl">
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+              No tools found matching your filters.
+            </p>
+            <Button
+              onClick={() => {
+                setSearchQuery('');
+                setFilters({});
+              }}
+              variant="secondary"
+            >
+              Clear Filters
+            </Button>
+          </div>
+        )}
 
         <section className="glass-card rounded-2xl shadow-xl p-6 animate-slideUp">
           <div className="flex items-center justify-between mb-4">

@@ -7,6 +7,7 @@ import ActivityFeed from '../components/ActivityFeed';
 import ReviewCard from '../components/ReviewCard';
 import ReviewCardSkeleton from '../components/ReviewCardSkeleton';
 import NewsWidget from '../components/NewsWidget';
+import HowItWorks from '../components/HowItWorks';
 import { REVIEWS } from '../data';
 
 const Home: React.FC = () => {
@@ -25,6 +26,7 @@ const Home: React.FC = () => {
     <div className="min-h-screen page-transition">
       <ActivityFeed />
       <Hero />
+      <HowItWorks />
       <Rankings />
       
       {/* Category Showcase */}
