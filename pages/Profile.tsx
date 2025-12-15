@@ -6,11 +6,16 @@ import { REVIEWS } from '../data';
 import ReviewCard from '../components/ReviewCard';
 import EditProfileModal from '../components/EditProfileModal';
 import AuthModal from '../components/AuthModal';
+import ProfileTabs from '../components/ProfileTabs';
+import FollowButton from '../components/ui/follow-button';
 import { Award, DollarSign, Star, LogOut, Edit } from 'lucide-react';
+import LazyImage from '../components/LazyImage';
+import { calculateProfileCompletion } from '../lib/xp-system';
+import { getLevelFromXp } from '../lib/xp-system';
 
 const Profile: React.FC = () => {
   const { t } = useLanguage();
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, logout, updateUser } = useAuth();
   const navigate = useNavigate();
   const [showEditModal, setShowEditModal] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -117,6 +122,30 @@ const Profile: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Profile Tabs */}
+        <div className="glass-card rounded-xl shadow-xl p-8 mb-8">
+          <ProfileTabs
+            user={{
+              id: user.id,
+              skills: user.skills || [],
+              aiTools: user.aiTools || [],
+              portfolioItems: user.portfolioItems || [],
+              progression: user.progression || {
+                xp: 0,
+                level: 1,
+                xpToNextLevel: 100,
+                unlockedFeatures: [],
+                profileCompletion: 0,
+                badges: [],
+              },
+            }}
+            onUpdate={async (updates) => {
+              // Update user data (mock for now - integrate with AuthContext later)
+              await updateUser(updates);
+            }}
+          />
         </div>
 
         {/* Content Tabs */}
