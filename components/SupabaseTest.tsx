@@ -72,14 +72,26 @@ const SupabaseTest: React.FC = () => {
           }
         })
       } catch (error: any) {
+        let errorMessage = error.message || 'Unknown error'
+        
+        // 提供更友好的错误提示
+        if (errorMessage.includes('Failed to fetch') || errorMessage.includes('ERR_NAME_NOT_RESOLVED')) {
+          errorMessage = 'Network error: Failed to fetch. Check CORS settings and Supabase URL.'
+        } else if (errorMessage.includes('relation') && errorMessage.includes('does not exist')) {
+          errorMessage = 'Table does not exist. Run SQL script in SUPABASE_SETUP_SQL.md'
+        } else if (error.code === 'PGRST301' || errorMessage.includes('permission denied')) {
+          errorMessage = 'Permission denied. Check RLS policies in SUPABASE_SETUP_SQL.md'
+        }
+        
         testResults.push({
           name: 'Database Connection',
           status: 'error',
-          message: `❌ Database query failed: ${error.message || 'Unknown error'}`,
+          message: `❌ Database query failed: ${errorMessage}`,
           details: {
             code: error.code,
             message: error.message,
-            hint: error.hint
+            hint: error.hint,
+            fullError: error
           }
         })
       }
@@ -107,10 +119,21 @@ const SupabaseTest: React.FC = () => {
           }
         })
       } catch (error) {
+        let errorMessage = (error as Error).message || 'Unknown error'
+        
+        // 提供更友好的错误提示
+        if (errorMessage.includes('Failed to fetch') || errorMessage.includes('ERR_NAME_NOT_RESOLVED')) {
+          errorMessage = 'Network error: Failed to fetch. Check CORS settings and Supabase URL.'
+        } else if (errorMessage.includes('relation') && errorMessage.includes('does not exist')) {
+          errorMessage = 'Table does not exist. Run SQL script in SUPABASE_SETUP_SQL.md'
+        } else if (errorMessage.includes('permission denied')) {
+          errorMessage = 'Permission denied. Check RLS policies in SUPABASE_SETUP_SQL.md'
+        }
+        
         testResults.push({
           name: 'Waitlist Service',
           status: 'error',
-          message: `❌ Waitlist service failed: ${(error as Error).message}`,
+          message: `❌ Waitlist service failed: ${errorMessage}`,
           details: error
         })
       }
@@ -225,21 +248,36 @@ const SupabaseTest: React.FC = () => {
 
               {/* Environment Variables Note */}
               {overallStatus === 'error' && (
-                <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-                  <h3 className="font-bold text-amber-900 mb-2">⚠️ Configuration Required</h3>
-                  <p className="text-sm text-amber-800 mb-2">
-                    If you see "Failed to fetch" errors, you need to configure Supabase environment variables.
-                  </p>
-                  <div className="text-sm text-amber-700 space-y-1">
-                    <p><strong>Steps:</strong></p>
-                    <ol className="list-decimal list-inside space-y-1 ml-2">
-                      <li>Create <code className="bg-amber-100 px-1 rounded">.env.local</code> file in project root</li>
-                      <li>Add your Supabase URL and API key</li>
-                      <li>Restart the development server</li>
-                    </ol>
-                    <p className="mt-2">
-                      <strong>See:</strong> <code className="bg-amber-100 px-1 rounded">ENV_SETUP_GUIDE.md</code> for detailed instructions
+                <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg space-y-3">
+                  <h3 className="font-bold text-amber-900 mb-2">⚠️ Troubleshooting Guide</h3>
+                  
+                  {/* Port Check */}
+                  <div className="bg-amber-100 p-3 rounded border border-amber-300">
+                    <p className="text-sm font-semibold text-amber-900 mb-1">🔍 Check Port Number</p>
+                    <p className="text-xs text-amber-800">
+                      Make sure you're accessing the correct port shown in terminal (e.g., localhost:3001 if server runs on 3001)
                     </p>
+                  </div>
+                  
+                  {/* Common Issues */}
+                  <div className="text-sm text-amber-800 space-y-2">
+                    <p><strong>Common Issues:</strong></p>
+                    <ul className="list-disc list-inside space-y-1 ml-2 text-xs">
+                      <li><strong>Failed to fetch:</strong> Check CORS settings in Supabase Dashboard → Settings → API</li>
+                      <li><strong>Table does not exist:</strong> Run SQL script in <code className="bg-amber-100 px-1 rounded">SUPABASE_SETUP_SQL.md</code></li>
+                      <li><strong>Permission denied:</strong> Check RLS policies in <code className="bg-amber-100 px-1 rounded">SUPABASE_SETUP_SQL.md</code></li>
+                      <li><strong>Wrong port:</strong> Check terminal output for actual port number</li>
+                    </ul>
+                  </div>
+                  
+                  {/* Quick Links */}
+                  <div className="text-sm text-amber-700 space-y-1">
+                    <p><strong>Documentation:</strong></p>
+                    <ul className="list-disc list-inside space-y-1 ml-2 text-xs">
+                      <li><code className="bg-amber-100 px-1 rounded">ENV_SETUP_GUIDE.md</code> - Environment setup</li>
+                      <li><code className="bg-amber-100 px-1 rounded">SUPABASE_SETUP_SQL.md</code> - Database setup</li>
+                      <li><code className="bg-amber-100 px-1 rounded">TROUBLESHOOTING.md</code> - Full troubleshooting guide</li>
+                    </ul>
                   </div>
                 </div>
               )}
