@@ -1,11 +1,13 @@
 import React, { useEffect, lazy, Suspense } from 'react';
+import { motion } from 'framer-motion';
 import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { AuthProvider } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
 import VisitTracker from './components/VisitTracker';
-import IntroAnimation from './components/IntroAnimation';
+import IntroAnimation from './components/IntroAnimation/IntroAnimation';
 import Footer from './components/Footer';
+import { hasSeenIntro } from './components/IntroAnimation/utils';
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import('./pages/Home'));
@@ -49,7 +51,12 @@ const App: React.FC = () => {
         <Router>
         <ScrollToTop />
         <IntroAnimation />
-        <div className="flex flex-col min-h-screen font-sans text-gray-900">
+        <motion.div
+          className="flex flex-col min-h-screen font-sans text-gray-900"
+          initial={{ opacity: hasSeenIntro() ? 1 : 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+        >
           <VisitTracker />
           <Navbar />
           <main className="flex-grow page-transition">
@@ -74,7 +81,7 @@ const App: React.FC = () => {
           </Suspense>
         </main>
         <Footer />
-      </div>
+        </motion.div>
     </Router>
       </AuthProvider>
     </LanguageProvider>
