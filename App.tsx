@@ -14,6 +14,8 @@ import { hasSeenIntro } from './components/IntroAnimation/utils';
 // Lazy load pages for code splitting
 const Home = lazy(() => import('./pages/Home'));
 const SubmitReview = lazy(() => import('./pages/SubmitReview'));
+const TaskSubmit = lazy(() => import('./pages/TaskSubmit'));
+const SubmissionHistory = lazy(() => import('./pages/SubmissionHistory'));
 const Profile = lazy(() => import('./pages/Profile'));
 const Tasks = lazy(() => import('./pages/Tasks'));
 const Payments = lazy(() => import('./pages/Payments'));
@@ -92,6 +94,8 @@ const App: React.FC = () => {
               <Route path="/test-supabase" element={<SupabaseTest />} />
               <Route path="/" element={<Home />} />
               <Route path="/submit" element={<SubmitReview />} />
+              <Route path="/task/:taskId/submit" element={<TaskSubmit />} />
+              <Route path="/history" element={<SubmissionHistory />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/tasks" element={<Tasks />} />
               <Route path="/payments" element={<Payments />} />

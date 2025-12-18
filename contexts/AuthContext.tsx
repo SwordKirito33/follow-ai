@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { supabase } from '../src/lib/supabase';
+import { supabase, ensureProfileExists } from '../src/lib/supabase';
 import * as authService from '../src/services/authService';
 import type { Database } from '../src/types/database.types';
 import { calculateProfileCompletion, getLevelFromXp, getUnlockedFeatures } from '../lib/xp-system';
@@ -124,6 +124,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         if (session?.user) {
           console.log('Found existing session for user:', session.user.id);
           
+          // CRITICAL: Ensure profile exists before fetching
+          await ensureProfileExists(session.user.id);
+          
           // 获取用户profile
           const profile = await fetchUserProfile(session.user.id);
           
@@ -155,6 +158,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
         if (event === 'SIGNED_IN' && session?.user) {
           try {
+            // CRITICAL: Ensure profile exists before fetching
+            await ensureProfileExists(session.user.id);
+            
             // 获取用户profile
             const profile = await fetchUserProfile(session.user.id);
             
