@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import type { Database } from '../types/database.types'
+import type { Database } from '@/types/database'
 
 // 延迟初始化，避免在模块加载时抛出错误
 let supabaseInstance: ReturnType<typeof createClient<Database>> | null = null
@@ -72,5 +72,54 @@ export function checkSupabaseConfig(): { isValid: boolean; error?: string } {
   }
 
   return { isValid: true }
+}
+
+/**
+ * CRITICAL: Auto-create profile on login
+ * 
+ * This prevents "profile not found" errors.
+ * Call immediately after detecting authenticated session.
+ * 
+ * Uses INSERT ... ON CONFLICT pattern for safety.
+ * If profile exists, this is a no-op.
+ * 
+ * INTEGRATION:
+ * Find your auth state management file and add:
+ * 
+ * supabase.auth.onAuthStateChange(async (event, session) => {
+ *   if (event === 'SIGNED_IN' && session?.user) {
+ *     await ensureProfileExists(session.user.id);
+ *   }
+ * });
+ * 
+ * Also check on initial load:
+ * const { data: { session } } = await supabase.auth.getSession();
+ * if (session?.user) {
+ *   await ensureProfileExists(session.user.id);
+ * }
+ */
+export async function ensureProfileExists(userId: string): Promise<void> {
+  try {
+    const { error } = await supabase
+      .from('profiles')
+      .insert({
+        id: userId,
+        xp: 0,
+        level: 1,
+        total_xp: 0,
+        profile_completion: 0,
+        skills: [],
+        ai_tools: [],
+        reputation_score: 0,
+      })
+      .select()
+      .single();
+
+    if (error && !error.message.includes('duplicate') && error.code !== '23505') {
+      console.error('Failed to ensure profile exists:', error);
+    }
+  } catch (err) {
+    console.error('ensureProfileExists exception:', err);
+  }
 }
 
