@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../lib/supabase'
+import { supabase } from '@/lib/supabase'
 import { addToWaitlist } from '../services/waitlistService'
 import { CheckCircle, XCircle, Loader2 } from 'lucide-react'
 

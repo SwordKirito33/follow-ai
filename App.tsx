@@ -2,8 +2,9 @@ import React, { useEffect, lazy, Suspense, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
-import { AuthProvider } from './contexts/AuthContext';
-import { ToastProvider } from './components/ui/toast';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ToastProvider, useToast } from './components/ui/toast';
+import XpEventRenderer from './src/components/XpEventRenderer';
 import Navbar from './components/Navbar';
 import VisitTracker from './components/VisitTracker';
 import IntroAnimation from './components/IntroAnimation/IntroAnimation';
@@ -33,6 +34,8 @@ const Onboarding = lazy(() => import('./pages/Onboarding'));
 const HireNew = lazy(() => import('./pages/HireNew'));
 const HireDetail = lazy(() => import('./pages/HireDetail'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
+const XpHistory = lazy(() => import('./pages/XpHistory'));
+const AdminXpPanelPage = lazy(() => import('./pages/AdminXpPanelPage'));
 const SupabaseTest = lazy(() => import('./components/SupabaseTest'));
 
 // Loading fallback component
@@ -53,7 +56,8 @@ const ScrollToTop = () => {
   return null;
 };
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
+  const { isLoading } = useAuth();
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
 
   // Command palette keyboard shortcut
@@ -69,26 +73,39 @@ const App: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // 🔥 CRITICAL: Show loading during auth initialization
+  if (isLoading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        fontSize: '18px'
+      }}>
+        Loading...
+      </div>
+    );
+  }
+
   return (
-    <LanguageProvider>
-      <AuthProvider>
-        <ToastProvider>
-          <Router>
-        <ScrollToTop />
-        <IntroAnimation />
-        <CommandPalette
-          isOpen={isCommandPaletteOpen}
-          onClose={() => setIsCommandPaletteOpen(false)}
-        />
-        <motion.div
-          className="flex flex-col min-h-screen font-sans text-gray-900"
-          initial={{ opacity: hasSeenIntro() ? 1 : 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4 }}
-        >
-          <VisitTracker />
-          <Navbar />
-          <main className="flex-grow page-transition">
+    <>
+      <ScrollToTop />
+      <IntroAnimation />
+      <XpEventRenderer />
+      <CommandPalette
+        isOpen={isCommandPaletteOpen}
+        onClose={() => setIsCommandPaletteOpen(false)}
+      />
+      <motion.div
+        className="flex flex-col min-h-screen font-sans text-gray-900"
+        initial={{ opacity: hasSeenIntro() ? 1 : 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+      >
+        <VisitTracker />
+        <Navbar />
+        <main className="flex-grow page-transition">
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/test-supabase" element={<SupabaseTest />} />
@@ -96,11 +113,13 @@ const App: React.FC = () => {
               <Route path="/submit" element={<SubmitReview />} />
               <Route path="/task/:taskId/submit" element={<TaskSubmit />} />
               <Route path="/history" element={<SubmissionHistory />} />
+              <Route path="/xp-history" element={<XpHistory />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/tasks" element={<Tasks />} />
               <Route path="/payments" element={<Payments />} />
               <Route path="/rankings" element={<RankingsPage />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
+              <Route path="/admin/xp" element={<AdminXpPanelPage />} />
               <Route path="/news" element={<NewsPage />} />
               <Route path="/about" element={<About />} />
               <Route path="/help" element={<Help />} />
@@ -117,8 +136,19 @@ const App: React.FC = () => {
           </Suspense>
         </main>
         <Footer />
-        </motion.div>
-    </Router>
+      </motion.div>
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <AuthProvider>
+        <ToastProvider>
+          <Router>
+            <AppContent />
+          </Router>
         </ToastProvider>
       </AuthProvider>
     </LanguageProvider>

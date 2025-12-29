@@ -1,0 +1,93 @@
+# Follow.ai Code Rules
+
+## Import Rules
+
+ALWAYS use @/ alias for imports
+NEVER use relative paths like ../../
+Import specific functions, not entire modules
+
+Example:
+```typescript
+// ✅ Correct
+import { useAuth } from '@/contexts/AuthContext';
+import { grantXp } from '@/lib/xp-service';
+
+// ❌ Incorrect
+import { useAuth } from '../contexts/AuthContext';
+import * as lib from '@/lib';
+```
+
+## XP System Rules
+
+ALWAYS use grantXp() to award XP
+NEVER directly UPDATE profiles.xp
+ALWAYS include error handling
+
+Example:
+```typescript
+// ✅ Correct
+import { grantXp } from '@/lib/xp-service';
+await grantXp({ userId, deltaXp: 100, source: 'task', ... });
+
+// ❌ Incorrect
+await supabase.from('profiles').update({ xp: user.xp + 100 });
+```
+
+## Error Handling Rules
+
+ALWAYS use try-catch for async operations
+ALWAYS log errors with context
+ALWAYS include timestamp in error logs
+
+Example:
+```typescript
+// ✅ Correct
+try {
+  await operation();
+} catch (error) {
+  console.error('[Component] Operation failed:', {
+    error: error instanceof Error ? error.message : String(error),
+    context: { userId },
+    timestamp: new Date().toISOString()
+  });
+  throw error;
+}
+```
+
+## Type Safety Rules
+
+NEVER use any type
+ALWAYS define interfaces for data structures
+ALWAYS type function parameters and returns
+
+Example:
+```typescript
+// ✅ Correct
+interface User {
+  id: string;
+  email: string;
+}
+
+function processUser(user: User): number {
+  return user.profile.xp;
+}
+
+// ❌ Incorrect
+function processUser(user: any): any {
+  return user.profile.xp;
+}
+```
+
+## File Organization Rules
+
+Components in src/components/
+Business logic in src/lib/
+Pages in pages/
+All imports use @/ alias
+
+## Console Rules
+
+NEVER use console.log in production code
+ONLY use console.error for errors
+ONLY use console.warn for warnings
+

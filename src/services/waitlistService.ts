@@ -1,5 +1,5 @@
-import { supabase } from '../lib/supabase'
-import type { Database } from '../types/database.types'
+import { supabase } from '@/lib/supabase'
+import type { Database } from '@/types/database.types'
 
 type Waitlist = Database['public']['Tables']['waitlist']['Row']
 type WaitlistInsert = Database['public']['Tables']['waitlist']['Insert']

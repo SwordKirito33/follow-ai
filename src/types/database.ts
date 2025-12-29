@@ -69,7 +69,7 @@ export interface Database {
         Insert: {
           user_id: string;
           amount: number;
-          reason: string;
+          reason?: string;
           source: string;
           source_id?: string | null;
           is_penalty?: boolean;
@@ -176,6 +176,20 @@ export interface Database {
           file_size?: number | null;
           ip_address?: string | null;
         };
+      };
+    };
+    Functions: {
+      admin_grant_xp: {
+        Args: {
+          p_user_id: string;
+          p_delta_xp: number;
+          p_source: string;
+          p_ref_type: string | null;
+          p_ref_id: string | null;
+          p_note: string | null;
+          p_metadata: Record<string, any>;
+        };
+        Returns: void;
       };
     };
   };

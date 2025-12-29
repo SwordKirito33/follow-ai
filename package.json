@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit",
+    "check-imports": "grep -r \"from ['\\\"]\\.\\.\" src/ pages/ || echo 'All imports use @ alias ✅'",
+    "health-check": "npm run type-check && npm run check-imports"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.87.1",

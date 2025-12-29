@@ -1,7 +1,6 @@
 import { supabase } from '@/lib/supabase';
 import { validateExperienceText, detectLanguage } from '@/lib/validation';
-import { xpService } from './xpService';
-import { XP_SOURCES } from '@/lib/constants';
+import { grantXp } from '@/lib/xp-service';
 import type { Database } from '@/types/database';
 
 type TaskSubmission = Database['public']['Tables']['task_submissions']['Row'];
@@ -53,17 +52,18 @@ export const submissionService = {
 
     const { data: task } = await supabase
       .from('tasks')
-      .select('reward_xp, title')
+      .select('xp_reward, title')
       .eq('id', taskId)
       .single();
 
-    if (task && task.reward_xp > 0) {
-      await xpService.awardXp({
+    if (task && (task as any).xp_reward > 0) {
+      await grantXp({
         userId,
-        amount: task.reward_xp,
-        reason: `Completed task: ${task.title}`,
-        source: XP_SOURCES.TASK_SUBMISSION,
-        sourceId: submission.id,
+        deltaXp: (task as any).xp_reward,
+        source: 'task',
+        refType: 'task_submission',
+        refId: submission.id,
+        note: `Completed task: ${(task as any).title}`,
       });
     }
 
@@ -79,7 +79,7 @@ export const submissionService = {
           id,
           title,
           task_type,
-          reward_xp
+          xp_reward
         )
       `)
       .eq('user_id', userId)
