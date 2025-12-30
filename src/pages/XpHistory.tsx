@@ -95,8 +95,8 @@ const XpHistory: React.FC = () => {
     );
   }
 
-  const totalXp = (user.profile as any)?.total_xp ?? 0;
-  const currentXp = (user.profile as any)?.total_xp ?? 0; // ✅ Consistent
+  const totalXp = (user.profile as any)?.total_xp ?? 0;      // Cumulative total
+  const currentXp = (user.profile as any)?.xp ?? 0;          // Progress in current level
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
