@@ -13,11 +13,10 @@ import { getLevelFromXp } from '@/lib/xp-system';
 interface Task {
   id: string;
   title: string;
-  category: string;
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
   xp_reward: number;
   description: string;
-  is_active: boolean;
+  status: string;
   created_at: string;
 }
 
@@ -43,7 +42,7 @@ const Tasks: React.FC = () => {
         const { data: allTasks, error: fetchError } = await supabase
           .from('tasks')
           .select('*')
-          .eq('is_active', true)
+          .eq('status', 'active')
           .order('xp_reward', { ascending: true });
 
         if (fetchError) {
@@ -60,7 +59,9 @@ const Tasks: React.FC = () => {
             .select('task_id')
             .eq('user_id', user.id);
           
-          subs?.forEach(s => completedIds.add(s.task_id));
+          if (subs) {
+            subs.forEach((s: { task_id: string }) => completedIds.add(s.task_id));
+          }
         }
 
         // 3. 过滤：只显示未完成的任务
@@ -169,9 +170,9 @@ const Tasks: React.FC = () => {
         <div className="flex items-center gap-2 mb-8 overflow-x-auto">
           {[
             { id: 'all', label: 'All Tasks' },
-            { id: 'easy', label: 'Easy' },
-            { id: 'medium', label: 'Medium' },
-            { id: 'hard', label: 'Hard' },
+            { id: 'beginner', label: 'Beginner' },
+            { id: 'intermediate', label: 'Intermediate' },
+            { id: 'advanced', label: 'Advanced' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -226,15 +227,12 @@ const Tasks: React.FC = () => {
                     <div className="flex items-center gap-3 mb-2">
                       <Badge 
                         variant={
-                          task.difficulty === 'easy' ? 'success' :
-                          task.difficulty === 'medium' ? 'warning' : 'error'
+                          task.difficulty === 'beginner' ? 'success' :
+                          task.difficulty === 'intermediate' ? 'warning' : 'error'
                         } 
                         size="sm"
                       >
                         {task.difficulty.toUpperCase()}
-                      </Badge>
-                      <Badge variant="info" size="sm">
-                        {task.category}
                       </Badge>
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{task.title}</h3>

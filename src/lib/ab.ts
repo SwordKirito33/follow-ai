@@ -18,7 +18,7 @@ export interface ExperimentVariant {
   key: string;
   variant: string;
   value: any;
-  is_active: boolean;
+  status: string;
 }
 
 /**
@@ -34,7 +34,7 @@ export async function getExperimentVariant(
       .from('gamification_experiments')
       .select('*')
       .eq('key', experimentKey)
-      .eq('is_active', true);
+      .eq('status', 'active');
 
     if (error) throw error;
     if (!data || data.length === 0) return null;
@@ -71,7 +71,7 @@ export async function getExperimentValue(
       .select('value')
       .eq('key', experimentKey)
       .eq('variant', variant)
-      .eq('is_active', true)
+      .eq('status', 'active')
       .maybeSingle();
 
     if (error) throw error;

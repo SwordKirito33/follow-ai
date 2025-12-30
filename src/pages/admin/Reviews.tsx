@@ -13,6 +13,12 @@ import { supabase } from '@/lib/supabase';
 import FollowButton from '@/components/ui/follow-button';
 import Badge from '@/components/ui/Badge';
 
+interface RpcResponse {
+  success: boolean;
+  xp_added?: number;
+  message?: string;
+}
+
 interface Submission {
   submission_id: string;
   submission_content: string | null;
@@ -118,7 +124,10 @@ const Reviews: React.FC = () => {
     setProcessing(submissionId);
 
     try {
-      const { data, error } = await (supabase.rpc as any)('approve_submission', {
+      const { data, error } = await (supabase.rpc as unknown as (
+        name: string,
+        args: Record<string, any>
+      ) => Promise<{ data: RpcResponse | null; error: any }>)('approve_submission', {
         submission_uuid: submissionId,
         notes: notes || null,
       });
@@ -127,8 +136,15 @@ const Reviews: React.FC = () => {
         throw error;
       }
 
-      if (data && (data as any).success) {
-        toast.success('Submission approved!', `Awarded ${(data as any).xp_added || 0} XP`);
+      // Validate response structure
+      const result = data as RpcResponse;
+
+      if (!result || typeof result.success !== 'boolean') {
+        throw new Error('Invalid RPC response');
+      }
+
+      if (result.success) {
+        toast.success('Submission approved!', `Awarded ${result.xp_added || 0} XP`);
         // Clear notes for this submission
         setReviewNotes((prev) => {
           const updated = { ...prev };
@@ -137,7 +153,7 @@ const Reviews: React.FC = () => {
         });
         await fetchSubmissions(currentTab);
       } else {
-        toast.error('Approval failed', (data as any)?.message || 'Unknown error');
+        toast.error('Approval failed', result.message || 'Unknown error');
       }
     } catch (err) {
       console.error('Approval error:', err);
@@ -160,7 +176,10 @@ const Reviews: React.FC = () => {
     setProcessing(submissionId);
 
     try {
-      const { data, error } = await (supabase.rpc as any)('reject_submission', {
+      const { data, error } = await (supabase.rpc as unknown as (
+        name: string,
+        args: Record<string, any>
+      ) => Promise<{ data: RpcResponse | null; error: any }>)('reject_submission', {
         submission_uuid: submissionId,
         notes: notes,
       });
@@ -169,7 +188,14 @@ const Reviews: React.FC = () => {
         throw error;
       }
 
-      if (data && (data as any).success) {
+      // Validate response structure
+      const result = data as RpcResponse;
+
+      if (!result || typeof result.success !== 'boolean') {
+        throw new Error('Invalid RPC response');
+      }
+
+      if (result.success) {
         toast.success('Submission rejected');
         // Clear notes for this submission
         setReviewNotes((prev) => {
@@ -179,7 +205,7 @@ const Reviews: React.FC = () => {
         });
         await fetchSubmissions(currentTab);
       } else {
-        toast.error('Rejection failed', (data as any)?.message || 'Unknown error');
+        toast.error('Rejection failed', result.message || 'Unknown error');
       }
     } catch (err) {
       console.error('Rejection error:', err);

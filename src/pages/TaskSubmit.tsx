@@ -156,7 +156,7 @@ export default function TaskSubmit() {
       }
       
       const profileData = profile as any;
-      console.log('Step 3: Current XP:', profileData.xp);
+      console.log('Step 3: Current XP:', profileData.total_xp);
       
       // Step 3: Award XP using event-sourced system
       const submissionId = (submission as any)?.id || taskId;

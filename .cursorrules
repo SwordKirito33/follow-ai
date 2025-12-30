@@ -1,93 +1,78 @@
-# Follow.ai Code Rules
+# Follow.ai Project Rules
 
-## Import Rules
+## Tech Stack
+- React 19 + TypeScript (strict mode enabled)
+- Supabase (PostgreSQL + RLS + Edge Functions + Auth)
+- Tailwind CSS for styling
+- Lucide React for icons
+- Framer Motion for animations
 
-ALWAYS use @/ alias for imports
-NEVER use relative paths like ../../
-Import specific functions, not entire modules
+## Database Conventions
+- Always assume ALL fields can be NULL unless schema explicitly shows NOT NULL
+- Check actual table schema before using any field
+- Use typeof checks for optional/nullable fields before rendering
+- Never render null/undefined directly to UI - use fallbacks
 
-Example:
-```typescript
-// ✅ Correct
-import { useAuth } from '@/contexts/AuthContext';
-import { grantXp } from '@/lib/xp-service';
+## Component Library Constraints
+**Badge Component:**
+- ONLY these variants exist: 'success' | 'warning' | 'danger' | 'secondary'
+- DO NOT use 'info' or 'primary' variants (they don't exist)
 
-// ❌ Incorrect
-import { useAuth } from '../contexts/AuthContext';
-import * as lib from '@/lib';
-```
+**FollowButton Component:**
+- ONLY these variants exist: 'primary' | 'secondary'
+- DO NOT use 'destructive' variant (doesn't exist)
+- For red buttons: use variant="secondary" + className="bg-red-500 hover:bg-red-600 text-white"
 
-## XP System Rules
+## Supabase Patterns
+- Always use supabase.rpc() for database functions
+- Always verify JWT tokens in Edge Functions
+- Use RLS policies for access control
+- Deploy Edge Functions with: npx supabase functions deploy <function-name>
+- Project ID: nbvnnhojvkxfnididast
 
-ALWAYS use grantXp() to award XP
-NEVER directly UPDATE profiles.xp
-ALWAYS include error handling
+## Error Handling
+- Always use try-catch for async operations
+- Always use finally blocks for cleanup (especially state resets)
+- Show user-friendly error messages via useToast
+- Log errors to console for debugging
+- Never let the app crash silently
 
-Example:
-```typescript
-// ✅ Correct
-import { grantXp } from '@/lib/xp-service';
-await grantXp({ userId, deltaXp: 100, source: 'task', ... });
+## UI/UX Patterns
+- Add loading states for all async operations
+- Disable buttons during processing to prevent double-clicks
+- Use useToast hook for all notifications
+- Format relative timestamps (e.g., "2 hours ago")
+- Always add null/undefined fallbacks in JSX:
+  - user_level ?? 1
+  - username ?? 'unknown'
+  - avatar_url ?? default_avatar
+  - xp ?? 0
 
-// ❌ Incorrect
-await supabase.from('profiles').update({ xp: user.xp + 100 });
-```
+## TypeScript Rules
+- Always define proper interfaces for data structures
+- Match interface types to actual database nullable fields
+- Use `| null` for nullable database columns
+- Use `?` for optional properties that may not exist in response
 
-## Error Handling Rules
+## State Management
+- Use useState for component state
+- Use useRef for values that shouldn't trigger re-renders (like cancel flags)
+- Always clean up state in finally blocks or useEffect cleanup
+- Prevent concurrent async operations with loading flags
 
-ALWAYS use try-catch for async operations
-ALWAYS log errors with context
-ALWAYS include timestamp in error logs
+## Code Style
+- Keep functions focused and single-purpose
+- Extract magic numbers to constants
+- Use descriptive variable names
+- Add comments only for complex logic
+- Prefer early returns over nested if-else
 
-Example:
-```typescript
-// ✅ Correct
-try {
-  await operation();
-} catch (error) {
-  console.error('[Component] Operation failed:', {
-    error: error instanceof Error ? error.message : String(error),
-    context: { userId },
-    timestamp: new Date().toISOString()
-  });
-  throw error;
-}
-```
-
-## Type Safety Rules
-
-NEVER use any type
-ALWAYS define interfaces for data structures
-ALWAYS type function parameters and returns
-
-Example:
-```typescript
-// ✅ Correct
-interface User {
-  id: string;
-  email: string;
-}
-
-function processUser(user: User): number {
-  return user.profile.xp;
-}
-
-// ❌ Incorrect
-function processUser(user: any): any {
-  return user.profile.xp;
-}
-```
-
-## File Organization Rules
-
-Components in src/components/
-Business logic in src/lib/
-Pages in pages/
-All imports use @/ alias
-
-## Console Rules
-
-NEVER use console.log in production code
-ONLY use console.error for errors
-ONLY use console.warn for warnings
-
+## DO NOT
+- Assume field names without checking actual schema
+- Use Badge variants other than success/warning/danger/secondary
+- Use FollowButton variants other than primary/secondary
+- Render null/undefined directly to UI
+- Modify files not explicitly requested
+- Add features not specifically asked for
+- Over-refactor working code
+- Remove error handling or loading states

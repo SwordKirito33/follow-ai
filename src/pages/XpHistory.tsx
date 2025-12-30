@@ -96,7 +96,7 @@ const XpHistory: React.FC = () => {
   }
 
   const totalXp = (user.profile as any)?.total_xp ?? 0;
-  const currentXp = (user.profile as any)?.xp ?? 0; // Current level XP (cache field)
+  const currentXp = (user.profile as any)?.total_xp ?? 0; // ✅ Consistent
 
   return (
     <div className="min-h-screen py-12 px-4 relative">

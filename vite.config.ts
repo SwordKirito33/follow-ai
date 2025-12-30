@@ -8,6 +8,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    port: 5173,
+    strictPort: false, // 如果5173被占用，自动尝试下一个端口
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

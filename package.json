@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "check-imports": "grep -r \"from ['\\\"]\\.\\.\" src/ pages/ || echo 'All imports use @ alias ✅'",
-    "health-check": "npm run type-check && npm run check-imports"
+    "health-check": "npm run type-check && npm run check-imports",
+    "generate-tasks": "tsx scripts/generate-all-tasks.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.87.1",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "tsx": "^4.7.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }

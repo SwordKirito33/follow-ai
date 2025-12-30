@@ -9,7 +9,9 @@ const About: React.FC = () => {
       <div className="container mx-auto max-w-4xl space-y-8 relative z-10">
         <header className="animate-slideDown">
           <h1 className="text-4xl font-bold gradient-text">{t('about.title')}</h1>
-          <p className="text-gray-600 mt-3 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.intro') }} />
+          <p className="text-gray-600 mt-3 leading-relaxed">
+            {t('about.intro')}
+          </p>
         </header>
 
         <section className="glass-card rounded-2xl shadow-xl p-6 space-y-4 animate-slideUp">

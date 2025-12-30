@@ -109,8 +109,8 @@ async function fetchProfile(userId: string, retries = 2): Promise<Profile | null
       const data = result.data as Profile;
       console.log('[Auth] Profile fetched successfully:', {
         userId,
-        total_xp: (data as any).total_xp,
-        level: (data as any).level,
+        total_xp: data.total_xp,
+        level: data.level,
         attempt: attempt + 1
       });
       
@@ -133,7 +133,7 @@ async function fetchProfile(userId: string, retries = 2): Promise<Profile | null
 }
 
 async function mapToUser(profile: Profile, email: string): Promise<User> {
-  const totalXp = (profile as any).total_xp ?? 0;
+  const totalXp = profile.total_xp ?? 0;
   
   // 🔥 调用统一算法
   const levelInfo = getLevelFromXp(totalXp);
@@ -217,7 +217,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             return;
           }
 
-          const newXp = (profile as any).total_xp ?? 0;
+          const newXp = profile.total_xp ?? 0;
           const prevXp = lastXpRef.current;
           
           if (prevXp !== null && newXp > prevXp) {
@@ -272,7 +272,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           return;
         }
 
-        const newXp = (profile as any).total_xp ?? 0;
+        const newXp = profile.total_xp ?? 0;
         const prevXp = lastXpRef.current;
         
         if (prevXp !== null && newXp > prevXp) {
@@ -326,7 +326,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           console.log('[Auth] Profile updated via Realtime:', payload);
           
           const newProfile = payload.new as Profile;
-          const newXp = (newProfile as any).total_xp ?? 0;
+          const newXp = newProfile.total_xp ?? 0;
           const prevXp = lastXpRef.current;
           
           if (prevXp !== null && newXp > prevXp) {
@@ -443,7 +443,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         return;
       }
 
-      const newXp = (profile as any).total_xp ?? 0;
+      const newXp = profile.total_xp ?? 0;
       const prevXp = lastXpRef.current;
       
       if (prevXp !== null && newXp > prevXp) {

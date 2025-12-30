@@ -1,9 +1,9 @@
 import React, { useEffect, lazy, Suspense, useState } from 'react';
 import { motion } from 'framer-motion';
-import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { AuthProvider, useAuth } from '@/contexts/AuthContext';
-import { ToastProvider, useToast } from '@/components/ui/toast';
+import { ToastProvider } from '@/components/ui/toast';
 import XpEventRenderer from '@/components/XpEventRenderer';
 import Navbar from '@/components/Navbar';
 import VisitTracker from '@/components/VisitTracker';
@@ -36,6 +36,8 @@ const HireDetail = lazy(() => import('@/pages/HireDetail'));
 const Dashboard = lazy(() => import('@/pages/Dashboard'));
 const XpHistory = lazy(() => import('@/pages/XpHistory'));
 const AdminXpPanelPage = lazy(() => import('@/pages/AdminXpPanelPage'));
+const AdminDashboard = lazy(() => import('@/pages/admin/Dashboard'));
+const AdminReviews = lazy(() => import('@/pages/admin/Reviews'));
 const SupabaseTest = lazy(() => import('@/components/SupabaseTest'));
 
 // Loading fallback component
@@ -132,6 +134,8 @@ const AppContent: React.FC = () => {
               <Route path="/hire/:id" element={<HireDetail />} />
               <Route path="/onboarding" element={<Onboarding />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/reviews" element={<AdminReviews />} />
             </Routes>
           </Suspense>
         </main>
