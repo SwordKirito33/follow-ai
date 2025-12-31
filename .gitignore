@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# === Security: Prevent Future Leaks ===
+.env*
+!.env.example
+*.zip
+repomix-output.xml
+**/.DS_Store
+backup-*
+*.pem
+*.key
+.vercel/
