@@ -32,3 +32,5 @@ backup-*
 *.pem
 *.key
 .vercel/
+
+replacements.txt
