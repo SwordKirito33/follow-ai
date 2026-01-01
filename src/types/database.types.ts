@@ -52,14 +52,14 @@ export interface Database {
           id: string
           name: string
           slug: string
-          description: string | null
-          category: string
-          website_url: string | null
-          logo_url: string | null
-          pricing_type: string | null
-          average_rating: number
-          total_reviews: number
-          is_verified: boolean
+          tagline: string
+          description: string
+          website_url: string
+          logo_url: string
+          category: string[]
+          status: string
+          ai_confidence: number | null
+          submitted_by: string | null
           created_at: string
           updated_at: string
         }
@@ -67,14 +67,14 @@ export interface Database {
           id?: string
           name: string
           slug: string
-          description?: string | null
-          category: string
-          website_url?: string | null
-          logo_url?: string | null
-          pricing_type?: string | null
-          average_rating?: number
-          total_reviews?: number
-          is_verified?: boolean
+          tagline: string
+          description: string
+          website_url?: string
+          logo_url?: string
+          category?: string[]
+          status?: string
+          ai_confidence?: number | null
+          submitted_by?: string | null
           created_at?: string
           updated_at?: string
         }
@@ -82,14 +82,14 @@ export interface Database {
           id?: string
           name?: string
           slug?: string
-          description?: string | null
-          category?: string
-          website_url?: string | null
-          logo_url?: string | null
-          pricing_type?: string | null
-          average_rating?: number
-          total_reviews?: number
-          is_verified?: boolean
+          tagline?: string
+          description?: string
+          website_url?: string
+          logo_url?: string
+          category?: string[]
+          status?: string
+          ai_confidence?: number | null
+          submitted_by?: string | null
           created_at?: string
           updated_at?: string
         }

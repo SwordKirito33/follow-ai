@@ -1,126 +1,246 @@
+// src/services/storageService.ts
+
 import { supabase } from '@/lib/supabase';
-import { STORAGE_BUCKETS, UPLOAD_LIMITS } from '@/lib/constants';
 
-export const storageService = {
-  async canUpload(userId: string, bucket: string): Promise<{
-    allowed: boolean;
-    remaining: number;
-    message?: string;
-  }> {
-    const oneDayAgo = new Date();
-    oneDayAgo.setDate(oneDayAgo.getDate() - 1);
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const ALLOWED_FILE_TYPES = [
+  'image/jpeg',
+  'image/png',
+  'image/gif',
+  'image/webp',
+  'application/pdf',
+  'text/plain',
+  'text/javascript',
+  'text/python',
+  'application/json',
+];
 
-    const { count, error } = await supabase
-      .from('upload_logs')
-      .select('*', { count: 'exact', head: true })
-      .eq('user_id', userId)
-      .eq('bucket', bucket)
-      .gte('created_at', oneDayAgo.toISOString());
+export interface UploadResult {
+  url: string;
+  path: string;
+  size: number;
+  type: string;
+}
 
-    if (error) {
-      console.error('Failed to check upload limit:', error);
-      return { allowed: true, remaining: UPLOAD_LIMITS.DAILY_PER_BUCKET };
-    }
+export interface UploadProgress {
+  loaded: number;
+  total: number;
+  percentage: number;
+}
 
-    const uploadCount = count || 0;
-    const remaining = Math.max(0, UPLOAD_LIMITS.DAILY_PER_BUCKET - uploadCount);
-    const allowed = uploadCount < UPLOAD_LIMITS.DAILY_PER_BUCKET;
+/**
+ * 上传评论输出文件到 Storage
+ */
+export async function uploadOutputFile(
+  file: File,
+  userId: string,
+  onProgress?: (progress: UploadProgress) => void
+): Promise<UploadResult> {
+  // 验证文件大小
+  if (file.size > MAX_FILE_SIZE) {
+    throw new Error(`File size exceeds ${MAX_FILE_SIZE / 1024 / 1024}MB limit`);
+  }
 
-    return {
-      allowed,
-      remaining,
-      message: allowed 
-        ? undefined 
-        : `Upload limit reached (${UPLOAD_LIMITS.DAILY_PER_BUCKET} per day). Try again tomorrow.`,
-    };
-  },
+  // 验证文件类型
+  if (!ALLOWED_FILE_TYPES.includes(file.type)) {
+    throw new Error(`File type ${file.type} is not allowed`);
+  }
 
-  async uploadFile(params: {
-    file: File;
-    bucket: string;
-    userId: string;
-    path?: string;
-    allowedTypes?: string[];
-  }): Promise<string> {
-    const { file, bucket, userId, path, allowedTypes } = params;
+  // 生成唯一文件名
+  const timestamp = Date.now();
+  const randomStr = Math.random().toString(36).substring(2, 15);
+  const fileExt = file.name.split('.').pop();
+  const fileName = `${timestamp}_${randomStr}.${fileExt}`;
+  const filePath = `${userId}/${fileName}`;
 
-    const limitCheck = await this.canUpload(userId, bucket);
-    if (!limitCheck.allowed) {
-      throw new Error(limitCheck.message || 'Upload limit reached');
-    }
-
-    const fileSizeMB = file.size / (1024 * 1024);
-    if (fileSizeMB > UPLOAD_LIMITS.MAX_FILE_SIZE_MB) {
-      throw new Error(`File too large (max ${UPLOAD_LIMITS.MAX_FILE_SIZE_MB}MB)`);
-    }
-
-    if (allowedTypes && !allowedTypes.includes(file.type)) {
-      throw new Error(`File type ${file.type} not allowed`);
-    }
-
-    const timestamp = Date.now();
-    const fileName = path || `${userId}/${timestamp}-${file.name}`;
-
-    const { data, error } = await supabase.storage
-      .from(bucket)
-      .upload(fileName, file, {
-        cacheControl: '3600',
-        upsert: bucket === STORAGE_BUCKETS.AVATARS,
+  // 模拟上传进度（Supabase Storage 不支持原生进度回调）
+  if (onProgress) {
+    const interval = setInterval(() => {
+      const progress = Math.min(Math.random() * 100, 90);
+      onProgress({
+        loaded: (file.size * progress) / 100,
+        total: file.size,
+        percentage: progress,
       });
+    }, 200);
 
-    if (error) throw error;
+    // 清理定时器
+    setTimeout(() => clearInterval(interval), 2000);
+  }
 
-    await supabase.from('upload_logs').insert({
-      user_id: userId,
-      bucket,
-      file_size: file.size,
-      ip_address: null,
+  // 上传文件
+  const { data, error } = await supabase.storage
+    .from('review-outputs')
+    .upload(filePath, file, {
+      cacheControl: '3600',
+      upsert: false,
     });
 
-    const { data: urlData } = supabase.storage
-      .from(bucket)
-      .getPublicUrl(data.path);
+  if (error) {
+    console.error('[storageService] Upload error:', error);
+    throw new Error(`Upload failed: ${error.message}`);
+  }
 
-    return urlData.publicUrl;
-  },
+  // 获取公开 URL
+  const { data: urlData } = supabase.storage
+    .from('review-outputs')
+    .getPublicUrl(filePath);
 
-  async uploadAvatar(userId: string, file: File): Promise<string> {
-    const extension = file.name.split('.').pop();
-    return this.uploadFile({
-      file,
-      bucket: STORAGE_BUCKETS.AVATARS,
-      userId,
-      path: `${userId}/avatar.${extension}`,
-      allowedTypes: UPLOAD_LIMITS.ALLOWED_IMAGE_TYPES,
+  if (onProgress) {
+    onProgress({
+      loaded: file.size,
+      total: file.size,
+      percentage: 100,
     });
-  },
+  }
 
-  async uploadTaskOutput(userId: string, file: File): Promise<string> {
-    return this.uploadFile({
-      file,
-      bucket: STORAGE_BUCKETS.REVIEW_OUTPUTS,
-      userId,
-      allowedTypes: [
-        ...UPLOAD_LIMITS.ALLOWED_IMAGE_TYPES,
-        ...UPLOAD_LIMITS.ALLOWED_DOCUMENT_TYPES,
-      ],
+  return {
+    url: urlData.publicUrl,
+    path: filePath,
+    size: file.size,
+    type: file.type,
+  };
+}
+
+/**
+ * 上传用户头像
+ */
+export async function uploadAvatar(
+  file: File,
+  userId: string
+): Promise<UploadResult> {
+  // 验证文件类型（仅允许图片）
+  if (!file.type.startsWith('image/')) {
+    throw new Error('Only image files are allowed for avatars');
+  }
+
+  // 验证文件大小（头像最大 2MB）
+  const MAX_AVATAR_SIZE = 2 * 1024 * 1024;
+  if (file.size > MAX_AVATAR_SIZE) {
+    throw new Error(`Avatar size exceeds ${MAX_AVATAR_SIZE / 1024 / 1024}MB limit`);
+  }
+
+  const fileExt = file.name.split('.').pop();
+  const fileName = `avatar.${fileExt}`;
+  const filePath = `${userId}/${fileName}`;
+
+  // 上传文件（覆盖旧头像）
+  const { data, error } = await supabase.storage
+    .from('user-avatars')
+    .upload(filePath, file, {
+      cacheControl: '3600',
+      upsert: true, // 覆盖旧文件
     });
-  },
 
-  async uploadPortfolioImage(userId: string, file: File): Promise<string> {
-    return this.uploadFile({
-      file,
-      bucket: STORAGE_BUCKETS.PORTFOLIO_IMAGES,
-      userId,
-      allowedTypes: UPLOAD_LIMITS.ALLOWED_IMAGE_TYPES,
+  if (error) {
+    throw new Error(`Upload failed: ${error.message}`);
+  }
+
+  const { data: urlData } = supabase.storage
+    .from('user-avatars')
+    .getPublicUrl(filePath);
+
+  return {
+    url: urlData.publicUrl,
+    path: filePath,
+    size: file.size,
+    type: file.type,
+  };
+}
+
+/**
+ * 上传作品集图片
+ */
+export async function uploadPortfolioImage(
+  file: File,
+  userId: string
+): Promise<UploadResult> {
+  if (!file.type.startsWith('image/')) {
+    throw new Error('Only image files are allowed');
+  }
+
+  if (file.size > MAX_FILE_SIZE) {
+    throw new Error(`File size exceeds ${MAX_FILE_SIZE / 1024 / 1024}MB limit`);
+  }
+
+  const timestamp = Date.now();
+  const randomStr = Math.random().toString(36).substring(2, 15);
+  const fileExt = file.name.split('.').pop();
+  const fileName = `${timestamp}_${randomStr}.${fileExt}`;
+  const filePath = `${userId}/${fileName}`;
+
+  const { data, error } = await supabase.storage
+    .from('portfolio-images')
+    .upload(filePath, file, {
+      cacheControl: '3600',
+      upsert: false,
     });
-  },
 
-  async deleteFile(bucket: string, path: string): Promise<void> {
+  if (error) {
+    throw new Error(`Upload failed: ${error.message}`);
+  }
+
+  const { data: urlData } = supabase.storage
+    .from('portfolio-images')
+    .getPublicUrl(filePath);
+
+  return {
+    url: urlData.publicUrl,
+    path: filePath,
+    size: file.size,
+    type: file.type,
+  };
+}
+
+/**
+ * 删除文件
+ */
+export async function deleteOutputFile(filePath: string): Promise<boolean> {
+  try {
     const { error } = await supabase.storage
-      .from(bucket)
-      .remove([path]);
+      .from('review-outputs')
+      .remove([filePath]);
+    
+    if (error) {
+      console.error('Delete error:', error);
+      return false;
+    }
+    
+    return true;
+  } catch (error) {
+    console.error('Delete error:', error);
+    return false;
+  }
+}
 
-    if (error) throw error;
-  },
-};
+/**
+ * 验证文件类型
+ */
+export function validateFileType(file: File, allowedTypes: string[]): boolean {
+  return allowedTypes.some(type => {
+    if (type.endsWith('/*')) {
+      const prefix = type.split('/')[0];
+      return file.type.startsWith(prefix + '/');
+    }
+    return file.type === type;
+  });
+}
+
+/**
+ * 验证文件大小
+ */
+export function validateFileSize(file: File, maxSizeMB: number): boolean {
+  const maxSizeBytes = maxSizeMB * 1024 * 1024;
+  return file.size <= maxSizeBytes;
+}
+
+/**
+ * 格式化文件大小
+ */
+export function formatFileSize(bytes: number): string {
+  if (bytes === 0) return '0 Bytes';
+  const k = 1024;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
+}
