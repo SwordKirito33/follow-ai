@@ -165,7 +165,7 @@ const XpHistory: React.FC = () => {
             <div className="space-y-4 mb-8">
               {events.map((event) => {
                 const sourceMeta = config ? getSourceMeta(event.source, config.xp_sources) : { label: event.source, emoji: '' };
-                const isPositive = event.delta_xp > 0;
+                const isPositive = event.amount > 0;
 
                 return (
                   <div
@@ -181,13 +181,13 @@ const XpHistory: React.FC = () => {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="font-bold text-gray-900">
-                            {isPositive ? '+' : ''}{event.delta_xp} XP
+                            {isPositive ? '+' : ''}{event.amount} XP
                           </span>
                           <span className="text-sm text-gray-500">•</span>
                           <span className="text-sm text-gray-600">{sourceMeta.label}</span>
                         </div>
-                        {event.note && (
-                          <p className="text-sm text-gray-600 mb-1">{event.note}</p>
+                        {event.reason && (
+                          <p className="text-sm text-gray-600 mb-1">{event.reason}</p>
                         )}
                         <div className="flex items-center gap-2 text-xs text-gray-500">
                           <Calendar size={14} />

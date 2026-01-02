@@ -311,10 +311,10 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
                   >
                     <div>
                       <div className="font-semibold text-gray-900">
-                        {event.delta_xp > 0 ? '+' : ''}{event.delta_xp} XP
+                        {event.amount > 0 ? '+' : ''}{event.amount} XP
                       </div>
-                      {event.note && (
-                        <div className="text-gray-600 text-xs mt-1">{event.note}</div>
+                      {event.reason && (
+                        <div className="text-gray-600 text-xs mt-1">{event.reason}</div>
                       )}
                     </div>
                     <div className="text-gray-500 text-xs">
