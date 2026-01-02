@@ -7,15 +7,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react( )],
+  plugins: [react()],
   server: {
     port: 5173,
-    strictPort: false,
-    host: true, // 允许外部访问
-    allowedHosts: [
-      'sharlene-gasiform-unflatteringly.ngrok-free.dev',
-      '.ngrok-free.dev', // 允许所有 ngrok 域名
-    ],
+    strictPort: false, // 如果5173被占用，自动尝试下一个端口
   },
   resolve: {
     alias: {
