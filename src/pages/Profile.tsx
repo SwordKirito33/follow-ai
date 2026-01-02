@@ -8,10 +8,15 @@ import EditProfileModal from '@/components/EditProfileModal';
 import AuthModal from '@/components/AuthModal';
 import ProfileTabs from '@/components/ProfileTabs';
 import FollowButton from '@/components/ui/follow-button';
-import { Award, DollarSign, Star, LogOut, Edit } from 'lucide-react';
+import { Award, DollarSign, Star, LogOut, Edit, Trophy } from 'lucide-react';
 import LazyImage from '@/components/LazyImage';
 import { calculateProfileCompletion } from '@/lib/xp-system';
 import { getLevelFromXp } from '@/lib/xp-system';
+import UserInfo from '@/components/UserInfo';
+import LevelProgress from '@/components/LevelProgress';
+import BadgeGrid from '@/components/BadgeGrid';
+import XPHistory from '@/components/XPHistory';
+import { getLevelInfo, getBadgesForLevel } from '@/lib/level-calculation';
 
 const Profile: React.FC = () => {
   const { t } = useLanguage();
@@ -66,92 +71,84 @@ const Profile: React.FC = () => {
     }
   };
 
+  // Calculate level info using the new level calculation
+  const totalXp = user.profile?.total_xp ?? 0;
+  const currentXp = user.profile?.xp ?? 0;
+  const levelInfo = getLevelInfo(totalXp);
+  const badges = getBadgesForLevel(levelInfo.level);
+  const isLevel100 = levelInfo.level >= 100;
+  const joinedDate = user.profile?.created_at || new Date().toISOString();
+
   return (
     <div className="min-h-screen py-12 px-4 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
       <div className="container mx-auto max-w-5xl relative z-10">
-        {/* Header Card */}
-        <div className="glass-card rounded-2xl shadow-xl overflow-hidden mb-8 animate-slideDown">
-          <div className="h-32 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
-          </div>
-          <div className="px-8 pb-8">
-            <div className="relative flex justify-between items-end -mt-12 mb-6">
-              <div className="flex items-end gap-6">
-                <LazyImage src={user.avatar || user.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.id}`} alt="Profile" className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-white" />
-                <div className="mb-2">
-                  <h1 className="text-3xl font-black text-gray-900 tracking-tight">{user.name}</h1>
-                  <p className="text-gray-600 font-medium">{user.email} • Joined Dec 2024</p>
-                </div>
+        {/* Level 100 Special Reward Banner */}
+        {isLevel100 && (
+          <div className="glass-card rounded-xl shadow-xl p-6 mb-8 bg-gradient-to-r from-yellow-50 via-orange-50 to-yellow-50 border-2 border-yellow-300 animate-slideDown">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center text-4xl">
+                <Trophy className="text-yellow-600" size={32} />
               </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setShowEditModal(true)}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-medium text-sm transition-colors flex items-center gap-2"
-                >
-                  <Edit size={16} />
-                  {t('profile.editProfile')}
-                </button>
-                <button
-                  onClick={handleLogout}
-                  className="bg-red-50 hover:bg-red-100 text-red-600 px-4 py-2 rounded-lg font-medium text-sm transition-colors flex items-center gap-2"
-                >
-                  <LogOut size={16} />
-                  {t('auth.logout')}
-                </button>
-              </div>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="glass-card rounded-xl p-4 flex items-center gap-4 hover:bg-white/90 transition-all transform hover:scale-105">
-                <div className="bg-green-100 p-3 rounded-lg text-green-600">
-                  <DollarSign size={24} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">{t('profile.totalEarnings')}</p>
-                  <p className="text-xl font-bold text-gray-900">${((user.earnings ?? 0) as number).toLocaleString()}</p>
-                </div>
-              </div>
-              
-              <div className="glass-card rounded-xl p-4 flex items-center gap-4 hover:bg-white/90 transition-all transform hover:scale-105">
-                <div className="bg-blue-100 p-3 rounded-lg text-blue-600">
-                  <Award size={24} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">{t('profile.reputationLevel')}</p>
-                  <p className="text-xl font-bold text-gray-900">{user.levelName}</p>
-                </div>
-              </div>
-
-              <div className="glass-card rounded-xl p-4 flex items-center gap-4 hover:bg-white/90 transition-all transform hover:scale-105">
-                <div className="bg-purple-100 p-3 rounded-lg text-purple-600">
-                  <Star size={24} />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Avg. Quality Score</p>
-                  <p className="text-xl font-bold text-gray-900">9.1/10</p>
-                </div>
+              <div className="flex-1">
+                <h2 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">
+                  🏆 Level 100 Achievement Unlocked!
+                </h2>
+                <p className="text-lg text-gray-700 font-semibold mb-1">
+                  Congratulations! You've reached Level 100!
+                </p>
+                <p className="text-gray-600">
+                  You are eligible for: <strong>G63 全新车一辆</strong> or <strong>成为 Follow.ai 合伙人（享受分红）</strong>
+                </p>
+                <p className="text-sm text-gray-500 mt-2">
+                  Please contact support to claim your reward.
+                </p>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
-        {/* Profile Tabs */}
-        <div className="glass-card rounded-xl shadow-xl p-8 mb-8">
+        {/* User Info */}
+        <UserInfo
+          userId={user.id}
+          username={user.profile?.username || user.name}
+          fullName={user.profile?.full_name || user.name}
+          email={user.email}
+          avatarUrl={user.profile?.avatar_url || user.avatar || user.avatarUrl}
+          level={levelInfo.level}
+          totalXp={totalXp}
+          joinedDate={joinedDate}
+          onEditClick={() => setShowEditModal(true)}
+        />
+
+        {/* Level Progress */}
+        <LevelProgress
+          levelInfo={levelInfo}
+          currentXp={currentXp}
+          totalXp={totalXp}
+        />
+
+        {/* Badges Grid */}
+        <BadgeGrid badges={badges} />
+
+        {/* XP History */}
+        <XPHistory userId={user.id} limit={50} />
+
+        {/* Profile Tabs (Optional - keep for backward compatibility) */}
+        <div className="glass-card rounded-xl shadow-xl p-8 mb-8 mt-8">
           <ProfileTabs
             user={{
               id: user.id,
               skills: user.skills || [],
               aiTools: user.aiTools || [],
               portfolioItems: user.portfolioItems || [],
-              profile: user.profile,  // 🔥 传递 profile 对象
+              profile: user.profile,
               progression: {
-                xp: user.profile?.total_xp ?? 0,
-                level: Math.floor((user.profile?.total_xp ?? 0) / 100) + 1,  // 🔥 强制实时计算
-                xpForNext: (Math.floor((user.profile?.total_xp ?? 0) / 100) + 1) * 100,
-                xpInCurrentLevel: (user.profile?.total_xp ?? 0) % 100,
-                xpToNextLevel: ((Math.floor((user.profile?.total_xp ?? 0) / 100) + 1) * 100) - (user.profile?.total_xp ?? 0),
+                xp: totalXp,
+                level: levelInfo.level,
+                xpForNext: levelInfo.xpForNextLevel,
+                xpInCurrentLevel: levelInfo.xpInCurrentLevel,
+                xpToNextLevel: levelInfo.xpToNext,
                 unlockedFeatures: [],
                 profileCompletion: calculateProfileCompletion({
                   displayName: user.name,
@@ -161,63 +158,13 @@ const Profile: React.FC = () => {
                   aiTools: user.aiTools || [],
                   portfolioItems: user.portfolioItems || [],
                 }),
-                badges: [],
+                badges: badges.filter(b => b.unlocked).map(b => b.id),
               },
             }}
             onUpdate={async (updates) => {
-              // Update user data (mock for now - integrate with AuthContext later)
               await updateUser(updates);
             }}
           />
-        </div>
-
-        {/* Content Tabs */}
-        <div className="grid lg:grid-cols-[2fr_1fr] gap-8">
-          <div>
-            <h2 className="text-xl font-bold text-gray-900 mb-6">{t('profile.myReviews')}</h2>
-            <div className="space-y-6">
-              {displayReviews.map(review => (
-                <div key={review.id} className="relative">
-                    <div className="absolute top-4 right-4 z-10 bg-gray-900 text-white text-xs px-2 py-1 rounded">
-                        {t('profile.statusLive')}
-                    </div>
-                    <ReviewCard review={{...review, user: user}} />
-                </div>
-              ))}
-              {displayReviews.length === 0 && (
-                  <div className="text-center py-12 bg-white rounded-xl border border-gray-200 border-dashed">
-                      <p className="text-gray-500">{t('profile.noReviewsYet')}</p>
-                  </div>
-              )}
-            </div>
-          </div>
-
-          <div>
-             <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Achievements</h2>
-             <div className="glass-card rounded-xl shadow-xl p-6 space-y-4">
-                <div className="flex items-center gap-3 opacity-100">
-                    <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-xl">🏆</div>
-                    <div>
-                        <h4 className="font-bold text-sm text-gray-900">First Review</h4>
-                        <p className="text-xs text-gray-500">Submitted 1 valid review</p>
-                    </div>
-                </div>
-                <div className="flex items-center gap-3 opacity-50 grayscale">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-xl">⭐</div>
-                    <div>
-                        <h4 className="font-bold text-sm text-gray-900">Top Rated</h4>
-                        <p className="text-xs text-gray-500">Get a 10/10 quality score</p>
-                    </div>
-                </div>
-                <div className="flex items-center gap-3 opacity-50 grayscale">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-xl">💰</div>
-                    <div>
-                        <h4 className="font-bold text-sm text-gray-900">Earner</h4>
-                        <p className="text-xs text-gray-500">Earn your first $100</p>
-                    </div>
-                </div>
-             </div>
-          </div>
         </div>
       </div>
       

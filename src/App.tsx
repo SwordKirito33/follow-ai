@@ -38,6 +38,10 @@ const XpHistory = lazy(() => import('@/pages/XpHistory'));
 const AdminXpPanelPage = lazy(() => import('@/pages/AdminXpPanelPage'));
 const AdminDashboard = lazy(() => import('@/pages/admin/Dashboard'));
 const AdminReviews = lazy(() => import('@/pages/admin/Reviews'));
+const DeveloperWallet = lazy(() => import('@/pages/DeveloperWallet'));
+const CreateTask = lazy(() => import('@/pages/CreateTask'));
+const TaskList = lazy(() => import('@/pages/TaskList'));
+const ReviewSubmissions = lazy(() => import('@/pages/ReviewSubmissions'));
 const SupabaseTest = lazy(() => import('@/components/SupabaseTest'));
 
 // Loading fallback component
@@ -118,6 +122,7 @@ const AppContent: React.FC = () => {
               <Route path="/xp-history" element={<XpHistory />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/tasks" element={<Tasks />} />
+              <Route path="/tasks/list" element={<TaskList />} />
               <Route path="/payments" element={<Payments />} />
               <Route path="/rankings" element={<RankingsPage />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
@@ -134,8 +139,11 @@ const AppContent: React.FC = () => {
               <Route path="/hire/:id" element={<HireDetail />} />
               <Route path="/onboarding" element={<Onboarding />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/wallet" element={<DeveloperWallet />} />
+              <Route path="/tasks/create" element={<CreateTask />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/admin/reviews" element={<AdminReviews />} />
+              <Route path="/tasks/review" element={<ReviewSubmissions />} />
             </Routes>
           </Suspense>
         </main>

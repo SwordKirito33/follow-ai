@@ -141,6 +141,22 @@ export interface Database {
         };
       };
       
+      task_applications: {
+        Row: {
+          id: string;
+          task_id: string;
+          user_id: string;
+          status: 'pending' | 'accepted' | 'rejected';
+          created_at: string;
+        };
+        Insert: {
+          task_id: string;
+          user_id: string;
+          status?: 'pending' | 'accepted' | 'rejected';
+        };
+        Update: Partial<Database['public']['Tables']['task_applications']['Insert']>;
+      };
+      
       portfolio_items: {
         Row: {
           id: string;
@@ -176,6 +192,52 @@ export interface Database {
           file_size?: number | null;
           ip_address?: string | null;
         };
+      };
+      
+      wallets: {
+        Row: {
+          id: string;
+          user_id: string;
+          balance: number;
+          total_purchased: number;
+          total_spent: number;
+          currency: string;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          balance?: number;
+          total_purchased?: number;
+          total_spent?: number;
+          currency?: string;
+        };
+        Update: Partial<Database['public']['Tables']['wallets']['Insert']>;
+      };
+      
+      payments: {
+        Row: {
+          id: string;
+          user_id: string;
+          stripe_payment_id: string;
+          amount: number;
+          xp_amount: number | null;
+          status: 'pending' | 'completed' | 'failed';
+          type?: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          stripe_payment_id: string;
+          amount: number;
+          xp_amount?: number | null;
+          status?: 'pending' | 'completed' | 'failed';
+          type?: string | null;
+        };
+        Update: Partial<Database['public']['Tables']['payments']['Insert']>;
       };
     };
     Functions: {
