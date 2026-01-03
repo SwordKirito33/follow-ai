@@ -77,11 +77,11 @@ async function getLevelFromXpLegacy(xp: number) {
   };
 }
 
-async function fetchProfile(userId: string, retries = 2): Promise<Profile | null> {
+async function fetchProfile(userId: string, retries = 3): Promise<Profile | null> {
   for (let attempt = 0; attempt < retries; attempt++) {
     try {
       const timeoutPromise = new Promise<{ error: Error }>((_, reject) => 
-        setTimeout(() => reject(new Error('Profile fetch timeout')), 10000)
+        setTimeout(() => reject(new Error('Profile fetch timeout')), 15000)
       );
       
       const fetchPromise = supabase
@@ -187,10 +187,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const init = async () => {
       const timeoutId = setTimeout(() => {
         if (active) {
-          console.warn('[Auth] Initialization timeout');
+          console.warn('[Auth] Initialization timeout - continuing with cached state');
           setIsLoading(false);
         }
-      }, 5000);
+      }, 10000);
 
       try {
         const { data: { session } } = await supabase.auth.getSession();

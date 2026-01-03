@@ -42,6 +42,7 @@ const DeveloperWallet = lazy(() => import('@/pages/DeveloperWallet'));
 const CreateTask = lazy(() => import('@/pages/CreateTask'));
 const TaskList = lazy(() => import('@/pages/TaskList'));
 const ReviewSubmissions = lazy(() => import('@/pages/ReviewSubmissions'));
+const ResetPassword = lazy(() => import('@/pages/ResetPassword'));
 const SupabaseTest = lazy(() => import('@/components/SupabaseTest'));
 
 // Loading fallback component
@@ -144,6 +145,7 @@ const AppContent: React.FC = () => {
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/admin/reviews" element={<AdminReviews />} />
               <Route path="/tasks/review" element={<ReviewSubmissions />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
             </Routes>
           </Suspense>
         </main>

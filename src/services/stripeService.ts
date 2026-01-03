@@ -18,12 +18,12 @@ const getStripe = () => {
   return stripePromise;
 };
 
-// XP 包配置
+// XP 包配置 - 与 XPPackages.tsx 保持同步
 export const XP_PACKAGES = [
-  { id: 'xp_100', amount: 100, price: 5, currency: 'AUD', label: '100 XP', popular: false },
-  { id: 'xp_500', amount: 500, price: 20, currency: 'AUD', label: '500 XP', popular: true },
-  { id: 'xp_1000', amount: 1000, price: 35, currency: 'AUD', label: '1000 XP', popular: false },
-  { id: 'xp_5000', amount: 5000, price: 150, currency: 'AUD', label: '5000 XP', popular: false },
+  { id: 'xp_500', amount: 500, price: 10, currency: 'USD', label: '入门', popular: false },
+  { id: 'xp_1000', amount: 1000, price: 18, currency: 'USD', label: '标准', popular: true },
+  { id: 'xp_5000', amount: 5000, price: 80, currency: 'USD', label: '专业', popular: false },
+  { id: 'xp_10000', amount: 10000, price: 140, currency: 'USD', label: '企业', popular: false },
 ];
 
 // 获取认证 token

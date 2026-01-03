@@ -199,6 +199,8 @@ export const en = {
     processing: 'Processing...',
     logoutConfirm: 'Are you sure you want to logout?',
     logoutSuccess: 'Logged out successfully',
+    forgotPassword: 'Forgot password?',
+    resetPassword: 'Reset Password',
   },
   
   // Submit Review Additional (merged into submitReview above)

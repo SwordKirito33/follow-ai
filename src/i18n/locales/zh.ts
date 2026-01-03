@@ -192,6 +192,8 @@ export const zh = {
     processing: '处理中...',
     logoutConfirm: '确定要退出登录吗？',
     logoutSuccess: '已成功退出登录',
+    forgotPassword: '忘记密码？',
+    resetPassword: '重置密码',
   },
   
   
