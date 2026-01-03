@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase';
 import LanguageSelector from './LanguageSelector';
+import FontSelector from './FontSelector';
 import AuthModal from './AuthModal';
 import FollowLogo from './FollowLogo';
 import FollowButton from './ui/follow-button';
@@ -143,6 +144,7 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Right */}
         <div className="hidden md:flex items-center gap-3">
+          <FontSelector />
           <LanguageSelector />
           {isAuthenticated ? (
             <>

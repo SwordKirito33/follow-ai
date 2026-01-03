@@ -1,19 +1,39 @@
 import { en } from './locales/en';
 import { zh } from './locales/zh';
+import { ja } from './locales/ja';
+import { ko } from './locales/ko';
+import { es } from './locales/es';
+import { fr } from './locales/fr';
+import { de } from './locales/de';
 
-export type Locale = 'en' | 'zh';
+export type Locale = 'en' | 'zh' | 'ja' | 'ko' | 'es' | 'fr' | 'de';
 export type Translations = typeof en;
 
 export const translations: Record<Locale, Translations> = {
   en,
   zh,
+  ja: ja as unknown as Translations,
+  ko: ko as unknown as Translations,
+  es: es as unknown as Translations,
+  fr: fr as unknown as Translations,
+  de: de as unknown as Translations,
 };
 
 export const defaultLocale: Locale = 'en';
-export const supportedLocales: Locale[] = ['en', 'zh'];
+export const supportedLocales: Locale[] = ['en', 'zh', 'ja', 'ko', 'es', 'fr', 'de'];
+
+// Language display names and flags
+export const languageInfo: Record<Locale, { name: string; flag: string; nativeName: string }> = {
+  en: { name: 'English', flag: '🇺🇸', nativeName: 'English' },
+  zh: { name: 'Chinese', flag: '🇨🇳', nativeName: '中文' },
+  ja: { name: 'Japanese', flag: '🇯🇵', nativeName: '日本語' },
+  ko: { name: 'Korean', flag: '🇰🇷', nativeName: '한국어' },
+  es: { name: 'Spanish', flag: '🇪🇸', nativeName: 'Español' },
+  fr: { name: 'French', flag: '🇫🇷', nativeName: 'Français' },
+  de: { name: 'German', flag: '🇩🇪', nativeName: 'Deutsch' },
+};
 
 // Helper function to get nested translation
 export const getNestedTranslation = (obj: any, path: string): string => {
   return path.split('.').reduce((o, p) => o?.[p], obj) || path;
 };
-

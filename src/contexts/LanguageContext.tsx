@@ -4,7 +4,7 @@ import { Locale, translations, defaultLocale, supportedLocales } from '@/i18n';
 interface LanguageContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  t: (key: string) => string;
+  t: (key: string, params?: Record<string, string | number>) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -32,8 +32,20 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     
     // Check browser language
     const browserLang = navigator.language.split('-')[0];
-    if (browserLang === 'zh' && supportedLocales.includes('zh')) {
-      return 'zh';
+    
+    // Map browser language to supported locale
+    const langMap: Record<string, Locale> = {
+      'zh': 'zh',
+      'ja': 'ja',
+      'ko': 'ko',
+      'es': 'es',
+      'fr': 'fr',
+      'de': 'de',
+      'en': 'en',
+    };
+    
+    if (langMap[browserLang] && supportedLocales.includes(langMap[browserLang])) {
+      return langMap[browserLang];
     }
     
     return defaultLocale;
@@ -48,8 +60,8 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     document.documentElement.lang = newLocale;
   };
 
-  // Translation function
-  const t = (key: string): string => {
+  // Translation function with parameter interpolation
+  const t = (key: string, params?: Record<string, string | number>): string => {
     const keys = key.split('.');
     let value: any = translations[locale];
     
@@ -61,8 +73,16 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         for (const fk of keys) {
           fallbackValue = fallbackValue?.[fk];
         }
-        return fallbackValue || key;
+        value = fallbackValue || key;
+        break;
       }
+    }
+    
+    // Handle parameter interpolation
+    if (typeof value === 'string' && params) {
+      return value.replace(/\{(\w+)\}/g, (match, paramKey) => {
+        return params[paramKey]?.toString() ?? match;
+      });
     }
     
     return value || key;
@@ -79,4 +99,3 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     </LanguageContext.Provider>
   );
 };
-

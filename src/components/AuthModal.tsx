@@ -233,6 +233,22 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
             )}
           </div>
 
+          {mode === 'login' && (
+            <div className="text-right">
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  // Dispatch event to open forgot password modal
+                  window.dispatchEvent(new CustomEvent('open-forgot-password'));
+                }}
+                className="text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors"
+              >
+                {t('auth.forgotPassword') || 'Forgot password?'}
+              </button>
+            </div>
+          )}
+
           <FollowButton
             type="submit"
             variant="primary"
