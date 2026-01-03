@@ -13,27 +13,14 @@ function getSupabaseClient() {
   const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
   if (!supabaseUrl || !supabaseAnonKey) {
-    // 静默处理，只在开发环境显示警告
-    if (import.meta.env.DEV) {
-      console.warn('⚠️ Supabase environment variables not found. Using mock client for development.')
-    }
-    
-    // 返回一个mock客户端，让应用至少能渲染
-    // 实际使用时会在AuthContext中检查并显示错误
-    const mockUrl = 'https://placeholder.supabase.co'
-    const mockKey = 'REDACTED_JWT'
-    
-    supabaseInstance = createClient<Database>(mockUrl, mockKey, {
-      auth: {
-        autoRefreshToken: false,
-        persistSession: false,
-        detectSessionInUrl: false,
-        storage: localStorage
-      }
-    })
-    
-    return supabaseInstance
+    throw new Error(
+      '❌ Supabase配置缺失！\n' +
+      'VITE_SUPABASE_URL: ' + (supabaseUrl ? '✓' : '✗') + '\n' +
+      'VITE_SUPABASE_ANON_KEY: ' + (supabaseAnonKey ? '✓' : '✗') + '\n' +
+      '请检查Vercel环境变量设置。'
+    )
   }
+  
 
   supabaseInstance = createClient<Database>(supabaseUrl, supabaseAnonKey, {
     auth: {
