@@ -117,6 +117,18 @@ const Navbar: React.FC = () => {
               XP History
             </Link>
           )}
+          {isAuthenticated && (
+            <Link 
+              to="/wallet" 
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                location.pathname === '/wallet' 
+                  ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20' 
+                  : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+              }`}
+            >
+              Wallet
+            </Link>
+          )}
           <Link 
             to="/hire" 
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
@@ -215,6 +227,9 @@ const Navbar: React.FC = () => {
           <Link to="/rankings" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.rankings')}</Link>
           <Link to="/news" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.aiNews')}</Link>
           <Link to="/about" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.about')}</Link>
+          {isAuthenticated && (
+            <Link to="/wallet" onClick={toggleMobileMenu} className="text-lg font-medium">Wallet</Link>
+          )}
           <div className="flex items-center justify-between">
             <LanguageSelector />
           </div>

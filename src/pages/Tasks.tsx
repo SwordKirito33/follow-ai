@@ -7,7 +7,7 @@ import { useToast } from '@/components/ui/toast';
 import FollowButton from '@/components/ui/follow-button';
 import Badge from '@/components/ui/Badge';
 import { supabase } from '@/lib/supabase';
-import { getLevelFromXp } from '@/lib/xp-system';
+import { getLevelInfo } from '@/lib/level-calculation';
 
 // Simple task interface matching our actual DB schema
 interface Task {
@@ -82,7 +82,7 @@ const Tasks: React.FC = () => {
 
   // Calculate user stats using unified algorithm
   const userXp = user?.profile?.total_xp ?? 0;
-  const levelInfo = getLevelFromXp(userXp);
+  const levelInfo = getLevelInfo(userXp);
 
   // Filter tasks by difficulty
   const filteredTasks = useMemo(() => {

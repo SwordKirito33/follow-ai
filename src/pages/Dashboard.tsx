@@ -5,7 +5,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import FollowButton from '@/components/ui/follow-button';
 import Badge from '@/components/ui/Badge';
-import { getLevelFromXp, canAccessFeature } from '@/lib/xp-system';
+import { getLevelInfo } from '@/lib/level-calculation';
+import { canAccessFeature } from '@/lib/xp-system';
 
 const Dashboard: React.FC = () => {
   const { t } = useLanguage();
@@ -39,7 +40,7 @@ const Dashboard: React.FC = () => {
 
   const userXp = user.profile?.total_xp ?? 0;
   const profileCompletion = user.progression?.profileCompletion || 0;
-  const levelInfo = getLevelFromXp(userXp);
+  const levelInfo = getLevelInfo(userXp);
   const canAccessMoneyBounties = canAccessFeature('money_bounties', levelInfo.level, profileCompletion);
   const canAccessHire = canAccessFeature('hire_applications', levelInfo.level, profileCompletion);
 
@@ -63,7 +64,7 @@ const Dashboard: React.FC = () => {
         icon: CheckCircle,
       };
     }
-    if (user.earnings === 0) {
+    if ((user.earnings ?? 0) === 0) {
       return {
         title: 'Start Earning',
         description: 'You can now access paid bounties. Submit your first output!',
@@ -131,7 +132,7 @@ const Dashboard: React.FC = () => {
               </div>
             </div>
             <div className="text-sm text-gray-600 mb-1">Total Earnings</div>
-            <div className="text-2xl font-bold text-gray-900">${user.earnings.toLocaleString()}</div>
+            <div className="text-2xl font-bold text-gray-900">${(user.earnings ?? 0).toLocaleString()}</div>
           </div>
 
           {/* Profile Completion */}
