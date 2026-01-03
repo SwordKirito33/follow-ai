@@ -4,6 +4,8 @@ import { X, Mail, Lock, User, Loader2, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import FollowButton from './ui/follow-button';
+import SocialLogin from './SocialLogin';
+import PasswordStrength from './PasswordStrength';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -229,7 +231,10 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
               </button>
             </div>
             {mode === 'signup' && (
-              <p className="text-xs text-gray-500 mt-1">{t('auth.passwordHint')}</p>
+              <>
+                <p className="text-xs text-gray-500 mt-1">{t('auth.passwordHint')}</p>
+                <PasswordStrength password={password} showRequirements={password.length > 0} />
+              </>
             )}
           </div>
 
@@ -259,6 +264,11 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
           >
             {mode === 'login' ? 'Log in' : 'Sign up'}
           </FollowButton>
+
+          {/* Social Login */}
+          <div className="mt-6">
+            <SocialLogin onSuccess={onClose} />
+          </div>
         </form>
 
         {/* Footer */}

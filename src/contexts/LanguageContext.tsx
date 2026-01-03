@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { Locale, translations, defaultLocale, supportedLocales } from '@/i18n';
+import { Locale, translations, defaultLocale, supportedLocales, isRTL } from '@/i18n';
 
 interface LanguageContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   t: (key: string, params?: Record<string, string | number>) => string;
+  isRTL: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -41,6 +42,9 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       'es': 'es',
       'fr': 'fr',
       'de': 'de',
+      'pt': 'pt',
+      'ru': 'ru',
+      'ar': 'ar',
       'en': 'en',
     };
     
@@ -52,12 +56,19 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   };
 
   const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
+  const [rtl, setRtl] = useState<boolean>(isRTL(getInitialLocale()));
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
     localStorage.setItem('follow-ai-locale', newLocale);
+    
     // Update HTML lang attribute
     document.documentElement.lang = newLocale;
+    
+    // Update RTL direction
+    const isRtlLocale = isRTL(newLocale);
+    setRtl(isRtlLocale);
+    document.documentElement.dir = isRtlLocale ? 'rtl' : 'ltr';
   };
 
   // Translation function with parameter interpolation
@@ -88,13 +99,16 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     return value || key;
   };
 
-  // Set HTML lang attribute on mount and locale change
+  // Set HTML lang and dir attributes on mount and locale change
   useEffect(() => {
     document.documentElement.lang = locale;
+    const isRtlLocale = isRTL(locale);
+    document.documentElement.dir = isRtlLocale ? 'rtl' : 'ltr';
+    setRtl(isRtlLocale);
   }, [locale]);
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t }}>
+    <LanguageContext.Provider value={{ locale, setLocale, t, isRTL: rtl }}>
       {children}
     </LanguageContext.Provider>
   );
