@@ -1,7 +1,9 @@
 import React from 'react';
 import { Cookie, Settings, BarChart, Shield } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CookiePolicy: React.FC = () => {
+  const { t } = useLanguage();
   const cookieTypes = [
     {
       icon: Settings,

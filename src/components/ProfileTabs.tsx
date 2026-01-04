@@ -154,7 +154,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
                   <span>{levelInfo.xpInCurrentLevel} / {levelInfo.xpToNext + levelInfo.xpInCurrentLevel} XP</span>
                   <span>{levelInfo.xpToNext} XP to next level</span>
                 </div>
-                <div className="w-full h-3 bg-slate-800/50/10 rounded-full overflow-hidden">
+                <div className="w-full h-3 bg-gray-800/10 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-primary-blue to-primary-purple transition-all duration-700 ease-out"
                     style={{ width: `${levelInfo.progress * 100}%` }}
@@ -176,7 +176,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
                   {user.progression.profileCompletion}%
                 </span>
               </div>
-              <div className="w-full h-3 bg-slate-800/50/10 rounded-full overflow-hidden mb-2">
+              <div className="w-full h-3 bg-gray-800/10 rounded-full overflow-hidden mb-2">
                 <div
                   className="h-full bg-gradient-to-r from-green-500 to-green-600 transition-all duration-700 ease-out"
                   style={{ width: `${user.progression.profileCompletion}%` }}

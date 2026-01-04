@@ -103,7 +103,7 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
                       {categoryShortcuts.map((shortcut, index) => (
                         <div
                           key={index}
-                          className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors"
+                          className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-gray-800/5 dark:hover:bg-gray-800 transition-colors"
                         >
                           <span className="text-sm text-gray-300 dark:text-gray-300">
                             {shortcut.description}
@@ -111,7 +111,7 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
                           <div className="flex items-center gap-1">
                             {shortcut.keys.map((key, keyIndex) => (
                               <React.Fragment key={keyIndex}>
-                                <kbd className="inline-flex items-center justify-center min-w-[24px] h-6 px-2 bg-slate-800/50/10 dark:bg-gray-700 border border-white/10 dark:border-gray-600 rounded text-xs font-mono text-gray-300 dark:text-gray-300 shadow-sm">
+                                <kbd className="inline-flex items-center justify-center min-w-[24px] h-6 px-2 bg-gray-800/10 dark:bg-gray-700 border border-white/10 dark:border-gray-600 rounded text-xs font-mono text-gray-300 dark:text-gray-300 shadow-sm">
                                   {key === '⌘' ? (
                                     <Command className="w-3 h-3" />
                                   ) : (
@@ -133,9 +133,9 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
             </div>
 
             {/* Footer */}
-            <div className="p-4 border-t border-white/10 dark:border-gray-700 bg-slate-800/50/5 dark:bg-gray-800/50">
+            <div className="p-4 border-t border-white/10 dark:border-gray-700 bg-gray-800/5 dark:bg-gray-800/50">
               <p className="text-xs text-center text-gray-400 dark:text-gray-300">
-                Press <kbd className="px-1.5 py-0.5 bg-slate-800/50/10 dark:bg-gray-700 rounded text-xs">?</kbd> anytime to show this help
+                Press <kbd className="px-1.5 py-0.5 bg-gray-800/10 dark:bg-gray-700 rounded text-xs">?</kbd> anytime to show this help
               </p>
             </div>
           </motion.div>

@@ -177,7 +177,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
             </div>
             <button
               onClick={onCancel}
-              className="p-2 hover:bg-slate-800/50/20 rounded-lg transition-colors"
+              className="p-2 hover:bg-gray-800/20 rounded-lg transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -187,7 +187,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
         {/* Form */}
         <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-6">
           {/* Task description */}
-          <div className="p-4 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl">
+          <div className="p-4 bg-gray-800/5 dark:bg-gray-800 rounded-xl">
             <p className="text-sm text-gray-400 dark:text-gray-400">
               {taskDescription}
             </p>
@@ -369,7 +369,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 py-3 border-2 border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 rounded-xl font-medium hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors"
+            className="flex-1 py-3 border-2 border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-800/5 dark:hover:bg-gray-800 transition-colors"
           >
             Cancel
           </button>

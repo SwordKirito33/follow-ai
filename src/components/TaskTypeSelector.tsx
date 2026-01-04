@@ -31,7 +31,7 @@ const TaskTypeSelector: React.FC<TaskTypeSelectorProps> = ({
           }`}
         >
           <div className="flex items-center gap-3 mb-3">
-            <div className={`p-2 rounded-lg ${selectedType === 'xp' ? 'bg-primary-blue/20 text-primary-cyan' : 'bg-slate-800/50/10 text-gray-400'}`}>
+            <div className={`p-2 rounded-lg ${selectedType === 'xp' ? 'bg-primary-blue/20 text-primary-cyan' : 'bg-gray-800/10 text-gray-400'}`}>
               <Zap size={24} />
             </div>
             <div>
@@ -57,7 +57,7 @@ const TaskTypeSelector: React.FC<TaskTypeSelectorProps> = ({
           }`}
         >
           <div className="flex items-center gap-3 mb-3">
-            <div className={`p-2 rounded-lg ${selectedType === 'paid' ? 'bg-accent-green/20 text-accent-green' : 'bg-slate-800/50/10 text-gray-400'}`}>
+            <div className={`p-2 rounded-lg ${selectedType === 'paid' ? 'bg-accent-green/20 text-accent-green' : 'bg-gray-800/10 text-gray-400'}`}>
               <DollarSign size={24} />
             </div>
             <div>

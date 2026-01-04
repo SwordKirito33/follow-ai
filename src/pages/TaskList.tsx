@@ -11,10 +11,12 @@ import { useNavigate } from 'react-router-dom';
 import { TaskFilters, filterTasks, Task } from '@/lib/task-filters';
 import { getLevelInfo } from '@/lib/level-calculation';
 import type { Database } from '@/types/database';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type TaskRow = Database['public']['Tables']['tasks']['Row'];
 
 const TaskList: React.FC = () => {
+  const { t } = useLanguage();
   const { user, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();

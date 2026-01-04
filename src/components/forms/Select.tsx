@@ -118,7 +118,7 @@ const Select: React.FC<SelectProps> = ({
               <button
                 type="button"
                 onClick={handleClear}
-                className="p-1 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-full"
+                className="p-1 hover:bg-gray-800/10 dark:hover:bg-gray-800 rounded-full"
               >
                 <span className="text-gray-400 text-sm">✕</span>
               </button>
@@ -149,7 +149,7 @@ const Select: React.FC<SelectProps> = ({
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Search..."
-                      className="w-full pl-9 pr-4 py-2 bg-slate-800/50/10 dark:bg-gray-800 rounded-lg text-sm focus:outline-none"
+                      className="w-full pl-9 pr-4 py-2 bg-gray-800/10 dark:bg-gray-800 rounded-lg text-sm focus:outline-none"
                     />
                   </div>
                 </div>
@@ -170,7 +170,7 @@ const Select: React.FC<SelectProps> = ({
                       className={`
                         w-full px-4 py-3 flex items-center justify-between gap-2 text-left
                         transition-colors
-                        ${option.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-slate-800/50/10 dark:hover:bg-gray-800'}
+                        ${option.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-800/10 dark:hover:bg-gray-800'}
                         ${option.value === value ? 'bg-blue-50 dark:bg-blue-900/20' : ''}
                       `}
                     >

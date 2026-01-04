@@ -83,12 +83,12 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <span className="text-white font-medium border-2 border-white/70 px-6 py-3 rounded-full backdrop-blur-md bg-slate-800/50/10 transform scale-90 group-hover:scale-100 transition-transform duration-300">{t('reviewCard.viewOutput')}</span>
+            <span className="text-white font-medium border-2 border-white/70 px-6 py-3 rounded-full backdrop-blur-md bg-gray-800/10 transform scale-90 group-hover:scale-100 transition-transform duration-300">{t('reviewCard.viewOutput')}</span>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="p-4 flex items-center justify-between border-t border-white/10 bg-slate-800/50/5/50">
+      <div className="p-4 flex items-center justify-between border-t border-white/10 bg-gray-800/5/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={handleLike}

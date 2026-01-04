@@ -40,7 +40,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
     return (
       <motion.button
         onClick={toggleTheme}
-        className="p-2 rounded-lg hover:bg-slate-800/50/10 dark:hover:bg-gray-800 transition-colors"
+        className="p-2 rounded-lg hover:bg-gray-800/10 dark:hover:bg-gray-800 transition-colors"
         whileTap={{ scale: 0.95 }}
         aria-label={`Switch to ${resolvedTheme === 'light' ? 'dark' : 'light'} mode`}
       >
@@ -70,7 +70,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-800/50/10 dark:hover:bg-gray-800 transition-colors text-gray-300 dark:text-gray-300"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-800/10 dark:hover:bg-gray-800 transition-colors text-gray-300 dark:text-gray-300"
         aria-label="Select theme"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
@@ -106,7 +106,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
                     setTheme(t.value);
                     setIsOpen(false);
                   }}
-                  className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors ${
+                  className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-gray-800/5 dark:hover:bg-gray-800 transition-colors ${
                     theme === t.value ? 'bg-blue-50 dark:bg-blue-900/20' : ''
                   }`}
                   role="option"

@@ -111,7 +111,7 @@ const ToastItem: React.FC<{ toast: Toast; onClose: () => void }> = ({ toast, onC
     success: 'bg-green-900/80 border-green-500/50 text-green-100',
     error: 'bg-red-900/80 border-red-500/50 text-red-100',
     info: 'bg-blue-900/80 border-blue-500/50 text-blue-100',
-    loading: 'bg-slate-800/50/10 border-white/20 text-gray-200',
+    loading: 'bg-gray-800/10 border-white/20 text-gray-200',
   };
 
   const Icon = icons[toast.type];

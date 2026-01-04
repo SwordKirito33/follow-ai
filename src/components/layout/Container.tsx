@@ -64,7 +64,7 @@ export function PageLayout({
   className,
 }: PageLayoutProps) {
   return (
-    <div className={cn('min-h-screen bg-slate-800/50/5 dark:bg-gray-900', className)}>
+    <div className={cn('min-h-screen bg-gray-800/5 dark:bg-gray-900', className)}>
       <Container className="py-6 sm:py-8">
         {breadcrumbs && <div className="mb-4">{breadcrumbs}</div>}
         
@@ -185,7 +185,7 @@ export function Card({
       <div className={cardPadding[padding]}>{children}</div>
       
       {footer && (
-        <div className="px-4 sm:px-6 py-4 border-t border-white/10 dark:border-gray-700 bg-slate-800/50/5 dark:bg-gray-800/50 rounded-b-xl">
+        <div className="px-4 sm:px-6 py-4 border-t border-white/10 dark:border-gray-700 bg-gray-800/5 dark:bg-gray-800/50 rounded-b-xl">
           {footer}
         </div>
       )}
@@ -302,7 +302,7 @@ export function Divider({ orientation = 'horizontal', className }: DividerProps)
   return (
     <div
       className={cn(
-        'bg-slate-800/50/10 dark:bg-gray-700',
+        'bg-gray-800/10 dark:bg-gray-700',
         orientation === 'horizontal' ? 'h-px w-full' : 'w-px h-full',
         className
       )}

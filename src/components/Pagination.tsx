@@ -67,7 +67,7 @@ const Pagination: React.FC<PaginationProps> = ({
     'flex items-center justify-center w-10 h-10 rounded-lg font-medium transition-all';
   const activeClasses = 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white shadow-md';
   const inactiveClasses =
-    'bg-gray-800/90 backdrop-blur-sm text-gray-300 dark:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-700 border border-white/10 dark:border-gray-700';
+    'bg-gray-800/90 backdrop-blur-sm text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-700 border border-white/10 dark:border-gray-700';
   const disabledClasses = 'opacity-50 cursor-not-allowed';
 
   return (

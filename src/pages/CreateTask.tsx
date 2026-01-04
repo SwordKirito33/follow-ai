@@ -11,10 +11,12 @@ import { Wallet, Loader } from 'lucide-react';
 import { validateTaskForm } from '@/lib/task-validation';
 import { getLevelInfo } from '@/lib/level-calculation';
 import type { Database } from '@/types/database';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type WalletRow = Database['public']['Tables']['wallets']['Row'];
 
 const CreateTask: React.FC = () => {
+  const { t } = useLanguage();
   const { user, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();

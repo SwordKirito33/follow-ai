@@ -63,7 +63,7 @@ export const FollowButton: React.FC<FollowButtonProps> = ({
       if (isHovered) {
         return 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-200 dark:border-red-800';
       }
-      return 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 border-white/10 dark:border-gray-700';
+      return 'bg-gray-800/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 border-white/10 dark:border-gray-700';
     }
 
     switch (variant) {
@@ -116,7 +116,7 @@ export const FollowButton: React.FC<FollowButtonProps> = ({
       )}
 
       {showCount && (
-        <span className="ml-1 px-2 py-0.5 bg-black/10 dark:bg-slate-800/50/10 rounded-full text-xs">
+        <span className="ml-1 px-2 py-0.5 bg-black/10 dark:bg-gray-800/10 rounded-full text-xs">
           {followerCount.toLocaleString()}
         </span>
       )}
@@ -172,7 +172,7 @@ export const FollowList: React.FC<FollowListProps> = ({
               </h2>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-lg"
+                className="p-2 hover:bg-gray-800/10 dark:hover:bg-gray-800 rounded-lg"
               >
                 ✕
               </button>
@@ -189,7 +189,7 @@ export const FollowList: React.FC<FollowListProps> = ({
                 users.map((user) => (
                   <div
                     key={user.id}
-                    className="flex items-center justify-between p-4 hover:bg-slate-800/50/5 dark:hover:bg-gray-800/50 transition-colors"
+                    className="flex items-center justify-between p-4 hover:bg-gray-800/5 dark:hover:bg-gray-800/50 transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">
@@ -258,7 +258,7 @@ export const FollowStats: React.FC<FollowStatsProps> = ({
         </p>
         <p className="text-sm text-gray-400">Followers</p>
       </button>
-      <div className="w-px h-10 bg-slate-800/50/10 dark:bg-gray-700" />
+      <div className="w-px h-10 bg-gray-800/10 dark:bg-gray-700" />
       <button
         onClick={onFollowingClick}
         className="text-center hover:opacity-80 transition-opacity"

@@ -126,7 +126,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
           className={`absolute top-4 right-4 p-2 rounded-lg transition-all ${
             isFavorited
               ? 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400'
-              : 'bg-slate-800/50/80 dark:bg-gray-800/80 text-gray-400 hover:text-red-600 dark:hover:text-red-400'
+              : 'bg-gray-800/80 dark:bg-gray-800/80 text-gray-400 hover:text-red-600 dark:hover:text-red-400'
           }`}
           title={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
         >

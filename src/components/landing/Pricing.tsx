@@ -225,7 +225,7 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
           'w-full py-3 px-6 rounded-xl font-semibold text-center transition-all duration-300',
           plan.popular
             ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl'
-            : 'bg-slate-800/50/10 dark:bg-gray-700 text-white dark:text-white hover:bg-slate-800/50/10 dark:hover:bg-gray-600'
+            : 'bg-gray-800/10 dark:bg-gray-700 text-white dark:text-white hover:bg-gray-800/10 dark:hover:bg-gray-600'
         )}
       >
         {plan.cta.text}
@@ -250,7 +250,7 @@ export function Pricing({
   const [billing, setBilling] = useState<'monthly' | 'yearly'>(defaultBilling);
 
   return (
-    <section className={cn('py-20 bg-slate-800/50/5 dark:bg-gray-900', className)}>
+    <section className={cn('py-20 bg-gray-800/5 dark:bg-gray-900', className)}>
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">

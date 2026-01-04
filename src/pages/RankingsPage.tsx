@@ -44,7 +44,7 @@ const RankingsPage: React.FC = () => {
     }
   ];
 
-  const badgeClasses = ['bg-accent-gold/20 text-yellow-800', 'bg-slate-800/50/10 text-gray-300', 'bg-orange-100 text-orange-800'];
+  const badgeClasses = ['bg-accent-gold/20 text-yellow-800', 'bg-gray-800/10 text-gray-300', 'bg-orange-100 text-orange-800'];
 
   // Filter tools based on search and filters
   const filteredTools = extendedTools.filter(tool => {
@@ -92,7 +92,7 @@ const RankingsPage: React.FC = () => {
           </div>
           <div className="flex flex-wrap gap-2">
             {[t('rankingsPage.today'), t('rankingsPage.thisWeek'), t('rankingsPage.thisMonth'), t('rankingsPage.allTime')].map((label, idx) => (
-              <button key={label} className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all transform hover:scale-105 ${idx === 0 ? 'bg-gradient-to-r from-primary-blue to-primary-purple text-white border-transparent shadow-lg' : 'glass-card text-gray-300 border-white/30 hover:bg-slate-800/50/90'}`}>
+              <button key={label} className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all transform hover:scale-105 ${idx === 0 ? 'bg-gradient-to-r from-primary-blue to-primary-purple text-white border-transparent shadow-lg' : 'glass-card text-gray-300 border-white/30 hover:bg-gray-800/90'}`}>
                 {label}
               </button>
             ))}
@@ -164,7 +164,7 @@ const RankingsPage: React.FC = () => {
                   filteredTools.map((tool, idx) => (
                   <tr key={tool.id} className="border-b last:border-0">
                     <td className="py-3 pr-4">
-                      <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold ${idx === 0 ? 'bg-accent-gold/20 text-yellow-800' : idx === 1 ? 'bg-slate-800/50/10 text-gray-300' : idx === 2 ? 'bg-orange-100 text-orange-800' : 'bg-slate-800/50/5 text-gray-400'}`}>
+                      <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold ${idx === 0 ? 'bg-accent-gold/20 text-yellow-800' : idx === 1 ? 'bg-gray-800/10 text-gray-300' : idx === 2 ? 'bg-orange-100 text-orange-800' : 'bg-gray-800/5 text-gray-400'}`}>
                         {idx + 1}
                       </span>
                     </td>

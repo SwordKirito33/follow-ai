@@ -104,7 +104,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               sizeClasses[size],
               leftIcon && 'pl-10',
               rightIcon && 'pr-10',
-              props.disabled && 'opacity-50 cursor-not-allowed bg-slate-800/50/5 dark:bg-gray-800'
+              props.disabled && 'opacity-50 cursor-not-allowed bg-gray-800/5 dark:bg-gray-800'
             )}
             aria-invalid={!!error}
             aria-describedby={error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined}
@@ -168,7 +168,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             error
               ? 'border-red-500 focus:ring-red-500/20'
               : 'border-white/10 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20',
-            props.disabled && 'opacity-50 cursor-not-allowed bg-slate-800/50/5 dark:bg-gray-800'
+            props.disabled && 'opacity-50 cursor-not-allowed bg-gray-800/5 dark:bg-gray-800'
           )}
           aria-invalid={!!error}
           aria-describedby={error ? `${textareaId}-error` : hint ? `${textareaId}-hint` : undefined}
@@ -234,7 +234,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               error
                 ? 'border-red-500 focus:ring-red-500/20'
                 : 'border-white/10 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20',
-              props.disabled && 'opacity-50 cursor-not-allowed bg-slate-800/50/5 dark:bg-gray-800'
+              props.disabled && 'opacity-50 cursor-not-allowed bg-gray-800/5 dark:bg-gray-800'
             )}
             aria-invalid={!!error}
             aria-describedby={error ? `${selectId}-error` : hint ? `${selectId}-hint` : undefined}
@@ -413,7 +413,7 @@ export function Switch({
           'relative inline-flex shrink-0 rounded-full transition-colors duration-200',
           'focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2',
           sizeClass.track,
-          checked ? 'bg-purple-600' : 'bg-slate-800/50/10 dark:bg-gray-700',
+          checked ? 'bg-purple-600' : 'bg-gray-800/10 dark:bg-gray-700',
           disabled && 'opacity-50 cursor-not-allowed'
         )}
       >

@@ -93,11 +93,11 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
             </div>
 
             {/* Footer */}
-            <div className="px-6 py-4 bg-slate-800/50/5 dark:bg-gray-800/50 flex justify-end gap-3">
+            <div className="px-6 py-4 bg-gray-800/5 dark:bg-gray-800/50 flex justify-end gap-3">
               <button
                 onClick={onClose}
                 disabled={isLoading}
-                className="px-4 py-2 text-gray-300 dark:text-gray-300 font-semibold rounded-lg hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
+                className="px-4 py-2 text-gray-300 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-800/10 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
               >
                 {cancelText}
               </button>

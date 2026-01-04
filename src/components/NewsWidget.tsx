@@ -28,7 +28,7 @@ const NewsWidget: React.FC = () => {
       <div className="space-y-6">
         {NEWS.map((item) => (
           <div key={item.id} className="flex gap-3 group cursor-pointer">
-            <div className="mt-1 flex-shrink-0 w-8 h-8 bg-slate-800/50/5 rounded-lg flex items-center justify-center border border-white/10 group-hover:bg-slate-800/50 group-hover:shadow-sm transition-all">
+            <div className="mt-1 flex-shrink-0 w-8 h-8 bg-gray-800/5 rounded-lg flex items-center justify-center border border-white/10 group-hover:bg-slate-800/50 group-hover:shadow-sm transition-all">
               {getIcon(item.type)}
             </div>
             <div>

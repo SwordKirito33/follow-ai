@@ -135,7 +135,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
       case 'advanced':
         return 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400';
       default:
-        return 'bg-slate-800/50/10 text-gray-300';
+        return 'bg-gray-800/10 text-gray-300';
     }
   };
 
@@ -222,7 +222,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
               <BarChart3 className="w-5 h-5 text-primary-cyan" />
               XP Progress
             </h3>
-            <div className="flex gap-2 bg-slate-800/50/10 dark:bg-gray-800 rounded-lg p-1">
+            <div className="flex gap-2 bg-gray-800/10 dark:bg-gray-800 rounded-lg p-1">
               {(['week', 'month', 'year'] as const).map((period) => (
                 <button
                   key={period}
@@ -278,7 +278,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                 key={notification.id}
                 className={`p-3 rounded-xl ${
                   notification.read
-                    ? 'bg-slate-800/50/5 dark:bg-gray-800'
+                    ? 'bg-gray-800/5 dark:bg-gray-800'
                     : 'bg-blue-50 dark:bg-blue-900/20'
                 }`}
               >
@@ -327,7 +327,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
               <button
                 key={task.id}
                 onClick={() => onTaskClick(task.id)}
-                className="w-full p-4 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl flex items-center gap-4 hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors text-left"
+                className="w-full p-4 bg-gray-800/5 dark:bg-gray-800 rounded-xl flex items-center gap-4 hover:bg-gray-800/10 dark:hover:bg-gray-700 transition-colors text-left"
               >
                 <div className="p-2 bg-accent-green/20 dark:bg-green-900/30 rounded-lg">
                   <Target className="w-5 h-5 text-accent-green" />
@@ -371,7 +371,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
               <button
                 key={task.id}
                 onClick={() => onTaskClick(task.id)}
-                className="w-full p-4 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl flex items-center gap-4 hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors text-left"
+                className="w-full p-4 bg-gray-800/5 dark:bg-gray-800 rounded-xl flex items-center gap-4 hover:bg-gray-800/10 dark:hover:bg-gray-700 transition-colors text-left"
               >
                 <div className="p-2 bg-primary-purple/20 dark:bg-purple-900/30 rounded-lg">
                   <Zap className="w-5 h-5 text-primary-purple" />

@@ -139,7 +139,7 @@ const ResetPassword: React.FC = () => {
           <p className="text-gray-400 dark:text-gray-400 mb-6">
             Your password has been successfully reset. Redirecting you to the homepage...
           </p>
-          <div className="w-full bg-slate-800/50/10 dark:bg-gray-700 rounded-full h-1 overflow-hidden">
+          <div className="w-full bg-gray-800/10 dark:bg-gray-700 rounded-full h-1 overflow-hidden">
             <div className="bg-green-500 h-full animate-progress"></div>
           </div>
         </div>

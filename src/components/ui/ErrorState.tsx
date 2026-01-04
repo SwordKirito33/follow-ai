@@ -300,7 +300,7 @@ interface ErrorBoundaryFallbackProps {
 
 export function ErrorBoundaryFallback({ error, resetErrorBoundary }: ErrorBoundaryFallbackProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-800/50/5 dark:bg-gray-900 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-800/5 dark:bg-gray-900 p-4">
       <div className="max-w-md w-full">
         <ErrorState
           type="generic"

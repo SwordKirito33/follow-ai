@@ -104,7 +104,7 @@ const Help: React.FC = () => {
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
                   activeCategory === category.id
                     ? 'bg-gradient-to-r from-primary-blue to-primary-purple text-white shadow-lg'
-                    : 'bg-slate-800/50 dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
+                    : 'bg-slate-800/50 dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-700'
                 }`}
               >
                 <Icon size={18} />
@@ -123,7 +123,7 @@ const Help: React.FC = () => {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-800/50/5 dark:hover:bg-gray-800/50 transition-colors"
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-800/5 dark:hover:bg-gray-800/50 transition-colors"
               >
                 <span className="text-lg font-bold text-white dark:text-white pr-8">
                   {faq.question}

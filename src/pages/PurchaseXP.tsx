@@ -3,8 +3,10 @@ import { Check, Zap, CreditCard } from 'lucide-react';
 import { XP_PACKAGES, purchaseXP } from '../services/stripeService';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function PurchaseXP() {
+  const { t } = useLanguage();
   const { user } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);

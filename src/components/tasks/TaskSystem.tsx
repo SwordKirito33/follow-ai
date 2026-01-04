@@ -106,7 +106,7 @@ function ProgressBar({ current, target }: { current: number; target: number }) {
         <span>进度</span>
         <span>{current}/{target}</span>
       </div>
-      <div className="h-2 bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="h-2 bg-gray-800/10 dark:bg-gray-700 rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500"
           style={{ width: `${percentage}%` }}
@@ -181,7 +181,7 @@ function TaskCard({ task, onClaim, onStart, isLocked, lockReason }: TaskCardProp
       className={cn(
         'relative p-5 rounded-xl border transition-all duration-300',
         isLocked
-          ? 'bg-slate-800/50/10 dark:bg-gray-800/50 border-white/10 dark:border-gray-700 opacity-60'
+          ? 'bg-gray-800/10 dark:bg-gray-800/50 border-white/10 dark:border-gray-700 opacity-60'
           : isCompleted
           ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800'
           : 'bg-slate-800/50 dark:bg-gray-800 border-white/10 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700 hover:shadow-lg'
@@ -258,7 +258,7 @@ function TaskCard({ task, onClaim, onStart, isLocked, lockReason }: TaskCardProp
           className={cn(
             'w-full py-2 px-4 rounded-lg font-medium transition-all',
             task.status === 'claimed'
-              ? 'bg-slate-800/50/10 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+              ? 'bg-gray-800/10 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
               : canClaim
               ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600'
               : isInProgress
@@ -359,7 +359,7 @@ export function TaskSystem({
             'px-4 py-2 rounded-lg font-medium transition-colors',
             activeCategory === 'all'
               ? 'bg-purple-600 text-white'
-              : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
+              : 'bg-gray-800/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-700'
           )}
         >
           全部
@@ -372,7 +372,7 @@ export function TaskSystem({
               'px-4 py-2 rounded-lg font-medium transition-colors',
               activeCategory === category
                 ? 'bg-purple-600 text-white'
-                : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
+                : 'bg-gray-800/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-700'
             )}
           >
             {categoryConfig[category].icon} {categoryConfig[category].label}
@@ -410,7 +410,7 @@ export function TaskSystem({
           })}
         </div>
       ) : (
-        <div className="text-center py-12 bg-slate-800/50/5 dark:bg-gray-800/50 rounded-xl">
+        <div className="text-center py-12 bg-gray-800/5 dark:bg-gray-800/50 rounded-xl">
           <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
           </svg>

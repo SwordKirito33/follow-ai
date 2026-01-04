@@ -137,7 +137,7 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
           <h2 className="text-2xl font-black text-white tracking-tight">Task Details</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-800/50/10 rounded-lg transition-colors"
+            className="p-2 hover:bg-gray-800/10 rounded-lg transition-colors"
           >
             <X size={20} />
           </button>
@@ -186,7 +186,7 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
               {/* Description */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-300 mb-2">Description</h4>
-                <div className="text-gray-400 whitespace-pre-wrap bg-slate-800/50/5 p-4 rounded-lg">
+                <div className="text-gray-400 whitespace-pre-wrap bg-gray-800/5 p-4 rounded-lg">
                   {task.description}
                 </div>
               </div>
@@ -194,7 +194,7 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
               {/* Requirements - Using description if no requirements field */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-300 mb-2">Task Details</h4>
-                <div className="text-gray-400 whitespace-pre-wrap bg-slate-800/50/5 p-4 rounded-lg">
+                <div className="text-gray-400 whitespace-pre-wrap bg-gray-800/5 p-4 rounded-lg">
                   {task.description}
                 </div>
               </div>

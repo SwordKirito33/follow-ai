@@ -57,7 +57,7 @@ const Leaderboard: React.FC = () => {
     if (rank === 1) return <Trophy className="w-6 h-6 text-yellow-500" />;
     if (rank === 2) return <Medal className="w-6 h-6 text-gray-400" />;
     if (rank === 3) return <Award className="w-6 h-6 text-orange-500" />;
-    return <span className="w-8 h-8 rounded-full bg-slate-800/50/10 flex items-center justify-center text-sm font-bold text-gray-400">{rank}</span>;
+    return <span className="w-8 h-8 rounded-full bg-gray-800/10 flex items-center justify-center text-sm font-bold text-gray-400">{rank}</span>;
   };
   
   return (
@@ -85,7 +85,7 @@ const Leaderboard: React.FC = () => {
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
                   activeTab === tab.id
                     ? 'bg-gradient-to-r from-primary-blue to-primary-purple text-white shadow-lg'
-                    : 'glass-card text-gray-300 hover:bg-slate-800/50/10'
+                    : 'glass-card text-gray-300 hover:bg-gray-800/10'
                 }`}
               >
                 <Icon size={20} />
@@ -116,7 +116,7 @@ const Leaderboard: React.FC = () => {
                 leaderboard.map((contributor, index) => (
                   <div
                     key={contributor.id}
-                    className="flex items-center gap-6 p-6 rounded-xl hover:bg-slate-800/50/5 transition-colors"
+                    className="flex items-center gap-6 p-6 rounded-xl hover:bg-gray-800/5 transition-colors"
                   >
                     <div className="flex-shrink-0">
                       {getRankBadge(index + 1)}
@@ -149,7 +149,7 @@ const Leaderboard: React.FC = () => {
               {topContributorsWeek.map((contributor) => (
                 <div
                   key={contributor.rank}
-                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-slate-800/50/5 transition-colors"
+                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-gray-800/5 transition-colors"
                 >
                   <div className="flex-shrink-0">
                     {getRankBadge(contributor.rank)}
@@ -188,7 +188,7 @@ const Leaderboard: React.FC = () => {
               {topToolsWeek.map((tool) => (
                 <div
                   key={tool.rank}
-                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-slate-800/50/5 transition-colors"
+                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-gray-800/5 transition-colors"
                 >
                   <div className="flex-shrink-0">
                     {getRankBadge(tool.rank)}

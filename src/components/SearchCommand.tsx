@@ -176,12 +176,12 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
               {query && (
                 <button
                   onClick={() => setQuery('')}
-                  className="p-1 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded"
+                  className="p-1 hover:bg-gray-800/10 dark:hover:bg-gray-800 rounded"
                 >
                   <X className="w-4 h-4 text-gray-400" />
                 </button>
               )}
-              <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-slate-800/50/10 dark:bg-gray-800 rounded text-xs text-gray-400">
+              <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-gray-800/10 dark:bg-gray-800 rounded text-xs text-gray-400">
                 <Command className="w-3 h-3" />K
               </kbd>
             </div>
@@ -206,7 +206,7 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
                     <button
                       key={index}
                       onClick={() => setQuery(search)}
-                      className="flex items-center gap-2 w-full px-3 py-2 text-left hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                      className="flex items-center gap-2 w-full px-3 py-2 text-left hover:bg-gray-800/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
                     >
                       <Clock className="w-4 h-4 text-gray-400" />
                       <span className="text-sm text-gray-300 dark:text-gray-300">{search}</span>
@@ -231,7 +231,7 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
                       className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-lg transition-colors ${
                         index === selectedIndex
                           ? 'bg-blue-50 dark:bg-blue-900/20 text-primary-cyan dark:text-blue-400'
-                          : 'hover:bg-slate-800/50/10 dark:hover:bg-gray-800 text-gray-300 dark:text-gray-300'
+                          : 'hover:bg-gray-800/10 dark:hover:bg-gray-800 text-gray-300 dark:text-gray-300'
                       }`}
                     >
                       <div className={`flex-shrink-0 ${index === selectedIndex ? 'text-primary-cyan dark:text-blue-400' : 'text-gray-400'}`}>
@@ -260,21 +260,21 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-3 border-t border-white/10 dark:border-gray-700 bg-slate-800/50/5 dark:bg-gray-800/50">
+            <div className="px-4 py-3 border-t border-white/10 dark:border-gray-700 bg-gray-800/5 dark:bg-gray-800/50">
               <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-300">
                 <div className="flex items-center gap-4">
                   <span className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 bg-slate-800/50/10 dark:bg-gray-700 rounded">↑</kbd>
-                    <kbd className="px-1.5 py-0.5 bg-slate-800/50/10 dark:bg-gray-700 rounded">↓</kbd>
+                    <kbd className="px-1.5 py-0.5 bg-gray-800/10 dark:bg-gray-700 rounded">↑</kbd>
+                    <kbd className="px-1.5 py-0.5 bg-gray-800/10 dark:bg-gray-700 rounded">↓</kbd>
                     to navigate
                   </span>
                   <span className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 bg-slate-800/50/10 dark:bg-gray-700 rounded">↵</kbd>
+                    <kbd className="px-1.5 py-0.5 bg-gray-800/10 dark:bg-gray-700 rounded">↵</kbd>
                     to select
                   </span>
                 </div>
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1.5 py-0.5 bg-slate-800/50/10 dark:bg-gray-700 rounded">esc</kbd>
+                  <kbd className="px-1.5 py-0.5 bg-gray-800/10 dark:bg-gray-700 rounded">esc</kbd>
                   to close
                 </span>
               </div>

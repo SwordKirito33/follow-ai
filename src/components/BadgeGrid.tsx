@@ -18,13 +18,13 @@ const BadgeGrid: React.FC<BadgeGridProps> = ({ badges }) => {
             className={`rounded-xl p-4 border-2 transition-all ${
               badge.unlocked
                 ? 'bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-300 shadow-md'
-                : 'bg-slate-800/50/5 border-white/10 opacity-50 grayscale'
+                : 'bg-gray-800/5 border-white/10 opacity-50 grayscale'
             }`}
           >
             <div className="flex items-center gap-4">
               <div
                 className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl ${
-                  badge.unlocked ? 'bg-accent-gold/20' : 'bg-slate-800/50/10'
+                  badge.unlocked ? 'bg-accent-gold/20' : 'bg-gray-800/10'
                 }`}
               >
                 {badge.emoji}

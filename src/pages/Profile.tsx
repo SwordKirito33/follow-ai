@@ -41,7 +41,7 @@ const Profile: React.FC = () => {
   // 如果未登录，显示登录提示
   if (!isAuthenticated || !user) {
     return (
-      <div className="min-h-screen bg-slate-800/50/5 py-12 px-4 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-800/5 py-12 px-4 flex items-center justify-center">
         <div className="text-center max-w-md">
           <h2 className="text-2xl font-bold text-white mb-4">{t('auth.login')}</h2>
           <p className="text-gray-400 mb-6">{t('auth.loginSubtitle')}</p>

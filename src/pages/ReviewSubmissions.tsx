@@ -7,6 +7,7 @@ import SubmissionDetail from '@/components/SubmissionDetail';
 import ReviewForm from '@/components/ReviewForm';
 import { Loader } from 'lucide-react';
 import type { Database } from '@/types/database';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type Submission = Database['public']['Tables']['task_submissions']['Row'];
 type Task = Database['public']['Tables']['tasks']['Row'];
@@ -18,6 +19,7 @@ interface SubmissionWithRelations extends Submission {
 }
 
 const ReviewSubmissions: React.FC = () => {
+  const { t } = useLanguage();
   const { user, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
   const [submissions, setSubmissions] = useState<SubmissionWithRelations[]>([]);

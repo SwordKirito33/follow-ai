@@ -102,7 +102,7 @@ const Onboarding: React.FC = () => {
               {Math.round(progress)}% Complete
             </span>
           </div>
-          <div className="w-full h-2 bg-slate-800/50/10 rounded-full overflow-hidden">
+          <div className="w-full h-2 bg-gray-800/10 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-primary-blue to-primary-purple transition-all duration-500"
               style={{ width: `${progress}%` }}
@@ -178,7 +178,7 @@ const Onboarding: React.FC = () => {
                         ? 'bg-accent-green/20'
                         : isActive
                         ? 'bg-primary-blue/20'
-                        : 'bg-slate-800/50/10'
+                        : 'bg-gray-800/10'
                     }`}
                   >
                     {isCompleted ? (

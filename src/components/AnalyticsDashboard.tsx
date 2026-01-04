@@ -73,7 +73,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
               className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                 timeRange === range.value
                   ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white'
-                  : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
+                  : 'bg-gray-800/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-700'
               }`}
             >
               {range.label}
@@ -344,7 +344,7 @@ const ActivityFeed: React.FC = () => {
       case 'streak':
         return 'bg-orange-100 dark:bg-orange-900/30 text-orange-600';
       default:
-        return 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400';
+        return 'bg-gray-800/10 dark:bg-gray-800 text-gray-400';
     }
   };
 

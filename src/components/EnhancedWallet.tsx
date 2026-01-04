@@ -170,8 +170,8 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
       {/* Balance card */}
       <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 rounded-3xl p-8 text-white relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-slate-800/50/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-slate-800/50/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-gray-800/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-gray-800/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
         <div className="relative">
           <p className="text-white/80 text-sm font-medium">Current Balance</p>
@@ -192,17 +192,17 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
 
           {/* Quick stats */}
           <div className="grid grid-cols-3 gap-4 mt-8">
-            <div className="bg-slate-800/50/20 backdrop-blur-sm rounded-2xl p-4">
+            <div className="bg-gray-800/20 backdrop-blur-sm rounded-2xl p-4">
               <ArrowDownLeft className="w-5 h-5 text-green-300 mb-2" />
               <p className="text-2xl font-bold">{stats.totalPurchased.toLocaleString()}</p>
               <p className="text-sm text-white/70">{	('enhancedWallet.totalPurchased')}</p>
             </div>
-            <div className="bg-slate-800/50/20 backdrop-blur-sm rounded-2xl p-4">
+            <div className="bg-gray-800/20 backdrop-blur-sm rounded-2xl p-4">
               <Zap className="w-5 h-5 text-yellow-300 mb-2" />
               <p className="text-2xl font-bold">{stats.totalEarned.toLocaleString()}</p>
               <p className="text-sm text-white/70">{	('enhancedWallet.totalEarned')}</p>
             </div>
-            <div className="bg-slate-800/50/20 backdrop-blur-sm rounded-2xl p-4">
+            <div className="bg-gray-800/20 backdrop-blur-sm rounded-2xl p-4">
               <ArrowUpRight className="w-5 h-5 text-red-300 mb-2" />
               <p className="text-2xl font-bold">{stats.totalSpent.toLocaleString()}</p>
               <p className="text-sm text-white/70">{	('enhancedWallet.totalSpent')}</p>
@@ -212,7 +212,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-2 bg-slate-800/50/10 dark:bg-gray-800 rounded-xl p-1">
+      <div className="flex gap-2 bg-gray-800/10 dark:bg-gray-800 rounded-xl p-1">
         {(['overview', 'transactions', 'purchase'] as const).map((tab) => (
           <button
             key={tab}
@@ -251,7 +251,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
               </div>
               <div className="space-y-3">
                 {transactions.slice(0, 5).map((tx) => (
-                  <div key={tx.id} className="flex items-center gap-3 p-3 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl">
+                  <div key={tx.id} className="flex items-center gap-3 p-3 bg-gray-800/5 dark:bg-gray-800 rounded-xl">
                     {getTransactionIcon(tx.type)}
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-white dark:text-white truncate">{tx.title}</p>
@@ -276,7 +276,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                     key={pkg.id}
                     onClick={() => handlePurchase(pkg.id)}
                     disabled={purchasingId === pkg.id}
-                    className="w-full p-4 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl flex items-center justify-between hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors"
+                    className="w-full p-4 bg-gray-800/5 dark:bg-gray-800 rounded-xl flex items-center justify-between hover:bg-gray-800/10 dark:hover:bg-gray-700 transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-primary-blue/20 dark:bg-blue-900/30 rounded-lg">
@@ -351,14 +351,14 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
               <div className="flex gap-2">
                 <button
                   onClick={() => onExport('csv')}
-                  className="px-4 py-2 border border-white/10 dark:border-gray-700 rounded-lg hover:bg-slate-800/50/5 dark:hover:bg-gray-800 flex items-center gap-2"
+                  className="px-4 py-2 border border-white/10 dark:border-gray-700 rounded-lg hover:bg-gray-800/5 dark:hover:bg-gray-800 flex items-center gap-2"
                 >
                   <Download className="w-4 h-4" />
                   CSV
                 </button>
                 <button
                   onClick={() => onExport('pdf')}
-                  className="px-4 py-2 border border-white/10 dark:border-gray-700 rounded-lg hover:bg-slate-800/50/5 dark:hover:bg-gray-800 flex items-center gap-2"
+                  className="px-4 py-2 border border-white/10 dark:border-gray-700 rounded-lg hover:bg-gray-800/5 dark:hover:bg-gray-800 flex items-center gap-2"
                 >
                   <Download className="w-4 h-4" />
                   PDF
@@ -374,9 +374,9 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                 </div>
               ) : (
                 filteredTransactions.map((tx) => (
-                  <div key={tx.id} className="p-4 hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors">
+                  <div key={tx.id} className="p-4 hover:bg-gray-800/5 dark:hover:bg-gray-800 transition-colors">
                     <div className="flex items-center gap-4">
-                      <div className="p-3 bg-slate-800/50/10 dark:bg-gray-800 rounded-xl">
+                      <div className="p-3 bg-gray-800/10 dark:bg-gray-800 rounded-xl">
                         {getTransactionIcon(tx.type)}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -435,7 +435,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                         ? 'border-purple-500 bg-gradient-to-br from-purple-900/40 to-blue-900/40'
                         : pkg.bestValue
                         ? 'border-green-500 bg-green-900/20'
-                        : 'border-white/20 bg-slate-800/50/5 hover:border-white/40'
+                        : 'border-white/20 bg-gray-800/5 hover:border-white/40'
                     }`}
                   >
                     {/* Badge */}
@@ -471,7 +471,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                         className={`w-full py-3 rounded-xl font-medium transition-all ${
                           pkg.popular
                             ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white hover:bg-blue-700'
-                            : 'bg-slate-800/50/10 dark:bg-gray-800 text-white dark:text-white hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
+                            : 'bg-gray-800/10 dark:bg-gray-800 text-white dark:text-white hover:bg-gray-800/10 dark:hover:bg-gray-700'
                         } disabled:opacity-50`}
                       >
                         {purchasingId === pkg.id ? 	('enhancedWallet.processing') : 	('enhancedWallet.purchaseBtn')}
@@ -490,7 +490,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
               </h3>
               <div className="flex flex-wrap gap-4">
                 {['Visa', 'Mastercard', 'Amex', 'PayPal', 'Apple Pay', 'Google Pay', 'Alipay', 'WeChat Pay'].map((method) => (
-                  <div key={method} className="px-4 py-2 bg-slate-800/50/10 rounded-lg text-sm text-gray-300">
+                  <div key={method} className="px-4 py-2 bg-gray-800/10 rounded-lg text-sm text-gray-300">
                     {method}
                   </div>
                 ))}

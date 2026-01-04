@@ -161,7 +161,7 @@ export default function FileUpload({
                   className="w-16 h-16 object-cover rounded-lg mr-4"
                 />
               ) : (
-                <div className="w-16 h-16 bg-slate-800/50/10 rounded-lg flex items-center justify-center mr-4">
+                <div className="w-16 h-16 bg-gray-800/10 rounded-lg flex items-center justify-center mr-4">
                   <FileIcon className="w-8 h-8 text-gray-400" />
                 </div>
               )}
@@ -177,7 +177,7 @@ export default function FileUpload({
             {!uploading && (
               <button
                 onClick={clearFile}
-                className="ml-4 p-2 hover:bg-slate-800/50/10 rounded-lg transition-colors"
+                className="ml-4 p-2 hover:bg-gray-800/10 rounded-lg transition-colors"
               >
                 <X className="w-5 h-5 text-gray-400" />
               </button>
@@ -185,7 +185,7 @@ export default function FileUpload({
           </div>
 
           {uploading && (
-            <div className="w-full bg-slate-800/50/10 rounded-full h-2">
+            <div className="w-full bg-gray-800/10 rounded-full h-2">
               <div
                 className="bg-purple-600 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${progress}%` }}

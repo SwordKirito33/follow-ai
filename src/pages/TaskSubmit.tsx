@@ -9,8 +9,10 @@ import { useToast } from '@/components/ui/toast';
 import { grantXp } from '@/lib/xp-service';
 import FollowButton from '@/components/ui/follow-button';
 import { UploadCloud, AlertCircle, Loader2, CheckCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function TaskSubmit() {
+  const { t } = useLanguage();
   const { taskId } = useParams<{ taskId: string }>();
   const navigate = useNavigate();
   const { user, isAuthenticated, isLoading, refreshProfile, notifyXpAction } = useAuth();
@@ -217,7 +219,7 @@ export default function TaskSubmit() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-800/50/5 dark:bg-gray-950 py-12 px-4">
+    <div className="min-h-screen bg-gray-800/5 dark:bg-gray-950 py-12 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="mb-10">
           <h1 className="text-4xl sm:text-5xl font-black text-white dark:text-white tracking-tight mb-2">

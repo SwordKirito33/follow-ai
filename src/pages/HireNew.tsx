@@ -80,7 +80,7 @@ const HireNew: React.FC = () => {
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
                   s <= step
                     ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white'
-                    : 'bg-slate-800/50/10 text-gray-400'
+                    : 'bg-gray-800/10 text-gray-400'
                 }`}
               >
                 {s < step ? <CheckCircle size={20} /> : s}
@@ -88,7 +88,7 @@ const HireNew: React.FC = () => {
               {s < 5 && (
                 <div
                   className={`h-1 flex-1 ${
-                    s < step ? 'bg-gradient-to-r from-primary-cyan to-primary-blue' : 'bg-slate-800/50/10'
+                    s < step ? 'bg-gradient-to-r from-primary-cyan to-primary-blue' : 'bg-gray-800/10'
                   }`}
                 />
               )}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link2, Copy, Check, Plus, Calendar, Users } from 'lucide-react';
 import { createInvitation, getUserInvitations, Invitation } from '../services/invitationService';
 import { useAuth } from '../contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function InviteManagement() {
   const { user } = useAuth();
@@ -60,15 +61,16 @@ export default function InviteManagement() {
   };
 
   const getStatusColor = (status: string) => {
+  const { t } = useLanguage();
     switch (status) {
       case 'pending':
         return 'bg-accent-gold/20 text-yellow-800';
       case 'accepted':
         return 'bg-accent-green/20 text-green-800';
       case 'expired':
-        return 'bg-slate-800/50/10 text-gray-200';
+        return 'bg-gray-800/10 text-gray-200';
       default:
-        return 'bg-slate-800/50/10 text-gray-200';
+        return 'bg-gray-800/10 text-gray-200';
     }
   };
 
@@ -81,7 +83,7 @@ export default function InviteManagement() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-800/50/5 py-8 px-4">
+    <div className="min-h-screen bg-gray-800/5 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="bg-slate-800/50 rounded-2xl p-8 mb-8 shadow-sm">
@@ -164,11 +166,11 @@ export default function InviteManagement() {
           ) : (
             <div className="divide-y divide-gray-100">
               {invitations.map((invitation) => (
-                <div key={invitation.id} className="p-6 hover:bg-slate-800/50/5 transition-colors">
+                <div key={invitation.id} className="p-6 hover:bg-gray-800/5 transition-colors">
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <code className="px-3 py-1 bg-slate-800/50/10 rounded-lg font-mono text-sm font-semibold text-white">
+                        <code className="px-3 py-1 bg-gray-800/10 rounded-lg font-mono text-sm font-semibold text-white">
                           {invitation.code}
                         </code>
                         <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(invitation.status)}`}>
@@ -192,7 +194,7 @@ export default function InviteManagement() {
 
                     <button
                       onClick={() => copyInviteUrl(invitation.code)}
-                      className="flex items-center px-4 py-2 bg-slate-800/50/10 hover:bg-slate-800/50/10 rounded-lg transition-colors"
+                      className="flex items-center px-4 py-2 bg-gray-800/10 hover:bg-gray-800/10 rounded-lg transition-colors"
                     >
                       {copiedCode === invitation.code ? (
                         <>

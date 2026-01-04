@@ -149,7 +149,7 @@ const FontSelector: React.FC<FontSelectorProps> = ({ className = '' }) => {
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-800/50/10 dark:hover:bg-gray-800 transition-colors text-gray-300 dark:text-gray-300"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-800/10 dark:hover:bg-gray-800 transition-colors text-gray-300 dark:text-gray-300"
         aria-label="Font settings"
         aria-expanded={isOpen}
       >
@@ -176,7 +176,7 @@ const FontSelector: React.FC<FontSelectorProps> = ({ className = '' }) => {
                   className={`flex-1 px-2 py-1.5 text-xs font-medium rounded-md transition-colors ${
                     selectedSize.id === size.id
                       ? 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan dark:text-blue-400'
-                      : 'hover:bg-slate-800/50/10 dark:hover:bg-gray-800 text-gray-400 dark:text-gray-400'
+                      : 'hover:bg-gray-800/10 dark:hover:bg-gray-800 text-gray-400 dark:text-gray-400'
                   }`}
                 >
                   {size.name}
@@ -199,7 +199,7 @@ const FontSelector: React.FC<FontSelectorProps> = ({ className = '' }) => {
                     key={font.id}
                     onClick={() => handleFontChange(font)}
                     onMouseEnter={() => loadGoogleFont(font)}
-                    className={`w-full flex items-center justify-between px-4 py-2 hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors text-left ${
+                    className={`w-full flex items-center justify-between px-4 py-2 hover:bg-gray-800/5 dark:hover:bg-gray-800 transition-colors text-left ${
                       selectedFont.id === font.id ? 'bg-blue-50 dark:bg-blue-900/20' : ''
                     }`}
                   >

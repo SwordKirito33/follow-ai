@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const variantClasses = {
       default: 'bg-slate-800/50 dark:bg-gray-900 border-white/20 dark:border-gray-700',
-      filled: 'bg-slate-800/50/10 dark:bg-gray-800 border-transparent',
+      filled: 'bg-gray-800/10 dark:bg-gray-800 border-transparent',
       outline: 'bg-transparent border-white/20 dark:border-gray-700',
     };
 

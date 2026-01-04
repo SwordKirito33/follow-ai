@@ -204,7 +204,7 @@ const SupabaseTest: React.FC = () => {
                             <summary className="text-xs text-gray-400 cursor-pointer hover:text-gray-300">
                               View details
                             </summary>
-                            <pre className="mt-2 p-2 bg-slate-800/50/10 rounded text-xs overflow-auto max-h-40">
+                            <pre className="mt-2 p-2 bg-gray-800/10 rounded text-xs overflow-auto max-h-40">
                               {JSON.stringify(result.details, null, 2)}
                             </pre>
                           </details>

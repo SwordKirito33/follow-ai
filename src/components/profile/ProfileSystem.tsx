@@ -71,7 +71,7 @@ interface ProfileSystemProps {
 // ============================================
 
 const rarityColors: Record<Badge['rarity'], { bg: string; text: string; border: string }> = {
-  common: { bg: 'bg-slate-800/50/10 dark:bg-gray-700', text: 'text-gray-400 dark:text-gray-300', border: 'border-white/20 dark:border-gray-600' },
+  common: { bg: 'bg-gray-800/10 dark:bg-gray-700', text: 'text-gray-400 dark:text-gray-300', border: 'border-white/20 dark:border-gray-600' },
   rare: { bg: 'bg-primary-blue/20 dark:bg-blue-900/30', text: 'text-primary-cyan dark:text-blue-400', border: 'border-blue-300 dark:border-blue-700' },
   epic: { bg: 'bg-primary-purple/20 dark:bg-purple-900/30', text: 'text-primary-purple dark:text-purple-400', border: 'border-purple-300 dark:border-purple-700' },
   legendary: { bg: 'bg-amber-100 dark:bg-amber-900/30', text: 'text-amber-600 dark:text-amber-400', border: 'border-amber-300 dark:border-amber-700' },
@@ -128,7 +128,7 @@ function LevelProgress({ level, xp, xpToNextLevel }: { level: number; xp: number
         <span className="font-medium text-primary-purple dark:text-purple-400">Lv.{level}</span>
         <span className="text-gray-400 dark:text-gray-300">{xp.toLocaleString()} / {(xp + xpToNextLevel).toLocaleString()} XP</span>
       </div>
-      <div className="h-2 bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="h-2 bg-gray-800/10 dark:bg-gray-700 rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500"
           style={{ width: `${progress}%` }}
@@ -172,7 +172,7 @@ function BadgeCard({ badge }: { badge: Badge }) {
 function ActivityItem({ activity }: { activity: Activity }) {
   return (
     <div className="flex items-start gap-3 py-3 border-b border-white/10 dark:border-gray-700 last:border-b-0">
-      <div className="w-10 h-10 rounded-full bg-slate-800/50/10 dark:bg-gray-700 flex items-center justify-center text-lg">
+      <div className="w-10 h-10 rounded-full bg-gray-800/10 dark:bg-gray-700 flex items-center justify-center text-lg">
         {activityIcons[activity.type]}
       </div>
       <div className="flex-1 min-w-0">
@@ -250,7 +250,7 @@ function ProfileHeader({
             {isOwnProfile ? (
               <button
                 onClick={onEditProfile}
-                className="px-4 py-2 rounded-lg bg-slate-800/50/10 dark:bg-gray-700 text-gray-300 dark:text-gray-300 font-medium hover:bg-slate-800/50/10 dark:hover:bg-gray-600 transition-colors"
+                className="px-4 py-2 rounded-lg bg-gray-800/10 dark:bg-gray-700 text-gray-300 dark:text-gray-300 font-medium hover:bg-gray-800/10 dark:hover:bg-gray-600 transition-colors"
               >
                 编辑资料
               </button>
@@ -260,7 +260,7 @@ function ProfileHeader({
                 className={cn(
                   'px-4 py-2 rounded-lg font-medium transition-colors',
                   isFollowing
-                    ? 'bg-slate-800/50/10 dark:bg-gray-700 text-gray-300 dark:text-gray-300 hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/30 dark:hover:text-red-400'
+                    ? 'bg-gray-800/10 dark:bg-gray-700 text-gray-300 dark:text-gray-300 hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/30 dark:hover:text-red-400'
                     : 'bg-purple-600 text-white hover:bg-purple-700'
                 )}
               >
@@ -269,7 +269,7 @@ function ProfileHeader({
             )}
             <button
               onClick={onShareProfile}
-              className="p-2 rounded-lg bg-slate-800/50/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-600 transition-colors"
+              className="p-2 rounded-lg bg-gray-800/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-600 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
@@ -412,7 +412,7 @@ export function ProfileSystem({
                     查看全部
                   </button>
                 </div>
-                <div className="bg-slate-800/50/5 dark:bg-gray-900/50 rounded-xl p-4">
+                <div className="bg-gray-800/5 dark:bg-gray-900/50 rounded-xl p-4">
                   {profile.recentActivity.slice(0, 5).map((activity) => (
                     <ActivityItem key={activity.id} activity={activity} />
                   ))}
@@ -445,7 +445,7 @@ export function ProfileSystem({
         {activeTab === 'activity' && (
           <div>
             {profile.recentActivity.length > 0 ? (
-              <div className="bg-slate-800/50/5 dark:bg-gray-900/50 rounded-xl p-4">
+              <div className="bg-gray-800/5 dark:bg-gray-900/50 rounded-xl p-4">
                 {profile.recentActivity.map((activity) => (
                   <ActivityItem key={activity.id} activity={activity} />
                 ))}

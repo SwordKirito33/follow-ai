@@ -81,7 +81,7 @@ function RankBadge({ rank }: { rank: number }) {
     );
   }
   return (
-    <div className="w-10 h-10 rounded-full bg-slate-800/50/10 dark:bg-gray-700 flex items-center justify-center">
+    <div className="w-10 h-10 rounded-full bg-gray-800/10 dark:bg-gray-700 flex items-center justify-center">
       <span className="text-sm font-bold text-gray-400 dark:text-gray-300">{rank}</span>
     </div>
   );
@@ -335,7 +335,7 @@ export function LeaderboardSystem({
                 'px-4 py-2 rounded-lg font-medium transition-colors',
                 type === t
                   ? 'bg-purple-600 text-white'
-                  : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
+                  : 'bg-gray-800/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-700'
               )}
             >
               {typeConfig[t].icon} {typeConfig[t].label}
@@ -353,7 +353,7 @@ export function LeaderboardSystem({
                 'px-3 py-1.5 rounded-lg text-sm font-medium transition-colors',
                 period === p
                   ? 'bg-gray-900 dark:bg-slate-800/50 text-white dark:text-white'
-                  : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
+                  : 'bg-gray-800/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-700'
               )}
             >
               {periodConfig[p].label}
@@ -407,7 +407,7 @@ export function LeaderboardSystem({
 
       {/* Empty State */}
       {processedUsers.length === 0 && (
-        <div className="text-center py-12 bg-slate-800/50/5 dark:bg-gray-800/50 rounded-xl">
+        <div className="text-center py-12 bg-gray-800/5 dark:bg-gray-800/50 rounded-xl">
           <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>

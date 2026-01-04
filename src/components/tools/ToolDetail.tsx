@@ -118,7 +118,7 @@ function RatingBreakdown({ reviews }: { reviews: Review[] }) {
             <span className="text-sm text-gray-400 dark:text-gray-400 w-8">
               {rating}星
             </span>
-            <div className="flex-1 h-2 bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden">
+            <div className="flex-1 h-2 bg-gray-800/10 dark:bg-gray-700 rounded-full overflow-hidden">
               <div
                 className="h-full bg-yellow-400 rounded-full transition-all duration-500"
                 style={{ width: `${percentage}%` }}
@@ -276,7 +276,7 @@ export function ToolDetail({
               className="w-24 h-24 rounded-2xl bg-slate-800/50 p-3 object-contain"
             />
           ) : (
-            <div className="w-24 h-24 rounded-2xl bg-slate-800/50/20 flex items-center justify-center text-4xl font-bold">
+            <div className="w-24 h-24 rounded-2xl bg-gray-800/20 flex items-center justify-center text-4xl font-bold">
               {tool.name.charAt(0)}
             </div>
           )}
@@ -304,7 +304,7 @@ export function ToolDetail({
               {tool.tags && tool.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {tool.tags.slice(0, 4).map((tag) => (
-                    <span key={tag} className="px-2 py-1 rounded-full bg-slate-800/50/20 text-sm">
+                    <span key={tag} className="px-2 py-1 rounded-full bg-gray-800/20 text-sm">
                       {tag}
                     </span>
                   ))}
@@ -317,7 +317,7 @@ export function ToolDetail({
           <div className="flex flex-col gap-3">
             <button
               onClick={onVisitWebsite}
-              className="px-6 py-3 bg-slate-800/50 text-primary-purple font-semibold rounded-xl hover:bg-slate-800/50/10 transition-colors"
+              className="px-6 py-3 bg-slate-800/50 text-primary-purple font-semibold rounded-xl hover:bg-gray-800/10 transition-colors"
             >
               访问网站
             </button>
@@ -328,7 +328,7 @@ export function ToolDetail({
                   'flex-1 p-3 rounded-xl transition-colors',
                   isFavorited
                     ? 'bg-red-500 text-white'
-                    : 'bg-slate-800/50/20 hover:bg-slate-800/50/30'
+                    : 'bg-gray-800/20 hover:bg-gray-800/30'
                 )}
               >
                 <svg className="w-5 h-5 mx-auto" fill={isFavorited ? 'currentColor' : 'none'} viewBox="0 0 24 24" stroke="currentColor">
@@ -337,7 +337,7 @@ export function ToolDetail({
               </button>
               <button
                 onClick={onShare}
-                className="flex-1 p-3 rounded-xl bg-slate-800/50/20 hover:bg-slate-800/50/30 transition-colors"
+                className="flex-1 p-3 rounded-xl bg-gray-800/20 hover:bg-gray-800/30 transition-colors"
               >
                 <svg className="w-5 h-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
@@ -562,7 +562,7 @@ export function ToolDetail({
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl">
+            <div className="text-center py-12 bg-gray-800/5 dark:bg-gray-800 rounded-xl">
               <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
@@ -581,7 +581,7 @@ export function ToolDetail({
       )}
 
       {activeTab === 'alternatives' && (
-        <div className="text-center py-12 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl">
+        <div className="text-center py-12 bg-gray-800/5 dark:bg-gray-800 rounded-xl">
           <p className="text-gray-400 dark:text-gray-300">
             替代品功能即将上线
           </p>
@@ -601,7 +601,7 @@ export function ToolDetail({
           />
           <button
             onClick={() => setSelectedScreenshot(null)}
-            className="absolute top-4 right-4 p-2 bg-slate-800/50/10 rounded-full hover:bg-slate-800/50/20 transition-colors"
+            className="absolute top-4 right-4 p-2 bg-gray-800/10 rounded-full hover:bg-gray-800/20 transition-colors"
           >
             <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

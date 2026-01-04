@@ -71,7 +71,7 @@ const TransactionDetail: React.FC<TransactionDetailProps> = ({
       case 'failed':
         return 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400';
       default:
-        return 'bg-slate-800/50/10 text-gray-200';
+        return 'bg-gray-800/10 text-gray-200';
     }
   };
 
@@ -201,12 +201,12 @@ Thank you for your purchase!
                 <div className="py-3">
                   <p className="text-sm text-gray-400 dark:text-gray-300 mb-2">Transaction ID</p>
                   <div className="flex items-center gap-2">
-                    <code className="flex-1 px-3 py-2 bg-slate-800/50/10 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-300 dark:text-gray-300 truncate">
+                    <code className="flex-1 px-3 py-2 bg-gray-800/10 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-300 dark:text-gray-300 truncate">
                       {transaction.id}
                     </code>
                     <button
                       onClick={() => copyToClipboard(transaction.id)}
-                      className="p-2 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                      className="p-2 hover:bg-gray-800/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
                     >
                       {copied ? (
                         <Check size={18} className="text-green-500" />
@@ -224,7 +224,7 @@ Thank you for your purchase!
               {transaction.status === 'completed' && (
                 <button
                   onClick={handleDownloadReceipt}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-xl hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-800/5 dark:hover:bg-gray-800 transition-colors"
                 >
                   <Download size={18} />
                   Download Receipt

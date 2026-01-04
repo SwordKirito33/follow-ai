@@ -458,7 +458,7 @@ interface SkeletonProps {
 }
 
 export function Skeleton({ className, variant = 'rectangular', width, height }: SkeletonProps) {
-  const baseClasses = 'animate-pulse bg-slate-800/50/10 dark:bg-gray-700';
+  const baseClasses = 'animate-pulse bg-gray-800/10 dark:bg-gray-700';
   const variantClasses = {
     text: 'rounded',
     circular: 'rounded-full',

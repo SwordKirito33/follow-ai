@@ -105,7 +105,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.1 }}
-        className="w-24 h-24 bg-slate-800/50/10 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 text-gray-400 dark:text-gray-400"
+        className="w-24 h-24 bg-gray-800/10 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 text-gray-400 dark:text-gray-400"
       >
         {icon || content.icon}
       </motion.div>

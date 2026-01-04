@@ -88,7 +88,7 @@ const XPChart: React.FC<XPChartProps> = ({
   if (!data.length) {
     return (
       <div 
-        className="flex items-center justify-center bg-slate-800/50/5 dark:bg-gray-800 rounded-xl"
+        className="flex items-center justify-center bg-gray-800/5 dark:bg-gray-800 rounded-xl"
         style={{ height }}
       >
         <p className="text-gray-400 dark:text-gray-300">No data available</p>

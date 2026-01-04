@@ -35,7 +35,7 @@ const LevelProgress: React.FC<LevelProgressProps> = ({
           <span>Level {levelInfo.level}</span>
           <span>Level {levelInfo.level + 1}</span>
         </div>
-        <div className="w-full h-4 bg-slate-800/50/10 rounded-full overflow-hidden">
+        <div className="w-full h-4 bg-gray-800/10 rounded-full overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-primary-purple to-primary-blue transition-all duration-700 ease-out flex items-center justify-end pr-2"
             style={{ width: `${progressPercentage}%` }}
@@ -53,25 +53,25 @@ const LevelProgress: React.FC<LevelProgressProps> = ({
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-slate-800/50/5 rounded-lg p-4">
+        <div className="bg-gray-800/5 rounded-lg p-4">
           <div className="flex items-center gap-2 text-gray-400 mb-1">
             <TrendingUp size={16} />
             <span className="text-xs">{t('levelProgress.currentLevel')}</span>
           </div>
           <div className="text-2xl font-bold text-white">{levelInfo.level}</div>
         </div>
-        <div className="bg-slate-800/50/5 rounded-lg p-4">
+        <div className="bg-gray-800/5 rounded-lg p-4">
           <div className="flex items-center gap-2 text-gray-400 mb-1">
             <Award size={16} />
             <span className="text-xs">{t('levelProgress.totalXp')}</span>
           </div>
           <div className="text-2xl font-bold text-white">{totalXp.toLocaleString()}</div>
         </div>
-        <div className="bg-slate-800/50/5 rounded-lg p-4">
+        <div className="bg-gray-800/5 rounded-lg p-4">
           <div className="text-xs text-gray-400 mb-1">{t('levelProgress.currentLevelXp')}</div>
           <div className="text-2xl font-bold text-white">{currentXp.toLocaleString()}</div>
         </div>
-        <div className="bg-slate-800/50/5 rounded-lg p-4">
+        <div className="bg-gray-800/5 rounded-lg p-4">
           <div className="text-xs text-gray-400 mb-1">{t('levelProgress.xpToNext')}</div>
           <div className="text-2xl font-bold text-primary-cyan">{levelInfo.xpToNext.toLocaleString()}</div>
         </div>

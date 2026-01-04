@@ -113,7 +113,7 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
           {getInitials(name)}
         </div>
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-slate-800/50/10 dark:bg-gray-700 text-gray-400 dark:text-gray-300">
+        <div className="w-full h-full flex items-center justify-center bg-gray-800/10 dark:bg-gray-700 text-gray-400 dark:text-gray-300">
           <User className="w-1/2 h-1/2" />
         </div>
       )}
@@ -175,7 +175,7 @@ export const AvatarGroup: React.FC<{
       ))}
       {remainingCount > 0 && (
         <div
-          className={`relative ${overlapClasses[size]} flex items-center justify-center rounded-full bg-slate-800/50/10 dark:bg-gray-700 text-gray-400 dark:text-gray-300 font-semibold ring-2 ring-white dark:ring-gray-900 ${
+          className={`relative ${overlapClasses[size]} flex items-center justify-center rounded-full bg-gray-800/10 dark:bg-gray-700 text-gray-400 dark:text-gray-300 font-semibold ring-2 ring-white dark:ring-gray-900 ${
             size === 'xs'
               ? 'w-6 h-6 text-xs'
               : size === 'sm'

@@ -74,7 +74,7 @@ export function Image({
     return (
       <div
         className={cn(
-          'flex items-center justify-center bg-slate-800/50/10 dark:bg-gray-800 text-gray-400',
+          'flex items-center justify-center bg-gray-800/10 dark:bg-gray-800 text-gray-400',
           className
         )}
         style={{ width, height }}
@@ -89,7 +89,7 @@ export function Image({
   return (
     <div className={cn('relative overflow-hidden', className)} style={{ width, height }}>
       {!isLoaded && (
-        <div className="absolute inset-0 animate-pulse bg-slate-800/50/10 dark:bg-gray-700" />
+        <div className="absolute inset-0 animate-pulse bg-gray-800/10 dark:bg-gray-700" />
       )}
       <img
         ref={imgRef}
@@ -248,7 +248,7 @@ export function AvatarGroup({
       {remaining > 0 && (
         <div
           className={cn(
-            'rounded-full flex items-center justify-center font-medium bg-slate-800/50/10 dark:bg-gray-700 text-gray-400 dark:text-gray-300 ring-2 ring-white dark:ring-gray-800',
+            'rounded-full flex items-center justify-center font-medium bg-gray-800/10 dark:bg-gray-700 text-gray-400 dark:text-gray-300 ring-2 ring-white dark:ring-gray-800',
             sizeClasses[size]
           )}
         >
@@ -488,7 +488,7 @@ export function VideoPlayer({
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
           <button
             onClick={togglePlay}
-            className="w-16 h-16 rounded-full bg-slate-800/50/20 backdrop-blur flex items-center justify-center text-white hover:bg-slate-800/50/30 transition-colors"
+            className="w-16 h-16 rounded-full bg-gray-800/20 backdrop-blur flex items-center justify-center text-white hover:bg-gray-800/30 transition-colors"
           >
             {isPlaying ? (
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">

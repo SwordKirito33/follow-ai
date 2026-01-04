@@ -147,12 +147,12 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
               <button
                 type="button"
                 onClick={() => setQuery('')}
-                className="p-1 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-lg"
+                className="p-1 hover:bg-gray-800/10 dark:hover:bg-gray-800 rounded-lg"
               >
                 <X className="w-4 h-4 text-gray-400" />
               </button>
             )}
-            <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-slate-800/50/10 dark:bg-gray-800 rounded-lg text-xs text-gray-400">
+            <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-gray-800/10 dark:bg-gray-800 rounded-lg text-xs text-gray-400">
               <span>⌘</span>
               <span>K</span>
             </kbd>
@@ -189,7 +189,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
                     <button
                       key={index}
                       onClick={() => handleSuggestionClick(search)}
-                      className="px-3 py-1.5 bg-slate-800/50/10 dark:bg-gray-800 hover:bg-slate-800/50/10 dark:hover:bg-gray-700 rounded-lg text-sm transition-colors"
+                      className="px-3 py-1.5 bg-gray-800/10 dark:bg-gray-800 hover:bg-gray-800/10 dark:hover:bg-gray-700 rounded-lg text-sm transition-colors"
                     >
                       {search}
                     </button>
@@ -228,7 +228,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
                   <button
                     key={index}
                     onClick={() => handleSuggestionClick(tool.name)}
-                    className="flex items-center gap-2 px-3 py-2 bg-slate-800/50/5 dark:bg-gray-800 hover:bg-slate-800/50/10 dark:hover:bg-gray-700 rounded-lg text-sm transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 bg-gray-800/5 dark:bg-gray-800 hover:bg-gray-800/10 dark:hover:bg-gray-700 rounded-lg text-sm transition-colors"
                   >
                     <span>{tool.icon}</span>
                     <span className="truncate">{tool.name}</span>

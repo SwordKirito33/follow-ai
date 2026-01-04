@@ -41,7 +41,7 @@ const NewsPage: React.FC = () => {
                 className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all transform hover:scale-105 ${
                   activeTab === tab.key
                     ? 'bg-gradient-to-r from-primary-blue to-primary-purple text-white shadow-lg'
-                    : 'glass-card text-gray-300 hover:bg-slate-800/50/90'
+                    : 'glass-card text-gray-300 hover:bg-gray-800/90'
                 }`}
               >
                 {tab.label}

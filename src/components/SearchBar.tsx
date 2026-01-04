@@ -89,7 +89,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFilterChange, showAdv
                   <select
                     value={filters.category || ''}
                     onChange={(e) => handleFilterChange('category', e.target.value)}
-                    className="w-full px-3 py-2 border border-white/30 rounded-lg bg-slate-800/50/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-white/30 rounded-lg bg-gray-800/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 outline-none"
                   >
                     <option value="">{t('search.allCategories')}</option>
                     <option value="coding">AI Coding</option>
@@ -106,7 +106,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFilterChange, showAdv
                   <select
                     value={filters.minRating || ''}
                     onChange={(e) => handleFilterChange('minRating', Number(e.target.value))}
-                    className="w-full px-3 py-2 border border-white/30 rounded-lg bg-slate-800/50/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-white/30 rounded-lg bg-gray-800/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 outline-none"
                   >
                     <option value="">{t('search.anyRating')}</option>
                     <option value="4">4.0+ ⭐</option>
@@ -120,7 +120,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFilterChange, showAdv
                   <select
                     value={filters.useCase || ''}
                     onChange={(e) => handleFilterChange('useCase', e.target.value)}
-                    className="w-full px-3 py-2 border border-white/30 rounded-lg bg-slate-800/50/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-white/30 rounded-lg bg-gray-800/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 outline-none"
                   >
                     <option value="">{t('search.allUseCases')}</option>
                     <option value="coding">Coding</option>

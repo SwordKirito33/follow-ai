@@ -100,7 +100,7 @@ export function Navbar({
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800"
+            className="md:hidden p-2 rounded-lg text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-800"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {mobileMenuOpen ? (
@@ -166,7 +166,7 @@ function NavItemComponent({ item, currentPath }: { item: NavItem; currentPath: s
             'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors',
             isActive
               ? 'text-primary-purple dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
-              : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white hover:bg-slate-800/50/10 dark:hover:bg-gray-800'
+              : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white hover:bg-gray-800/10 dark:hover:bg-gray-800'
           )}
         >
           {item.icon}
@@ -190,7 +190,7 @@ function NavItemComponent({ item, currentPath }: { item: NavItem; currentPath: s
                     'flex items-center gap-2 px-4 py-2 text-sm transition-colors',
                     child.href === currentPath
                       ? 'text-primary-purple dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
-                      : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white hover:bg-slate-800/50/10 dark:hover:bg-gray-800',
+                      : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white hover:bg-gray-800/10 dark:hover:bg-gray-800',
                     child.disabled && 'opacity-50 pointer-events-none'
                   )}
                 >
@@ -217,7 +217,7 @@ function NavItemComponent({ item, currentPath }: { item: NavItem; currentPath: s
         disabled={item.disabled}
         className={cn(
           'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors',
-          'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white hover:bg-slate-800/50/10 dark:hover:bg-gray-800',
+          'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white hover:bg-gray-800/10 dark:hover:bg-gray-800',
           item.disabled && 'opacity-50 cursor-not-allowed'
         )}
       >
@@ -239,7 +239,7 @@ function NavItemComponent({ item, currentPath }: { item: NavItem; currentPath: s
           'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors',
           isActive
             ? 'text-primary-purple dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
-            : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white hover:bg-slate-800/50/10 dark:hover:bg-gray-800',
+            : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white hover:bg-gray-800/10 dark:hover:bg-gray-800',
           item.disabled && 'opacity-50 pointer-events-none'
         )}
       >
@@ -278,7 +278,7 @@ function MobileNavItem({
           onClick={() => setExpanded(!expanded)}
           className={cn(
             'w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium transition-colors',
-            'text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800'
+            'text-gray-400 dark:text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-800'
           )}
         >
           <span className="flex items-center gap-2">
@@ -326,7 +326,7 @@ function MobileNavItem({
           'flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium transition-colors',
           isActive
             ? 'text-primary-purple dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
-            : 'text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800'
+            : 'text-gray-400 dark:text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-800'
         )}
       >
         {item.icon}
@@ -369,7 +369,7 @@ export function Sidebar({
         {onCollapse && (
           <button
             onClick={() => onCollapse(!collapsed)}
-            className="p-2 rounded-lg text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-800"
+            className="p-2 rounded-lg text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-800"
           >
             <svg
               className={cn('w-5 h-5 transition-transform', collapsed && 'rotate-180')}
@@ -427,7 +427,7 @@ function SidebarItem({
             'w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors',
             isActive
               ? 'text-primary-purple dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
-              : 'text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800'
+              : 'text-gray-400 dark:text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-800'
           )}
         >
           <span className="flex items-center gap-3">
@@ -473,7 +473,7 @@ function SidebarItem({
           'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
           isActive
             ? 'text-primary-purple dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
-            : 'text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800',
+            : 'text-gray-400 dark:text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-800',
           collapsed && 'justify-center'
         )}
         title={collapsed ? item.label : undefined}
@@ -536,7 +536,7 @@ export function Tabs({
 }: TabsProps) {
   const variantClasses = {
     default: {
-      container: 'bg-slate-800/50/10 dark:bg-gray-800 p-1 rounded-lg',
+      container: 'bg-gray-800/10 dark:bg-gray-800 p-1 rounded-lg',
       tab: 'px-4 py-2 rounded-md text-sm font-medium transition-all',
       active: 'bg-slate-800/50 dark:bg-gray-700 text-white dark:text-white shadow-sm',
       inactive: 'text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white',
@@ -545,7 +545,7 @@ export function Tabs({
       container: 'gap-2',
       tab: 'px-4 py-2 rounded-full text-sm font-medium transition-all',
       active: 'bg-purple-600 text-white',
-      inactive: 'text-gray-400 dark:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-800',
+      inactive: 'text-gray-400 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-800',
     },
     underline: {
       container: 'border-b border-white/10 dark:border-gray-700',
@@ -639,7 +639,7 @@ export function Pagination({
         <button
           onClick={() => onPageChange(1)}
           disabled={currentPage === 1}
-          className="p-2 rounded-lg text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-2 rounded-lg text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="First page"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -651,7 +651,7 @@ export function Pagination({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-lg text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="p-2 rounded-lg text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Previous page"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -668,7 +668,7 @@ export function Pagination({
               'min-w-[40px] h-10 rounded-lg text-sm font-medium transition-colors',
               page === currentPage
                 ? 'bg-purple-600 text-white'
-                : 'text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800'
+                : 'text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-800'
             )}
             aria-current={page === currentPage ? 'page' : undefined}
           >
@@ -684,7 +684,7 @@ export function Pagination({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="p-2 rounded-lg text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Next page"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -696,7 +696,7 @@ export function Pagination({
         <button
           onClick={() => onPageChange(totalPages)}
           disabled={currentPage === totalPages}
-          className="p-2 rounded-lg text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-2 rounded-lg text-gray-400 hover:bg-gray-800/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Last page"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

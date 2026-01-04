@@ -64,7 +64,7 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
                 <X size={24} />
               </button>
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-slate-800/50/20 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gray-800/20 rounded-xl flex items-center justify-center">
                   <Zap className="w-6 h-6" />
                 </div>
                 <div>
@@ -77,7 +77,7 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
             {/* Content */}
             <div className="p-6 space-y-6">
               {/* Package Details */}
-              <div className="bg-slate-800/50/5 dark:bg-gray-800 rounded-xl p-4">
+              <div className="bg-gray-800/5 dark:bg-gray-800 rounded-xl p-4">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-sm text-gray-400 dark:text-gray-300">Package</span>
                   {package_.discount && (
@@ -134,7 +134,7 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
               <button
                 onClick={onClose}
                 disabled={isLoading}
-                className="flex-1 px-4 py-3 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-xl hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors disabled:opacity-50"
+                className="flex-1 px-4 py-3 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-800/5 dark:hover:bg-gray-800 transition-colors disabled:opacity-50"
               >
                 Cancel
               </button>

@@ -72,7 +72,7 @@ export function HeroSection({
           {/* Text Content */}
           <div className="text-center lg:text-left">
             {subtitle && (
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50/10 backdrop-blur-sm border border-white/20 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/10 backdrop-blur-sm border border-white/20 mb-6">
                 <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                 <span className="text-sm text-white/90">{subtitle}</span>
               </div>
@@ -107,7 +107,7 @@ export function HeroSection({
                   className={cn(
                     'inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl',
                     'bg-slate-800/50 text-purple-900 font-semibold',
-                    'hover:bg-slate-800/50/10 transition-all duration-300',
+                    'hover:bg-gray-800/10 transition-all duration-300',
                     'shadow-lg hover:shadow-xl hover:-translate-y-1'
                   )}
                 >
@@ -123,8 +123,8 @@ export function HeroSection({
                   onClick={secondaryCTA.onClick}
                   className={cn(
                     'inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl',
-                    'bg-slate-800/50/10 text-white font-semibold backdrop-blur-sm',
-                    'border border-white/20 hover:bg-slate-800/50/20',
+                    'bg-gray-800/10 text-white font-semibold backdrop-blur-sm',
+                    'border border-white/20 hover:bg-gray-800/20',
                     'transition-all duration-300'
                   )}
                 >
@@ -226,13 +226,13 @@ export function FeatureSection({
               key={index}
               className={cn(
                 'group p-8 rounded-2xl',
-                'bg-slate-800/50/5 dark:bg-gray-800',
+                'bg-gray-800/5 dark:bg-gray-800',
                 'hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500',
                 'transition-all duration-300',
                 'hover:shadow-xl hover:-translate-y-2'
               )}
             >
-              <div className="w-14 h-14 rounded-xl bg-primary-purple/20 dark:bg-purple-900/50 group-hover:bg-slate-800/50/20 flex items-center justify-center mb-6 transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-primary-purple/20 dark:bg-purple-900/50 group-hover:bg-gray-800/20 flex items-center justify-center mb-6 transition-colors">
                 <div className="text-primary-purple dark:text-purple-400 group-hover:text-white transition-colors">
                   {feature.icon}
                 </div>
@@ -301,7 +301,7 @@ export function CTASection({
             className={cn(
               'inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl',
               'bg-slate-800/50 text-primary-purple font-semibold',
-              'hover:bg-slate-800/50/10 transition-all duration-300',
+              'hover:bg-gray-800/10 transition-all duration-300',
               'shadow-lg hover:shadow-xl'
             )}
           >
@@ -313,8 +313,8 @@ export function CTASection({
               onClick={secondaryCTA.onClick}
               className={cn(
                 'inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl',
-                'bg-slate-800/50/10 text-white font-semibold backdrop-blur-sm',
-                'border border-white/20 hover:bg-slate-800/50/20',
+                'bg-gray-800/10 text-white font-semibold backdrop-blur-sm',
+                'border border-white/20 hover:bg-gray-800/20',
                 'transition-all duration-300'
               )}
             >

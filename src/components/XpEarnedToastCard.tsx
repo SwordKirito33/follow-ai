@@ -37,7 +37,7 @@ const XpEarnedToastCard: React.FC<XpEarnedToastCardProps> = ({
               return (
                 <span
                   key={source}
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-slate-800/50/10 rounded-lg text-xs font-semibold text-gray-300"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-800/10 rounded-lg text-xs font-semibold text-gray-300"
                 >
                   {meta.emoji && <span>{meta.emoji}</span>}
                   <span>{meta.label}</span>

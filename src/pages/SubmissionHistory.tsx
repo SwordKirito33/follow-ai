@@ -6,12 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import FollowButton from '@/components/ui/follow-button';
 import { CheckCircle, XCircle, Clock, AlertCircle, ExternalLink } from 'lucide-react';
 import type { Database } from '@/types/database';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type SubmissionWithTask = Database['public']['Tables']['task_submissions']['Row'] & {
   tasks: Database['public']['Tables']['tasks']['Row'];
 };
 
 function StatusBadge({ status }: { status: string }) {
+  const { t } = useLanguage();
   const styles = {
     pending: 'bg-accent-gold/20 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-300',
     approved: 'bg-accent-green/20 text-green-800 dark:bg-green-900/20 dark:text-green-300',
@@ -175,7 +177,7 @@ export default function SubmissionHistory() {
                   <summary className="text-sm text-gray-400 dark:text-gray-400 cursor-pointer hover:text-white dark:hover:text-gray-200 font-medium">
                     View your experience
                   </summary>
-                  <p className="text-sm text-gray-300 dark:text-gray-300 mt-2 p-3 bg-slate-800/50/5 dark:bg-gray-800 rounded-lg">
+                  <p className="text-sm text-gray-300 dark:text-gray-300 mt-2 p-3 bg-gray-800/5 dark:bg-gray-800 rounded-lg">
                     {submission.experience_text}
                   </p>
                 </details>

@@ -37,7 +37,7 @@ function MenuButton({ isOpen, onClick }: MenuButtonProps) {
   return (
     <button
       onClick={onClick}
-      className="lg:hidden p-2 rounded-lg hover:bg-slate-800/50/10 dark:hover:bg-gray-800 transition-colors"
+      className="lg:hidden p-2 rounded-lg hover:bg-gray-800/10 dark:hover:bg-gray-800 transition-colors"
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
     >
       <div className="w-6 h-5 relative flex flex-col justify-between">
@@ -82,7 +82,7 @@ function NavLink({ item, isActive, onClick, mobile }: NavLinkProps) {
 
   const activeClasses = isActive
     ? 'bg-blue-50 dark:bg-blue-900/30 text-primary-cyan dark:text-blue-400'
-    : 'text-gray-400 dark:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-800';
+    : 'text-gray-400 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-800';
 
   return (
     <Link href={item.href}>
@@ -157,7 +157,7 @@ function MobileMenu({ isOpen, onClose, items, actions }: MobileMenuProps) {
             <span className="text-lg font-semibold text-white dark:text-white">Menu</span>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg hover:bg-slate-800/50/10 dark:hover:bg-gray-800"
+              className="p-2 rounded-lg hover:bg-gray-800/10 dark:hover:bg-gray-800"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -219,7 +219,7 @@ export function ResponsiveNav({ items, logo, actions, className }: NavProps) {
     <>
       <header
         className={cn(
-          'sticky top-0 z-30 bg-slate-800/50/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-white/10 dark:border-gray-700',
+          'sticky top-0 z-30 bg-gray-800/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-white/10 dark:border-gray-700',
           className
         )}
       >

@@ -60,7 +60,7 @@ export function MiniLevelProgress({ totalXp, className }: MiniLevelProgressProps
   return (
     <div className={cn('flex items-center gap-2', className)}>
       <LevelBadge level={levelInfo.level} size="xs" />
-      <div className="flex-1 max-w-[80px] h-1 bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="flex-1 max-w-[80px] h-1 bg-gray-800/10 dark:bg-gray-700 rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
           style={{ width: `${levelInfo.progress}%` }}
@@ -111,7 +111,7 @@ export function LevelCard({ totalXp, showDetails = true, className }: LevelCardP
           <span className="text-gray-400 dark:text-gray-400">Level {levelInfo.level}</span>
           <span className="text-gray-400 dark:text-gray-400">Level {levelInfo.level + 1}</span>
         </div>
-        <div className="w-full h-2.5 bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden">
+        <div className="w-full h-2.5 bg-gray-800/10 dark:bg-gray-700 rounded-full overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-500"
             style={{ width: `${levelInfo.progress}%` }}
@@ -126,11 +126,11 @@ export function LevelCard({ totalXp, showDetails = true, className }: LevelCardP
 
       {showDetails && (
         <div className="grid grid-cols-2 gap-4">
-          <div className="text-center p-3 bg-slate-800/50/5 dark:bg-gray-700/50 rounded-lg">
+          <div className="text-center p-3 bg-gray-800/5 dark:bg-gray-700/50 rounded-lg">
             <div className="text-xl font-bold text-primary-cyan">{formatXp(totalXp)}</div>
             <div className="text-xs text-gray-400 dark:text-gray-300">Total XP</div>
           </div>
-          <div className="text-center p-3 bg-slate-800/50/5 dark:bg-gray-700/50 rounded-lg">
+          <div className="text-center p-3 bg-gray-800/5 dark:bg-gray-700/50 rounded-lg">
             <div className="text-xl font-bold text-primary-purple">
               {formatXp(levelInfo.xpToNextLevel - levelInfo.xpInCurrentLevel)}
             </div>

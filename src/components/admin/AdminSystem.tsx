@@ -144,7 +144,7 @@ export const UserManagement: React.FC<UserManagementProps> = ({
 
   const getRoleBadge = (role: User['role']) => {
     const styles = {
-      user: 'bg-slate-800/50/50/10 text-gray-400',
+      user: 'bg-gray-800/50/10 text-gray-400',
       moderator: 'bg-blue-500/10 text-blue-500',
       admin: 'bg-purple-500/10 text-purple-500'
     };

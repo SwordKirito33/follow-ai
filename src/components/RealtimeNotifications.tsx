@@ -62,7 +62,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
       case 'task':
         return 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600';
       default:
-        return 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400';
+        return 'bg-gray-800/10 dark:bg-gray-800 text-gray-400';
     }
   };
 
@@ -106,7 +106,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
       {/* Bell button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-xl transition-colors"
+        className="relative p-2 hover:bg-gray-800/10 dark:hover:bg-gray-800 rounded-xl transition-colors"
       >
         <Bell className="w-6 h-6 text-gray-400 dark:text-gray-400" />
         {unreadCount > 0 && (
@@ -145,7 +145,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                   {unreadCount > 0 && (
                     <button
                       onClick={onMarkAllAsRead}
-                      className="p-2 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-lg text-gray-400 hover:text-gray-300"
+                      className="p-2 hover:bg-gray-800/10 dark:hover:bg-gray-800 rounded-lg text-gray-400 hover:text-gray-300"
                       title="Mark all as read"
                     >
                       <CheckCheck className="w-4 h-4" />
@@ -154,7 +154,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                   {notifications.length > 0 && (
                     <button
                       onClick={onClearAll}
-                      className="p-2 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-lg text-gray-400 hover:text-red-500"
+                      className="p-2 hover:bg-gray-800/10 dark:hover:bg-gray-800 rounded-lg text-gray-400 hover:text-red-500"
                       title="Clear all"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -180,7 +180,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                       exit={{ opacity: 0, x: 20 }}
                       className={`
                         p-4 border-b border-white/10 dark:border-gray-800 cursor-pointer
-                        hover:bg-slate-800/50/5 dark:hover:bg-gray-800/50 transition-colors
+                        hover:bg-gray-800/5 dark:hover:bg-gray-800/50 transition-colors
                         ${!notification.read ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}
                       `}
                       onClick={() => {
@@ -210,7 +210,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                                 e.stopPropagation();
                                 onDelete(notification.id);
                               }}
-                              className="p-1 hover:bg-slate-800/50/10 dark:hover:bg-gray-700 rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                              className="p-1 hover:bg-gray-800/10 dark:hover:bg-gray-700 rounded opacity-0 group-hover:opacity-100 transition-opacity"
                             >
                               <X className="w-3 h-3 text-gray-400" />
                             </button>
@@ -246,7 +246,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
 
               {/* Footer */}
               {notifications.length > 0 && (
-                <div className="p-3 border-t border-white/10 dark:border-gray-700 bg-slate-800/50/5 dark:bg-gray-800/50">
+                <div className="p-3 border-t border-white/10 dark:border-gray-700 bg-gray-800/5 dark:bg-gray-800/50">
                   <button className="w-full py-2 text-sm text-primary-cyan hover:text-primary-blue font-medium">
                     View All Notifications
                   </button>
@@ -289,7 +289,7 @@ export const NotificationToast: React.FC<{
         </div>
         <button
           onClick={onClose}
-          className="p-1 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded"
+          className="p-1 hover:bg-gray-800/10 dark:hover:bg-gray-800 rounded"
         >
           <X className="w-4 h-4 text-gray-400" />
         </button>
