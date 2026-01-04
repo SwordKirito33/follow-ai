@@ -47,7 +47,7 @@ const SupabaseTest = lazy(() => import('@/components/SupabaseTest'));
 
 // Loading fallback component
 const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20">
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-900">
     <div className="text-center">
       <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
       <p className="text-gray-400 dark:text-gray-400 font-medium">Loading...</p>

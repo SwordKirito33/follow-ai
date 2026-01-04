@@ -104,7 +104,7 @@ const Home: React.FC = () => {
 
       {/* Main Content Area */}
       <section className="relative py-16 px-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50/50 to-white"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/30 to-transparent"></div>
         <div className="container mx-auto max-w-6xl grid lg:grid-cols-[2fr_1fr] gap-8 relative z-10">
           {/* Feed */}
           <div>
@@ -160,7 +160,7 @@ const Home: React.FC = () => {
 
       {/* Coming Soon */}
       <section className="relative py-16 px-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-white to-purple-50/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/30"></div>
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="flex items-center justify-between mb-8 animate-slideDown">
             <div>

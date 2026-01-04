@@ -35,7 +35,7 @@ const HowItWorks: React.FC = () => {
   
   return (
     <section className="relative py-24 px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/10 to-white"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-transparent"></div>
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tight">

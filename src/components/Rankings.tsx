@@ -15,7 +15,7 @@ const Rankings: React.FC = () => {
 
   return (
     <section id="rankings" className="py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-transparent"></div>
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4 animate-slideDown">
           <div>
