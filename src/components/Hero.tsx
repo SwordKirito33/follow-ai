@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
               </div>
               <div className="p-6">
                  <div className="flex items-start gap-4 mb-4">
-                   <img loading="lazy" src="https://picsum.photos/seed/user1/40/40" className="w-10 h-10 rounded-full" alt="User" />
+                   <img loading="lazy" src="https://picsum.photos/seed/user1/40/40" className="w-10 h-10 rounded-full" alt="User avatar" />
                    <div>
                      <h3 className="font-bold text-sm">Alex's Review of Cursor</h3>
                      <p className="text-xs text-gray-400">Coding • 2 {t('common.hoursAgo')}</p>
