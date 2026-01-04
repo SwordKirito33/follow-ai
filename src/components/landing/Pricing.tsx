@@ -1,4 +1,4 @@
-// Pricing Component for Follow.ai
+// Pricing Component for Follow-ai
 // Displays pricing plans with comparison features
 
 import React, { useState } from 'react';

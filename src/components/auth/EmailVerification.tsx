@@ -76,7 +76,7 @@ export const EmailVerification: React.FC<EmailVerificationProps> = ({
           </li>
           <li className="flex items-start gap-2">
             <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center">2</span>
-            <span>找到来自 Follow.ai 的邮件</span>
+            <span>找到来自 Follow-ai 的邮件</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center">3</span>

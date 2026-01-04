@@ -1,4 +1,4 @@
-// Animation Components for Follow.ai
+// Animation Components for Follow-ai
 // Reusable animation wrappers and effects
 
 import React, { useState, useEffect, useRef } from 'react';

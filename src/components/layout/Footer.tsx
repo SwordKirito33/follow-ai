@@ -1,4 +1,4 @@
-// Footer Component for Follow.ai
+// Footer Component for Follow-ai
 // Comprehensive footer with navigation, social links, and newsletter
 
 import React, { useState } from 'react';
@@ -196,13 +196,13 @@ function NewsletterForm({
 
 export function Footer({
   logo,
-  description = 'Follow.ai 是一个AI工具发现与测试平台，帮助用户找到最适合的AI工具，提升工作效率。',
+  description = 'Follow-ai 是一个AI工具发现与测试平台，帮助用户找到最适合的AI工具，提升工作效率。',
   sections = defaultSections,
   socialLinks = defaultSocialLinks,
   showNewsletter = true,
   newsletterTitle,
   newsletterDescription,
-  copyrightText = `© ${new Date().getFullYear()} Follow.ai. All rights reserved.`,
+  copyrightText = `© ${new Date().getFullYear()} Follow-ai. All rights reserved.`,
   className,
 }: FooterProps) {
   return (
@@ -218,7 +218,7 @@ export function Footer({
                   <span className="text-white font-bold text-xl">F</span>
                 </div>
                 <span className="text-xl font-bold text-white dark:text-white">
-                  Follow.ai
+                  Follow-ai
                 </span>
               </div>
             )}

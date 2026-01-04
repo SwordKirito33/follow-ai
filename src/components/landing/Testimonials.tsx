@@ -1,4 +1,4 @@
-// Testimonials Component for Follow.ai
+// Testimonials Component for Follow-ai
 // Displays user testimonials with carousel and grid layouts
 
 import React, { useState, useEffect } from 'react';
@@ -254,7 +254,7 @@ export const demoTestimonials: Testimonial[] = [
     name: '张明',
     role: '产品经理',
     company: '字节跳动',
-    content: 'Follow.ai帮我发现了很多实用的AI工具，任务系统让学习变得有趣，已经升到15级了！',
+    content: 'Follow-ai帮我发现了很多实用的AI工具，任务系统让学习变得有趣，已经升到15级了！',
     rating: 5,
   },
   {
@@ -269,7 +269,7 @@ export const demoTestimonials: Testimonial[] = [
     id: '3',
     name: '李华',
     role: '独立开发者',
-    content: '通过Follow.ai找到了很多提升效率的AI工具，特别是Cursor和GitHub Copilot的组合，编程效率提升了3倍。',
+    content: '通过Follow-ai找到了很多提升效率的AI工具，特别是Cursor和GitHub Copilot的组合，编程效率提升了3倍。',
     rating: 5,
   },
   {

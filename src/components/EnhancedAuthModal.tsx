@@ -143,7 +143,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
               <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
                 <span className="text-2xl font-bold">F</span>
               </div>
-              <span className="text-2xl font-bold">Follow.ai</span>
+              <span className="text-2xl font-bold">Follow-ai</span>
             </div>
             <h2 className="text-3xl font-bold mb-4">
               {mode === 'login' ? 'Welcome Back!' : mode === 'signup' ? 'Join the Community' : 'Reset Password'}

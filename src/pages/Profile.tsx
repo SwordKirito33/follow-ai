@@ -98,7 +98,7 @@ const Profile: React.FC = () => {
                   Congratulations! You've reached Level 100!
                 </p>
                 <p className="text-gray-400">
-                  You are eligible for: <strong>G63 全新车一辆</strong> or <strong>成为 Follow.ai 合伙人（享受分红）</strong>
+                  You are eligible for: <strong>G63 全新车一辆</strong> or <strong>成为 Follow-ai 合伙人（享受分红）</strong>
                 </p>
                 <p className="text-sm text-gray-400 mt-2">
                   Please contact support to claim your reward.

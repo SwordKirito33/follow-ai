@@ -1,4 +1,4 @@
-// Hero Section Component for Follow.ai Landing Page
+// Hero Section Component for Follow-ai Landing Page
 // Modern, animated hero section with gradient background
 
 import React from 'react';

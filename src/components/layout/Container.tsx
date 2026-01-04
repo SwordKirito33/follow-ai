@@ -1,4 +1,4 @@
-// Responsive Container Components for Follow.ai
+// Responsive Container Components for Follow-ai
 // Provides consistent layout across all pages
 
 import React from 'react';

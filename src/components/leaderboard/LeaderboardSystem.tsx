@@ -1,4 +1,4 @@
-// Leaderboard System Component for Follow.ai
+// Leaderboard System Component for Follow-ai
 // Comprehensive leaderboard with multiple views and time periods
 
 import React, { useState, useMemo } from 'react';

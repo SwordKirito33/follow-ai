@@ -1,4 +1,4 @@
-// Tool Filters Component for Follow.ai
+// Tool Filters Component for Follow-ai
 // Advanced filtering and sorting for AI tools
 
 import React, { useState, useCallback } from 'react';

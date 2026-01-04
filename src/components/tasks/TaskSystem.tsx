@@ -1,4 +1,4 @@
-// Task System Component for Follow.ai
+// Task System Component for Follow-ai
 // Comprehensive task management with categories, progress, and rewards
 
 import React, { useState, useMemo } from 'react';
@@ -431,7 +431,7 @@ export const demoTasks: Task[] = [
   {
     id: '1',
     title: '完成首次登录',
-    description: '登录Follow.ai平台，开始你的AI工具探索之旅',
+    description: '登录Follow-ai平台，开始你的AI工具探索之旅',
     category: 'daily',
     difficulty: 'beginner',
     xpReward: 50,
@@ -473,7 +473,7 @@ export const demoTasks: Task[] = [
   {
     id: '5',
     title: '邀请3位好友',
-    description: '邀请好友加入Follow.ai，一起探索AI工具',
+    description: '邀请好友加入Follow-ai，一起探索AI工具',
     category: 'weekly',
     difficulty: 'intermediate',
     xpReward: 1000,

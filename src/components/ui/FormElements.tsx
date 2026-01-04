@@ -1,4 +1,4 @@
-// Form Elements for Follow.ai
+// Form Elements for Follow-ai
 // Enhanced form inputs with validation and accessibility
 
 import React, { useState, useId, forwardRef } from 'react';

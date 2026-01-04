@@ -18,14 +18,14 @@ const Hero: React.FC = () => {
         {/* Content */}
         <div className="space-y-10 text-center lg:text-left">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.05]">
-            Where AI tools prove themselves <br />
+            {t('hero.title')} <br />
             <span className="gradient-text">
-              with real work
+              {t('hero.titleHighlight')}
             </span>
           </h1>
           
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
-            Follow.ai is the benchmark platform for AI tools. Users submit real prompts and outputs, we verify and score them, and you earn money for high-quality results.
+            {t('hero.subtitle')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
               icon={ArrowRight}
               iconPosition="right"
             >
-              Start earning
+              {t('hero.startEarning')}
             </FollowButton>
             <FollowButton
               to="/tasks"
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
               variant="secondary"
               size="lg"
             >
-              Browse tools
+              {t('nav.browseTools')}
             </FollowButton>
           </div>
 

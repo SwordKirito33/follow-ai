@@ -1,4 +1,4 @@
-// Unified Error State Components for Follow.ai
+// Unified Error State Components for Follow-ai
 // Use these components for all error displays
 
 import React from 'react';

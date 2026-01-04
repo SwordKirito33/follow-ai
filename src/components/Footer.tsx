@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400 dark:text-gray-400">
-            © 2025 Follow.ai. {t('footer.rights') || 'All rights reserved.'}
+            © 2025 Follow-ai. {t('footer.rights') || 'All rights reserved.'}
           </p>
           <div className="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-400">
             <span>Made with ❤️ for the AI community</span>

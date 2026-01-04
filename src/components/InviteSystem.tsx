@@ -71,14 +71,14 @@ const InviteSystem: React.FC = () => {
   };
 
   const shareVia = (platform: string) => {
-    const message = `Join me on Follow.ai and earn rewards by testing AI tools! Use my invite code: ${inviteCode}`;
+    const message = `Join me on Follow-ai and earn rewards by testing AI tools! Use my invite code: ${inviteCode}`;
     const encodedMessage = encodeURIComponent(message);
     const encodedUrl = encodeURIComponent(inviteUrl);
 
     const urls: Record<string, string> = {
       twitter: `https://twitter.com/intent/tweet?text=${encodedMessage}&url=${encodedUrl}`,
       linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-      email: `mailto:?subject=Join Follow.ai&body=${encodedMessage}%0A%0A${encodedUrl}`,
+      email: `mailto:?subject=Join Follow-ai&body=${encodedMessage}%0A%0A${encodedUrl}`,
       whatsapp: `https://wa.me/?text=${encodedMessage}%20${encodedUrl}`,
     };
 

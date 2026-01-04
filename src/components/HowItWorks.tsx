@@ -21,7 +21,7 @@ const HowItWorks: React.FC = () => {
     },
     {
       icon: CheckCircle,
-      title: 'Submit it to Follow.ai',
+      title: 'Submit it to Follow-ai',
       description: 'Upload your prompt and output. Our AI analyzes quality, and our team verifies authenticity.',
       color: 'from-green-500 to-emerald-500'
     },

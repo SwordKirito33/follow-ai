@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wallet, TrendingUp, TrendingDown } from 'lucide-react';
 import { formatCurrencyWithUSD, detectUserCurrency } from '@/lib/currency';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface WalletBalanceProps {
   balance: number;
@@ -15,6 +16,7 @@ const WalletBalance: React.FC<WalletBalanceProps> = ({
   totalSpent,
   currency,
 }) => {
+  const { t } = useLanguage();
   const userCurrency = currency || detectUserCurrency();
 
   return (
@@ -24,14 +26,14 @@ const WalletBalance: React.FC<WalletBalanceProps> = ({
           <Wallet size={24} />
         </div>
         <div>
-          <h2 className="text-2xl font-black text-white tracking-tight">Wallet Balance</h2>
-          <p className="text-sm text-gray-400">Your XP wallet overview</p>
+          <h2 className="text-2xl font-black text-white tracking-tight">{t('wallet.balance')}</h2>
+          <p className="text-sm text-gray-400">{t('wallet.overview')}</p>
         </div>
       </div>
 
       {/* Main Balance */}
       <div className="mb-6">
-        <div className="text-sm text-gray-400 mb-2">Current Balance</div>
+        <div className="text-sm text-gray-400 mb-2">{t('wallet.currentBalance')}</div>
         <div className="text-5xl font-black text-white mb-2">
           {balance.toLocaleString()} XP
         </div>
@@ -45,7 +47,7 @@ const WalletBalance: React.FC<WalletBalanceProps> = ({
         <div className="bg-green-900/30 rounded-lg p-4 border border-green-500/30">
           <div className="flex items-center gap-2 text-accent-green mb-2">
             <TrendingUp size={16} />
-            <span className="text-sm font-semibold">Total Purchased</span>
+            <span className="text-sm font-semibold">{t('wallet.totalPurchased')}</span>
           </div>
           <div className="text-2xl font-bold text-white">
             {totalPurchased.toLocaleString()} XP
@@ -58,7 +60,7 @@ const WalletBalance: React.FC<WalletBalanceProps> = ({
         <div className="bg-red-900/30 rounded-lg p-4 border border-red-500/30">
           <div className="flex items-center gap-2 text-red-400 mb-2">
             <TrendingDown size={16} />
-            <span className="text-sm font-semibold">Total Spent</span>
+            <span className="text-sm font-semibold">{t('wallet.totalSpent')}</span>
           </div>
           <div className="text-2xl font-bold text-white">
             {totalSpent.toLocaleString()} XP

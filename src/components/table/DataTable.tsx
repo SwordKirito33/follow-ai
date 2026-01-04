@@ -1,4 +1,4 @@
-// Data Table Components for Follow.ai
+// Data Table Components for Follow-ai
 // Comprehensive table with sorting, filtering, and pagination
 
 import React, { useState, useMemo } from 'react';

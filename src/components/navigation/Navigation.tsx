@@ -1,4 +1,4 @@
-// Navigation Components for Follow.ai
+// Navigation Components for Follow-ai
 // Comprehensive navigation system with responsive design
 
 import React, { useState, useRef, useEffect } from 'react';

@@ -1,4 +1,4 @@
-// Dialog and Modal Components for Follow.ai
+// Dialog and Modal Components for Follow-ai
 // Accessible modal dialogs with animations
 
 import React, { useEffect, useCallback, useRef } from 'react';

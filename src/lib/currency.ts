@@ -108,22 +108,44 @@ export function convertFromUSD(amountUSD: number, targetCurrency: string): numbe
 }
 
 /**
- * Format currency with USD equivalent
+ * Convert amount from target currency to USD
+ */
+export function convertToUSD(amount: number, fromCurrency: string): number {
+  const exchangeRates: Record<string, number> = {
+    USD: 1.0,
+    AUD: 1.5,
+    CAD: 1.35,
+    GBP: 0.8,
+    EUR: 0.92,
+    CNY: 7.2,
+    JPY: 150,
+    KRW: 1300,
+  };
+
+  const rate = exchangeRates[fromCurrency] || 1.0;
+  return amount / rate;
+}
+
+/**
+ * Format price in user's local currency (converting from USD base price)
+ * @param usdPrice - The base price in USD
+ * @param targetCurrency - The user's local currency
+ * @param showUSD - Whether to show USD equivalent
  */
 export function formatCurrencyWithUSD(
-  amount: number,
-  currency: string = 'USD',
+  usdPrice: number,
+  targetCurrency: string = 'USD',
   showUSD: boolean = true
 ): string {
-  const local = formatCurrency(amount, currency);
+  // Convert USD price to local currency
+  const localAmount = convertFromUSD(usdPrice, targetCurrency);
+  const localFormatted = formatCurrency(localAmount, targetCurrency);
   
-  if (!showUSD || currency === 'USD') {
-    return local;
+  if (!showUSD || targetCurrency === 'USD') {
+    return localFormatted;
   }
 
-  const usdAmount = convertFromUSD(amount / (getCurrencyInfo(currency).code === 'USD' ? 1 : convertFromUSD(1, currency)), 'USD');
-  const usd = formatCurrency(usdAmount, 'USD');
-  
-  return `${local} ≈ ${usd}`;
+  const usdFormatted = formatCurrency(usdPrice, 'USD');
+  return `${localFormatted} ≈ ${usdFormatted}`;
 }
 

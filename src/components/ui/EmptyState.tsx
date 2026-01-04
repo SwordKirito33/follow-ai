@@ -1,4 +1,4 @@
-// Unified Empty State Components for Follow.ai
+// Unified Empty State Components for Follow-ai
 // Use these components when there's no data to display
 
 import React from 'react';

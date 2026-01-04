@@ -1,14 +1,16 @@
 import React from 'react';
 import { BadgeInfo } from '@/lib/level-calculation';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface BadgeGridProps {
   badges: BadgeInfo[];
 }
 
 const BadgeGrid: React.FC<BadgeGridProps> = ({ badges }) => {
+  const { t } = useLanguage();
   return (
     <div className="glass-card rounded-xl shadow-xl p-6 mb-8">
-      <h2 className="text-2xl font-black text-white mb-6 tracking-tight">Badges & Achievements</h2>
+      <h2 className="text-2xl font-black text-white mb-6 tracking-tight">{t('badges.title')}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {badges.map((badge) => (
           <div
@@ -36,7 +38,7 @@ const BadgeGrid: React.FC<BadgeGridProps> = ({ badges }) => {
                 </p>
                 {badge.unlocked && (
                   <span className="inline-block mt-2 text-xs font-semibold text-yellow-700 bg-accent-gold/20 px-2 py-1 rounded">
-                    ✓ Unlocked
+                    ✓ {t('badges.unlocked')}
                   </span>
                 )}
               </div>

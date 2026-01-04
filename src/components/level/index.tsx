@@ -1,4 +1,4 @@
-// Enhanced Level Components Library for Follow.ai
+// Enhanced Level Components Library for Follow-ai
 // Provides multiple level display options
 
 import React from 'react';

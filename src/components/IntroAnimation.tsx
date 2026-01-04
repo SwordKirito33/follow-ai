@@ -338,7 +338,7 @@ const IntroAnimation: React.FC = () => {
               filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.4))'
             }}
           >
-            Follow.ai
+            Follow-ai
           </h1>
           <p 
             className="text-blue-300 text-base md:text-lg font-medium"

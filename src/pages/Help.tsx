@@ -16,7 +16,7 @@ const Help: React.FC = () => {
   const faqs: FAQItem[] = [
     {
       category: 'getting-started',
-      question: 'How do I start earning money on Follow.ai?',
+      question: 'How do I start earning money on Follow-ai?',
       answer: 'Simply sign up, browse available testing tasks, submit real outputs from AI tools, and get verified. Once your submission is approved, you\'ll receive rewards based on the quality and task requirements.'
     },
     {
@@ -57,7 +57,7 @@ const Help: React.FC = () => {
     {
       category: 'legal',
       question: 'Who owns the content I submit?',
-      answer: 'You retain ownership of your prompts and outputs. By submitting, you grant Follow.ai a license to display, analyze, and use your content for benchmarking purposes. You can request removal at any time.'
+      answer: 'You retain ownership of your prompts and outputs. By submitting, you grant Follow-ai a license to display, analyze, and use your content for benchmarking purposes. You can request removal at any time.'
     },
     {
       category: 'legal',
@@ -89,7 +89,7 @@ const Help: React.FC = () => {
             Help & FAQ
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto font-medium">
-            Everything you need to know about Follow.ai
+            Everything you need to know about Follow-ai
           </p>
         </div>
         

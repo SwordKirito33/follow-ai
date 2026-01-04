@@ -1,4 +1,4 @@
-// Profile System Component for Follow.ai
+// Profile System Component for Follow-ai
 // Comprehensive user profile with stats, achievements, and activity
 
 import React, { useState } from 'react';

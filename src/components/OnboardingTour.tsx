@@ -285,13 +285,13 @@ export const useOnboarding = (tourId: string) => {
   };
 };
 
-// Default tour steps for Follow.ai
+// Default tour steps for Follow-ai
 export const defaultTourSteps: TourStep[] = [
   {
     id: 'welcome',
-    title: 'Welcome to Follow.ai! 👋',
+    title: 'Welcome to Follow-ai! 👋',
     description:
-      'Follow.ai is a platform where you can test AI tools, earn XP, and compete with other testers. Let us show you around!',
+      'Follow-ai is a platform where you can test AI tools, earn XP, and compete with other testers. Let us show you around!',
   },
   {
     id: 'browse-tools',

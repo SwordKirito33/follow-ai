@@ -109,7 +109,7 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) =
                       <Smartphone className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-bold">Install Follow.ai</h3>
+                      <h3 className="font-bold">Install Follow-ai</h3>
                       <p className="text-sm text-blue-100">Get the best experience</p>
                     </div>
                   </div>

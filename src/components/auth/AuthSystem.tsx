@@ -1,4 +1,4 @@
-// Auth System Component for Follow.ai
+// Auth System Component for Follow-ai
 // Comprehensive authentication with login, register, and password reset
 
 import React, { useState, useCallback } from 'react';
@@ -287,8 +287,8 @@ export function AuthSystem({
             {mode === 'reset_password' && '重置密码'}
           </h1>
           <p className="text-gray-400 dark:text-gray-300 mt-2">
-            {mode === 'login' && '登录您的 Follow.ai 账户'}
-            {mode === 'register' && '加入 Follow.ai 社区'}
+            {mode === 'login' && '登录您的 Follow-ai 账户'}
+            {mode === 'register' && '加入 Follow-ai 社区'}
             {mode === 'forgot_password' && '输入邮箱以重置密码'}
             {mode === 'reset_password' && '设置您的新密码'}
           </p>

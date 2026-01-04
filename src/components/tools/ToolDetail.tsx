@@ -1,4 +1,4 @@
-// Tool Detail Component for Follow.ai
+// Tool Detail Component for Follow-ai
 // Comprehensive tool detail page with reviews, screenshots, and related tools
 
 import React, { useState } from 'react';

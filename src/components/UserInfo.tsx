@@ -2,6 +2,7 @@ import React from 'react';
 import LazyImage from './LazyImage';
 import { Edit } from 'lucide-react';
 import FollowButton from './ui/follow-button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface UserInfoProps {
   userId: string;
@@ -25,8 +26,10 @@ const UserInfo: React.FC<UserInfoProps> = ({
   joinedDate,
   onEditClick,
 }) => {
+  const { t, language } = useLanguage();
   const displayName = fullName || username || 'User';
-  const formattedDate = new Date(joinedDate).toLocaleDateString('en-US', {
+  const locale = language === 'zh' ? 'zh-CN' : language === 'ja' ? 'ja-JP' : language === 'ko' ? 'ko-KR' : 'en-US';
+  const formattedDate = new Date(joinedDate).toLocaleDateString(locale, {
     year: 'numeric',
     month: 'long',
   });
@@ -50,7 +53,7 @@ const UserInfo: React.FC<UserInfoProps> = ({
             <div className="mb-2">
               <h1 className="text-3xl font-black text-white tracking-tight">{displayName}</h1>
               <p className="text-gray-400 font-medium">
-                {email} • Joined {formattedDate}
+                {email} • {t('profile.joined')} {formattedDate}
               </p>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-sm font-semibold text-primary-cyan">Level {level}</span>
@@ -67,7 +70,7 @@ const UserInfo: React.FC<UserInfoProps> = ({
               className="flex items-center gap-2"
             >
               <Edit size={16} />
-              Edit Profile
+              {t('profile.editProfile')}
             </FollowButton>
           )}
         </div>

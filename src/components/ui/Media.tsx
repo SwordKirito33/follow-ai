@@ -1,4 +1,4 @@
-// Media Components for Follow.ai
+// Media Components for Follow-ai
 // Responsive images, avatars, and media handling
 
 import React, { useState, useRef, useEffect } from 'react';

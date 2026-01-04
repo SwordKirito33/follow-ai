@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, TrendingUp } from 'lucide-react';
 import { LevelInfo } from '@/lib/level-calculation';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface LevelProgressProps {
   levelInfo: LevelInfo;
@@ -13,6 +14,7 @@ const LevelProgress: React.FC<LevelProgressProps> = ({
   currentXp,
   totalXp,
 }) => {
+  const { t } = useLanguage();
   const progressPercentage = Math.round(levelInfo.progress * 100);
 
   return (
@@ -22,8 +24,8 @@ const LevelProgress: React.FC<LevelProgressProps> = ({
           <Award size={24} />
         </div>
         <div>
-          <h2 className="text-2xl font-black text-white tracking-tight">Level Progress</h2>
-          <p className="text-sm text-gray-400">Current Level: {levelInfo.level}</p>
+          <h2 className="text-2xl font-black text-white tracking-tight">{t('levelProgress.title')}</h2>
+          <p className="text-sm text-gray-400">{t('levelProgress.currentLevel')}: {levelInfo.level}</p>
         </div>
       </div>
 
@@ -44,8 +46,8 @@ const LevelProgress: React.FC<LevelProgressProps> = ({
           </div>
         </div>
         <div className="flex items-center justify-between text-xs text-gray-400 mt-2">
-          <span>{levelInfo.xpInCurrentLevel.toLocaleString()} XP in current level</span>
-          <span>{levelInfo.xpToNext.toLocaleString()} XP to next level</span>
+          <span>{levelInfo.xpInCurrentLevel.toLocaleString()} {t('levelProgress.xpInCurrentLevel')}</span>
+          <span>{levelInfo.xpToNext.toLocaleString()} {t('levelProgress.xpToNextLevel')}</span>
         </div>
       </div>
 
@@ -54,23 +56,23 @@ const LevelProgress: React.FC<LevelProgressProps> = ({
         <div className="bg-white/5 rounded-lg p-4">
           <div className="flex items-center gap-2 text-gray-400 mb-1">
             <TrendingUp size={16} />
-            <span className="text-xs">Current Level</span>
+            <span className="text-xs">{t('levelProgress.currentLevel')}</span>
           </div>
           <div className="text-2xl font-bold text-white">{levelInfo.level}</div>
         </div>
         <div className="bg-white/5 rounded-lg p-4">
           <div className="flex items-center gap-2 text-gray-400 mb-1">
             <Award size={16} />
-            <span className="text-xs">Total XP</span>
+            <span className="text-xs">{t('levelProgress.totalXp')}</span>
           </div>
           <div className="text-2xl font-bold text-white">{totalXp.toLocaleString()}</div>
         </div>
         <div className="bg-white/5 rounded-lg p-4">
-          <div className="text-xs text-gray-400 mb-1">Current Level XP</div>
+          <div className="text-xs text-gray-400 mb-1">{t('levelProgress.currentLevelXp')}</div>
           <div className="text-2xl font-bold text-white">{currentXp.toLocaleString()}</div>
         </div>
         <div className="bg-white/5 rounded-lg p-4">
-          <div className="text-xs text-gray-400 mb-1">XP to Next</div>
+          <div className="text-xs text-gray-400 mb-1">{t('levelProgress.xpToNext')}</div>
           <div className="text-2xl font-bold text-primary-cyan">{levelInfo.xpToNext.toLocaleString()}</div>
         </div>
       </div>

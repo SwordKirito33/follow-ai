@@ -21,9 +21,9 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
   };
 
   const content = {
-    twitter: `🧵 Just tested ${toolName} for 2 hours. Here's what I found:\n\n1/5 Built a real project from scratch. The output quality is surprisingly high.\n2/5 Most impressive feature: context awareness.\n3/5 Rating: ${'⭐'.repeat(Math.floor(rating))}/5.\n\nSee my full review & proof of work on Follow.ai #AI #${toolName.replace(/\s/g, '')}`,
-    linkedin: `Why ${toolName} is changing my workflow.\n\nAfter intensive testing, I can confidently say ${toolName} delivers. I built a production-ready asset in under 30 minutes.\n\nKey takeaways:\n• High accuracy\n• Saved 2h of work\n\nCheck out the actual outputs in my verified review on Follow.ai.\n\n#ArtificialIntelligence #TechReview #Productivity`,
-    reddit: `[Review] I tested ${toolName} - Here's my honest take with proof.\n\nI spent the afternoon putting ${toolName} through its paces. TL;DR: It's legit.\n\nPros: Fast, Accurate.\nCons: Slight learning curve.\n\nVerdict: ${rating}/10.\n\nFull breakdown + outputs: [Link to Follow.ai]`
+    twitter: `🧵 Just tested ${toolName} for 2 hours. Here's what I found:\n\n1/5 Built a real project from scratch. The output quality is surprisingly high.\n2/5 Most impressive feature: context awareness.\n3/5 Rating: ${'⭐'.repeat(Math.floor(rating))}/5.\n\nSee my full review & proof of work on Follow-ai #AI #${toolName.replace(/\s/g, '')}`,
+    linkedin: `Why ${toolName} is changing my workflow.\n\nAfter intensive testing, I can confidently say ${toolName} delivers. I built a production-ready asset in under 30 minutes.\n\nKey takeaways:\n• High accuracy\n• Saved 2h of work\n\nCheck out the actual outputs in my verified review on Follow-ai.\n\n#ArtificialIntelligence #TechReview #Productivity`,
+    reddit: `[Review] I tested ${toolName} - Here's my honest take with proof.\n\nI spent the afternoon putting ${toolName} through its paces. TL;DR: It's legit.\n\nPros: Fast, Accurate.\nCons: Slight learning curve.\n\nVerdict: ${rating}/10.\n\nFull breakdown + outputs: [Link to Follow-ai]`
   };
 
   return (

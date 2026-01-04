@@ -364,7 +364,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                         Feedback Sent!
                       </h3>
                       <p className="text-gray-400 dark:text-gray-400 mb-6">
-                        Thank you for helping us improve Follow.ai. We really appreciate it!
+                        Thank you for helping us improve Follow-ai. We really appreciate it!
                       </p>
                       <button
                         onClick={handleClose}

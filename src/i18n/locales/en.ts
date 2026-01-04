@@ -574,6 +574,49 @@ export const en = {
     skipConfirm: 'Skip onboarding? You can complete it later from your profile.',
   },
 
+  // Wallet
+  wallet: {
+    balance: 'Wallet Balance',
+    overview: 'Your XP wallet overview',
+    currentBalance: 'Current Balance',
+    totalPurchased: 'Total Purchased',
+    totalSpent: 'Total Spent',
+    xpPackages: 'XP Packages',
+    choosePackage: 'Choose a package to purchase XP',
+    purchase: 'Purchase',
+    processing: 'Processing...',
+    popular: 'Popular',
+    bestValue: 'Best Value',
+    off: 'OFF',
+    transactionHistory: 'Transaction History',
+    date: 'Date',
+    type: 'Type',
+    amount: 'Amount',
+    xp: 'XP',
+    status: 'Status',
+    completed: 'Completed',
+    pending: 'Pending',
+    failed: 'Failed',
+  },
+
+  // Level Progress
+  levelProgress: {
+    title: 'Level Progress',
+    currentLevel: 'Current Level',
+    totalXp: 'Total XP',
+    currentLevelXp: 'Current Level XP',
+    xpToNext: 'XP to Next',
+    xpInCurrentLevel: 'XP in current level',
+    xpToNextLevel: 'XP to next level',
+  },
+
+  // Badges
+  badges: {
+    title: 'Badges & Achievements',
+    unlocked: 'Unlocked',
+    locked: 'Locked',
+  },
+
   // Profile Enhancement - merged into profile above (line 337)
   // Tasks (Updated for 3 types) - merged into tasks above (line 66)
 };

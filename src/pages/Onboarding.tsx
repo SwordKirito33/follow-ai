@@ -97,7 +97,7 @@ const Onboarding: React.FC = () => {
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
-            <h1 className="text-3xl font-black text-white">Welcome to Follow.ai!</h1>
+            <h1 className="text-3xl font-black text-white">Welcome to Follow-ai!</h1>
             <span className="text-sm font-semibold text-gray-400">
               {Math.round(progress)}% Complete
             </span>

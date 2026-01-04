@@ -1,4 +1,4 @@
-// Wallet System Component for Follow.ai
+// Wallet System Component for Follow-ai
 // Comprehensive wallet with balance, transactions, and XP packages
 
 import React, { useState, useMemo } from 'react';

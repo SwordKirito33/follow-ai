@@ -4,6 +4,7 @@ import FollowButton from './ui/follow-button';
 import { formatCurrencyWithUSD, detectUserCurrency } from '@/lib/currency';
 import { useToast } from './ui/toast';
 import { purchaseXP } from '@/services/stripeService';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export interface XPPackage {
   id: string;
@@ -27,6 +28,7 @@ interface XPPackagesProps {
 }
 
 const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) => {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [loading, setLoading] = useState<string | null>(null);
   const userCurrency = detectUserCurrency();
@@ -54,8 +56,8 @@ const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) =
           <Zap size={24} />
         </div>
         <div>
-          <h2 className="text-2xl font-black text-white tracking-tight">XP Packages</h2>
-          <p className="text-sm text-gray-400">Choose a package to purchase XP</p>
+          <h2 className="text-2xl font-black text-white tracking-tight">{t('wallet.xpPackages')}</h2>
+          <p className="text-sm text-gray-400">{t('wallet.choosePackage')}</p>
         </div>
       </div>
 
@@ -78,7 +80,7 @@ const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) =
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                   <span className="bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    Popular
+                    {t('wallet.popular')}
                   </span>
                 </div>
               )}
@@ -113,13 +115,13 @@ const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) =
                 className="w-full"
                 disabled={isProcessing}
               >
-                {isProcessing ? 'Processing...' : 'Purchase'}
+                {isProcessing ? t('wallet.processing') : t('wallet.purchase')}
               </FollowButton>
 
               {pkg.popular && (
                 <div className="mt-3 flex items-center justify-center gap-1 text-xs text-primary-purple">
                   <Check size={12} />
-                  <span>Best Value</span>
+                  <span>{t('wallet.bestValue')}</span>
                 </div>
               )}
             </div>

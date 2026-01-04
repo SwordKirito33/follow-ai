@@ -57,7 +57,7 @@ const CookiePolicy: React.FC = () => {
         <div className="space-y-8">
           <div className="glass-card rounded-2xl p-6 mb-8">
             <p className="text-gray-300 dark:text-gray-300 leading-relaxed">
-              This Cookie Policy explains what cookies are, how we use them on Follow.ai, and how you can 
+              This Cookie Policy explains what cookies are, how we use them on Follow-ai, and how you can 
               control your cookie preferences. By continuing to use our website, you consent to our use of 
               cookies as described in this policy.
             </p>
@@ -144,7 +144,7 @@ const CookiePolicy: React.FC = () => {
                 <div>
                   <p className="font-semibold text-white dark:text-white mb-1">Our Cookie Settings</p>
                   <p className="text-gray-300 dark:text-gray-300">
-                    You can manage your cookie preferences through your account settings on Follow.ai.
+                    You can manage your cookie preferences through your account settings on Follow-ai.
                   </p>
                 </div>
               </li>

@@ -16,7 +16,7 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({
   title,
-  description = 'Follow.ai - Earn rewards by testing and reviewing AI tools. Complete tasks, earn XP, level up, and get paid.',
+  description = 'Follow-ai - Earn rewards by testing and reviewing AI tools. Complete tasks, earn XP, level up, and get paid.',
   keywords = ['AI', 'testing', 'rewards', 'earn money', 'AI tools', 'reviews'],
   image = '/og-image.png',
   url,
@@ -26,7 +26,7 @@ const SEO: React.FC<SEOProps> = ({
   modifiedTime,
   noindex = false,
 }) => {
-  const siteName = 'Follow.ai';
+  const siteName = 'Follow-ai';
   const fullTitle = title ? `${title} | ${siteName}` : siteName;
   const canonicalUrl = url || (typeof window !== 'undefined' ? window.location.href : '');
   const fullImageUrl = image.startsWith('http') ? image : `https://follow-ai.com${image}`;

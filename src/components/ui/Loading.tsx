@@ -1,4 +1,4 @@
-// Unified Loading Components for Follow.ai
+// Unified Loading Components for Follow-ai
 // Use these components for all loading states
 
 import React from 'react';
@@ -104,7 +104,7 @@ export function PageLoading({ message = 'Loading...', showLogo = true }: PageLoa
               <span className="text-white font-bold text-xl">F</span>
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent">
-              Follow.ai
+              Follow-ai
             </span>
           </div>
         </div>

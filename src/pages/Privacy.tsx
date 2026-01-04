@@ -110,8 +110,8 @@ const Privacy: React.FC = () => {
         <div className="space-y-8">
           <div className="glass-card rounded-2xl p-6 mb-8">
             <p className="text-gray-300 dark:text-gray-300 leading-relaxed">
-              At Follow.ai, we take your privacy seriously. This Privacy Policy explains how we collect, use, 
-              disclose, and safeguard your information when you use our platform. By using Follow.ai, you 
+              At Follow-ai, we take your privacy seriously. This Privacy Policy explains how we collect, use, 
+              disclose, and safeguard your information when you use our platform. By using Follow-ai, you 
               agree to the collection and use of information in accordance with this policy.
             </p>
           </div>
@@ -159,7 +159,7 @@ const Privacy: React.FC = () => {
             </p>
             <div className="space-y-2 text-gray-300 dark:text-gray-300">
               <p><strong>Email:</strong> privacy@follow.ai</p>
-              <p><strong>Address:</strong> Follow.ai, [Your Address]</p>
+              <p><strong>Address:</strong> Follow-ai, [Your Address]</p>
             </div>
           </div>
         </div>

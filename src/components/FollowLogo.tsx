@@ -87,7 +87,7 @@ const FollowLogo: React.FC<FollowLogoProps> = ({
       {/* Wordmark */}
       {showWordmark && (
         <span className="gradient-text font-black text-xl tracking-tight">
-          Follow.ai
+          Follow-ai
         </span>
       )}
     </div>

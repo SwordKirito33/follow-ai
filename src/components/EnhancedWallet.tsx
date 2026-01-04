@@ -415,12 +415,12 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
             exit={{ opacity: 0, y: -20 }}
             className="space-y-6"
           >
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
-              <h3 className="text-xl font-bold text-white dark:text-white mb-2 flex items-center gap-2">
+            <div className="glass-card rounded-2xl p-6 shadow-lg">
+              <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
                 <Zap className="w-6 h-6 text-yellow-500" />
                 XP Packages
               </h3>
-              <p className="text-gray-400 dark:text-gray-400 mb-6">
+              <p className="text-gray-300 mb-6">
                 Choose a package to purchase XP
               </p>
 
@@ -430,10 +430,10 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                     key={pkg.id}
                     className={`relative p-6 rounded-2xl border-2 transition-all ${
                       pkg.popular
-                        ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+                        ? 'border-purple-500 bg-gradient-to-br from-purple-900/40 to-blue-900/40'
                         : pkg.bestValue
-                        ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
-                        : 'border-white/10 dark:border-gray-700 hover:border-blue-300'
+                        ? 'border-green-500 bg-green-900/20'
+                        : 'border-white/20 bg-white/5 hover:border-white/40'
                     }`}
                   >
                     {/* Badge */}
@@ -449,10 +449,10 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                     )}
 
                     <div className="text-center">
-                      <p className="text-3xl font-bold text-white dark:text-white">
+                      <p className="text-3xl font-bold text-white">
                         {pkg.xp.toLocaleString()}
                       </p>
-                      <p className="text-gray-400 mb-4">XP</p>
+                      <p className="text-gray-300 mb-4">XP</p>
 
                       <div className="mb-4">
                         <p className="text-2xl font-bold text-primary-cyan">{formatCurrency(pkg.price)}</p>
@@ -481,14 +481,14 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
             </div>
 
             {/* Payment methods */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
-              <h3 className="font-bold text-white dark:text-white mb-4 flex items-center gap-2">
+            <div className="glass-card rounded-2xl p-6 shadow-lg">
+              <h3 className="font-bold text-white mb-4 flex items-center gap-2">
                 <CreditCard className="w-5 h-5" />
                 Accepted Payment Methods
               </h3>
               <div className="flex flex-wrap gap-4">
                 {['Visa', 'Mastercard', 'Amex', 'PayPal', 'Apple Pay', 'Google Pay', 'Alipay', 'WeChat Pay'].map((method) => (
-                  <div key={method} className="px-4 py-2 bg-white/10 dark:bg-gray-800 rounded-lg text-sm text-gray-400 dark:text-gray-400">
+                  <div key={method} className="px-4 py-2 bg-white/10 rounded-lg text-sm text-gray-300">
                     {method}
                   </div>
                 ))}

@@ -1,4 +1,4 @@
-// SEO Head Component for Follow.ai
+// SEO Head Component for Follow-ai
 // Manages meta tags, Open Graph, Twitter Cards, and structured data
 
 import { useEffect } from 'react';
@@ -33,8 +33,8 @@ interface SEOProps {
 // ============================================
 
 const defaults = {
-  siteName: 'Follow.ai',
-  title: 'Follow.ai - AI工具发现与测试平台',
+  siteName: 'Follow-ai',
+  title: 'Follow-ai - AI工具发现与测试平台',
   description: '发现、测试和评价最新的AI工具。完成任务赚取XP，提升等级，成为AI工具专家。',
   image: '/og-image.png',
   twitterHandle: '@followai',

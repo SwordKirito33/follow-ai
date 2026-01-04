@@ -1,4 +1,4 @@
-// AI Tool Card Component for Follow.ai
+// AI Tool Card Component for Follow-ai
 // Displays AI tool information in a card format
 
 import React from 'react';

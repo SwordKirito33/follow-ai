@@ -1,4 +1,4 @@
-// Chart Components for Follow.ai
+// Chart Components for Follow-ai
 // Data visualization with responsive design
 
 import React, { useMemo } from 'react';

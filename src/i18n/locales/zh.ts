@@ -9,6 +9,16 @@ export const zh = {
     about: '关于',
     submitReview: '提交评测',
     profile: '个人资料',
+    leaderboard: '排行榜',
+    xpHistory: 'XP历史',
+    wallet: '钱包',
+    hire: '招聘',
+    dashboard: '仪表盘',
+    submitOutput: '提交作品',
+    login: '登录',
+    signup: '注册',
+    logout: '退出',
+    viewProfile: '查看资料',
   },
   
   // Hero Section
@@ -543,6 +553,49 @@ export const zh = {
     completeProfile: '完成您的资料（已完成 {current}%，需要 60%）',
     completeProfileBtn: '完成资料',
     findXpChallenges: '查找经验值挑战',
+  },
+
+  // 钱包
+  wallet: {
+    balance: '钱包余额',
+    overview: '您的XP钱包概览',
+    currentBalance: '当前余额',
+    totalPurchased: '总购买',
+    totalSpent: '总消费',
+    xpPackages: 'XP套餐',
+    choosePackage: '选择套餐购买XP',
+    purchase: '购买',
+    processing: '处理中...',
+    popular: '热门',
+    bestValue: '最优惠',
+    off: '折扣',
+    transactionHistory: '交易记录',
+    date: '日期',
+    type: '类型',
+    amount: '金额',
+    xp: 'XP',
+    status: '状态',
+    completed: '已完成',
+    pending: '待处理',
+    failed: '失败',
+  },
+
+  // 等级进度
+  levelProgress: {
+    title: '等级进度',
+    currentLevel: '当前等级',
+    totalXp: '总经验值',
+    currentLevelXp: '当前等级经验值',
+    xpToNext: '升级所需',
+    xpInCurrentLevel: '当前等级经验值',
+    xpToNextLevel: '升级所需经验值',
+  },
+
+  // 徽章和成就
+  badges: {
+    title: '徽章和成就',
+    unlocked: '已解锁',
+    locked: '未解锁',
   },
 
   // 引导流程

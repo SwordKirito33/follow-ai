@@ -1,4 +1,4 @@
-// Responsive Navigation Components for Follow.ai
+// Responsive Navigation Components for Follow-ai
 // Mobile-first navigation with hamburger menu
 
 import React, { useState, useEffect } from 'react';

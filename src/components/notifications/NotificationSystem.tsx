@@ -1,4 +1,4 @@
-// Notification System for Follow.ai
+// Notification System for Follow-ai
 // Comprehensive notification handling with different types and positions
 
 import React, { useState, useEffect, useCallback, createContext, useContext } from 'react';

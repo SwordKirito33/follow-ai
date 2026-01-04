@@ -104,7 +104,7 @@ const Navbar: React.FC = () => {
                 : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/10 dark:hover:bg-gray-800'
             }`}
           >
-            Leaderboard
+            {t('nav.leaderboard')}
           </Link>
           {isAuthenticated && (
             <Link 
@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
                   : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/10 dark:hover:bg-gray-800'
               }`}
             >
-              XP History
+              {t('nav.xpHistory')}
             </Link>
           )}
           {isAuthenticated && (
@@ -127,7 +127,7 @@ const Navbar: React.FC = () => {
                   : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/10 dark:hover:bg-gray-800'
               }`}
             >
-              Wallet
+              {t('nav.wallet')}
             </Link>
           )}
           <Link 
@@ -138,7 +138,7 @@ const Navbar: React.FC = () => {
                 : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/10 dark:hover:bg-gray-800'
             }`}
           >
-            Hire
+            {t('nav.hire')}
           </Link>
         </div>
 
@@ -168,14 +168,14 @@ const Navbar: React.FC = () => {
                 variant="primary"
                 size="md"
               >
-                Submit output
+                {t('nav.submitOutput')}
               </FollowButton>
               <Link 
                 to="/dashboard" 
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors"
               >
                 <User size={18} />
-                <span className="hidden lg:inline">Dashboard</span>
+                <span className="hidden lg:inline">{t('nav.dashboard')}</span>
               </Link>
               <Link 
                 to="/profile" 
@@ -201,14 +201,14 @@ const Navbar: React.FC = () => {
                 variant="ghost"
                 size="md"
               >
-                Log in
+                {t('nav.login')}
               </FollowButton>
               <FollowButton
                 onClick={handleSignupClick}
                 variant="primary"
                 size="md"
               >
-                Sign up
+                {t('nav.signup')}
               </FollowButton>
             </>
           )}
