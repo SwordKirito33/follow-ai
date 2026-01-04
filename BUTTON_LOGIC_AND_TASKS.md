@@ -91,15 +91,15 @@
 
 | ID | 组件 | 问题 | 修复方案 |
 |----|------|------|----------|
-| 001 | NotificationCenter.tsx | 硬编码英文 | 添加翻译键 |
-| 002 | BountyCard.tsx | 硬编码英文 | 添加翻译键 |
-| 003 | LevelUpModal.tsx | 硬编码英文 | 添加翻译键 |
+| 001 | NotificationCenter.tsx | ✅ 已完成 | 添加翻译键 |
+| 002 | BountyCard.tsx | ✅ 已完成 | 添加翻译键 |
+| 003 | LevelUpModal.tsx | ✅ 已完成 | 添加翻译键 |
 | 004 | SocialShareModal.tsx | 硬编码英文 | 添加翻译键 |
 | 005 | AdminXpPanel.tsx | 硬编码英文 | 添加翻译键 |
 | 006 | AchievementNotification.tsx | 硬编码英文 | 添加翻译键 |
-| 007 | AchievementSystem.tsx | 硬编码英文 | 添加翻译键 |
+| 007 | AchievementSystem.tsx | ✅ 已完成 | 添加翻译键 |
 | 008 | ActivityTimeline.tsx | 硬编码英文 | 添加翻译键 |
-| 009 | DailyCheckIn.tsx | 硬编码英文 | 添加翻译键 |
+| 009 | DailyCheckIn.tsx | ✅ 已完成 | 添加翻译键 |
 | 010 | EnhancedAuthModal.tsx | 硬编码英文 | 添加翻译键 |
 | 011 | EnhancedDashboard.tsx | 硬编码英文 | 添加翻译键 |
 | 012 | EnhancedLeaderboard.tsx | 硬编码英文 | 添加翻译键 |
@@ -141,7 +141,7 @@
 
 | ID | 位置 | 问题 | 修复方案 |
 |----|------|------|----------|
-| 041 | PageLoader | 白色背景 | 改为深色 |
+| 041 | PageLoader | ✅ 已完成 | 改为深色 |
 | 042 | AuthModal | 白色背景 | 改为深色 |
 | 043 | Modal 组件 | 白色背景 | 改为深色 |
 | 044 | Dropdown | 白色背景 | 改为深色 |
