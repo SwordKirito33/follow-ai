@@ -111,7 +111,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
         </div>
 
         {/* Time range selector */}
-        <div className="flex gap-2 bg-white/10 dark:bg-gray-800 rounded-xl p-1">
+        <div className="flex gap-2 bg-slate-800/50/10 dark:bg-gray-800 rounded-xl p-1">
           {timeRanges.map((range) => (
             <button
               key={range.value}
@@ -184,7 +184,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
               {top3[1].username}
             </p>
             <p className="text-sm text-gray-400">{top3[1].totalXp.toLocaleString()} XP</p>
-            <div className="h-24 w-full bg-white/10 dark:bg-gray-700 rounded-t-lg mt-4" />
+            <div className="h-24 w-full bg-slate-800/50/10 dark:bg-gray-700 rounded-t-lg mt-4" />
           </motion.div>
         )}
 

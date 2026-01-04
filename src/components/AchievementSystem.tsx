@@ -47,7 +47,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
   };
 
   const rarityBgColors = {
-    common: 'bg-white/10 dark:bg-gray-800',
+    common: 'bg-slate-800/50/10 dark:bg-gray-800',
     rare: 'bg-blue-50 dark:bg-blue-900/20',
     epic: 'bg-purple-50 dark:bg-purple-900/20',
     legendary: 'bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20',
@@ -105,7 +105,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
             <span className="text-gray-400 dark:text-gray-400">Completion</span>
             <span className="font-medium text-white dark:text-white">{completionPercentage}%</span>
           </div>
-          <div className="h-3 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
+          <div className="h-3 bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${completionPercentage}%` }}
@@ -136,7 +136,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                 flex items-center gap-2 px-4 py-2 rounded-xl font-medium whitespace-nowrap transition-all
                 ${selectedCategory === category.id
                   ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white'
-                  : 'bg-white/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-700'
+                  : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
                 }
               `}
             >
@@ -160,7 +160,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                 relative p-4 rounded-xl text-left transition-all
                 ${achievement.isUnlocked
                   ? rarityBgColors[achievement.rarity]
-                  : 'bg-white/10 dark:bg-gray-800 opacity-60'
+                  : 'bg-slate-800/50/10 dark:bg-gray-800 opacity-60'
                 }
                 ${achievement.rarity === 'legendary' && achievement.isUnlocked ? 'ring-2 ring-yellow-400' : ''}
               `}
@@ -260,7 +260,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                   : 'bg-gray-400'
                 }
               `}>
-                <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-2xl flex items-center justify-center text-white">
+                <div className="w-20 h-20 mx-auto mb-4 bg-slate-800/50/20 rounded-2xl flex items-center justify-center text-white">
                   {selectedAchievement.isUnlocked ? (
                     getIcon(selectedAchievement.icon)
                   ) : (
@@ -295,7 +295,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                     )}
                   </div>
                 ) : (
-                  <div className="p-4 bg-white/10 dark:bg-gray-800 rounded-xl">
+                  <div className="p-4 bg-slate-800/50/10 dark:bg-gray-800 rounded-xl">
                     <div className="flex justify-between text-sm mb-2">
                       <span className="text-gray-400 dark:text-gray-400">Progress</span>
                       <span className="font-medium text-white dark:text-white">
@@ -321,7 +321,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
 
                 <button
                   onClick={() => setSelectedAchievement(null)}
-                  className="w-full mt-4 py-3 bg-white/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 rounded-xl font-medium hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
+                  className="w-full mt-4 py-3 bg-slate-800/50/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 rounded-xl font-medium hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors"
                 >
                   Close
                 </button>

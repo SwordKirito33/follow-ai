@@ -61,7 +61,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
     <div
       className={cn(
         'p-6 rounded-2xl',
-        'bg-white dark:bg-gray-800',
+        'bg-slate-800/50 dark:bg-gray-800',
         'border border-white/10 dark:border-gray-700',
         'shadow-sm hover:shadow-lg',
         'transition-all duration-300'
@@ -154,7 +154,7 @@ export function Testimonials({
   };
 
   return (
-    <section className={cn('py-20 bg-white/5 dark:bg-gray-900', className)}>
+    <section className={cn('py-20 bg-slate-800/50/5 dark:bg-gray-900', className)}>
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -187,7 +187,7 @@ export function Testimonials({
             {/* Navigation Arrows */}
             <button
               onClick={goToPrev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center hover:bg-white/5 dark:hover:bg-gray-700 transition-colors"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-slate-800/50 dark:bg-gray-800 shadow-lg flex items-center justify-center hover:bg-slate-800/50/5 dark:hover:bg-gray-700 transition-colors"
             >
               <svg className="w-5 h-5 text-gray-400 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -195,7 +195,7 @@ export function Testimonials({
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center hover:bg-white/5 dark:hover:bg-gray-700 transition-colors"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-slate-800/50 dark:bg-gray-800 shadow-lg flex items-center justify-center hover:bg-slate-800/50/5 dark:hover:bg-gray-700 transition-colors"
             >
               <svg className="w-5 h-5 text-gray-400 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

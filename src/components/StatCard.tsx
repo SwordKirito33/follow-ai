@@ -73,7 +73,7 @@ const StatCard: React.FC<StatCardProps> = ({
           <div
             className={`w-10 h-10 rounded-xl flex items-center justify-center ${
               variant === 'gradient'
-                ? 'bg-white/20'
+                ? 'bg-slate-800/50/20'
                 : 'bg-blue-50 dark:bg-blue-900/30 text-primary-cyan dark:text-blue-400'
             }`}
           >

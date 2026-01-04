@@ -92,7 +92,7 @@ const InviteSystem: React.FC = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-6 text-white">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+          <div className="w-12 h-12 bg-slate-800/50/20 rounded-xl flex items-center justify-center">
             <Gift className="w-6 h-6" />
           </div>
           <div>
@@ -126,7 +126,7 @@ const InviteSystem: React.FC = () => {
             Your Invite Code
           </label>
           <div className="flex gap-2">
-            <div className="flex-1 px-4 py-3 bg-white/10 dark:bg-gray-800 rounded-lg font-mono text-lg font-bold text-white dark:text-white">
+            <div className="flex-1 px-4 py-3 bg-slate-800/50/10 dark:bg-gray-800 rounded-lg font-mono text-lg font-bold text-white dark:text-white">
               {inviteCode}
             </div>
             <button
@@ -148,11 +148,11 @@ const InviteSystem: React.FC = () => {
               type="text"
               value={inviteUrl}
               readOnly
-              className="flex-1 px-4 py-3 bg-white/10 dark:bg-gray-800 rounded-lg text-sm text-gray-300 dark:text-gray-300 truncate"
+              className="flex-1 px-4 py-3 bg-slate-800/50/10 dark:bg-gray-800 rounded-lg text-sm text-gray-300 dark:text-gray-300 truncate"
             />
             <button
               onClick={() => copyToClipboard(inviteUrl)}
-              className="px-4 py-3 border border-white/20 dark:border-gray-600 rounded-lg hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
+              className="px-4 py-3 border border-white/20 dark:border-gray-600 rounded-lg hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors"
             >
               <Copy className="w-5 h-5 text-gray-400 dark:text-gray-400" />
             </button>

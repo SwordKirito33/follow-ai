@@ -79,7 +79,7 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
       case 'milestone':
         return 'bg-orange-500 text-white';
       default:
-        return 'bg-white/50 text-white';
+        return 'bg-slate-800/50/50 text-white';
     }
   };
 
@@ -126,7 +126,7 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
         >
           {/* Timeline line */}
           {index < displayedActivities.length - 1 && (
-            <div className="absolute left-[17px] top-10 bottom-0 w-0.5 bg-white/10 dark:bg-gray-700" />
+            <div className="absolute left-[17px] top-10 bottom-0 w-0.5 bg-slate-800/50/10 dark:bg-gray-700" />
           )}
 
           {/* Icon */}

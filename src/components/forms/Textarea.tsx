@@ -95,12 +95,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             rows={autoResize ? minRows : props.rows || minRows}
             className={`
               w-full px-4 py-3 rounded-xl border-2 transition-all duration-200
-              bg-white dark:bg-gray-900
+              bg-slate-800/50 dark:bg-gray-900
               border-white/20 dark:border-gray-700
               ${stateClasses}
               ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
               focus:outline-none focus:ring-4
-              placeholder:text-gray-400 dark:placeholder:text-gray-500
+              placeholder:text-gray-400 dark:placeholder:text-gray-300
               text-white dark:text-white
               resize-none
             `}

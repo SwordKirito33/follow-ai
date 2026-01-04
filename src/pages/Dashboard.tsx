@@ -114,7 +114,7 @@ const Dashboard: React.FC = () => {
                 <span>{t('dashboardPage.xpProgress')}</span>
                 <span>{levelInfo.xpToNext} {t('dashboardPage.toNext')}</span>
               </div>
-              <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+              <div className="w-full h-3 bg-slate-800/50/10 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-primary-purple to-primary-blue transition-all duration-700 ease-out"
                   style={{ width: `${levelInfo.progress * 100}%` }}
@@ -144,7 +144,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="text-sm text-gray-400 mb-1">{t('dashboardPage.profileCompletion')}</div>
             <div className="text-2xl font-bold text-white">{profileCompletion}%</div>
-            <div className="mt-2 w-full h-2 bg-white/10 rounded-full overflow-hidden">
+            <div className="mt-2 w-full h-2 bg-slate-800/50/10 rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-primary-blue to-accent-green transition-all duration-700 ease-out"
                 style={{ width: `${profileCompletion}%` }}

@@ -49,7 +49,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
   return (
     <div className={`relative overflow-hidden ${className}`} ref={imgRef as any}>
       {!isLoaded && !hasError && (
-        <div className="absolute inset-0 bg-white/10 dark:bg-gray-700 animate-pulse flex items-center justify-center z-0">
+        <div className="absolute inset-0 bg-slate-800/50/10 dark:bg-gray-700 animate-pulse flex items-center justify-center z-0">
           <svg
             className="w-12 h-12 text-gray-400 dark:text-gray-400"
             fill="none"
@@ -66,7 +66,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
         </div>
       )}
       {hasError ? (
-        <div className="w-full h-full bg-white/10 dark:bg-gray-800 flex items-center justify-center text-gray-400 dark:text-gray-400 text-sm">
+        <div className="w-full h-full bg-slate-800/50/10 dark:bg-gray-800 flex items-center justify-center text-gray-400 dark:text-gray-400 text-sm">
           <span>Failed to load</span>
         </div>
       ) : (

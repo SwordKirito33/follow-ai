@@ -50,7 +50,7 @@ export default function PurchaseXP() {
             <div
               key={pkg.id}
               onClick={() => setSelectedPackage(pkg.id)}
-              className={`relative bg-white rounded-2xl p-6 cursor-pointer transition-all ${
+              className={`relative bg-slate-800/50 rounded-2xl p-6 cursor-pointer transition-all ${
                 selectedPackage === pkg.id
                   ? 'ring-4 ring-purple-600 shadow-2xl scale-105'
                   : 'hover:shadow-xl hover:scale-102'
@@ -92,7 +92,7 @@ export default function PurchaseXP() {
         </div>
 
         {/* Benefits */}
-        <div className="bg-white rounded-2xl p-8 mb-8 shadow-lg">
+        <div className="bg-slate-800/50 rounded-2xl p-8 mb-8 shadow-lg">
           <h2 className="text-2xl font-bold text-white mb-6">
             What you get with XP
           </h2>

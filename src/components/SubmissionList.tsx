@@ -51,7 +51,7 @@ const SubmissionList: React.FC<SubmissionListProps> = ({ submissions, selectedId
               className={`w-full p-4 rounded-lg border-2 text-left transition-all ${
                 selectedId === submission.id
                   ? 'bg-blue-50 border-blue-500 shadow-md'
-                  : 'bg-white border-white/10 hover:border-white/20'
+                  : 'bg-slate-800/50 border-white/10 hover:border-white/20'
               }`}
             >
               <div className="flex items-start justify-between mb-2">

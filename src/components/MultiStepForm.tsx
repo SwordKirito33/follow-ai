@@ -65,7 +65,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ steps, onSubmit, onCancel
                       ? 'bg-green-600 text-white'
                       : index === currentStep
                       ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white ring-4 ring-blue-200 dark:ring-blue-900'
-                      : 'bg-white/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400'
+                      : 'bg-slate-800/50/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400'
                   }`}
                 >
                   {index < currentStep ? (
@@ -89,7 +89,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ steps, onSubmit, onCancel
                   className={`flex-1 h-1 mx-2 transition-all ${
                     index < currentStep
                       ? 'bg-green-600'
-                      : 'bg-white/10 dark:bg-gray-700'
+                      : 'bg-slate-800/50/10 dark:bg-gray-700'
                   }`}
                 />
               )}

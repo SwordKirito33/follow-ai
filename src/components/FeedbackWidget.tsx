@@ -161,7 +161,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                   </h2>
                   <button
                     onClick={handleClose}
-                    className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+                    className="p-1 hover:bg-slate-800/50/20 rounded-lg transition-colors"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -318,7 +318,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                       <div className="flex gap-2 pt-2">
                         <button
                           onClick={() => setStep('type')}
-                          className="px-4 py-3 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800 rounded-xl font-medium transition-colors"
+                          className="px-4 py-3 text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-xl font-medium transition-colors"
                         >
                           Back
                         </button>

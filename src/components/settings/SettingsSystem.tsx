@@ -320,7 +320,7 @@ export const NotificationSettings: React.FC<NotificationSettingsProps> = ({
       >
         <span
           className={`
-            absolute top-1 w-4 h-4 rounded-full bg-white transition-transform
+            absolute top-1 w-4 h-4 rounded-full bg-slate-800/50 transition-transform
             ${checked ? 'left-7' : 'left-1'}
           `}
         />
@@ -563,7 +563,7 @@ export const PrivacySettings: React.FC<PrivacySettingsProps> = ({
               >
                 <span
                   className={`
-                    absolute top-1 w-4 h-4 rounded-full bg-white transition-transform
+                    absolute top-1 w-4 h-4 rounded-full bg-slate-800/50 transition-transform
                     ${settings[item.key as keyof typeof settings] ? 'left-7' : 'left-1'}
                   `}
                 />
@@ -724,7 +724,7 @@ export const AppearanceSettings: React.FC<AppearanceSettingsProps> = ({
         >
           <span
             className={`
-              absolute top-1 w-4 h-4 rounded-full bg-white transition-transform
+              absolute top-1 w-4 h-4 rounded-full bg-slate-800/50 transition-transform
               ${settings.reducedMotion ? 'left-7' : 'left-1'}
             `}
           />

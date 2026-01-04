@@ -98,7 +98,7 @@ const Select: React.FC<SelectProps> = ({
           className={`
             w-full px-4 py-3 rounded-xl border-2 transition-all duration-200
             flex items-center justify-between gap-2
-            bg-white dark:bg-gray-900
+            bg-slate-800/50 dark:bg-gray-900
             ${error ? 'border-red-500' : 'border-white/20 dark:border-gray-700'}
             ${isOpen ? 'border-blue-500 ring-4 ring-blue-500/20' : ''}
             ${disabled ? 'opacity-50 cursor-not-allowed' : 'hover:border-gray-400 dark:hover:border-gray-600'}
@@ -118,7 +118,7 @@ const Select: React.FC<SelectProps> = ({
               <button
                 type="button"
                 onClick={handleClear}
-                className="p-1 hover:bg-white/10 dark:hover:bg-gray-800 rounded-full"
+                className="p-1 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-full"
               >
                 <span className="text-gray-400 text-sm">✕</span>
               </button>
@@ -137,7 +137,7 @@ const Select: React.FC<SelectProps> = ({
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="absolute z-50 w-full mt-2 bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl shadow-xl overflow-hidden"
+              className="absolute z-50 w-full mt-2 bg-slate-800/50 dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl shadow-xl overflow-hidden"
             >
               {searchable && (
                 <div className="p-2 border-b border-white/10 dark:border-gray-700">
@@ -149,7 +149,7 @@ const Select: React.FC<SelectProps> = ({
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Search..."
-                      className="w-full pl-9 pr-4 py-2 bg-white/10 dark:bg-gray-800 rounded-lg text-sm focus:outline-none"
+                      className="w-full pl-9 pr-4 py-2 bg-slate-800/50/10 dark:bg-gray-800 rounded-lg text-sm focus:outline-none"
                     />
                   </div>
                 </div>
@@ -170,7 +170,7 @@ const Select: React.FC<SelectProps> = ({
                       className={`
                         w-full px-4 py-3 flex items-center justify-between gap-2 text-left
                         transition-colors
-                        ${option.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/10 dark:hover:bg-gray-800'}
+                        ${option.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-slate-800/50/10 dark:hover:bg-gray-800'}
                         ${option.value === value ? 'bg-blue-50 dark:bg-blue-900/20' : ''}
                       `}
                     >

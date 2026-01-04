@@ -74,7 +74,7 @@ const Tabs: React.FC<TabsProps> = ({
 
   const variantClasses = {
     default: {
-      container: 'bg-white/10 dark:bg-gray-800 p-1 rounded-xl',
+      container: 'bg-slate-800/50/10 dark:bg-gray-800 p-1 rounded-xl',
       tab: 'rounded-lg',
       activeTab: 'bg-gray-900/90 backdrop-blur-sm shadow-sm',
       inactiveTab: 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white',
@@ -83,7 +83,7 @@ const Tabs: React.FC<TabsProps> = ({
       container: 'gap-2',
       tab: 'rounded-full',
       activeTab: 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white',
-      inactiveTab: 'text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800',
+      inactiveTab: 'text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800',
     },
     underline: {
       container: 'border-b border-white/10 dark:border-gray-700',
@@ -94,8 +94,8 @@ const Tabs: React.FC<TabsProps> = ({
     bordered: {
       container: 'border border-white/10 dark:border-gray-700 rounded-xl p-1',
       tab: 'rounded-lg',
-      activeTab: 'bg-white/10 dark:bg-gray-800',
-      inactiveTab: 'text-gray-400 dark:text-gray-400 hover:bg-white/5 dark:hover:bg-gray-800/50',
+      activeTab: 'bg-slate-800/50/10 dark:bg-gray-800',
+      inactiveTab: 'text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/5 dark:hover:bg-gray-800/50',
     },
   };
 
@@ -148,7 +148,7 @@ const Tabs: React.FC<TabsProps> = ({
                   px-1.5 py-0.5 text-xs font-bold rounded-full
                   ${activeTab === tab.id
                     ? 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan dark:text-blue-400'
-                    : 'bg-white/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400'
+                    : 'bg-slate-800/50/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400'
                   }
                 `}
               >
@@ -207,14 +207,14 @@ export const VerticalTabs: React.FC<{
               ${tab.disabled ? 'opacity-50 cursor-not-allowed' : ''}
               ${activeTab === tab.id
                 ? 'bg-blue-50 dark:bg-blue-900/20 text-primary-cyan dark:text-blue-400'
-                : 'text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800'
+                : 'text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800'
               }
             `}
           >
             {tab.icon}
             <span>{tab.label}</span>
             {tab.badge !== undefined && (
-              <span className="ml-auto px-2 py-0.5 text-xs font-bold bg-white/10 dark:bg-gray-700 rounded-full">
+              <span className="ml-auto px-2 py-0.5 text-xs font-bold bg-slate-800/50/10 dark:bg-gray-700 rounded-full">
                 {tab.badge}
               </span>
             )}

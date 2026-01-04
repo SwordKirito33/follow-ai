@@ -130,7 +130,7 @@ const AdminXpPanel: React.FC = () => {
         </div>
 
         {/* Form */}
-        <div className="bg-white rounded-xl shadow-lg border border-white/10 p-6">
+        <div className="bg-slate-800/50 rounded-xl shadow-lg border border-white/10 p-6">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* User ID */}
             <div>

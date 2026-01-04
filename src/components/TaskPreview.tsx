@@ -48,7 +48,7 @@ const TaskPreview: React.FC<TaskPreviewProps> = ({ formData, userLevel }) => {
           {formData.description && (
             <div>
               <h4 className="text-sm font-semibold text-gray-300 mb-2">Description</h4>
-              <div className="text-sm text-gray-400 whitespace-pre-wrap bg-white/5 p-3 rounded-lg">
+              <div className="text-sm text-gray-400 whitespace-pre-wrap bg-slate-800/50/5 p-3 rounded-lg">
                 {formData.description}
               </div>
             </div>
@@ -58,7 +58,7 @@ const TaskPreview: React.FC<TaskPreviewProps> = ({ formData, userLevel }) => {
           {formData.requirements && (
             <div>
               <h4 className="text-sm font-semibold text-gray-300 mb-2">Requirements</h4>
-              <div className="text-sm text-gray-400 whitespace-pre-wrap bg-white/5 p-3 rounded-lg">
+              <div className="text-sm text-gray-400 whitespace-pre-wrap bg-slate-800/50/5 p-3 rounded-lg">
                 {formData.requirements}
               </div>
             </div>

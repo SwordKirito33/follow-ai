@@ -166,7 +166,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
               </div>
               <button
                 onClick={onSkip}
-                className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+                className="p-1 hover:bg-slate-800/50/20 rounded-lg transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -212,7 +212,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
               {!isFirstStep && (
                 <button
                   onClick={handlePrev}
-                  className="px-4 py-2 border border-white/20 dark:border-gray-600 rounded-xl text-gray-300 dark:text-gray-300 font-medium flex items-center gap-1 hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
+                  className="px-4 py-2 border border-white/20 dark:border-gray-600 rounded-xl text-gray-300 dark:text-gray-300 font-medium flex items-center gap-1 hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   Back

@@ -18,7 +18,7 @@ const SubmissionDetail: React.FC<SubmissionDetailProps> = ({ submission }) => {
         {/* Task Info */}
         <div>
           <h3 className="text-lg font-bold text-white mb-2">Task Information</h3>
-          <div className="bg-white/5 rounded-lg p-4">
+          <div className="bg-slate-800/50/5 rounded-lg p-4">
             <h4 className="font-semibold text-white mb-2">{submission.tasks?.title || 'Unknown Task'}</h4>
             <p className="text-sm text-gray-400 whitespace-pre-wrap">
               {submission.tasks?.description || 'No description'}
@@ -29,7 +29,7 @@ const SubmissionDetail: React.FC<SubmissionDetailProps> = ({ submission }) => {
         {/* Submitter Info */}
         <div>
           <h3 className="text-lg font-bold text-white mb-2">Submitted By</h3>
-          <div className="flex items-center gap-3 bg-white/5 rounded-lg p-4">
+          <div className="flex items-center gap-3 bg-slate-800/50/5 rounded-lg p-4">
             {submission.profiles?.avatar_url && (
               <img
                 src={submission.profiles.avatar_url}
@@ -52,7 +52,7 @@ const SubmissionDetail: React.FC<SubmissionDetailProps> = ({ submission }) => {
         <div>
           <h3 className="text-lg font-bold text-white mb-2">Submission Content</h3>
           {submission.output_url ? (
-            <div className="bg-white/5 rounded-lg p-4">
+            <div className="bg-slate-800/50/5 rounded-lg p-4">
               <a
                 href={submission.output_url}
                 target="_blank"
@@ -64,11 +64,11 @@ const SubmissionDetail: React.FC<SubmissionDetailProps> = ({ submission }) => {
               </a>
             </div>
           ) : submission.output_text ? (
-            <div className="bg-white/5 rounded-lg p-4">
+            <div className="bg-slate-800/50/5 rounded-lg p-4">
               <div className="text-gray-300 whitespace-pre-wrap">{submission.output_text}</div>
             </div>
           ) : (
-            <div className="bg-white/5 rounded-lg p-4 text-gray-400">
+            <div className="bg-slate-800/50/5 rounded-lg p-4 text-gray-400">
               No submission content
             </div>
           )}
@@ -78,7 +78,7 @@ const SubmissionDetail: React.FC<SubmissionDetailProps> = ({ submission }) => {
         {submission.experience_text && (
           <div>
             <h3 className="text-lg font-bold text-white mb-2">Experience Notes</h3>
-            <div className="bg-white/5 rounded-lg p-4">
+            <div className="bg-slate-800/50/5 rounded-lg p-4">
               <div className="text-gray-300 whitespace-pre-wrap">{submission.experience_text}</div>
             </div>
           </div>

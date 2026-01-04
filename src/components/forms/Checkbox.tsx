@@ -160,7 +160,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
             }}
             className={`
               ${sizeClasses[size]} rounded-full border-2 flex items-center justify-center
-              transition-colors bg-white dark:bg-gray-900
+              transition-colors bg-slate-800/50 dark:bg-gray-900
               ${!disabled && !checked ? 'hover:border-blue-400' : ''}
             `}
           >

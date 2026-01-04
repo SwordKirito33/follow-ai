@@ -114,7 +114,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
               className={`
                 absolute top-1/2 -translate-y-1/2
                 ${size === 'sm' ? 'w-3.5 h-3.5' : size === 'md' ? 'w-4 h-4' : 'w-5 h-5'}
-                bg-white rounded-full shadow-md
+                bg-slate-800/50 rounded-full shadow-md
               `}
             />
           </motion.div>

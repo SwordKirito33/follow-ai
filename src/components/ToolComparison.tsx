@@ -81,7 +81,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
                           <button
                             key={tool.id}
                             onClick={() => addTool(tool.id)}
-                            className="w-full flex items-center gap-3 px-3 py-2 hover:bg-white/10 rounded-lg transition-colors text-left"
+                            className="w-full flex items-center gap-3 px-3 py-2 hover:bg-slate-800/50/10 rounded-lg transition-colors text-left"
                           >
                             <img loading="lazy" src={tool.logo} alt={tool.name} className="w-8 h-8 rounded" />
                             <div>
@@ -151,7 +151,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
                   <td className="py-4 pr-4 font-medium">{t('comparison.category')}</td>
                   {comparedTools.map(tool => (
                     <td key={tool.id} className="py-4 pr-4 text-center">
-                      <span className="text-xs bg-white/10 px-2 py-1 rounded-full">{tool.category}</span>
+                      <span className="text-xs bg-slate-800/50/10 px-2 py-1 rounded-full">{tool.category}</span>
                     </td>
                   ))}
                 </tr>

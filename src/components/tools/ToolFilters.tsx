@@ -300,7 +300,7 @@ export function ToolFilters({
             placeholder="搜索工具..."
             className={cn(
               'w-full pl-10 pr-4 py-2 rounded-lg',
-              'bg-white/10 dark:bg-gray-700',
+              'bg-slate-800/50/10 dark:bg-gray-700',
               'border border-transparent',
               'focus:border-purple-500 focus:ring-1 focus:ring-purple-500',
               'text-white dark:text-white',
@@ -395,7 +395,7 @@ export function ToolFilters({
           onChange={(e) => updateFilters({ sortBy: e.target.value })}
           className={cn(
             'w-full px-3 py-2 rounded-lg',
-            'bg-white/10 dark:bg-gray-700',
+            'bg-slate-800/50/10 dark:bg-gray-700',
             'border border-transparent',
             'focus:border-purple-500 focus:ring-1 focus:ring-purple-500',
             'text-white dark:text-white'
@@ -454,7 +454,7 @@ export function ToolFilters({
       <div
         className={cn(
           'hidden lg:block',
-          'bg-white dark:bg-gray-800',
+          'bg-slate-800/50 dark:bg-gray-800',
           'rounded-xl p-6',
           'border border-white/10 dark:border-gray-700',
           className
@@ -485,7 +485,7 @@ export function ToolFilters({
         </svg>
         筛选
         {activeFilterCount > 0 && (
-          <span className="w-5 h-5 rounded-full bg-white text-primary-purple text-xs flex items-center justify-center">
+          <span className="w-5 h-5 rounded-full bg-slate-800/50 text-primary-purple text-xs flex items-center justify-center">
             {activeFilterCount}
           </span>
         )}
@@ -498,14 +498,14 @@ export function ToolFilters({
             className="absolute inset-0 bg-black/50"
             onClick={() => setIsMobileOpen(false)}
           />
-          <div className="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-white dark:bg-gray-800 overflow-y-auto">
-            <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-white/10 dark:border-gray-700 p-4 flex items-center justify-between">
+          <div className="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-slate-800/50 dark:bg-gray-800 overflow-y-auto">
+            <div className="sticky top-0 bg-slate-800/50 dark:bg-gray-800 border-b border-white/10 dark:border-gray-700 p-4 flex items-center justify-between">
               <h2 className="text-lg font-semibold text-white dark:text-white">
                 筛选
               </h2>
               <button
                 onClick={() => setIsMobileOpen(false)}
-                className="p-2 hover:bg-white/10 dark:hover:bg-gray-700 rounded-lg"
+                className="p-2 hover:bg-slate-800/50/10 dark:hover:bg-gray-700 rounded-lg"
               >
                 <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -515,7 +515,7 @@ export function ToolFilters({
             <div className="p-4">
               <FilterContent />
             </div>
-            <div className="sticky bottom-0 bg-white dark:bg-gray-800 border-t border-white/10 dark:border-gray-700 p-4">
+            <div className="sticky bottom-0 bg-slate-800/50 dark:bg-gray-800 border-t border-white/10 dark:border-gray-700 p-4">
               <button
                 onClick={() => setIsMobileOpen(false)}
                 className="w-full py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"

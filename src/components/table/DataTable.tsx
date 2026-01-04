@@ -128,7 +128,7 @@ export function DataTable<T extends Record<string, unknown>>({
       <div className="overflow-x-auto">
         <table className="w-full">
           {/* Header */}
-          <thead className="bg-white/5 dark:bg-gray-800">
+          <thead className="bg-slate-800/50/5 dark:bg-gray-800">
             <tr>
               {selectable && (
                 <th className={cn('w-12', compact ? 'px-3 py-2' : 'px-4 py-3')}>
@@ -193,19 +193,19 @@ export function DataTable<T extends Record<string, unknown>>({
           </thead>
 
           {/* Body */}
-          <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+          <tbody className="bg-slate-800/50 dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
             {loading ? (
               // Loading skeleton
               Array.from({ length: 5 }).map((_, index) => (
                 <tr key={index}>
                   {selectable && (
                     <td className={cn(compact ? 'px-3 py-2' : 'px-4 py-3')}>
-                      <div className="w-4 h-4 bg-white/10 dark:bg-gray-700 rounded animate-pulse" />
+                      <div className="w-4 h-4 bg-slate-800/50/10 dark:bg-gray-700 rounded animate-pulse" />
                     </td>
                   )}
                   {columns.map((column) => (
                     <td key={String(column.key)} className={cn(compact ? 'px-3 py-2' : 'px-4 py-3')}>
-                      <div className="h-4 bg-white/10 dark:bg-gray-700 rounded animate-pulse" />
+                      <div className="h-4 bg-slate-800/50/10 dark:bg-gray-700 rounded animate-pulse" />
                     </td>
                   ))}
                 </tr>
@@ -228,8 +228,8 @@ export function DataTable<T extends Record<string, unknown>>({
                   onClick={() => onRowClick?.(row)}
                   className={cn(
                     'transition-colors',
-                    striped && index % 2 === 1 && 'bg-white/5 dark:bg-gray-800/50',
-                    hoverable && 'hover:bg-white/5 dark:hover:bg-gray-800',
+                    striped && index % 2 === 1 && 'bg-slate-800/50/5 dark:bg-gray-800/50',
+                    hoverable && 'hover:bg-slate-800/50/5 dark:hover:bg-gray-800',
                     onRowClick && 'cursor-pointer',
                     isRowSelected(row) && 'bg-purple-50 dark:bg-purple-900/20',
                     bordered && 'border-b border-white/10 dark:border-gray-700'
@@ -283,7 +283,7 @@ interface BadgeCellProps {
 
 export function BadgeCell({ value, variant = 'default' }: BadgeCellProps) {
   const variantClasses = {
-    default: 'bg-white/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300',
+    default: 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300',
     success: 'bg-accent-green/20 dark:bg-green-900/30 text-green-700 dark:text-green-400',
     warning: 'bg-accent-gold/20 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400',
     error: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400',
@@ -346,7 +346,7 @@ export function ActionsCell({ actions }: ActionsCellProps) {
             'p-1.5 rounded-lg transition-colors',
             action.variant === 'danger'
               ? 'text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20'
-              : 'text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800'
+              : 'text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800'
           )}
           title={action.label}
         >
@@ -368,7 +368,7 @@ export function ProgressCell({ value, max = 100, showLabel = true }: ProgressCel
 
   return (
     <div className="flex items-center gap-2">
-      <div className="flex-1 h-2 bg-white/10 dark:bg-gray-800 rounded-full overflow-hidden">
+      <div className="flex-1 h-2 bg-slate-800/50/10 dark:bg-gray-800 rounded-full overflow-hidden">
         <div
           className="h-full bg-purple-600 rounded-full transition-all"
           style={{ width: `${percentage}%` }}

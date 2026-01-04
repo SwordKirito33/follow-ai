@@ -90,7 +90,7 @@ const Settings: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar */}
           <div className="lg:w-64 flex-shrink-0">
-            <nav className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 p-2">
+            <nav className="bg-slate-800/50 dark:bg-gray-900 rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 p-2">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
                 return (
@@ -100,7 +100,7 @@ const Settings: React.FC = () => {
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
                       activeTab === tab.id
                         ? 'bg-blue-50 dark:bg-blue-900/20 text-primary-cyan dark:text-blue-400'
-                        : 'text-gray-300 dark:text-gray-300 hover:bg-white/5 dark:hover:bg-gray-800'
+                        : 'text-gray-300 dark:text-gray-300 hover:bg-slate-800/50/5 dark:hover:bg-gray-800'
                     }`}
                   >
                     <Icon size={20} />
@@ -117,7 +117,7 @@ const Settings: React.FC = () => {
               key={activeTab}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 p-6"
+              className="bg-slate-800/50 dark:bg-gray-900 rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 p-6"
             >
               {/* Profile Tab */}
               {activeTab === 'profile' && (
@@ -152,7 +152,7 @@ const Settings: React.FC = () => {
                         type="text"
                         value={profileForm.displayName}
                         onChange={(e) => setProfileForm({ ...profileForm, displayName: e.target.value })}
-                        className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-slate-800/50/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                     <div>
@@ -163,7 +163,7 @@ const Settings: React.FC = () => {
                         type="email"
                         value={profileForm.email}
                         onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })}
-                        className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-slate-800/50/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                     <div className="md:col-span-2">
@@ -174,7 +174,7 @@ const Settings: React.FC = () => {
                         value={profileForm.bio}
                         onChange={(e) => setProfileForm({ ...profileForm, bio: e.target.value })}
                         rows={3}
-                        className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                        className="w-full px-4 py-3 bg-slate-800/50/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                         placeholder="Tell us about yourself..."
                       />
                     </div>
@@ -186,7 +186,7 @@ const Settings: React.FC = () => {
                         type="url"
                         value={profileForm.website}
                         onChange={(e) => setProfileForm({ ...profileForm, website: e.target.value })}
-                        className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-slate-800/50/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="https://"
                       />
                     </div>
@@ -198,7 +198,7 @@ const Settings: React.FC = () => {
                         type="text"
                         value={profileForm.twitter}
                         onChange={(e) => setProfileForm({ ...profileForm, twitter: e.target.value })}
-                        className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-slate-800/50/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="@username"
                       />
                     </div>
@@ -249,7 +249,7 @@ const Settings: React.FC = () => {
                           }`}
                         >
                           <span
-                            className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
+                            className={`absolute top-1 w-4 h-4 bg-slate-800/50 rounded-full transition-transform ${
                               value ? 'left-7' : 'left-1'
                             }`}
                           />
@@ -266,7 +266,7 @@ const Settings: React.FC = () => {
                   <h2 className="text-xl font-bold text-white dark:text-white">Security Settings</h2>
 
                   {/* Change Password */}
-                  <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
+                  <div className="p-4 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl">
                     <h3 className="font-semibold text-white dark:text-white mb-4">Change Password</h3>
                     <div className="space-y-4">
                       <div>
@@ -276,7 +276,7 @@ const Settings: React.FC = () => {
                         <div className="relative">
                           <input
                             type={showPassword ? 'text' : 'password'}
-                            className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-4 py-3 bg-slate-800/50 dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           />
                           <button
                             onClick={() => setShowPassword(!showPassword)}
@@ -292,7 +292,7 @@ const Settings: React.FC = () => {
                         </label>
                         <input
                           type="password"
-                          className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-4 py-3 bg-slate-800/50 dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />
                       </div>
                       <button className="px-4 py-2 bg-gradient-to-r from-primary-cyan to-primary-blue text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
@@ -302,7 +302,7 @@ const Settings: React.FC = () => {
                   </div>
 
                   {/* Two-Factor Authentication */}
-                  <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
+                  <div className="p-4 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl">
                     <div className="flex items-center justify-between">
                       <div>
                         <h3 className="font-semibold text-white dark:text-white">Two-Factor Authentication</h3>
@@ -310,7 +310,7 @@ const Settings: React.FC = () => {
                           Add an extra layer of security to your account
                         </p>
                       </div>
-                      <button className="px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-lg hover:bg-white/10 dark:hover:bg-gray-700 transition-colors">
+                      <button className="px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-lg hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors">
                         Enable
                       </button>
                     </div>
@@ -380,18 +380,18 @@ const Settings: React.FC = () => {
                 <div className="space-y-6">
                   <h2 className="text-xl font-bold text-white dark:text-white">Billing & Payments</h2>
 
-                  <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
+                  <div className="p-4 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl">
                     <h3 className="font-semibold text-white dark:text-white mb-4">Payment Methods</h3>
                     <p className="text-gray-400 dark:text-gray-300 mb-4">
                       No payment methods added yet.
                     </p>
-                    <button className="flex items-center gap-2 px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-lg hover:bg-white/10 dark:hover:bg-gray-700 transition-colors">
+                    <button className="flex items-center gap-2 px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-lg hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors">
                       <CreditCard size={18} />
                       Add Payment Method
                     </button>
                   </div>
 
-                  <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
+                  <div className="p-4 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl">
                     <h3 className="font-semibold text-white dark:text-white mb-4">Billing History</h3>
                     <p className="text-gray-400 dark:text-gray-300">
                       No billing history available.

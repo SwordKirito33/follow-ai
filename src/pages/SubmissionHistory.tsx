@@ -175,7 +175,7 @@ export default function SubmissionHistory() {
                   <summary className="text-sm text-gray-400 dark:text-gray-400 cursor-pointer hover:text-white dark:hover:text-gray-200 font-medium">
                     View your experience
                   </summary>
-                  <p className="text-sm text-gray-300 dark:text-gray-300 mt-2 p-3 bg-white/5 dark:bg-gray-800 rounded-lg">
+                  <p className="text-sm text-gray-300 dark:text-gray-300 mt-2 p-3 bg-slate-800/50/5 dark:bg-gray-800 rounded-lg">
                     {submission.experience_text}
                   </p>
                 </details>

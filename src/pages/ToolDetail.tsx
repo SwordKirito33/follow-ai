@@ -151,7 +151,7 @@ const ToolDetail: React.FC = () => {
 
   if (!tool) {
     return (
-      <div className="min-h-screen bg-white/5 py-12 px-4">
+      <div className="min-h-screen bg-slate-800/50/5 py-12 px-4">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="text-3xl font-bold text-white mb-4">{t('toolDetail.toolNotFound')}</h1>
           <p className="text-gray-400 mb-6">{t('toolDetail.toolNotFoundDesc')}</p>
@@ -186,7 +186,7 @@ const ToolDetail: React.FC = () => {
                   <h1 className="text-3xl font-bold text-white mb-2">{tool.name}</h1>
                   <p className="text-gray-400 mb-3">{tool.description}</p>
                   <div className="flex items-center gap-4 text-sm text-gray-400">
-                    <span className="bg-white/10 px-3 py-1 rounded-full font-medium">{tool.category}</span>
+                    <span className="bg-slate-800/50/10 px-3 py-1 rounded-full font-medium">{tool.category}</span>
                     <span className="flex items-center gap-1">
                       <Star size={16} className="text-amber-500 fill-amber-500" /> {tool.rating}
                     </span>
@@ -203,7 +203,7 @@ const ToolDetail: React.FC = () => {
                     className={`p-2 rounded-lg transition-all ${
                       isFavorite
                         ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400'
-                        : 'bg-white/10 text-gray-400 dark:bg-gray-800 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-700'
+                        : 'bg-slate-800/50/10 text-gray-400 dark:bg-gray-800 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
                     }`}
                     title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
                   >
@@ -271,7 +271,7 @@ const ToolDetail: React.FC = () => {
 
         {/* Stats Grid */}
         <div className="grid md:grid-cols-3 gap-4 mb-8">
-          <div className="glass-card rounded-xl shadow-xl p-6 hover:bg-white/90 transition-all transform hover:scale-105">
+          <div className="glass-card rounded-xl shadow-xl p-6 hover:bg-slate-800/50/90 transition-all transform hover:scale-105">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-blue-50 rounded-lg">
                 <CheckCircle size={20} className="text-primary-cyan" />
@@ -282,7 +282,7 @@ const ToolDetail: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-xl shadow-sm border border-white/10 p-6">
+          <div className="bg-slate-800/50 rounded-xl shadow-sm border border-white/10 p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-green-50 rounded-lg">
                 <Star size={20} className="text-accent-green fill-green-600" />
@@ -293,7 +293,7 @@ const ToolDetail: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-xl shadow-sm border border-white/10 p-6">
+          <div className="bg-slate-800/50 rounded-xl shadow-sm border border-white/10 p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-purple-50 rounded-lg">
                 <TrendingUp size={20} className="text-primary-purple" />
@@ -401,7 +401,7 @@ const ToolDetail: React.FC = () => {
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
                         <span className="font-bold text-white">{review.user.name}</span>
-                        <span className="text-xs bg-white/10 text-gray-400 px-2 py-0.5 rounded-full">
+                        <span className="text-xs bg-slate-800/50/10 text-gray-400 px-2 py-0.5 rounded-full">
                           {review.user.levelName}
                         </span>
                         <span className="text-xs text-gray-400">{review.timeAgo}</span>
@@ -584,7 +584,7 @@ const ToolDetail: React.FC = () => {
               {toolLeaderboard.map((entry) => (
                 <div
                   key={entry.rank}
-                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors"
+                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-800/50/5 dark:hover:bg-gray-800/50 transition-colors"
                 >
                   <div className="flex-shrink-0">
                     {entry.rank === 1 ? (
@@ -594,7 +594,7 @@ const ToolDetail: React.FC = () => {
                     ) : entry.rank === 3 ? (
                       <Trophy className="w-8 h-8 text-orange-500" />
                     ) : (
-                      <div className="w-8 h-8 rounded-full bg-white/10 dark:bg-gray-800 flex items-center justify-center text-sm font-black text-gray-400 dark:text-gray-400">
+                      <div className="w-8 h-8 rounded-full bg-slate-800/50/10 dark:bg-gray-800 flex items-center justify-center text-sm font-black text-gray-400 dark:text-gray-400">
                         {entry.rank}
                       </div>
                     )}

@@ -74,7 +74,7 @@ const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) =
               className={`relative rounded-xl p-6 border-2 transition-all ${
                 pkg.popular
                   ? 'bg-gradient-to-br from-purple-900/40 to-blue-900/40 border-purple-500/50 shadow-lg'
-                  : 'bg-white/5 border-white/10 hover:border-white/20'
+                  : 'bg-slate-800/50/5 border-white/10 hover:border-white/20'
               }`}
             >
               {pkg.popular && (

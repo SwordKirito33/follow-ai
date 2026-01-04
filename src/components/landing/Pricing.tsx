@@ -122,7 +122,7 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
     <div
       className={cn(
         'relative flex flex-col p-8 rounded-2xl',
-        'bg-white dark:bg-gray-800',
+        'bg-slate-800/50 dark:bg-gray-800',
         'border-2 transition-all duration-300',
         plan.popular
           ? 'border-purple-500 shadow-xl scale-105 z-10'
@@ -225,7 +225,7 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
           'w-full py-3 px-6 rounded-xl font-semibold text-center transition-all duration-300',
           plan.popular
             ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl'
-            : 'bg-white/10 dark:bg-gray-700 text-white dark:text-white hover:bg-white/10 dark:hover:bg-gray-600'
+            : 'bg-slate-800/50/10 dark:bg-gray-700 text-white dark:text-white hover:bg-slate-800/50/10 dark:hover:bg-gray-600'
         )}
       >
         {plan.cta.text}
@@ -250,7 +250,7 @@ export function Pricing({
   const [billing, setBilling] = useState<'monthly' | 'yearly'>(defaultBilling);
 
   return (
-    <section className={cn('py-20 bg-white/5 dark:bg-gray-900', className)}>
+    <section className={cn('py-20 bg-slate-800/50/5 dark:bg-gray-900', className)}>
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -287,7 +287,7 @@ export function Pricing({
               >
                 <span
                   className={cn(
-                    'absolute top-1 w-5 h-5 rounded-full bg-white shadow transition-transform',
+                    'absolute top-1 w-5 h-5 rounded-full bg-slate-800/50 shadow transition-transform',
                     billing === 'yearly' ? 'translate-x-8' : 'translate-x-1'
                   )}
                 />

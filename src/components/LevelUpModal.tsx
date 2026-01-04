@@ -73,7 +73,7 @@ const LevelUpModal: React.FC<LevelUpModalProps> = ({
                     repeat: Infinity,
                     ease: 'easeInOut',
                   }}
-                  className="absolute -top-20 -right-20 w-40 h-40 bg-white/10 rounded-full blur-2xl"
+                  className="absolute -top-20 -right-20 w-40 h-40 bg-slate-800/50/10 rounded-full blur-2xl"
                 />
                 <motion.div
                   animate={{
@@ -85,7 +85,7 @@ const LevelUpModal: React.FC<LevelUpModalProps> = ({
                     repeat: Infinity,
                     ease: 'easeInOut',
                   }}
-                  className="absolute -bottom-20 -left-20 w-40 h-40 bg-white/10 rounded-full blur-2xl"
+                  className="absolute -bottom-20 -left-20 w-40 h-40 bg-slate-800/50/10 rounded-full blur-2xl"
                 />
               </div>
 
@@ -98,7 +98,7 @@ const LevelUpModal: React.FC<LevelUpModalProps> = ({
                   transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
                   className="mb-6"
                 >
-                  <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 rounded-full backdrop-blur-sm border-4 border-white/30">
+                  <div className="inline-flex items-center justify-center w-24 h-24 bg-slate-800/50/20 rounded-full backdrop-blur-sm border-4 border-white/30">
                     {badge ? (
                       <span className="text-5xl">{badge}</span>
                     ) : (
@@ -147,7 +147,7 @@ const LevelUpModal: React.FC<LevelUpModalProps> = ({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                   onClick={onClose}
-                  className="w-full bg-white text-primary-cyan font-bold py-4 px-6 rounded-xl hover:bg-white/90 transition-colors shadow-lg"
+                  className="w-full bg-slate-800/50 text-primary-cyan font-bold py-4 px-6 rounded-xl hover:bg-slate-800/50/90 transition-colors shadow-lg"
                 >
                   Continue
                 </motion.button>

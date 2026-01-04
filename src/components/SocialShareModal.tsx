@@ -57,8 +57,8 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
                 onClick={() => setActiveTab(tab as any)}
                 className={`px-4 py-2 rounded-t-lg font-medium text-sm transition-colors capitalize ${
                   activeTab === tab 
-                  ? 'bg-white/10 text-white border-b-2 border-blue-600' 
-                  : 'text-gray-400 hover:bg-white/5'
+                  ? 'bg-slate-800/50/10 text-white border-b-2 border-blue-600' 
+                  : 'text-gray-400 hover:bg-slate-800/50/5'
                 }`}
               >
                 {tab}
@@ -66,7 +66,7 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
             ))}
           </div>
 
-          <div className="bg-white/5 p-4 rounded-xl border border-white/10 mb-6 font-mono text-sm text-gray-300 whitespace-pre-wrap">
+          <div className="bg-slate-800/50/5 p-4 rounded-xl border border-white/10 mb-6 font-mono text-sm text-gray-300 whitespace-pre-wrap">
             {content[activeTab]}
           </div>
 
@@ -80,7 +80,7 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
             </button>
             <button 
               onClick={onClose}
-              className="px-6 py-3 border border-white/10 font-bold text-gray-400 rounded-xl hover:bg-white/5 transition-colors"
+              className="px-6 py-3 border border-white/10 font-bold text-gray-400 rounded-xl hover:bg-slate-800/50/5 transition-colors"
             >
               Skip
             </button>

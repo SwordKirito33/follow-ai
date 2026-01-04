@@ -252,7 +252,7 @@ export const TwoFactorSetup: React.FC<TwoFactorSetupProps> = ({
             <p className="text-muted-foreground">使用身份验证器应用扫描下方二维码</p>
           </div>
 
-          <div className="bg-white p-4 rounded-lg mb-6 mx-auto w-fit">
+          <div className="bg-slate-800/50 p-4 rounded-lg mb-6 mx-auto w-fit">
             <img loading="lazy" src={qrCodeUrl} alt="2FA QR Code" className="w-48 h-48" />
           </div>
 

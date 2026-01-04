@@ -142,7 +142,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
                 </h2>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg"
+                  className="p-2 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-lg"
                 >
                   ✕
                 </button>
@@ -199,7 +199,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
 
               {/* Copy link */}
               <div className="flex gap-2">
-                <div className="flex-1 flex items-center gap-2 px-4 py-3 bg-white/10 dark:bg-gray-800 rounded-xl">
+                <div className="flex-1 flex items-center gap-2 px-4 py-3 bg-slate-800/50/10 dark:bg-gray-800 rounded-xl">
                   <Link2 className="w-4 h-4 text-gray-400 flex-shrink-0" />
                   <input
                     type="text"
@@ -233,7 +233,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
               {/* QR Code toggle */}
               <button
                 onClick={() => setShowQR(!showQR)}
-                className="w-full mt-4 py-3 border-2 border-white/10 dark:border-gray-700 rounded-xl font-medium text-gray-300 dark:text-gray-300 flex items-center justify-center gap-2 hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
+                className="w-full mt-4 py-3 border-2 border-white/10 dark:border-gray-700 rounded-xl font-medium text-gray-300 dark:text-gray-300 flex items-center justify-center gap-2 hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors"
               >
                 <QrCode className="w-5 h-5" />
                 {showQR ? 'Hide QR Code' : 'Show QR Code'}
@@ -248,7 +248,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
                     exit={{ opacity: 0, height: 0 }}
                     className="mt-4 overflow-hidden"
                   >
-                    <div className="p-6 bg-white rounded-xl border-2 border-white/10 dark:border-gray-700 flex flex-col items-center">
+                    <div className="p-6 bg-slate-800/50 rounded-xl border-2 border-white/10 dark:border-gray-700 flex flex-col items-center">
                       <img
                         src={generateQRCode()}
                         alt="QR Code"
@@ -259,7 +259,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
                       </p>
                       <button
                         onClick={downloadQRCode}
-                        className="mt-3 px-4 py-2 bg-white/10 dark:bg-gray-800 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 flex items-center gap-2 hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
+                        className="mt-3 px-4 py-2 bg-slate-800/50/10 dark:bg-gray-800 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 flex items-center gap-2 hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors"
                       >
                         <Download className="w-4 h-4" />
                         Download QR

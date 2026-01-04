@@ -94,7 +94,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             id={inputId}
             className={cn(
               'w-full rounded-lg border transition-colors',
-              'bg-white dark:bg-gray-900',
+              'bg-slate-800/50 dark:bg-gray-900',
               'text-white dark:text-white',
               'placeholder-gray-400 dark:placeholder-gray-500',
               'focus:outline-none focus:ring-2',
@@ -104,7 +104,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               sizeClasses[size],
               leftIcon && 'pl-10',
               rightIcon && 'pr-10',
-              props.disabled && 'opacity-50 cursor-not-allowed bg-white/5 dark:bg-gray-800'
+              props.disabled && 'opacity-50 cursor-not-allowed bg-slate-800/50/5 dark:bg-gray-800'
             )}
             aria-invalid={!!error}
             aria-describedby={error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined}
@@ -161,14 +161,14 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           maxLength={maxLength}
           className={cn(
             'w-full rounded-lg border py-2.5 px-4 transition-colors resize-none',
-            'bg-white dark:bg-gray-900',
+            'bg-slate-800/50 dark:bg-gray-900',
             'text-white dark:text-white',
             'placeholder-gray-400 dark:placeholder-gray-500',
             'focus:outline-none focus:ring-2',
             error
               ? 'border-red-500 focus:ring-red-500/20'
               : 'border-white/10 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20',
-            props.disabled && 'opacity-50 cursor-not-allowed bg-white/5 dark:bg-gray-800'
+            props.disabled && 'opacity-50 cursor-not-allowed bg-slate-800/50/5 dark:bg-gray-800'
           )}
           aria-invalid={!!error}
           aria-describedby={error ? `${textareaId}-error` : hint ? `${textareaId}-hint` : undefined}
@@ -228,13 +228,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             id={selectId}
             className={cn(
               'w-full rounded-lg border py-2.5 px-4 pr-10 transition-colors appearance-none',
-              'bg-white dark:bg-gray-900',
+              'bg-slate-800/50 dark:bg-gray-900',
               'text-white dark:text-white',
               'focus:outline-none focus:ring-2',
               error
                 ? 'border-red-500 focus:ring-red-500/20'
                 : 'border-white/10 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20',
-              props.disabled && 'opacity-50 cursor-not-allowed bg-white/5 dark:bg-gray-800'
+              props.disabled && 'opacity-50 cursor-not-allowed bg-slate-800/50/5 dark:bg-gray-800'
             )}
             aria-invalid={!!error}
             aria-describedby={error ? `${selectId}-error` : hint ? `${selectId}-hint` : undefined}
@@ -292,7 +292,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           className={cn(
             'mt-0.5 w-4 h-4 rounded border-white/20 dark:border-gray-600',
             'text-primary-purple focus:ring-purple-500 focus:ring-offset-0',
-            'bg-white dark:bg-gray-900',
+            'bg-slate-800/50 dark:bg-gray-900',
             props.disabled && 'opacity-50 cursor-not-allowed'
           )}
           {...props}
@@ -361,7 +361,7 @@ export function RadioGroup({
             className={cn(
               'mt-0.5 w-4 h-4 border-white/20 dark:border-gray-600',
               'text-primary-purple focus:ring-purple-500 focus:ring-offset-0',
-              'bg-white dark:bg-gray-900'
+              'bg-slate-800/50 dark:bg-gray-900'
             )}
           />
           <div>
@@ -413,13 +413,13 @@ export function Switch({
           'relative inline-flex shrink-0 rounded-full transition-colors duration-200',
           'focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2',
           sizeClass.track,
-          checked ? 'bg-purple-600' : 'bg-white/10 dark:bg-gray-700',
+          checked ? 'bg-purple-600' : 'bg-slate-800/50/10 dark:bg-gray-700',
           disabled && 'opacity-50 cursor-not-allowed'
         )}
       >
         <span
           className={cn(
-            'pointer-events-none inline-block rounded-full bg-white shadow transform transition-transform duration-200',
+            'pointer-events-none inline-block rounded-full bg-slate-800/50 shadow transform transition-transform duration-200',
             sizeClass.thumb,
             checked ? sizeClass.translate : 'translate-x-0.5',
             'mt-0.5'

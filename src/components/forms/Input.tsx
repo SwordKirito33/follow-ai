@@ -40,8 +40,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       : type;
 
     const variantClasses = {
-      default: 'bg-white dark:bg-gray-900 border-white/20 dark:border-gray-700',
-      filled: 'bg-white/10 dark:bg-gray-800 border-transparent',
+      default: 'bg-slate-800/50 dark:bg-gray-900 border-white/20 dark:border-gray-700',
+      filled: 'bg-slate-800/50/10 dark:bg-gray-800 border-transparent',
       outline: 'bg-transparent border-white/20 dark:border-gray-700',
     };
 
@@ -81,7 +81,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               ${rightIcon || showPasswordToggle || error || success ? 'pr-10' : ''}
               ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
               focus:outline-none focus:ring-4
-              placeholder:text-gray-400 dark:placeholder:text-gray-500
+              placeholder:text-gray-400 dark:placeholder:text-gray-300
               text-white dark:text-white
             `}
             {...props}

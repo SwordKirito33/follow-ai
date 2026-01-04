@@ -60,7 +60,7 @@ export function MiniLevelProgress({ totalXp, className }: MiniLevelProgressProps
   return (
     <div className={cn('flex items-center gap-2', className)}>
       <LevelBadge level={levelInfo.level} size="xs" />
-      <div className="flex-1 max-w-[80px] h-1 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="flex-1 max-w-[80px] h-1 bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
           style={{ width: `${levelInfo.progress}%` }}
@@ -87,7 +87,7 @@ export function LevelCard({ totalXp, showDetails = true, className }: LevelCardP
   return (
     <div
       className={cn(
-        'bg-white dark:bg-gray-800 rounded-xl border border-white/10 dark:border-gray-700 p-6',
+        'bg-slate-800/50 dark:bg-gray-800 rounded-xl border border-white/10 dark:border-gray-700 p-6',
         className
       )}
     >
@@ -111,7 +111,7 @@ export function LevelCard({ totalXp, showDetails = true, className }: LevelCardP
           <span className="text-gray-400 dark:text-gray-400">Level {levelInfo.level}</span>
           <span className="text-gray-400 dark:text-gray-400">Level {levelInfo.level + 1}</span>
         </div>
-        <div className="w-full h-2.5 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
+        <div className="w-full h-2.5 bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-500"
             style={{ width: `${levelInfo.progress}%` }}
@@ -126,11 +126,11 @@ export function LevelCard({ totalXp, showDetails = true, className }: LevelCardP
 
       {showDetails && (
         <div className="grid grid-cols-2 gap-4">
-          <div className="text-center p-3 bg-white/5 dark:bg-gray-700/50 rounded-lg">
+          <div className="text-center p-3 bg-slate-800/50/5 dark:bg-gray-700/50 rounded-lg">
             <div className="text-xl font-bold text-primary-cyan">{formatXp(totalXp)}</div>
             <div className="text-xs text-gray-400 dark:text-gray-300">Total XP</div>
           </div>
-          <div className="text-center p-3 bg-white/5 dark:bg-gray-700/50 rounded-lg">
+          <div className="text-center p-3 bg-slate-800/50/5 dark:bg-gray-700/50 rounded-lg">
             <div className="text-xl font-bold text-primary-purple">
               {formatXp(levelInfo.xpToNextLevel - levelInfo.xpInCurrentLevel)}
             </div>
@@ -170,7 +170,7 @@ export function LevelUpCelebration({ oldLevel, newLevel, onClose }: LevelUpCeleb
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 text-center shadow-2xl transform animate-scaleIn">
+      <div className="bg-slate-800/50 dark:bg-gray-800 rounded-2xl p-8 text-center shadow-2xl transform animate-scaleIn">
         {/* Confetti effect */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(20)].map((_, i) => (
@@ -255,7 +255,7 @@ export function LevelStatsGrid({
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="bg-white dark:bg-gray-800 rounded-lg border border-white/10 dark:border-gray-700 p-3 text-center hover:shadow-md transition-shadow"
+          className="bg-slate-800/50 dark:bg-gray-800 rounded-lg border border-white/10 dark:border-gray-700 p-3 text-center hover:shadow-md transition-shadow"
         >
           <div className="text-xl mb-1">{stat.icon}</div>
           <div className={cn('text-lg font-bold', stat.color)}>{stat.value}</div>

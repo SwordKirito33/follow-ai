@@ -164,7 +164,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+                    className="p-2 hover:bg-slate-800/50/20 rounded-lg transition-colors"
                   >
                     ✕
                   </button>
@@ -201,7 +201,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                           ? 'bg-accent-green/20 dark:bg-green-900/30 text-accent-green' 
                           : day.isCurrent
                             ? 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan ring-2 ring-blue-500'
-                            : 'bg-white/10 dark:bg-gray-800 text-gray-400'
+                            : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400'
                         }
                       `}
                     >
@@ -231,7 +231,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                   className={`
                     w-full mt-6 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all
                     ${isCheckedInToday
-                      ? 'bg-white/10 dark:bg-gray-800 text-gray-400 cursor-not-allowed'
+                      ? 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400 cursor-not-allowed'
                       : 'bg-gradient-to-r from-primary-blue to-primary-purple text-white hover:shadow-lg hover:scale-[1.02]'
                     }
                   `}

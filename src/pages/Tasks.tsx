@@ -149,7 +149,7 @@ const Tasks: React.FC = () => {
               <div className="flex items-center gap-4">
                 <div>
                   <div className="text-sm text-gray-400 mb-1">{t('xp.level')} {levelInfo.level}</div>
-                  <div className="w-48 h-2 bg-white/10 rounded-full overflow-hidden">
+                  <div className="w-48 h-2 bg-slate-800/50/10 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-primary-blue to-primary-purple transition-all duration-700 ease-out"
                       style={{ width: `${Math.min(levelInfo.progress * 100, 100)}%` }}

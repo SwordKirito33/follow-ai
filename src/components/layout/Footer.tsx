@@ -160,7 +160,7 @@ function NewsletterForm({
           required
           className={cn(
             'flex-1 px-4 py-2 rounded-lg',
-            'bg-white dark:bg-gray-800',
+            'bg-slate-800/50 dark:bg-gray-800',
             'border border-white/20 dark:border-gray-600',
             'focus:ring-2 focus:ring-purple-500 focus:border-transparent',
             'text-white dark:text-white',
@@ -206,7 +206,7 @@ export function Footer({
   className,
 }: FooterProps) {
   return (
-    <footer className={cn('bg-white/10 dark:bg-gray-900', className)}>
+    <footer className={cn('bg-slate-800/50/10 dark:bg-gray-900', className)}>
       <div className="container mx-auto px-4 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
@@ -233,7 +233,7 @@ export function Footer({
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 dark:bg-gray-800 flex items-center justify-center text-gray-400 dark:text-gray-400 hover:bg-primary-purple/20 dark:hover:bg-purple-900/50 hover:text-primary-purple dark:hover:text-purple-400 transition-colors"
+                  className="w-10 h-10 rounded-full bg-slate-800/50/10 dark:bg-gray-800 flex items-center justify-center text-gray-400 dark:text-gray-400 hover:bg-primary-purple/20 dark:hover:bg-purple-900/50 hover:text-primary-purple dark:hover:text-purple-400 transition-colors"
                   aria-label={link.name}
                 >
                   {link.icon}

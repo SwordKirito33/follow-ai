@@ -111,7 +111,7 @@ export function LineChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn('flex items-center justify-center bg-white/5 dark:bg-gray-800 rounded-lg', className)} style={{ height }}>
+      <div className={cn('flex items-center justify-center bg-slate-800/50/5 dark:bg-gray-800 rounded-lg', className)} style={{ height }}>
         <p className="text-gray-400">暂无数据</p>
       </div>
     );
@@ -199,7 +199,7 @@ export function BarChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn('flex items-center justify-center bg-white/5 dark:bg-gray-800 rounded-lg', className)} style={{ height }}>
+      <div className={cn('flex items-center justify-center bg-slate-800/50/5 dark:bg-gray-800 rounded-lg', className)} style={{ height }}>
         <p className="text-gray-400">暂无数据</p>
       </div>
     );
@@ -218,7 +218,7 @@ export function BarChart({
                 )}
               </div>
             )}
-            <div className="h-3 bg-white/10 dark:bg-gray-800 rounded-full overflow-hidden">
+            <div className="h-3 bg-slate-800/50/10 dark:bg-gray-800 rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-500"
                 style={{
@@ -308,7 +308,7 @@ export function PieChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn('flex items-center justify-center bg-white/5 dark:bg-gray-800 rounded-lg', className)} style={{ width: size, height: size }}>
+      <div className={cn('flex items-center justify-center bg-slate-800/50/5 dark:bg-gray-800 rounded-lg', className)} style={{ width: size, height: size }}>
         <p className="text-gray-400">暂无数据</p>
       </div>
     );
@@ -449,7 +449,7 @@ export function StatCard({
   const isPositive = change !== undefined && change >= 0;
 
   return (
-    <div className={cn('bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-white/10 dark:border-gray-700', className)}>
+    <div className={cn('bg-slate-800/50 dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-white/10 dark:border-gray-700', className)}>
       <div className="flex items-start justify-between">
         <div>
           <p className="text-sm text-gray-400 dark:text-gray-300">{title}</p>

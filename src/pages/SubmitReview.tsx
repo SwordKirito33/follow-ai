@@ -102,7 +102,7 @@ const SubmitReview: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white/5 dark:bg-gray-950 py-12 px-4">
+    <div className="min-h-screen bg-slate-800/50/5 dark:bg-gray-950 py-12 px-4">
       {/* Components for "Black Tech" interactions */}
       <AchievementNotification achievement={achievement} onClose={() => setAchievement(null)} />
       <SocialShareModal 
@@ -136,7 +136,7 @@ const SubmitReview: React.FC = () => {
               ].reduce((a, b) => a + b, 0)}/3 Complete
             </span>
           </div>
-          <div className="w-full bg-white/10 dark:bg-gray-700 rounded-full h-2">
+          <div className="w-full bg-slate-800/50/10 dark:bg-gray-700 rounded-full h-2">
             <div
               className="bg-gradient-to-r from-primary-blue to-primary-purple h-2 rounded-full transition-all duration-300"
               style={{
@@ -173,7 +173,7 @@ const SubmitReview: React.FC = () => {
 
             <div 
               className={`border-2 border-dashed rounded-xl p-8 text-center transition-colors relative overflow-hidden ${
-                file ? 'border-green-300 bg-green-50' : 'border-white/20 hover:border-blue-400 bg-white/5'
+                file ? 'border-green-300 bg-green-50' : 'border-white/20 hover:border-blue-400 bg-slate-800/50/5'
               }`}
               onClick={() => !file && fileInputRef.current?.click()}
             >
@@ -196,7 +196,7 @@ const SubmitReview: React.FC = () => {
               {uploadProgress > 0 && uploadProgress < 100 && (
                  <div className="w-full">
                     <p className="text-sm font-bold text-primary-cyan mb-2">{t('submitReview.uploading')} {uploadProgress}%</p>
-                    <div className="w-full bg-white/10 rounded-full h-2.5">
+                    <div className="w-full bg-slate-800/50/10 rounded-full h-2.5">
                       <div className="bg-gradient-to-r from-primary-cyan to-primary-blue h-2.5 rounded-full transition-all duration-100" style={{ width: `${uploadProgress}%` }}></div>
                     </div>
                  </div>
@@ -248,15 +248,15 @@ const SubmitReview: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div className="bg-white/10 p-2 rounded flex justify-between">
+                        <div className="bg-slate-800/50/10 p-2 rounded flex justify-between">
                             <span>{t('submitReview.complexity')}</span>
                             <span className="text-green-300 font-bold">{t('submitReview.high')}</span>
                         </div>
-                        <div className="bg-white/10 p-2 rounded flex justify-between">
+                        <div className="bg-slate-800/50/10 p-2 rounded flex justify-between">
                             <span>{t('submitReview.originality')}</span>
                             <span className="text-blue-300 font-bold">98%</span>
                         </div>
-                        <div className="bg-white/10 p-2 rounded flex justify-between">
+                        <div className="bg-slate-800/50/10 p-2 rounded flex justify-between">
                             <span>{t('submitReview.metadata')}</span>
                             <span className="text-green-300 font-bold">{t('submitReview.verified')}</span>
                         </div>
@@ -265,7 +265,7 @@ const SubmitReview: React.FC = () => {
                         "{t('submitReview.greatWork')}"
                     </p>
                   {aiFlags.length > 0 && (
-                    <div className="mt-3 bg-white/10 border border-white/20 rounded-lg p-3 text-xs space-y-1">
+                    <div className="mt-3 bg-slate-800/50/10 border border-white/20 rounded-lg p-3 text-xs space-y-1">
                       <div className="flex items-center gap-2 text-amber-200 font-semibold">
                         <ShieldAlert size={14} /> {t('submitReview.aiFlagsTitle')}
                       </div>
@@ -289,7 +289,7 @@ const SubmitReview: React.FC = () => {
               and what you actually got. Be specific and honest.
             </p>
             <textarea 
-              className="w-full p-4 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-40 bg-white dark:bg-gray-800 text-white dark:text-white resize-y"
+              className="w-full p-4 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-40 bg-slate-800/50 dark:bg-gray-800 text-white dark:text-white resize-y"
               placeholder={t('submitReview.experiencePlaceholder')}
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
@@ -311,12 +311,12 @@ const SubmitReview: React.FC = () => {
               Additional Context (Optional)
             </label>
             <textarea 
-              className="w-full p-4 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-32 bg-white dark:bg-gray-800 text-white dark:text-white resize-y"
+              className="w-full p-4 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-32 bg-slate-800/50 dark:bg-gray-800 text-white dark:text-white resize-y"
               placeholder="Any additional context, constraints, or goals you had when using the tool..."
             ></textarea>
           </div>
 
-        <div className="bg-white rounded-xl border border-white/10 p-4 space-y-2">
+        <div className="bg-slate-800/50 rounded-xl border border-white/10 p-4 space-y-2">
           <div className="flex items-start gap-2 text-sm text-gray-300">
             <ShieldCheck size={18} className="text-accent-green mt-0.5" />
             <div>

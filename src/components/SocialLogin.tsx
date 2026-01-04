@@ -57,7 +57,7 @@ const SocialLogin: React.FC<SocialLoginProps> = ({ onSuccess, onError }) => {
           type="button"
           onClick={() => handleSocialLogin('google')}
           disabled={loading !== null}
-          className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/20 dark:border-gray-600 rounded-lg hover:bg-white/5 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/20 dark:border-gray-600 rounded-lg hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading === 'google' ? (
             <div className="w-5 h-5 border-2 border-white/20 border-t-blue-600 rounded-full animate-spin"></div>
@@ -89,7 +89,7 @@ const SocialLogin: React.FC<SocialLoginProps> = ({ onSuccess, onError }) => {
           type="button"
           onClick={() => handleSocialLogin('github')}
           disabled={loading !== null}
-          className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/20 dark:border-gray-600 rounded-lg hover:bg-white/5 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/20 dark:border-gray-600 rounded-lg hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading === 'github' ? (
             <div className="w-5 h-5 border-2 border-white/20 border-t-gray-900 rounded-full animate-spin"></div>

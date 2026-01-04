@@ -401,7 +401,7 @@ export function NotificationBell({ count = 0, onClick, className }: Notification
     <button
       onClick={onClick}
       className={cn(
-        'relative p-2 rounded-lg text-gray-400 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors',
+        'relative p-2 rounded-lg text-gray-400 dark:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 transition-colors',
         className
       )}
     >

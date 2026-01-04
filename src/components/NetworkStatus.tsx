@@ -54,7 +54,7 @@ const NetworkStatus: React.FC = () => {
                 <span className="font-medium">You're back online!</span>
                 <button
                   onClick={handleRefresh}
-                  className="flex items-center gap-1 px-3 py-1 bg-white/20 rounded-lg hover:bg-white/30 transition-colors"
+                  className="flex items-center gap-1 px-3 py-1 bg-slate-800/50/20 rounded-lg hover:bg-slate-800/50/30 transition-colors"
                 >
                   <RefreshCw className="w-4 h-4" />
                   Refresh

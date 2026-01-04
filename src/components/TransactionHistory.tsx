@@ -139,7 +139,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ userId, limit =
             </thead>
             <tbody>
               {transactions.map((transaction) => (
-                <tr key={transaction.id} className="border-b border-white/10 hover:bg-white/5">
+                <tr key={transaction.id} className="border-b border-white/10 hover:bg-slate-800/50/5">
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-2 text-sm text-gray-400">
                       <Calendar size={14} />

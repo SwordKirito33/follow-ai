@@ -106,7 +106,7 @@ const Modal: React.FC<ModalProps> = ({
                 {showCloseButton && (
                   <button
                     onClick={onClose}
-                    className="p-2 -mr-2 -mt-2 text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                    className="p-2 -mr-2 -mt-2 text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -119,7 +119,7 @@ const Modal: React.FC<ModalProps> = ({
 
             {/* Footer */}
             {footer && (
-              <div className="p-6 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50">
+              <div className="p-6 border-t border-white/10 dark:border-gray-700 bg-slate-800/50/5 dark:bg-gray-800/50">
                 {footer}
               </div>
             )}
@@ -176,7 +176,7 @@ export const AlertModal: React.FC<{
           <button
             onClick={onClose}
             disabled={isLoading}
-            className="px-4 py-2 text-gray-300 dark:text-gray-300 font-medium hover:bg-white/10 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            className="px-4 py-2 text-gray-300 dark:text-gray-300 font-medium hover:bg-slate-800/50/10 dark:hover:bg-gray-700 rounded-lg transition-colors"
           >
             {cancelText}
           </button>

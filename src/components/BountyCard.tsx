@@ -93,7 +93,7 @@ const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => 
             {bounty.slots.filled}/{bounty.slots.total} filled
           </span>
         </div>
-        <div className="w-full bg-white/10 dark:bg-gray-700 rounded-full h-2">
+        <div className="w-full bg-slate-800/50/10 dark:bg-gray-700 rounded-full h-2">
           <div
             className="bg-gradient-to-r from-primary-blue to-primary-purple h-2 rounded-full transition-all duration-300"
             style={{ width: `${(bounty.slots.filled / bounty.slots.total) * 100}%` }}

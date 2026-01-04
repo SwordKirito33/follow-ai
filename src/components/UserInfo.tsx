@@ -48,7 +48,7 @@ const UserInfo: React.FC<UserInfoProps> = ({
             <LazyImage
               src={avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${username || 'user'}`}
               alt="Profile"
-              className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-white"
+              className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-slate-800/50"
             />
             <div className="mb-2">
               <h1 className="text-3xl font-black text-white tracking-tight">{displayName}</h1>

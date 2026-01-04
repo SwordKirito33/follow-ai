@@ -136,7 +136,7 @@ const CookieConsent: React.FC = () => {
                       </button>
                       <button
                         onClick={handleRejectAll}
-                        className="px-6 py-2.5 bg-white/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 font-semibold rounded-xl hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
+                        className="px-6 py-2.5 bg-slate-800/50/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 font-semibold rounded-xl hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors"
                       >
                         Reject All
                       </button>
@@ -172,7 +172,7 @@ const CookieConsent: React.FC = () => {
                   {cookieTypes.map((type) => (
                     <div
                       key={type.key}
-                      className="flex items-start justify-between gap-4 p-4 bg-white/5 dark:bg-gray-800 rounded-xl"
+                      className="flex items-start justify-between gap-4 p-4 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl"
                     >
                       <div>
                         <p className="font-semibold text-white dark:text-white">
@@ -202,7 +202,7 @@ const CookieConsent: React.FC = () => {
                         } ${type.required ? 'opacity-50 cursor-not-allowed' : ''}`}
                       >
                         <span
-                          className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
+                          className={`absolute top-1 w-4 h-4 bg-slate-800/50 rounded-full transition-transform ${
                             preferences[type.key] ? 'left-7' : 'left-1'
                           }`}
                         />

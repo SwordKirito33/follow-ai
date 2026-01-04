@@ -154,7 +154,7 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
               {notifications.map((notification) => (
                 <div
                   key={notification.id}
-                  className={`p-4 hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors cursor-pointer ${
+                  className={`p-4 hover:bg-slate-800/50/5 dark:hover:bg-gray-800/50 transition-colors cursor-pointer ${
                     !notification.read ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''
                   }`}
                   onClick={() => {

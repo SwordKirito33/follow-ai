@@ -408,7 +408,7 @@ const Reviews: React.FC = () => {
                     {submission.submission_content && (
                       <div>
                         <h4 className="text-sm font-semibold text-gray-300 mb-2">Output:</h4>
-                        <div className="bg-white/5 rounded-lg p-4 font-mono text-sm text-gray-200 whitespace-pre-wrap break-words">
+                        <div className="bg-slate-800/50/5 rounded-lg p-4 font-mono text-sm text-gray-200 whitespace-pre-wrap break-words">
                           {submission.submission_content}
                         </div>
                       </div>
@@ -455,7 +455,7 @@ const Reviews: React.FC = () => {
                   </div>
 
                   {/* Task Info */}
-                  <div className="mb-6 p-4 bg-white/5 rounded-lg">
+                  <div className="mb-6 p-4 bg-slate-800/50/5 rounded-lg">
                     <div className="flex items-center gap-4 flex-wrap">
                       <Badge variant={getDifficultyVariant(submission.difficulty)} size="sm">
                         {submission.difficulty.toUpperCase()}
@@ -485,7 +485,7 @@ const Reviews: React.FC = () => {
                           Acceptance Criteria
                         </button>
                         {isExpanded && (
-                          <div className="mt-2 p-3 bg-white rounded border border-white/10">
+                          <div className="mt-2 p-3 bg-slate-800/50 rounded border border-white/10">
                             <ul className="list-disc list-inside space-y-1 text-sm text-gray-300">
                               {criteria.map((criterion, i) => (
                                 <li key={i}>{criterion}</li>
@@ -556,7 +556,7 @@ const Reviews: React.FC = () => {
                       {submission.review_notes && (
                         <div>
                           <h4 className="text-sm font-semibold text-gray-300 mb-1">Review Notes:</h4>
-                          <p className="text-sm text-gray-400 bg-white/5 rounded p-3">
+                          <p className="text-sm text-gray-400 bg-slate-800/50/5 rounded p-3">
                             {submission.review_notes}
                           </p>
                         </div>

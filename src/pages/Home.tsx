@@ -112,8 +112,8 @@ const Home: React.FC = () => {
                <h2 className="text-2xl sm:text-3xl font-black gradient-text tracking-tight">{t('reviews.title')}</h2>
                <div className="hidden sm:flex gap-2">
                  <button className="px-4 py-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white rounded-full text-sm font-medium hover:from-gray-800 hover:via-gray-700 hover:to-gray-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl border border-gray-700/50">{t('reviews.all')}</button>
-                 <button className="px-4 py-2 glass-card text-gray-300 rounded-full text-sm font-medium hover:bg-white/90 transition-all transform hover:scale-105 border border-white/30">{t('reviews.coding')}</button>
-                 <button className="px-4 py-2 glass-card text-gray-300 rounded-full text-sm font-medium hover:bg-white/90 transition-all transform hover:scale-105 border border-white/30">{t('reviews.design')}</button>
+                 <button className="px-4 py-2 glass-card text-gray-300 rounded-full text-sm font-medium hover:bg-slate-800/50/90 transition-all transform hover:scale-105 border border-white/30">{t('reviews.coding')}</button>
+                 <button className="px-4 py-2 glass-card text-gray-300 rounded-full text-sm font-medium hover:bg-slate-800/50/90 transition-all transform hover:scale-105 border border-white/30">{t('reviews.design')}</button>
                </div>
              </div>
              
@@ -132,11 +132,11 @@ const Home: React.FC = () => {
             <NewsWidget />
             
             <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-xl p-6 text-white shadow-2xl relative overflow-hidden animate-glow">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-slate-800/50/10 rounded-full blur-2xl"></div>
               <div className="relative z-10">
                 <h3 className="font-bold text-xl mb-2">Want to earn money?</h3>
                 <p className="text-blue-100 text-sm mb-4">Complete specific testing tasks for guaranteed rewards.</p>
-                <Link to="/tasks" className="block w-full bg-white text-primary-cyan font-bold py-2 rounded-lg text-sm hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg text-center">
+                <Link to="/tasks" className="block w-full bg-slate-800/50 text-primary-cyan font-bold py-2 rounded-lg text-sm hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg text-center">
                   {t('home.viewTasks')}
                 </Link>
               </div>

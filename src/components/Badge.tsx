@@ -49,7 +49,7 @@ const Badge: React.FC<BadgeProps> = ({
   className = '',
 }) => {
   const variantClasses = {
-    default: 'bg-white/10 text-gray-200 dark:bg-gray-800 dark:text-gray-200',
+    default: 'bg-slate-800/50/10 text-gray-200 dark:bg-gray-800 dark:text-gray-200',
     primary: 'bg-primary-blue/20 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',
     secondary: 'bg-primary-purple/20 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400',
     success: 'bg-accent-green/20 text-green-800 dark:bg-green-900/30 dark:text-green-400',
@@ -67,14 +67,14 @@ const Badge: React.FC<BadgeProps> = ({
   };
 
   const dotColors = {
-    default: 'bg-white/50',
+    default: 'bg-slate-800/50/50',
     primary: 'bg-blue-500',
     secondary: 'bg-purple-500',
     success: 'bg-green-500',
     warning: 'bg-yellow-500',
     danger: 'bg-red-500',
     info: 'bg-cyan-500',
-    gradient: 'bg-white',
+    gradient: 'bg-slate-800/50',
   };
 
   return (
@@ -98,7 +98,7 @@ const Badge: React.FC<BadgeProps> = ({
       {removable && (
         <button
           onClick={onRemove}
-          className="ml-0.5 -mr-1 hover:bg-black/10 dark:hover:bg-white/10 rounded-full p-0.5 transition-colors"
+          className="ml-0.5 -mr-1 hover:bg-black/10 dark:hover:bg-slate-800/50/10 rounded-full p-0.5 transition-colors"
         >
           <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
             <path
@@ -158,13 +158,13 @@ export const AchievementBadge: React.FC<{
       className={`relative p-4 rounded-xl border ${
         unlocked
           ? `bg-gradient-to-br ${rarityColors[rarity]} text-white shadow-lg ${rarityGlow[rarity]}`
-          : 'bg-white/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400'
+          : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400'
       } ${className}`}
     >
       <div className="flex items-center gap-3">
         <div
           className={`w-12 h-12 rounded-full flex items-center justify-center ${
-            unlocked ? 'bg-white/20' : 'bg-white/10 dark:bg-gray-700'
+            unlocked ? 'bg-slate-800/50/20' : 'bg-slate-800/50/10 dark:bg-gray-700'
           }`}
         >
           {icon || defaultIcons[rarity]}
@@ -186,7 +186,7 @@ export const AchievementBadge: React.FC<{
             <span>Progress</span>
             <span>{Math.round(progress)}%</span>
           </div>
-          <div className="h-1.5 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
+          <div className="h-1.5 bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden">
             <div
               className={`h-full bg-gradient-to-r ${rarityColors[rarity]} rounded-full`}
               style={{ width: `${progress}%` }}

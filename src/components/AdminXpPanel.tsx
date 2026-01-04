@@ -213,7 +213,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
                 {searchResults.map((result) => (
                   <div
                     key={result.id}
-                    className="flex items-center justify-between p-3 border border-white/10 rounded-lg hover:bg-white/5 cursor-pointer"
+                    className="flex items-center justify-between p-3 border border-white/10 rounded-lg hover:bg-slate-800/50/5 cursor-pointer"
                     onClick={async () => {
                       setUserId(result.id);
                       setSearchQuery(result.username || result.full_name || '');
@@ -307,7 +307,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
                 {adminEvents.map((event: any) => (
                   <div
                     key={event.id}
-                    className="flex items-center justify-between p-3 bg-white/5 rounded-lg text-sm"
+                    className="flex items-center justify-between p-3 bg-slate-800/50/5 rounded-lg text-sm"
                   >
                     <div>
                       <div className="font-semibold text-white">

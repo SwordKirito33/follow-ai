@@ -111,7 +111,7 @@ function BalanceCard({ wallet }: { wallet: WalletData }) {
             ≈ {formatCurrency(xpToUsd, 'USD')}
           </p>
         </div>
-        <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full bg-slate-800/50/20 flex items-center justify-center">
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -119,15 +119,15 @@ function BalanceCard({ wallet }: { wallet: WalletData }) {
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-white/10 rounded-xl p-3">
+        <div className="bg-slate-800/50/10 rounded-xl p-3">
           <p className="text-purple-200 text-xs mb-1">总购买</p>
           <p className="font-semibold">{wallet.totalPurchased.toLocaleString()} XP</p>
         </div>
-        <div className="bg-white/10 rounded-xl p-3">
+        <div className="bg-slate-800/50/10 rounded-xl p-3">
           <p className="text-purple-200 text-xs mb-1">总消费</p>
           <p className="font-semibold">{wallet.totalSpent.toLocaleString()} XP</p>
         </div>
-        <div className="bg-white/10 rounded-xl p-3">
+        <div className="bg-slate-800/50/10 rounded-xl p-3">
           <p className="text-purple-200 text-xs mb-1">总获得</p>
           <p className="font-semibold">{wallet.totalEarned.toLocaleString()} XP</p>
         </div>
@@ -140,7 +140,7 @@ function PackageCard({ pkg, onPurchase }: { pkg: XPPackage; onPurchase: () => vo
   return (
     <div
       className={cn(
-        'relative bg-white dark:bg-gray-800 rounded-xl p-6 border-2 transition-all hover:shadow-lg',
+        'relative bg-slate-800/50 dark:bg-gray-800 rounded-xl p-6 border-2 transition-all hover:shadow-lg',
         pkg.popular
           ? 'border-purple-500 dark:border-purple-400'
           : 'border-white/10 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600'
@@ -197,7 +197,7 @@ function PackageCard({ pkg, onPurchase }: { pkg: XPPackage; onPurchase: () => vo
           'w-full py-3 rounded-lg font-medium transition-colors',
           pkg.popular
             ? 'bg-purple-600 text-white hover:bg-purple-700'
-            : 'bg-white/10 dark:bg-gray-700 text-white dark:text-white hover:bg-white/10 dark:hover:bg-gray-600'
+            : 'bg-slate-800/50/10 dark:bg-gray-700 text-white dark:text-white hover:bg-slate-800/50/10 dark:hover:bg-gray-600'
         )}
       >
         购买
@@ -218,14 +218,14 @@ function TransactionRow({ transaction }: { transaction: Transaction }) {
     pink: { bg: 'bg-pink-100 dark:bg-pink-900/30', text: 'text-pink-600 dark:text-pink-400' },
     yellow: { bg: 'bg-accent-gold/20 dark:bg-yellow-900/30', text: 'text-accent-gold dark:text-yellow-400' },
     red: { bg: 'bg-red-100 dark:bg-red-900/30', text: 'text-red-600 dark:text-red-400' },
-    gray: { bg: 'bg-white/10 dark:bg-gray-700', text: 'text-gray-400 dark:text-gray-400' },
+    gray: { bg: 'bg-slate-800/50/10 dark:bg-gray-700', text: 'text-gray-400 dark:text-gray-400' },
   };
 
   const typeColors = colorClasses[typeConfig.color];
   const statusColors = colorClasses[status.color];
 
   return (
-    <div className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-white/10 dark:border-gray-700">
+    <div className="flex items-center gap-4 p-4 bg-slate-800/50 dark:bg-gray-800 rounded-xl border border-white/10 dark:border-gray-700">
       {/* Icon */}
       <div className={cn('w-10 h-10 rounded-full flex items-center justify-center', typeColors.bg)}>
         <span className="text-lg">{typeConfig.icon}</span>
@@ -364,7 +364,7 @@ export function WalletSystem({
                 'px-3 py-1.5 rounded-lg text-sm font-medium transition-colors',
                 transactionFilter === 'all'
                   ? 'bg-purple-600 text-white'
-                  : 'bg-white/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-700'
+                  : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
               )}
             >
               全部 ({wallet.transactions.length})
@@ -377,7 +377,7 @@ export function WalletSystem({
                   'px-3 py-1.5 rounded-lg text-sm font-medium transition-colors',
                   transactionFilter === type
                     ? 'bg-purple-600 text-white'
-                    : 'bg-white/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-700'
+                    : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-700'
                 )}
               >
                 {transactionTypeConfig[type].icon} {transactionTypeConfig[type].label} ({transactionStats[type]})
@@ -387,7 +387,7 @@ export function WalletSystem({
             {onExportTransactions && (
               <button
                 onClick={onExportTransactions}
-                className="ml-auto px-3 py-1.5 rounded-lg text-sm font-medium bg-white/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
+                className="ml-auto px-3 py-1.5 rounded-lg text-sm font-medium bg-slate-800/50/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors"
               >
                 📥 导出
               </button>
@@ -402,7 +402,7 @@ export function WalletSystem({
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-white/5 dark:bg-gray-800/50 rounded-xl">
+            <div className="text-center py-12 bg-slate-800/50/5 dark:bg-gray-800/50 rounded-xl">
               <div className="text-4xl mb-4">📋</div>
               <p className="text-gray-400 dark:text-gray-300">暂无交易记录</p>
             </div>

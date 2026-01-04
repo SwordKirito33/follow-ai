@@ -21,7 +21,7 @@ const requirements: PasswordRequirement[] = [
 
 const PasswordStrength: React.FC<PasswordStrengthProps> = ({ password, showRequirements = true }) => {
   const strength = useMemo(() => {
-    if (!password) return { score: 0, label: '', color: 'bg-white/10' };
+    if (!password) return { score: 0, label: '', color: 'bg-slate-800/50/10' };
     
     let score = 0;
     requirements.forEach((req) => {
@@ -41,7 +41,7 @@ const PasswordStrength: React.FC<PasswordStrengthProps> = ({ password, showRequi
     <div className="mt-2 space-y-2">
       {/* Strength Bar */}
       <div className="flex items-center gap-2">
-        <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
+        <div className="flex-1 h-1.5 bg-slate-800/50/10 rounded-full overflow-hidden">
           <div
             className={`h-full transition-all duration-300 ${strength.color}`}
             style={{ width: `${(strength.score / requirements.length) * 100}%` }}

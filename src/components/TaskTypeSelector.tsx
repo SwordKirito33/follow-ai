@@ -25,11 +25,11 @@ const TaskTypeSelector: React.FC<TaskTypeSelectorProps> = ({
           className={`p-6 rounded-xl border-2 transition-all text-left ${
             selectedType === 'xp'
               ? 'bg-blue-50 border-blue-500 shadow-md'
-              : 'bg-white border-white/10 hover:border-white/20'
+              : 'bg-slate-800/50 border-white/10 hover:border-white/20'
           }`}
         >
           <div className="flex items-center gap-3 mb-3">
-            <div className={`p-2 rounded-lg ${selectedType === 'xp' ? 'bg-primary-blue/20 text-primary-cyan' : 'bg-white/10 text-gray-400'}`}>
+            <div className={`p-2 rounded-lg ${selectedType === 'xp' ? 'bg-primary-blue/20 text-primary-cyan' : 'bg-slate-800/50/10 text-gray-400'}`}>
               <Zap size={24} />
             </div>
             <div>
@@ -51,11 +51,11 @@ const TaskTypeSelector: React.FC<TaskTypeSelectorProps> = ({
           className={`p-6 rounded-xl border-2 transition-all text-left ${
             selectedType === 'paid'
               ? 'bg-green-50 border-green-500 shadow-md'
-              : 'bg-white border-white/10 hover:border-white/20'
+              : 'bg-slate-800/50 border-white/10 hover:border-white/20'
           }`}
         >
           <div className="flex items-center gap-3 mb-3">
-            <div className={`p-2 rounded-lg ${selectedType === 'paid' ? 'bg-accent-green/20 text-accent-green' : 'bg-white/10 text-gray-400'}`}>
+            <div className={`p-2 rounded-lg ${selectedType === 'paid' ? 'bg-accent-green/20 text-accent-green' : 'bg-slate-800/50/10 text-gray-400'}`}>
               <DollarSign size={24} />
             </div>
             <div>

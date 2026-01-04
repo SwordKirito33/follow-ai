@@ -76,7 +76,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-white/5 dark:bg-gray-950">
+    <div className="min-h-screen bg-slate-800/50/5 dark:bg-gray-950">
       {/* Header */}
       <div className="bg-gradient-to-r from-primary-blue to-primary-purple text-white">
         <div className="container mx-auto px-4 py-6">
@@ -90,7 +90,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
 
           <div className="flex flex-col md:flex-row md:items-start gap-6">
             {/* Tool logo */}
-            <div className="w-20 h-20 bg-white rounded-2xl p-3 flex-shrink-0">
+            <div className="w-20 h-20 bg-slate-800/50 rounded-2xl p-3 flex-shrink-0">
               <img
                 src={task.toolLogo}
                 alt={task.toolName}
@@ -108,7 +108,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                 <div className="flex gap-2">
                   <button
                     onClick={onBookmark}
-                    className="p-2 bg-white/20 hover:bg-white/30 rounded-lg transition-colors"
+                    className="p-2 bg-slate-800/50/20 hover:bg-slate-800/50/30 rounded-lg transition-colors"
                   >
                     {isBookmarked ? (
                       <BookmarkCheck className="w-5 h-5" />
@@ -118,7 +118,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                   </button>
                   <button
                     onClick={onShare}
-                    className="p-2 bg-white/20 hover:bg-white/30 rounded-lg transition-colors"
+                    className="p-2 bg-slate-800/50/20 hover:bg-slate-800/50/30 rounded-lg transition-colors"
                   >
                     <Share2 className="w-5 h-5" />
                   </button>
@@ -303,7 +303,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                   <p className="text-gray-400 dark:text-gray-400 mb-4">
                     You've already earned {task.xpReward} XP from this task.
                   </p>
-                  <button className="w-full py-3 border-2 border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 rounded-xl font-medium hover:bg-white/5 dark:hover:bg-gray-800 transition-colors">
+                  <button className="w-full py-3 border-2 border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 rounded-xl font-medium hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors">
                     View Submission
                   </button>
                 </div>
@@ -338,7 +338,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                   {task.relatedTasks.map((related) => (
                     <button
                       key={related.id}
-                      className="w-full p-3 bg-white/5 dark:bg-gray-800 rounded-xl text-left hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
+                      className="w-full p-3 bg-slate-800/50/5 dark:bg-gray-800 rounded-xl text-left hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors"
                     >
                       <p className="font-medium text-white dark:text-white line-clamp-1">
                         {related.title}

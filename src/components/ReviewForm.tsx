@@ -71,7 +71,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
             </div>
           )}
           {currentFeedback && (
-            <div className="mt-2 text-sm text-gray-400 bg-white rounded p-2">
+            <div className="mt-2 text-sm text-gray-400 bg-slate-800/50 rounded p-2">
               {currentFeedback}
             </div>
           )}
@@ -87,7 +87,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
                 className={`p-4 rounded-lg border-2 transition-all ${
                   action === 'approve'
                     ? 'bg-green-50 border-green-500 shadow-md'
-                    : 'bg-white border-white/10 hover:border-white/20'
+                    : 'bg-slate-800/50 border-white/10 hover:border-white/20'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-2">
@@ -102,7 +102,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
                 className={`p-4 rounded-lg border-2 transition-all ${
                   action === 'reject'
                     ? 'bg-red-50 border-red-500 shadow-md'
-                    : 'bg-white border-white/10 hover:border-white/20'
+                    : 'bg-slate-800/50 border-white/10 hover:border-white/20'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-2">

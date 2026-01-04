@@ -83,7 +83,7 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) =
             <span className="text-sm font-medium">A new version is available!</span>
             <button
               onClick={updateApp}
-              className="px-4 py-1.5 bg-white text-primary-cyan rounded-lg text-sm font-medium hover:bg-blue-50 transition-colors"
+              className="px-4 py-1.5 bg-slate-800/50 text-primary-cyan rounded-lg text-sm font-medium hover:bg-blue-50 transition-colors"
             >
               Update Now
             </button>
@@ -105,7 +105,7 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) =
               <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-4 text-white">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-slate-800/50/20 rounded-xl flex items-center justify-center">
                       <Smartphone className="w-6 h-6" />
                     </div>
                     <div>
@@ -115,7 +115,7 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) =
                   </div>
                   <button
                     onClick={handleDismiss}
-                    className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+                    className="p-1 hover:bg-slate-800/50/20 rounded-lg transition-colors"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -153,7 +153,7 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) =
                   </button>
                   <button
                     onClick={handleDismiss}
-                    className="px-4 py-3 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800 rounded-xl font-medium transition-colors"
+                    className="px-4 py-3 text-gray-400 dark:text-gray-400 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 rounded-xl font-medium transition-colors"
                   >
                     Later
                   </button>

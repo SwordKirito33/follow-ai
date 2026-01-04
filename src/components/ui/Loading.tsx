@@ -67,8 +67,8 @@ export function LoadingOverlay({
   const overlayClasses = cn(
     'flex flex-col items-center justify-center',
     fullScreen
-      ? 'fixed inset-0 z-50 bg-white/80 dark:bg-gray-900/80'
-      : 'absolute inset-0 z-10 bg-white/60 dark:bg-gray-900/60',
+      ? 'fixed inset-0 z-50 bg-slate-800/50/80 dark:bg-gray-900/80'
+      : 'absolute inset-0 z-10 bg-slate-800/50/60 dark:bg-gray-900/60',
     blur && 'backdrop-blur-sm'
   );
 
@@ -134,7 +134,7 @@ export function Skeleton({ className, animate = true }: SkeletonProps) {
   return (
     <div
       className={cn(
-        'bg-white/10 dark:bg-gray-700 rounded',
+        'bg-slate-800/50/10 dark:bg-gray-700 rounded',
         animate && 'animate-pulse',
         className
       )}
@@ -177,7 +177,7 @@ export function SkeletonTable({ rows = 5, cols = 4 }: { rows?: number; cols?: nu
   return (
     <div className="border rounded-lg overflow-hidden">
       {/* Header */}
-      <div className="flex gap-4 p-4 bg-white/5 dark:bg-gray-800 border-b">
+      <div className="flex gap-4 p-4 bg-slate-800/50/5 dark:bg-gray-800 border-b">
         {Array.from({ length: cols }).map((_, i) => (
           <Skeleton key={i} className="h-4 flex-1" />
         ))}
@@ -285,7 +285,7 @@ export function ProgressLoading({
           {showPercentage && <span>{Math.round(progress)}%</span>}
         </div>
       )}
-      <div className="w-full h-2 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="w-full h-2 bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-300"
           style={{ width: `${Math.min(100, Math.max(0, progress))}%` }}

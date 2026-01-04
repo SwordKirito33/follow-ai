@@ -33,7 +33,7 @@ class ErrorBoundary extends Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen bg-white/5 flex items-center justify-center px-4">
+        <div className="min-h-screen bg-slate-800/50/5 flex items-center justify-center px-4">
           <div className="max-w-md w-full bg-gray-900/95 backdrop-blur-sm rounded-xl shadow-lg border border-white/10 p-8 text-center">
             <div className="flex justify-center mb-4">
               <div className="p-3 bg-red-50 rounded-full">
@@ -45,7 +45,7 @@ class ErrorBoundary extends Component<Props, State> {
               We're sorry, but something unexpected happened. Please try refreshing the page.
             </p>
             {this.state.error && (
-              <details className="text-left mb-6 bg-white/5 rounded-lg p-4 text-xs text-gray-400">
+              <details className="text-left mb-6 bg-slate-800/50/5 rounded-lg p-4 text-xs text-gray-400">
                 <summary className="cursor-pointer font-semibold mb-2">Error details</summary>
                 <pre className="whitespace-pre-wrap overflow-auto">
                   {this.state.error.toString()}

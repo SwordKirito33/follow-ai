@@ -166,7 +166,7 @@ export function Modal({
         aria-labelledby={title ? 'modal-title' : undefined}
         aria-describedby={description ? 'modal-description' : undefined}
         className={cn(
-          'relative w-full bg-white dark:bg-gray-900 rounded-xl shadow-xl',
+          'relative w-full bg-slate-800/50 dark:bg-gray-900 rounded-xl shadow-xl',
           'animate-in zoom-in-95 fade-in duration-200',
           modalSizeClasses[size],
           className
@@ -190,7 +190,7 @@ export function Modal({
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="p-2 rounded-lg text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors"
+                className="p-2 rounded-lg text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -254,7 +254,7 @@ export function ConfirmDialog({
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="sm" showCloseButton={false}>
       <div className="text-center">
-        <div className="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-white/10 dark:bg-gray-800 mb-4">
+        <div className="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/50/10 dark:bg-gray-800 mb-4">
           {config.icon}
         </div>
         <h3 className="text-lg font-semibold text-white dark:text-white mb-2">
@@ -267,7 +267,7 @@ export function ConfirmDialog({
           <button
             onClick={onClose}
             disabled={loading}
-            className="flex-1 px-4 py-2 text-sm font-medium text-gray-300 dark:text-gray-300 bg-white/10 dark:bg-gray-800 rounded-lg hover:bg-white/10 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
+            className="flex-1 px-4 py-2 text-sm font-medium text-gray-300 dark:text-gray-300 bg-slate-800/50/10 dark:bg-gray-800 rounded-lg hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
           >
             {cancelText}
           </button>
@@ -438,7 +438,7 @@ export function Drawer({
       {/* Drawer */}
       <div
         className={cn(
-          'absolute bg-white dark:bg-gray-900 shadow-xl transition-transform duration-300',
+          'absolute bg-slate-800/50 dark:bg-gray-900 shadow-xl transition-transform duration-300',
           positionClass,
           sizeClass,
           isOpen ? animationClass.enter : animationClass.exit,
@@ -453,7 +453,7 @@ export function Drawer({
             </h2>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-lg text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-800 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -516,7 +516,7 @@ export function Popover({
       {isOpen && (
         <div
           className={cn(
-            'absolute z-50 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-white/10 dark:border-gray-700 p-4',
+            'absolute z-50 bg-slate-800/50 dark:bg-gray-800 rounded-lg shadow-lg border border-white/10 dark:border-gray-700 p-4',
             'animate-in fade-in zoom-in-95 duration-200',
             positionClasses[position],
             className

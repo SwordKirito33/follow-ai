@@ -55,7 +55,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         </div>
       )}
       <div
-        className={`w-full bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden ${sizeClasses[size]}`}
+        className={`w-full bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden ${sizeClasses[size]}`}
       >
         <motion.div
           initial={animated ? { width: 0 } : { width: `${percentage}%` }}
@@ -172,7 +172,7 @@ export const SegmentedProgress: React.FC<{
   return (
     <div className={className}>
       <div
-        className={`w-full bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden flex ${sizeClasses[size]}`}
+        className={`w-full bg-slate-800/50/10 dark:bg-gray-700 rounded-full overflow-hidden flex ${sizeClasses[size]}`}
       >
         {segments.map((segment, index) => {
           const width = (segment.value / calculatedTotal) * 100;

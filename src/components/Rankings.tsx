@@ -9,7 +9,7 @@ const Rankings: React.FC = () => {
   const topTools = TOOLS.slice(0, 3);
   const ranks = [
     { class: 'bg-accent-gold/20 text-yellow-700 border-yellow-200', icon: '🏆', label: '1' },
-    { class: 'bg-white/10 text-gray-300 border-white/10', icon: '', label: '2' },
+    { class: 'bg-slate-800/50/10 text-gray-300 border-white/10', icon: '', label: '2' },
     { class: 'bg-orange-100 text-orange-800 border-orange-200', icon: '', label: '3' },
   ];
 

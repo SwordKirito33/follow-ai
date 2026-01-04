@@ -50,7 +50,7 @@ const LanguageSelector: React.FC = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-colors text-gray-300 dark:text-gray-300"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-800/50/10 dark:hover:bg-gray-800 transition-colors text-gray-300 dark:text-gray-300"
         aria-label={t('language.selectLanguage')}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
@@ -82,7 +82,7 @@ const LanguageSelector: React.FC = () => {
               <button
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
-                className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-white/5 dark:hover:bg-gray-800 transition-colors text-left ${
+                className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-slate-800/50/5 dark:hover:bg-gray-800 transition-colors text-left ${
                   locale === lang.code ? 'bg-blue-50 dark:bg-blue-900/20' : ''
                 }`}
                 role="option"

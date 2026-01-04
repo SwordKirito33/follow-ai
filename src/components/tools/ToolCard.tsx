@@ -97,7 +97,7 @@ function CategoryBadge({ category }: { category: string }) {
   };
 
   return (
-    <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-white/10 text-gray-400 dark:bg-gray-800 dark:text-gray-400">
+    <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-slate-800/50/10 text-gray-400 dark:bg-gray-800 dark:text-gray-400">
       {categoryLabels[category] || category}
     </span>
   );
@@ -164,10 +164,10 @@ export function ToolCard({
                 <img
                   src={tool.logo}
                   alt={tool.name}
-                  className="w-16 h-16 rounded-xl bg-white p-2 object-contain"
+                  className="w-16 h-16 rounded-xl bg-slate-800/50 p-2 object-contain"
                 />
               ) : (
-                <div className="w-16 h-16 rounded-xl bg-white/20 flex items-center justify-center text-white text-2xl font-bold">
+                <div className="w-16 h-16 rounded-xl bg-slate-800/50/20 flex items-center justify-center text-white text-2xl font-bold">
                   {tool.name.charAt(0)}
                 </div>
               )}
@@ -188,7 +188,7 @@ export function ToolCard({
                 </div>
               </div>
             </div>
-            <span className="px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium">
+            <span className="px-3 py-1 rounded-full bg-slate-800/50/20 text-white text-sm font-medium">
               精选
             </span>
           </div>
@@ -204,7 +204,7 @@ export function ToolCard({
               {tool.tags.slice(0, 3).map((tag) => (
                 <span
                   key={tag}
-                  className="px-2 py-1 rounded-full bg-white/10 text-white/80 text-xs"
+                  className="px-2 py-1 rounded-full bg-slate-800/50/10 text-white/80 text-xs"
                 >
                   {tag}
                 </span>
@@ -220,7 +220,7 @@ export function ToolCard({
                 <>
                   <button
                     onClick={handleFavorite}
-                    className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                    className="p-2 rounded-full bg-slate-800/50/10 hover:bg-slate-800/50/20 transition-colors"
                   >
                     <svg
                       className={cn('w-5 h-5', isFavorited ? 'text-red-400 fill-current' : 'text-white')}
@@ -233,7 +233,7 @@ export function ToolCard({
                   </button>
                   <button
                     onClick={handleShare}
-                    className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                    className="p-2 rounded-full bg-slate-800/50/10 hover:bg-slate-800/50/20 transition-colors"
                   >
                     <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
@@ -255,7 +255,7 @@ export function ToolCard({
         onClick={handleClick}
         className={cn(
           'group flex items-center gap-4 p-4 rounded-xl cursor-pointer',
-          'bg-white dark:bg-gray-800',
+          'bg-slate-800/50 dark:bg-gray-800',
           'border border-white/10 dark:border-gray-700',
           'hover:border-purple-300 dark:hover:border-purple-700',
           'transition-all duration-200',
@@ -266,7 +266,7 @@ export function ToolCard({
           <img
             src={tool.logo}
             alt={tool.name}
-            className="w-12 h-12 rounded-lg object-contain bg-white/5 dark:bg-gray-700 p-1"
+            className="w-12 h-12 rounded-lg object-contain bg-slate-800/50/5 dark:bg-gray-700 p-1"
           />
         ) : (
           <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
@@ -304,7 +304,7 @@ export function ToolCard({
       onClick={handleClick}
       className={cn(
         'group relative overflow-hidden rounded-xl cursor-pointer',
-        'bg-white dark:bg-gray-800',
+        'bg-slate-800/50 dark:bg-gray-800',
         'border border-white/10 dark:border-gray-700',
         'hover:border-purple-300 dark:hover:border-purple-700',
         'hover:shadow-lg',
@@ -330,7 +330,7 @@ export function ToolCard({
             <img
               src={tool.logo}
               alt={tool.name}
-              className="w-14 h-14 rounded-xl object-contain bg-white/5 dark:bg-gray-700 p-2"
+              className="w-14 h-14 rounded-xl object-contain bg-slate-800/50/5 dark:bg-gray-700 p-2"
             />
           ) : (
             <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-xl font-bold">
@@ -364,7 +364,7 @@ export function ToolCard({
             {tool.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-0.5 rounded-full bg-white/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400 text-xs"
+                className="px-2 py-0.5 rounded-full bg-slate-800/50/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400 text-xs"
               >
                 {tag}
               </span>
@@ -389,7 +389,7 @@ export function ToolCard({
         <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
           <button
             onClick={handleFavorite}
-            className="p-2 rounded-full bg-white dark:bg-gray-700 shadow-md hover:bg-white/5 dark:hover:bg-gray-600 transition-colors"
+            className="p-2 rounded-full bg-slate-800/50 dark:bg-gray-700 shadow-md hover:bg-slate-800/50/5 dark:hover:bg-gray-600 transition-colors"
           >
             <svg
               className={cn('w-4 h-4', isFavorited ? 'text-red-500 fill-current' : 'text-gray-400')}
@@ -402,7 +402,7 @@ export function ToolCard({
           </button>
           <button
             onClick={handleShare}
-            className="p-2 rounded-full bg-white dark:bg-gray-700 shadow-md hover:bg-white/5 dark:hover:bg-gray-600 transition-colors"
+            className="p-2 rounded-full bg-slate-800/50 dark:bg-gray-700 shadow-md hover:bg-slate-800/50/5 dark:hover:bg-gray-600 transition-colors"
           >
             <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />

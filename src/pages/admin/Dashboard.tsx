@@ -354,7 +354,7 @@ const Dashboard: React.FC = () => {
                 </div>
 
                 {/* Task Stats */}
-                <div className="mb-4 p-3 bg-white/5 rounded-lg">
+                <div className="mb-4 p-3 bg-slate-800/50/5 rounded-lg">
                   <p className="text-sm font-medium text-gray-300 mb-2">Tasks:</p>
                   <div className="flex items-center gap-3 text-sm">
                     <span className="flex items-center gap-1">
@@ -421,7 +421,7 @@ const Dashboard: React.FC = () => {
                 <span>Progress</span>
                 <span>{progress.current}/{progress.total}</span>
               </div>
-              <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+              <div className="w-full h-2 bg-slate-800/50/10 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-primary-blue to-primary-purple transition-all duration-300"
                   style={{ width: `${(progress.current / progress.total) * 100}%` }}

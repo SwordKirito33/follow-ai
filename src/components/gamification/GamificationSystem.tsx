@@ -351,7 +351,7 @@ export const AchievementSystem: React.FC<AchievementSystemProps> = ({
   ];
 
   const rarityColors = {
-    common: 'text-gray-400 border-gray-500/30 bg-white/50/10',
+    common: 'text-gray-400 border-gray-500/30 bg-slate-800/50/50/10',
     rare: 'text-blue-500 border-blue-500/30 bg-blue-500/10',
     epic: 'text-purple-500 border-purple-500/30 bg-purple-500/10',
     legendary: 'text-yellow-500 border-yellow-500/30 bg-yellow-500/10'

@@ -167,7 +167,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
           >
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-300 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
+              className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-300 dark:text-gray-300 hover:bg-slate-800/50/10 dark:hover:bg-gray-700 transition-colors"
             >
               <Upload className="w-4 h-4" />
               Upload Photo

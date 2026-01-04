@@ -313,7 +313,7 @@ export const QRCode: React.FC<QRCodeProps> = ({
   return (
     <div className="text-center">
       <div 
-        className="bg-white p-4 rounded-lg inline-block"
+        className="bg-slate-800/50 p-4 rounded-lg inline-block"
         style={{ width: size + 32, height: size + 32 }}
       >
         <div 

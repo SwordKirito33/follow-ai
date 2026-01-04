@@ -95,7 +95,7 @@ const XPHistory: React.FC<XPHistoryProps> = ({ userId, limit = 50 }) => {
             return (
               <div
                 key={event.id}
-                className="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                className="flex items-center justify-between p-4 bg-slate-800/50/5 rounded-lg hover:bg-slate-800/50/10 transition-colors"
               >
                 <div className="flex items-center gap-4 flex-1">
                   <div

@@ -30,7 +30,7 @@ const AchievementNotification: React.FC<Props> = ({ achievement, onClose }) => {
       }`}
     >
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 rounded-2xl shadow-2xl min-w-[320px] flex items-center gap-4 border border-white/20">
-        <div className="bg-white/20 p-3 rounded-full">
+        <div className="bg-slate-800/50/20 p-3 rounded-full">
           <Trophy size={32} className="text-yellow-300" fill="currentColor" />
         </div>
         <div>
@@ -38,7 +38,7 @@ const AchievementNotification: React.FC<Props> = ({ achievement, onClose }) => {
           <p className="font-bold text-yellow-300 text-md mt-1">{achievement.name}</p>
           <p className="text-xs text-white/80 mt-0.5">{achievement.description}</p>
         </div>
-        <div className="ml-auto bg-white/20 px-2 py-1 rounded text-xs font-bold whitespace-nowrap">
+        <div className="ml-auto bg-slate-800/50/20 px-2 py-1 rounded text-xs font-bold whitespace-nowrap">
           +50 XP
         </div>
       </div>

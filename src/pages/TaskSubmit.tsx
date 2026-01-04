@@ -217,7 +217,7 @@ export default function TaskSubmit() {
   }
 
   return (
-    <div className="min-h-screen bg-white/5 dark:bg-gray-950 py-12 px-4">
+    <div className="min-h-screen bg-slate-800/50/5 dark:bg-gray-950 py-12 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="mb-10">
           <h1 className="text-4xl sm:text-5xl font-black text-white dark:text-white tracking-tight mb-2">

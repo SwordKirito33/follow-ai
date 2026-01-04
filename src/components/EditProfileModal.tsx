@@ -143,7 +143,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose }) 
               type="button"
               onClick={onClose}
               disabled={isSubmitting}
-              className="flex-1 bg-white/10 hover:bg-white/10 text-white font-semibold py-3 rounded-lg transition-colors disabled:opacity-50"
+              className="flex-1 bg-slate-800/50/10 hover:bg-slate-800/50/10 text-white font-semibold py-3 rounded-lg transition-colors disabled:opacity-50"
             >
               {t('profile.cancel')}
             </button>
