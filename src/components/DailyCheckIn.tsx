@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Gift, Flame, Star, Check, Lock, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import confetti from 'canvas-confetti';
 
 interface CheckInDay {
@@ -27,6 +28,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
   onCheckIn,
   className = '',
 }) => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isCheckedInToday, setIsCheckedInToday] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -57,7 +59,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
       const xpReward = baseXP * i;
       
       // Day 7 has bonus reward
-      const bonusReward = i === 7 ? '🎁 Mystery Box' : undefined;
+      const bonusReward = i === 7 ? t('dailyCheckIn.mysteryBox') : undefined;
       
       days.push({
         day: i,
@@ -156,15 +158,15 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                   <div>
                     <h2 className="text-2xl font-bold flex items-center gap-2">
                       <Calendar className="w-6 h-6" />
-                      Daily Check-In
+                      {t('dailyCheckIn.title')}
                     </h2>
                     <p className="text-blue-100 mt-1">
-                      Check in daily to earn XP rewards!
+                      {t('dailyCheckIn.subtitle')}
                     </p>
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="p-2 hover:bg-slate-800/50/20 rounded-lg transition-colors"
+                    className="p-2 hover:bg-slate-800/50 rounded-lg transition-colors"
                   >
                     ✕
                   </button>
@@ -176,14 +178,14 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                     <Flame className="w-5 h-5 text-orange-400" />
                     <div>
                       <p className="text-2xl font-bold">{currentStreak}</p>
-                      <p className="text-xs text-blue-100">Day Streak</p>
+                      <p className="text-xs text-blue-100">{t('dailyCheckIn.dayStreak')}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <Star className="w-5 h-5 text-yellow-400" />
                     <div>
                       <p className="text-2xl font-bold">{totalCheckIns}</p>
-                      <p className="text-xs text-blue-100">Total Check-ins</p>
+                      <p className="text-xs text-blue-100">{t('dailyCheckIn.totalCheckIns')}</p>
                     </div>
                   </div>
                 </div>
@@ -201,11 +203,11 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                           ? 'bg-accent-green/20 dark:bg-green-900/30 text-accent-green' 
                           : day.isCurrent
                             ? 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan ring-2 ring-blue-500'
-                            : 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400'
+                            : 'bg-slate-800/50 dark:bg-gray-800 text-gray-400'
                         }
                       `}
                     >
-                      <p className="text-xs font-medium mb-1">Day {day.day}</p>
+                      <p className="text-xs font-medium mb-1">{t('dailyCheckIn.day')} {day.day}</p>
                       <p className="text-lg font-bold">
                         {day.isCompleted ? (
                           <Check className="w-5 h-5 mx-auto" />
@@ -231,7 +233,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                   className={`
                     w-full mt-6 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all
                     ${isCheckedInToday
-                      ? 'bg-slate-800/50/10 dark:bg-gray-800 text-gray-400 cursor-not-allowed'
+                      ? 'bg-slate-800/50 dark:bg-gray-800 text-gray-400 cursor-not-allowed'
                       : 'bg-gradient-to-r from-primary-blue to-primary-purple text-white hover:shadow-lg hover:scale-[1.02]'
                     }
                   `}
@@ -245,12 +247,12 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                   ) : isCheckedInToday ? (
                     <>
                       <Check className="w-5 h-5" />
-                      Already Checked In Today
+                      {t('dailyCheckIn.alreadyCheckedIn')}
                     </>
                   ) : (
                     <>
                       <Sparkles className="w-5 h-5" />
-                      Check In Now
+                      {t('dailyCheckIn.checkInNow')}
                     </>
                   )}
                 </button>
@@ -261,10 +263,10 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                     <Flame className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="font-semibold text-white dark:text-white">
-                        Streak Bonus
+                        {t('dailyCheckIn.streakBonus')}
                       </p>
                       <p className="text-sm text-gray-400 dark:text-gray-400">
-                        Keep your streak going! 7-day streak = Mystery Box + 2x XP
+                        {t('dailyCheckIn.streakBonusDesc')}
                       </p>
                     </div>
                   </div>
@@ -303,7 +305,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
               </motion.div>
 
               <h3 className="text-2xl font-bold text-white dark:text-white mb-2">
-                Check-In Complete!
+                {t('dailyCheckIn.checkInComplete')}
               </h3>
 
               <motion.div
@@ -316,7 +318,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
               </motion.div>
 
               <p className="text-gray-400 dark:text-gray-400 mb-4">
-                🔥 {rewardData.streak} day streak!
+                🔥 {t('dailyCheckIn.streakDays', { count: rewardData.streak })}
               </p>
 
               {rewardData.bonus && (
@@ -326,7 +328,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                   transition={{ delay: 0.5 }}
                   className="p-4 bg-primary-purple/20 dark:bg-purple-900/30 rounded-xl text-primary-purple font-semibold"
                 >
-                  🎁 Bonus: {rewardData.bonus}
+                  🎁 {t('dailyCheckIn.bonus')}: {rewardData.bonus}
                 </motion.div>
               )}
 
@@ -334,7 +336,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                 onClick={() => setShowReward(false)}
                 className="mt-6 px-8 py-3 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl font-bold hover:shadow-lg transition-all"
               >
-                Awesome!
+                {t('dailyCheckIn.awesome')}
               </button>
             </motion.div>
           </div>

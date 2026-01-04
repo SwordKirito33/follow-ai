@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Bell, X, CheckCircle, DollarSign, MessageCircle, Star, AlertCircle } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
 import Badge from './ui/Badge';
 
 interface Notification {
@@ -21,6 +22,7 @@ interface NotificationCenterProps {
 
 const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose }) => {
   const { isAuthenticated } = useAuth();
+  const { t } = useTranslation();
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
 
@@ -31,8 +33,8 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
         {
           id: '1',
           type: 'review_approved',
-          title: 'Review Approved',
-          message: 'Your review of Cursor has been approved. You earned $50!',
+          title: t('notifications.submissionApproved'),
+          message: t('notifications.xpEarned', { amount: 50 }),
           timestamp: new Date(Date.now() - 1000 * 60 * 30).toISOString(),
           read: false,
           actionUrl: '/profile',
@@ -40,8 +42,8 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
         {
           id: '2',
           type: 'comment_reply',
-          title: 'New Reply',
-          message: 'Alex replied to your comment on "Midjourney Review"',
+          title: t('notifications.mentionedYou', { user: 'Alex' }),
+          message: t('notifications.newSubmission'),
           timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(),
           read: false,
           actionUrl: '/tool/midjourney',
@@ -49,8 +51,8 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
         {
           id: '3',
           type: 'bounty_available',
-          title: 'New Bounty Available',
-          message: 'A new $75 bounty is available for Claude 3.5 Sonnet',
+          title: t('bounty.title'),
+          message: t('notifications.paymentReceived', { amount: '$75' }),
           timestamp: new Date(Date.now() - 1000 * 60 * 60 * 5).toISOString(),
           read: true,
           actionUrl: '/tasks',
@@ -59,7 +61,7 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
       setNotifications(mockNotifications);
       setUnreadCount(mockNotifications.filter(n => !n.read).length);
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, t]);
 
   const getNotificationIcon = (type: Notification['type']) => {
     switch (type) {
@@ -99,10 +101,10 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
     const diffHours = Math.floor(diffMs / 3600000);
     const diffDays = Math.floor(diffMs / 86400000);
 
-    if (diffMins < 1) return 'Just now';
-    if (diffMins < 60) return `${diffMins}m ago`;
-    if (diffHours < 24) return `${diffHours}h ago`;
-    if (diffDays < 7) return `${diffDays}d ago`;
+    if (diffMins < 1) return t('notifications.justNow');
+    if (diffMins < 60) return t('notifications.minutesAgo', { count: diffMins });
+    if (diffHours < 24) return t('notifications.hoursAgo', { count: diffHours });
+    if (diffDays < 7) return t('notifications.daysAgo', { count: diffDays });
     return date.toLocaleDateString();
   };
 
@@ -116,7 +118,7 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
           <div className="flex items-center gap-2">
             <Bell size={20} className="text-gray-400 dark:text-gray-400" />
             <h2 className="text-lg font-black text-white dark:text-white tracking-tight">
-              Notifications
+              {t('notifications.title')}
             </h2>
             {unreadCount > 0 && (
               <Badge variant="danger" size="sm">
@@ -130,7 +132,7 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
                 onClick={markAllAsRead}
                 className="text-xs text-primary-cyan dark:text-blue-400 hover:underline"
               >
-                Mark all read
+                {t('notifications.markAllRead')}
               </button>
             )}
             <button
@@ -147,14 +149,14 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
           {notifications.length === 0 ? (
             <div className="text-center py-12 text-gray-400 dark:text-gray-300">
               <Bell size={48} className="mx-auto mb-3 opacity-50" />
-              <p>No notifications</p>
+              <p>{t('notifications.noNotifications')}</p>
             </div>
           ) : (
             <div className="divide-y divide-gray-200 dark:divide-gray-700">
               {notifications.map((notification) => (
                 <div
                   key={notification.id}
-                  className={`p-4 hover:bg-slate-800/50/5 dark:hover:bg-gray-800/50 transition-colors cursor-pointer ${
+                  className={`p-4 hover:bg-slate-800/50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer ${
                     !notification.read ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''
                   }`}
                   onClick={() => {
@@ -196,4 +198,3 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
 };
 
 export default NotificationCenter;
-

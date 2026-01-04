@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DollarSign, Clock, Users, Zap } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Badge from './ui/Badge';
 import Button from './ui/Button';
 
@@ -25,6 +26,7 @@ interface BountyCardProps {
 }
 
 const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => {
+  const { t } = useTranslation();
   const slotsRemaining = bounty.slots.total - bounty.slots.filled;
   const isUrgent = bounty.priority === 'high' || slotsRemaining <= 2;
   const deadlineDate = new Date(bounty.deadline);
@@ -40,12 +42,12 @@ const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => 
             </h3>
             {isUrgent && (
               <Badge variant="danger" size="sm">
-                Urgent
+                {t('bounty.urgent')}
               </Badge>
             )}
             {bounty.priority === 'high' && (
               <Badge variant="warning" size="sm">
-                High Priority
+                {t('bounty.highPriority')}
               </Badge>
             )}
           </div>
@@ -65,7 +67,7 @@ const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => 
             <div className="text-lg font-black text-accent-green dark:text-green-400">
               ${bounty.reward}
             </div>
-            <div className="text-xs text-gray-400 dark:text-gray-300">Reward</div>
+            <div className="text-xs text-gray-400 dark:text-gray-300">{t('bounty.reward')}</div>
           </div>
         </div>
         
@@ -77,7 +79,7 @@ const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => 
             <div className="text-lg font-black text-white dark:text-white">
               {daysRemaining}d
             </div>
-            <div className="text-xs text-gray-400 dark:text-gray-300">Remaining</div>
+            <div className="text-xs text-gray-400 dark:text-gray-300">{t('bounty.remaining')}</div>
           </div>
         </div>
       </div>
@@ -87,13 +89,13 @@ const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => 
         <div className="flex items-center justify-between text-sm mb-2">
           <span className="text-gray-400 dark:text-gray-400 flex items-center gap-1">
             <Users size={14} />
-            {slotsRemaining} slots remaining
+            {t('bounty.slotsRemaining', { count: slotsRemaining })}
           </span>
           <span className="text-gray-400 dark:text-gray-400">
-            {bounty.slots.filled}/{bounty.slots.total} filled
+            {bounty.slots.filled}/{bounty.slots.total} {t('bounty.filled')}
           </span>
         </div>
-        <div className="w-full bg-slate-800/50/10 dark:bg-gray-700 rounded-full h-2">
+        <div className="w-full bg-slate-800/50 dark:bg-gray-700 rounded-full h-2">
           <div
             className="bg-gradient-to-r from-primary-blue to-primary-purple h-2 rounded-full transition-all duration-300"
             style={{ width: `${(bounty.slots.filled / bounty.slots.total) * 100}%` }}
@@ -104,7 +106,7 @@ const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => 
       {/* Requirements */}
       {bounty.requirements && bounty.requirements.length > 0 && (
         <div className="mb-4">
-          <p className="text-xs font-semibold text-gray-300 dark:text-gray-300 mb-2">Requirements:</p>
+          <p className="text-xs font-semibold text-gray-300 dark:text-gray-300 mb-2">{t('bounty.requirements')}:</p>
           <ul className="space-y-1">
             {bounty.requirements.map((req, idx) => (
               <li key={idx} className="text-xs text-gray-400 dark:text-gray-400 flex items-start gap-2">
@@ -125,11 +127,10 @@ const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => 
         className="w-full"
       >
         <Zap size={18} className="mr-2" />
-        Submit Output
+        {t('bounty.submitOutput')}
       </Button>
     </div>
   );
 };
 
 export default BountyCard;
-
