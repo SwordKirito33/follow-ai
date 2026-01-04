@@ -1,3 +1,4 @@
+import { useLanguage } from '@/contexts/LanguageContext';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -71,6 +72,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
   onPurchase,
   onExport,
 }) => {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'overview' | 'transactions' | 'purchase'>('overview');
   const [filterType, setFilterType] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -193,17 +195,17 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4">
               <ArrowDownLeft className="w-5 h-5 text-green-300 mb-2" />
               <p className="text-2xl font-bold">{stats.totalPurchased.toLocaleString()}</p>
-              <p className="text-sm text-white/70">Purchased</p>
+              <p className="text-sm text-white/70">{	('enhancedWallet.totalPurchased')}</p>
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4">
               <Zap className="w-5 h-5 text-yellow-300 mb-2" />
               <p className="text-2xl font-bold">{stats.totalEarned.toLocaleString()}</p>
-              <p className="text-sm text-white/70">Earned</p>
+              <p className="text-sm text-white/70">{	('enhancedWallet.totalEarned')}</p>
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4">
               <ArrowUpRight className="w-5 h-5 text-red-300 mb-2" />
               <p className="text-2xl font-bold">{stats.totalSpent.toLocaleString()}</p>
-              <p className="text-sm text-white/70">Spent</p>
+              <p className="text-sm text-white/70">{	('enhancedWallet.totalSpent')}</p>
             </div>
           </div>
         </div>
@@ -239,7 +241,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
             {/* Recent transactions */}
             <div className="bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-bold text-white dark:text-white">Recent Transactions</h3>
+                <h3 className="font-bold text-white dark:text-white">{	('enhancedWallet.recentTransactions')}</h3>
                 <button
                   onClick={() => setActiveTab('transactions')}
                   className="text-sm text-primary-cyan hover:text-primary-blue"
@@ -267,7 +269,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
 
             {/* Quick purchase */}
             <div className="bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-              <h3 className="font-bold text-white dark:text-white mb-4">Quick Purchase</h3>
+              <h3 className="font-bold text-white dark:text-white mb-4">{	('enhancedWallet.quickPurchase')}</h3>
               <div className="space-y-3">
                 {packages.slice(0, 3).map((pkg) => (
                   <button
@@ -443,7 +445,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                           pkg.popular ? 'bg-blue-500' :
                           pkg.bestValue ? 'bg-green-500' : 'bg-orange-500'
                         }`}>
-                          {pkg.popular ? 'Popular' : pkg.bestValue ? 'Best Value' : `${pkg.discount}% OFF`}
+                          {pkg.popular ? 	('enhancedWallet.popular') : pkg.bestValue ? 	('enhancedWallet.bestValue') : `${pkg.discount}% OFF`}
                         </span>
                       </div>
                     )}
@@ -472,7 +474,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                             : 'bg-white/10 dark:bg-gray-800 text-white dark:text-white hover:bg-white/10 dark:hover:bg-gray-700'
                         } disabled:opacity-50`}
                       >
-                        {purchasingId === pkg.id ? 'Processing...' : 'Purchase'}
+                        {purchasingId === pkg.id ? 	('enhancedWallet.processing') : 	('enhancedWallet.purchaseBtn')}
                       </button>
                     </div>
                   </div>
