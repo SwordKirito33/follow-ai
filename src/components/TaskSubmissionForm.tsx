@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
   Upload,
   X,
@@ -44,6 +45,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
   onSubmit,
   onCancel,
 }) => {
+  const { t } = useLanguage();
   const [feedback, setFeedback] = useState('');
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);

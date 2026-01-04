@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, TrendingUp, TrendingDown } from 'lucide-react';
 import { listXpEvents, type XpEvent } from '@/lib/xp-service';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface XPHistoryProps {
   userId: string;
@@ -8,6 +9,7 @@ interface XPHistoryProps {
 }
 
 const XPHistory: React.FC<XPHistoryProps> = ({ userId, limit = 50 }) => {
+  const { t } = useLanguage();
   const [events, setEvents] = useState<XpEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

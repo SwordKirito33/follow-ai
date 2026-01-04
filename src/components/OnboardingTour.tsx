@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Check, Sparkles } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TourStep {
   id: string;
@@ -24,6 +25,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
   onComplete,
   onSkip,
 }) => {
+  const { t } = useLanguage();
   const [currentStep, setCurrentStep] = useState(0);
   const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
 

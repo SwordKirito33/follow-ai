@@ -1,6 +1,7 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { AlertCircle, RefreshCw, Home } from 'lucide-react';
 import FollowButton from './ui/follow-button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Props {
   children: ReactNode;

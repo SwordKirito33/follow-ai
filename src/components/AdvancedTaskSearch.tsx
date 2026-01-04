@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Clock, TrendingUp, Star, History } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface SearchSuggestion {
   type: 'recent' | 'popular' | 'tool';
@@ -19,6 +20,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
   placeholder = 'Search tasks, tools, or categories...',
   className = '',
 }) => {
+  const { t } = useLanguage();
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface LoadingScreenProps {
   message?: string;
@@ -10,6 +11,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
   message = 'Loading...',
   fullScreen = true,
 }) => {
+  const { t } = useLanguage();
   const containerClasses = fullScreen
     ? 'fixed inset-0 z-[9999] bg-gray-900/90 backdrop-blur-sm'
     : 'w-full h-full min-h-[200px]';

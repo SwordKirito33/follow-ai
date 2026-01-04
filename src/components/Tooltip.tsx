@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Props {
   content: string;
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const Tooltip: React.FC<Props> = ({ content, children, position = 'top' }) => {
+  const { t } = useLanguage();
   return (
     <div className="relative group inline-block">
       {children}

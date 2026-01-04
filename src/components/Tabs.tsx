@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Tab {
   id: string;
@@ -33,6 +34,7 @@ const Tabs: React.FC<TabsProps> = ({
   className = '',
   children,
 }) => {
+  const { t } = useLanguage();
   const [internalActiveTab, setInternalActiveTab] = useState(
     defaultTab || tabs[0]?.id
   );

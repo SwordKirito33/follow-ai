@@ -6,6 +6,7 @@ import FollowButton from './ui/follow-button';
 import Badge from './ui/Badge';
 import { formatCurrency } from '@/lib/currency';
 import type { Database } from '@/types/database';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type Task = Database['public']['Tables']['tasks']['Row'];
 
@@ -26,6 +27,7 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
   userId,
   onApplySuccess,
 }) => {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [task, setTask] = useState<Task | null>(null);
   const [loading, setLoading] = useState(false);

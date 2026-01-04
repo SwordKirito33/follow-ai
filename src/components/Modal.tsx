@@ -2,6 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { createPortal } from 'react-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ModalProps {
   isOpen: boolean;
@@ -30,6 +31,7 @@ const Modal: React.FC<ModalProps> = ({
   footer,
   className = '',
 }) => {
+  const { t } = useLanguage();
   // Handle escape key
   const handleEscape = useCallback(
     (event: KeyboardEvent) => {

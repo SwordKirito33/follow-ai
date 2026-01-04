@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Share2, Copy, Check, Twitter, Facebook, Linkedin, Mail, Link2, QrCode, Download } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ShareContent {
   title: string;
@@ -17,6 +18,7 @@ interface ShareModalProps {
 }
 
 const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
   const [showQR, setShowQR] = useState(false);
 

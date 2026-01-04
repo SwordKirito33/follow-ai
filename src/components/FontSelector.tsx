@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Type, Check, ChevronDown } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export interface FontOption {
   id: string;
@@ -55,6 +56,7 @@ interface FontSelectorProps {
 }
 
 const FontSelector: React.FC<FontSelectorProps> = ({ className = '' }) => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedFont, setSelectedFont] = useState<FontOption>(FONT_OPTIONS[0]);
   const [selectedSize, setSelectedSize] = useState(FONT_SIZE_OPTIONS[1]);

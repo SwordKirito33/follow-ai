@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cookie, X, Settings, Check } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface CookiePreferences {
   necessary: boolean;
@@ -13,6 +14,7 @@ const COOKIE_CONSENT_KEY = 'follow-ai-cookie-consent';
 const COOKIE_PREFERENCES_KEY = 'follow-ai-cookie-preferences';
 
 const CookieConsent: React.FC = () => {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [preferences, setPreferences] = useState<CookiePreferences>({

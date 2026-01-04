@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, X, Smartphone, Wifi, WifiOff, RefreshCw } from 'lucide-react';
 import { usePWA } from '../hooks/usePWA';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PWAInstallPromptProps {
   className?: string;
 }
 
 const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) => {
+  const { t } = useLanguage();
   const {
     isInstallable,
     isInstalled,

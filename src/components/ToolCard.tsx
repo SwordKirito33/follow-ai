@@ -4,6 +4,7 @@ import { Star, TrendingUp, DollarSign, Heart } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import Badge from './ui/Badge';
 import LazyImage from './LazyImage';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ToolCardProps {
   tool: {
@@ -23,6 +24,7 @@ interface ToolCardProps {
 }
 
 const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
+  const { t } = useLanguage();
   const { isAuthenticated } = useAuth();
   const [isFavorited, setIsFavorited] = useState(false);
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PaginationProps {
   currentPage: number;
@@ -18,6 +19,7 @@ const Pagination: React.FC<PaginationProps> = ({
   maxVisiblePages = 5,
   className = '',
 }) => {
+  const { t } = useLanguage();
   if (totalPages <= 1) return null;
 
   const getVisiblePages = (): (number | 'ellipsis')[] => {

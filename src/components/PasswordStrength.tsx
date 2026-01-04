@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Check, X } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PasswordStrengthProps {
   password: string;
@@ -20,6 +21,7 @@ const requirements: PasswordRequirement[] = [
 ];
 
 const PasswordStrength: React.FC<PasswordStrengthProps> = ({ password, showRequirements = true }) => {
+  const { t } = useLanguage();
   const strength = useMemo(() => {
     if (!password) return { score: 0, label: '', color: 'bg-slate-800/50/10' };
     

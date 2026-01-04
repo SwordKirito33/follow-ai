@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
   MessageSquare,
   X,
@@ -30,6 +31,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
   onSubmit,
   className = '',
 }) => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState<'type' | 'form' | 'success'>('type');
   const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null);

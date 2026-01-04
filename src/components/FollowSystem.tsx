@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UserPlus, UserMinus, Users, Check } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface User {
   id: string;
@@ -32,6 +33,7 @@ export const FollowButton: React.FC<FollowButtonProps> = ({
   showCount = false,
   followerCount = 0,
 }) => {
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 

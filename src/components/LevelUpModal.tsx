@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles, Trophy } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import { getGamificationConfig, getLevelFromXpWithConfig, type LevelDef } from '@/lib/gamification';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface LevelUpModalProps {
   isOpen: boolean;
@@ -21,7 +21,7 @@ const LevelUpModal: React.FC<LevelUpModalProps> = ({
   badge,
   xpGained,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   
   useEffect(() => {
     if (isOpen) {

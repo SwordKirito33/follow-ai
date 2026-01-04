@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, Upload, X, Check, Loader2, User } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface AvatarUploadProps {
   currentAvatar?: string;
@@ -23,6 +24,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
   onUploadComplete,
   size = 'lg',
 }) => {
+  const { t } = useLanguage();
   const [isUploading, setIsUploading] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);

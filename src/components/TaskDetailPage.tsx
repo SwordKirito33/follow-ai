@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
   ArrowLeft,
   Clock,
@@ -63,6 +64,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
   onBookmark,
   onShare,
 }) => {
+  const { t } = useLanguage();
   const [expandedSection, setExpandedSection] = useState<string | null>('steps');
 
   const difficultyColors = {

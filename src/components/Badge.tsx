@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   Star, 
   Trophy, 
@@ -48,6 +49,7 @@ const Badge: React.FC<BadgeProps> = ({
   onRemove,
   className = '',
 }) => {
+  const { t } = useLanguage();
   const variantClasses = {
     default: 'bg-slate-800/50/10 text-gray-200 dark:bg-gray-800 dark:text-gray-200',
     primary: 'bg-primary-blue/20 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',

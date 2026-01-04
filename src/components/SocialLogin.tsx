@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useToast } from './ui/toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface SocialLoginProps {
   onSuccess?: () => void;
@@ -8,6 +9,7 @@ interface SocialLoginProps {
 }
 
 const SocialLogin: React.FC<SocialLoginProps> = ({ onSuccess, onError }) => {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [loading, setLoading] = useState<string | null>(null);
 

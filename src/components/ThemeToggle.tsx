@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Monitor, Check, ChevronDown } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ThemeToggleProps {
   variant?: 'button' | 'dropdown';
@@ -12,6 +13,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
   variant = 'dropdown',
   showLabel = true,
 }) => {
+  const { t } = useLanguage();
   const { theme, resolvedTheme, setTheme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);

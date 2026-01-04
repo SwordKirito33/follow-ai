@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Star, CheckCircle, XCircle } from 'lucide-react';
 import FollowButton from './ui/follow-button';
 import { useToast } from './ui/toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ReviewFormProps {
   submissionId: string;
@@ -18,6 +19,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
   currentFeedback,
   onSubmit,
 }) => {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [action, setAction] = useState<'approve' | 'reject' | null>(null);
   const [rating, setRating] = useState<number>(currentRating || 5);

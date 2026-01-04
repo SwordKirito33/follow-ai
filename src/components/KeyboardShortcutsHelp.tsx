@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Keyboard, Command } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Shortcut {
   keys: string[];
@@ -39,6 +40,7 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
   isOpen,
   onClose,
 }) => {
+  const { t } = useLanguage();
   const groupedShortcuts = shortcuts.reduce((acc, shortcut) => {
     const category = shortcut.category || 'Other';
     if (!acc[category]) {

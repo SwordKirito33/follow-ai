@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface SEOProps {
   title?: string;
@@ -26,6 +27,7 @@ const SEO: React.FC<SEOProps> = ({
   modifiedTime,
   noindex = false,
 }) => {
+  const { t } = useLanguage();
   const siteName = 'Follow-ai';
   const fullTitle = title ? `${title} | ${siteName}` : siteName;
   const canonicalUrl = url || (typeof window !== 'undefined' ? window.location.href : '');

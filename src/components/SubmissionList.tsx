@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, User, CheckCircle, XCircle, Clock } from 'lucide-react';
 import Badge from './ui/Badge';
 import type { Database } from '@/types/database';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type Submission = Database['public']['Tables']['task_submissions']['Row'];
 type Task = Database['public']['Tables']['tasks']['Row'];
@@ -13,6 +14,7 @@ interface SubmissionListProps {
 }
 
 const SubmissionList: React.FC<SubmissionListProps> = ({ submissions, selectedId, onSelect }) => {
+  const { t } = useLanguage();
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'approved':

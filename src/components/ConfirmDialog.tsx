@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertTriangle, X, Info, CheckCircle, AlertCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type DialogVariant = 'danger' | 'warning' | 'info' | 'success';
 
@@ -27,6 +28,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   variant = 'danger',
   isLoading = false,
 }) => {
+  const { t } = useLanguage();
   const icons = {
     danger: <AlertCircle className="w-6 h-6 text-red-500" />,
     warning: <AlertTriangle className="w-6 h-6 text-yellow-500" />,

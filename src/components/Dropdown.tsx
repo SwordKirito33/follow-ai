@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Check } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface DropdownItem {
   id: string;
@@ -31,6 +32,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   width = 'auto',
   className = '',
 }) => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);

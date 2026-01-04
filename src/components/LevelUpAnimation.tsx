@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Trophy, Star, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface LevelUpAnimationProps {
   isVisible: boolean;
@@ -16,6 +17,7 @@ const LevelUpAnimation: React.FC<LevelUpAnimationProps> = ({
   levelName,
   onClose,
 }) => {
+  const { t } = useLanguage();
   useEffect(() => {
     if (isVisible) {
       // Trigger confetti

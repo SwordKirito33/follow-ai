@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ScrollToTopProps {
   threshold?: number;
@@ -13,6 +14,7 @@ const ScrollToTop: React.FC<ScrollToTopProps> = ({
   smooth = true,
   className = '',
 }) => {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

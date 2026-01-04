@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import { addToWaitlist } from '../services/waitlistService'
 import { CheckCircle, XCircle, Loader2 } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TestResult {
   name: string
@@ -11,6 +12,7 @@ interface TestResult {
 }
 
 const SupabaseTest: React.FC = () => {
+  const { t } = useLanguage();
   const [results, setResults] = useState<TestResult[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [overallStatus, setOverallStatus] = useState<'testing' | 'success' | 'error'>('testing')

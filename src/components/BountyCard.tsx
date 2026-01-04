@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DollarSign, Clock, Users, Zap } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+
 import Badge from './ui/Badge';
 import Button from './ui/Button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Bounty {
   id: string;
@@ -26,7 +27,7 @@ interface BountyCardProps {
 }
 
 const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const slotsRemaining = bounty.slots.total - bounty.slots.filled;
   const isUrgent = bounty.priority === 'high' || slotsRemaining <= 2;
   const deadlineDate = new Date(bounty.deadline);

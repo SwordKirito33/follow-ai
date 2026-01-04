@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
   User,
   Mail,
@@ -87,6 +88,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
   onFollowUser,
   isFollowing,
 }) => {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'overview' | 'badges' | 'activity'>('overview');
 
   const rarityColors = {

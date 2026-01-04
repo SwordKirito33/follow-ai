@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FollowLogoProps {
   size?: number;
@@ -11,6 +12,7 @@ const FollowLogo: React.FC<FollowLogoProps> = ({
   showWordmark = false,
   className = '' 
 }) => {
+  const { t } = useLanguage();
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       {/* Logo SVG */}

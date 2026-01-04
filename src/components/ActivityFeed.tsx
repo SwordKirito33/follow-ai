@@ -1,7 +1,9 @@
 import React from 'react';
 import { DollarSign, Star, Zap, Trophy, TrendingUp, Award, Target, Flame } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ActivityFeed: React.FC = () => {
+  const { t } = useLanguage();
   const activities = [
     { icon: DollarSign, user: 'Sarah', action: 'just earned', value: '$75', detail: 'reviewing Cursor', time: '2m ago', color: 'text-green-400' },
     { icon: Star, user: 'Jackson', action: 'submitted', value: '9.2/10', detail: 'Midjourney review', time: '5m ago', color: 'text-amber-400' },

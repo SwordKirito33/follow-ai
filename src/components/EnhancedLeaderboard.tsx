@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
   Trophy,
   Medal,
@@ -46,6 +47,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
   onTimeRangeChange,
   onUserClick,
 }) => {
+  const { t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
 

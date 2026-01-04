@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { Upload, X, FileIcon, Image, Video, File } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FileUploadProps {
   bucket: 'review-outputs' | 'user-avatars' | 'portfolio-images';
@@ -26,6 +27,7 @@ export default function FileUpload({
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const getFileIcon = (fileType: string) => {
+  const { t } = useLanguage();
     if (fileType.startsWith('image/')) return Image;
     if (fileType.startsWith('video/')) return Video;
     return File;

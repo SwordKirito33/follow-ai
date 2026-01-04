@@ -1,6 +1,7 @@
 import React from 'react';
 import { Zap, DollarSign } from 'lucide-react';
 import FollowButton from './ui/follow-button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export type TaskType = 'xp' | 'paid';
 
@@ -15,6 +16,7 @@ const TaskTypeSelector: React.FC<TaskTypeSelectorProps> = ({
   onTypeChange,
   userLevel,
 }) => {
+  const { t } = useLanguage();
   return (
     <div className="glass-card rounded-xl shadow-xl p-6 mb-8">
       <h2 className="text-xl font-black text-white mb-4 tracking-tight">Task Type</h2>

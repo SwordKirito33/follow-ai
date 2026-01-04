@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Gift, Flame, Star, Check, Lock, Sparkles } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+
 import confetti from 'canvas-confetti';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface CheckInDay {
   day: number;
@@ -28,7 +29,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
   onCheckIn,
   className = '',
 }) => {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [isCheckedInToday, setIsCheckedInToday] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

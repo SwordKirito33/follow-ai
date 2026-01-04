@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { User } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface UserAvatarProps {
   src?: string | null;
@@ -27,6 +28,7 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   className = '',
   onClick,
 }) => {
+  const { t } = useLanguage();
   const sizeClasses = {
     xs: 'w-6 h-6 text-xs',
     sm: 'w-8 h-8 text-sm',

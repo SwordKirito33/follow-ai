@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   FileText, 
   Search, 
@@ -91,6 +92,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
   action,
   className = '',
 }) => {
+  const { t } = useLanguage();
   const content = defaultContent[variant];
 
   return (

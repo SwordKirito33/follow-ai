@@ -4,8 +4,10 @@ import { getGamificationConfig, getLevelFromXpWithConfig } from '@/lib/gamificat
 import LevelUpModal from '@/components/LevelUpModal';
 import XpEarnedToastCard from '@/components/XpEarnedToastCard';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const XpEventRenderer: React.FC = () => {
+  const { t } = useLanguage();
   const { user } = useAuth();
   const { current } = useXpQueue();
   const [config, setConfig] = useState<any>(null);

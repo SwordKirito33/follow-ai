@@ -4,6 +4,7 @@ import Badge from './ui/Badge';
 import FollowButton from './ui/follow-button';
 import { Task } from '@/lib/task-filters';
 import { formatCurrency } from '@/lib/currency';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TaskCardProps {
   task: Task;
@@ -13,6 +14,7 @@ interface TaskCardProps {
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task, userLevel, onApply, onView }) => {
+  const { t } = useLanguage();
   const isXpTask = task.task_type === 'xp_challenge';
   const canApply = userLevel >= task.min_level && task.status === 'active';
   const reward = isXpTask 

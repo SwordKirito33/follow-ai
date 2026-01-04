@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink, FileText, Calendar, User } from 'lucide-react';
 import type { Database } from '@/types/database';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type Submission = Database['public']['Tables']['task_submissions']['Row'];
 type Task = Database['public']['Tables']['tasks']['Row'];
@@ -10,6 +11,7 @@ interface SubmissionDetailProps {
 }
 
 const SubmissionDetail: React.FC<SubmissionDetailProps> = ({ submission }) => {
+  const { t } = useLanguage();
   return (
     <div className="glass-card rounded-xl shadow-xl p-6">
       <h2 className="text-xl font-black text-white mb-6 tracking-tight">Submission Details</h2>

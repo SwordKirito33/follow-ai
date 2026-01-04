@@ -2,6 +2,7 @@ import React from 'react';
 import { Filter, SortAsc } from 'lucide-react';
 import { TaskFilters, TaskFilterType, TaskFilterLevel, TaskFilterStatus, TaskSortOption } from '@/lib/task-filters';
 import FollowButton from './ui/follow-button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TaskFiltersProps {
   filters: TaskFilters;
@@ -9,6 +10,7 @@ interface TaskFiltersProps {
 }
 
 const TaskFiltersComponent: React.FC<TaskFiltersProps> = ({ filters, onFiltersChange }) => {
+  const { t } = useLanguage();
   const updateFilter = <K extends keyof TaskFilters>(key: K, value: TaskFilters[K]) => {
     onFiltersChange({ ...filters, [key]: value });
   };

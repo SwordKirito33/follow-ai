@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ProgressBarProps {
   value: number;
@@ -22,6 +23,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   animated = true,
   className = '',
 }) => {
+  const { t } = useLanguage();
   const percentage = Math.min(Math.max((value / max) * 100, 0), 100);
 
   const sizeClasses = {

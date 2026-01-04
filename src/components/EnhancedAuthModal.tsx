@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
   X,
   Mail,
@@ -37,6 +38,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
   onGithubLogin,
   onForgotPassword,
 }) => {
+  const { t } = useLanguage();
   const [mode, setMode] = useState<AuthMode>('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

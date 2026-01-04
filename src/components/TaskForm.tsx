@@ -1,5 +1,6 @@
 import React from 'react';
 import { TaskFormData, TaskType } from './TaskTypeSelector';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TaskFormProps {
   formData: TaskFormData;
@@ -8,6 +9,7 @@ interface TaskFormProps {
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ formData, onChange, errors }) => {
+  const { t } = useLanguage();
   const handleChange = (field: keyof TaskFormData, value: any) => {
     onChange({ ...formData, [field]: value });
   };

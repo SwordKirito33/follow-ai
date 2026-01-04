@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Trophy, Lock, Star, Zap, Target, Award, Crown, Gem, Shield, Flame } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Achievement {
   id: string;
@@ -28,7 +29,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
   totalXPFromAchievements,
   className = '',
 }) => {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null);
 

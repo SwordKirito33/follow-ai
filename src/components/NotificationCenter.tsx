@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Bell, X, CheckCircle, DollarSign, MessageCircle, Star, AlertCircle } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
-import { useTranslation } from 'react-i18next';
+
 import Badge from './ui/Badge';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Notification {
   id: string;
@@ -21,8 +22,8 @@ interface NotificationCenterProps {
 }
 
 const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose }) => {
+  const { t } = useLanguage();
   const { isAuthenticated } = useAuth();
-  const { t } = useTranslation();
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
 

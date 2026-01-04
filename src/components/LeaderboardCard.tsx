@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Medal, Award, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import UserAvatar from './UserAvatar';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface LeaderboardEntry {
   rank: number;
@@ -28,6 +29,7 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
   showTrend = true,
   className = '',
 }) => {
+  const { t } = useLanguage();
   const getRankIcon = (rank: number) => {
     switch (rank) {
       case 1:

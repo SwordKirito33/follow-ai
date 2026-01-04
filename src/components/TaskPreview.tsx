@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, Zap, DollarSign } from 'lucide-react';
 import { TaskFormData } from './TaskTypeSelector';
 import Badge from './ui/Badge';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TaskPreviewProps {
   formData: TaskFormData;
@@ -9,6 +10,7 @@ interface TaskPreviewProps {
 }
 
 const TaskPreview: React.FC<TaskPreviewProps> = ({ formData, userLevel }) => {
+  const { t } = useLanguage();
   const canPost = formData.taskType === 'xp' || 
     (formData.taskType === 'paid' && 
      ((formData.paymentAmount || 0) < 50 && userLevel >= 5) ||

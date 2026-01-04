@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
   TrendingUp,
   TrendingDown,
@@ -46,6 +47,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
   taskChartData,
   className = '',
 }) => {
+  const { t } = useLanguage();
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | '1y'>('30d');
 
   const timeRanges = [

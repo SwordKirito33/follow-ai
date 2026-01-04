@@ -1,6 +1,8 @@
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ReviewCardSkeleton: React.FC = () => {
+  const { t } = useLanguage();
   return (
     <div className="bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-sm border border-white/10 overflow-hidden animate-pulse">
       {/* Header */}

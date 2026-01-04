@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import AuthModal from './AuthModal';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const VisitTracker: React.FC = () => {
+  const { t } = useLanguage();
   const { isAuthenticated } = useAuth();
   const [showPrompt, setShowPrompt] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);

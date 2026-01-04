@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { getSourceMeta, type GamificationConfig } from '@/lib/gamification';
 import type { XpSource } from '@/lib/gamification';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface XpEarnedToastCardProps {
   gained: number;
@@ -17,6 +18,7 @@ const XpEarnedToastCard: React.FC<XpEarnedToastCardProps> = ({
   config,
   onClose,
 }) => {
+  const { t } = useLanguage();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.9 }}

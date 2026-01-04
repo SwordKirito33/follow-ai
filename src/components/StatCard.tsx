@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface StatCardProps {
   title: string;
@@ -28,6 +29,7 @@ const StatCard: React.FC<StatCardProps> = ({
   variant = 'default',
   size = 'md',
 }) => {
+  const { t } = useLanguage();
   const sizeClasses = {
     sm: 'p-4',
     md: 'p-6',

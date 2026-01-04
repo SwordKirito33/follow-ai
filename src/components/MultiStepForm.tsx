@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronRight, ChevronLeft, Check } from 'lucide-react';
 import Button from './ui/Button';
 import Badge from './ui/Badge';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Step {
   id: string;
@@ -18,6 +19,7 @@ interface MultiStepFormProps {
 }
 
 const MultiStepForm: React.FC<MultiStepFormProps> = ({ steps, onSubmit, onCancel }) => {
+  const { t } = useLanguage();
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<Record<string, any>>({});
   const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());

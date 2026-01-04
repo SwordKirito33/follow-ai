@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, CreditCard, Zap, CheckCircle, Clock, XCircle, Download, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Transaction {
   id: string;
@@ -26,6 +27,7 @@ const TransactionDetail: React.FC<TransactionDetailProps> = ({
   onClose,
   transaction,
 }) => {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   if (!transaction) return null;

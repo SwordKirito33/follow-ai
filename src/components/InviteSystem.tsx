@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface InviteStats {
   totalInvites: number;
@@ -23,6 +24,7 @@ interface InviteStats {
 }
 
 const InviteSystem: React.FC = () => {
+  const { t } = useLanguage();
   const { user } = useAuth();
   const [inviteCode, setInviteCode] = useState<string>('');
   const [copied, setCopied] = useState(false);
