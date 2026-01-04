@@ -113,7 +113,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
   return (
     <div>
       {/* Tabs */}
-      <div className="flex gap-2 border-b border-gray-200 mb-6">
+      <div className="flex gap-2 border-b border-white/10 mb-6">
         {[
           { id: 'overview', label: 'Overview', icon: User },
           { id: 'skills', label: 'Skills & Tools', icon: Briefcase },
@@ -126,8 +126,8 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
               onClick={() => setActiveTab(tab.id as any)}
               className={`flex items-center gap-2 px-4 py-3 font-semibold transition-all border-b-2 ${
                 activeTab === tab.id
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  ? 'border-blue-600 text-primary-cyan'
+                  : 'border-transparent text-gray-400 hover:text-white'
               }`}
             >
               <Icon size={18} />
@@ -144,25 +144,25 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
           {user.progression && (
             <div className="glass-card rounded-xl p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-gray-900">Level & XP</h3>
+                <h3 className="text-lg font-bold text-white">Level & XP</h3>
                 <Badge variant="primary" size="md">
                   Level {levelInfo.level}
                 </Badge>
               </div>
               <div className="mb-2">
-                <div className="flex items-center justify-between text-sm text-gray-600 mb-1">
+                <div className="flex items-center justify-between text-sm text-gray-400 mb-1">
                   <span>{levelInfo.xpInCurrentLevel} / {levelInfo.xpToNext + levelInfo.xpInCurrentLevel} XP</span>
                   <span>{levelInfo.xpToNext} XP to next level</span>
                 </div>
-                <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-700 ease-out"
+                    className="h-full bg-gradient-to-r from-primary-blue to-primary-purple transition-all duration-700 ease-out"
                     style={{ width: `${levelInfo.progress * 100}%` }}
                   />
                 </div>
               </div>
-              <div className="text-sm text-gray-600">
-                Total XP: <span className="font-bold text-gray-900">{user.profile?.total_xp ?? user.progression?.xp ?? 0}</span>
+              <div className="text-sm text-gray-400">
+                Total XP: <span className="font-bold text-white">{user.profile?.total_xp ?? user.progression?.xp ?? 0}</span>
               </div>
             </div>
           )}
@@ -171,18 +171,18 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
           {user.progression && (
             <div className="glass-card rounded-xl p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-gray-900">Profile Completion</h3>
-                <span className="text-2xl font-bold text-blue-600">
+                <h3 className="text-lg font-bold text-white">Profile Completion</h3>
+                <span className="text-2xl font-bold text-primary-cyan">
                   {user.progression.profileCompletion}%
                 </span>
               </div>
-              <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden mb-2">
+              <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden mb-2">
                 <div
                   className="h-full bg-gradient-to-r from-green-500 to-green-600 transition-all duration-700 ease-out"
                   style={{ width: `${user.progression.profileCompletion}%` }}
                 />
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-400">
                 Complete your profile to unlock paid tasks
               </p>
             </div>
@@ -191,7 +191,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
           {/* Badges */}
           {user.progression && user.progression.badges.length > 0 && (
             <div className="glass-card rounded-xl p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                 <Award size={20} />
                 Badges
               </h3>
@@ -212,7 +212,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
           {/* Skills */}
           <div className="glass-card rounded-xl p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-gray-900">Skills</h3>
+              <h3 className="text-lg font-bold text-white">Skills</h3>
             </div>
             <div className="flex flex-wrap gap-2 mb-4">
               {user.skills && user.skills.length > 0 ? (
@@ -243,7 +243,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
                 onChange={(e) => setNewSkill(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleAddSkill()}
                 placeholder="Add a skill..."
-                className="flex-1 px-4 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                className="flex-1 px-4 py-2 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
               />
               <FollowButton
                 onClick={handleAddSkill}
@@ -259,7 +259,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
           {/* AI Tools */}
           <div className="glass-card rounded-xl p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-white flex items-center gap-2">
                 <Zap size={20} />
                 AI Tools
               </h3>
@@ -293,7 +293,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
                 onChange={(e) => setNewAiTool(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleAddAiTool()}
                 placeholder="Add an AI tool..."
-                className="flex-1 px-4 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                className="flex-1 px-4 py-2 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
               />
               <FollowButton
                 onClick={handleAddAiTool}
@@ -311,7 +311,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
       {activeTab === 'portfolio' && (
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-bold text-gray-900">Portfolio</h3>
+            <h3 className="text-lg font-bold text-white">Portfolio</h3>
             <FollowButton
               onClick={() => setShowPortfolioForm(!showPortfolioForm)}
               variant="primary"
@@ -326,7 +326,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
           {showPortfolioForm && (
             <div className="glass-card rounded-xl p-6 space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Title *
                 </label>
                 <input
@@ -334,11 +334,11 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
                   value={portfolioForm.title}
                   onChange={(e) => setPortfolioForm({ ...portfolioForm, title: e.target.value })}
                   placeholder="e.g., AI-Generated Landing Page"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Description *
                 </label>
                 <textarea
@@ -346,11 +346,11 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
                   onChange={(e) => setPortfolioForm({ ...portfolioForm, description: e.target.value })}
                   placeholder="Describe your work..."
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Link (optional)
                 </label>
                 <input
@@ -358,7 +358,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
                   value={portfolioForm.link}
                   onChange={(e) => setPortfolioForm({ ...portfolioForm, link: e.target.value })}
                   placeholder="https://..."
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
               <FollowButton
@@ -379,12 +379,12 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
               user.portfolioItems.map((item) => (
                 <div key={item.id} className="glass-card rounded-xl p-6">
                   <div className="flex items-start justify-between mb-2">
-                    <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
+                    <h4 className="text-lg font-bold text-white">{item.title}</h4>
                     {item.isVerified && (
                       <Badge variant="success" size="sm">Verified</Badge>
                     )}
                   </div>
-                  <p className="text-gray-600 mb-3">{item.description}</p>
+                  <p className="text-gray-400 mb-3">{item.description}</p>
                   {item.relatedTools && item.relatedTools.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-3">
                       {item.relatedTools.map((tool, idx) => (
@@ -399,7 +399,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                      className="inline-flex items-center gap-2 text-primary-cyan hover:text-primary-blue font-semibold text-sm"
                     >
                       View project
                       <ExternalLink size={14} />
@@ -410,7 +410,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
             ) : (
               <div className="glass-card rounded-xl p-12 text-center">
                 <FileText size={48} className="mx-auto mb-4 text-gray-400" />
-                <p className="text-gray-600 mb-2">No portfolio items yet</p>
+                <p className="text-gray-400 mb-2">No portfolio items yet</p>
                 <p className="text-sm text-gray-500">Add your best work to showcase your skills</p>
               </div>
             )}

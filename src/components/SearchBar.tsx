@@ -57,7 +57,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFilterChange, showAdv
                 setQuery('');
                 onSearch?.('');
               }}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-400"
             >
               <X size={20} />
             </button>
@@ -70,12 +70,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFilterChange, showAdv
         <div className="mb-4">
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors"
           >
             <Filter size={16} />
             {t('search.advancedFilters')}
             {Object.keys(filters).length > 0 && (
-              <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full">
+              <span className="bg-gradient-to-r from-primary-cyan to-primary-blue text-white text-xs px-2 py-0.5 rounded-full">
                 {Object.keys(filters).length}
               </span>
             )}
@@ -85,7 +85,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFilterChange, showAdv
             <div className="mt-4 glass-card rounded-xl p-4 space-y-4 animate-slideDown">
               <div className="grid md:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">{t('search.category')}</label>
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">{t('search.category')}</label>
                   <select
                     value={filters.category || ''}
                     onChange={(e) => handleFilterChange('category', e.target.value)}
@@ -102,7 +102,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFilterChange, showAdv
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">{t('search.minRating')}</label>
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">{t('search.minRating')}</label>
                   <select
                     value={filters.minRating || ''}
                     onChange={(e) => handleFilterChange('minRating', Number(e.target.value))}
@@ -116,7 +116,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFilterChange, showAdv
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">{t('search.useCase')}</label>
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">{t('search.useCase')}</label>
                   <select
                     value={filters.useCase || ''}
                     onChange={(e) => handleFilterChange('useCase', e.target.value)}
@@ -135,7 +135,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onFilterChange, showAdv
                 <div className="flex items-center justify-end pt-2 border-t border-white/20">
                   <button
                     onClick={clearFilters}
-                    className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-1"
+                    className="text-sm text-gray-400 hover:text-white flex items-center gap-1"
                   >
                     <X size={14} />
                     {t('search.clearFilters')}

@@ -83,8 +83,8 @@ const TaskList: React.FC = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading tasks...</p>
+          <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading tasks...</p>
         </div>
       </div>
     );
@@ -95,7 +95,7 @@ const TaskList: React.FC = () => {
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
         <div className="mb-8 animate-slideDown">
@@ -104,7 +104,7 @@ const TaskList: React.FC = () => {
               <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 tracking-tight">
                 Available Tasks
               </h1>
-              <p className="text-xl text-gray-600 font-medium">
+              <p className="text-xl text-gray-400 font-medium">
                 Browse and apply to XP tasks and paid tasks
               </p>
             </div>
@@ -137,7 +137,7 @@ const TaskList: React.FC = () => {
         {/* Tasks Grid */}
         {filteredTasks.length === 0 ? (
           <div className="glass-card rounded-xl shadow-xl p-12 text-center">
-            <p className="text-lg text-gray-600 mb-2">No tasks found</p>
+            <p className="text-lg text-gray-400 mb-2">No tasks found</p>
             <p className="text-sm text-gray-500">
               {tasks.length === 0
                 ? 'No tasks available at the moment. Check back later!'

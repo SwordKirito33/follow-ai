@@ -61,7 +61,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
     const maxDepth = 3; // Limit nesting depth
 
     return (
-      <div className={`${depth > 0 ? 'ml-8 mt-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4' : ''}`}>
+      <div className={`${depth > 0 ? 'ml-8 mt-4 border-l-2 border-white/10 dark:border-gray-700 pl-4' : ''}`}>
         <div className="flex gap-3">
           <img
             src={comment.user.avatar}
@@ -70,7 +70,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
           />
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-1">
-              <span className="font-semibold text-gray-900 dark:text-white text-sm">
+              <span className="font-semibold text-white dark:text-white text-sm">
                 {comment.user.name}
               </span>
               <Badge variant="info" size="sm">
@@ -80,7 +80,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
                 {new Date(comment.createdAt).toLocaleDateString()}
               </span>
             </div>
-            <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
+            <p className="text-sm text-gray-300 dark:text-gray-300 mb-2">
               {comment.content}
             </p>
             <div className="flex items-center gap-4">
@@ -88,8 +88,8 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
                 onClick={() => onLike(comment.id)}
                 className={`flex items-center gap-1 text-xs font-medium transition-colors ${
                   comment.isLiked
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                    ? 'text-primary-cyan dark:text-blue-400'
+                    : 'text-gray-500 dark:text-gray-400 hover:text-white dark:hover:text-gray-200'
                 }`}
               >
                 <ThumbsUp size={14} fill={comment.isLiked ? 'currentColor' : 'none'} />
@@ -98,7 +98,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
               {depth < maxDepth && (
                 <button
                   onClick={() => handleReply(comment.id)}
-                  className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+                  className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors"
                 >
                   <Reply size={14} />
                   Reply
@@ -113,7 +113,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
                   value={replyContent}
                   onChange={(e) => setReplyContent(e.target.value)}
                   placeholder="Write a reply..."
-                  className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  className="w-full px-3 py-2 text-sm border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white dark:bg-gray-800 text-white dark:text-white"
                   rows={2}
                 />
                 <div className="flex gap-2">
@@ -145,7 +145,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
                 {!showReplies && (
                   <button
                     onClick={() => setShowAllReplies({ ...showAllReplies, [comment.id]: true })}
-                    className="text-xs text-blue-600 dark:text-blue-400 hover:underline"
+                    className="text-xs text-primary-cyan dark:text-blue-400 hover:underline"
                   >
                     Show {comment.replies!.length} {comment.replies!.length === 1 ? 'reply' : 'replies'}
                   </button>
@@ -157,7 +157,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
                     ))}
                     <button
                       onClick={() => setShowAllReplies({ ...showAllReplies, [comment.id]: false })}
-                      className="text-xs text-blue-600 dark:text-blue-400 hover:underline"
+                      className="text-xs text-primary-cyan dark:text-blue-400 hover:underline"
                     >
                       Hide replies
                     </button>
@@ -174,7 +174,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-xl font-black text-gray-900 dark:text-white tracking-tight">
+        <h3 className="text-xl font-black text-white dark:text-white tracking-tight">
           Comments ({comments.length})
         </h3>
       </div>
@@ -191,7 +191,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
             <div className="flex-1">
               <textarea
                 placeholder="Add a comment..."
-                className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-none"
+                className="w-full px-3 py-2 text-sm border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white dark:bg-gray-800 text-white dark:text-white resize-none"
                 rows={3}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
@@ -228,7 +228,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
         </div>
       ) : (
         <div className="glass-card rounded-xl p-4 text-center">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          <p className="text-sm text-gray-400 dark:text-gray-400 mb-3">
             Please log in to add a comment
           </p>
           <Button to="/login" as="link" variant="primary" size="sm">

@@ -24,7 +24,7 @@ export function Spinner({ size = 'md', color = 'primary', className }: SpinnerPr
   };
 
   const colorClasses = {
-    primary: 'border-blue-600 border-t-transparent',
+    primary: 'border-primary-cyan border-t-transparent',
     white: 'border-white border-t-transparent',
     gray: 'border-gray-400 border-t-transparent',
   };
@@ -78,7 +78,7 @@ export function LoadingOverlay({
       <div className={overlayClasses}>
         <Spinner size="lg" />
         {message && (
-          <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">{message}</p>
+          <p className="mt-4 text-sm text-gray-400 dark:text-gray-400">{message}</p>
         )}
       </div>
     </div>
@@ -100,10 +100,10 @@ export function PageLoading({ message = 'Loading...', showLogo = true }: PageLoa
       {showLogo && (
         <div className="mb-8">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-primary-blue to-primary-purple rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">F</span>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent">
               Follow.ai
             </span>
           </div>
@@ -113,9 +113,9 @@ export function PageLoading({ message = 'Loading...', showLogo = true }: PageLoa
       <div className="flex flex-col items-center">
         <div className="relative">
           <div className="w-16 h-16 border-4 border-blue-200 dark:border-gray-700 rounded-full" />
-          <div className="absolute top-0 left-0 w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
+          <div className="absolute top-0 left-0 w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin" />
         </div>
-        <p className="mt-6 text-gray-600 dark:text-gray-400 animate-pulse">{message}</p>
+        <p className="mt-6 text-gray-400 dark:text-gray-400 animate-pulse">{message}</p>
       </div>
     </div>
   );
@@ -134,7 +134,7 @@ export function Skeleton({ className, animate = true }: SkeletonProps) {
   return (
     <div
       className={cn(
-        'bg-gray-200 dark:bg-gray-700 rounded',
+        'bg-white/10 dark:bg-gray-700 rounded',
         animate && 'animate-pulse',
         className
       )}
@@ -177,7 +177,7 @@ export function SkeletonTable({ rows = 5, cols = 4 }: { rows?: number; cols?: nu
   return (
     <div className="border rounded-lg overflow-hidden">
       {/* Header */}
-      <div className="flex gap-4 p-4 bg-gray-50 dark:bg-gray-800 border-b">
+      <div className="flex gap-4 p-4 bg-white/5 dark:bg-gray-800 border-b">
         {Array.from({ length: cols }).map((_, i) => (
           <Skeleton key={i} className="h-4 flex-1" />
         ))}
@@ -280,12 +280,12 @@ export function ProgressLoading({
   return (
     <div className="w-full">
       {(message || showPercentage) && (
-        <div className="flex justify-between mb-2 text-sm text-gray-600 dark:text-gray-400">
+        <div className="flex justify-between mb-2 text-sm text-gray-400 dark:text-gray-400">
           <span>{message}</span>
           {showPercentage && <span>{Math.round(progress)}%</span>}
         </div>
       )}
-      <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="w-full h-2 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-300"
           style={{ width: `${Math.min(100, Math.max(0, progress))}%` }}
@@ -305,7 +305,7 @@ export function DotsLoading({ className }: { className?: string }) {
       {[0, 1, 2].map((i) => (
         <div
           key={i}
-          className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"
+          className="w-2 h-2 bg-gradient-to-r from-primary-cyan to-primary-blue rounded-full animate-bounce"
           style={{ animationDelay: `${i * 0.1}s` }}
         />
       ))}
@@ -321,8 +321,8 @@ export function PulseLoading({ className }: { className?: string }) {
   return (
     <div className={cn('flex items-center justify-center', className)}>
       <div className="relative">
-        <div className="w-8 h-8 bg-blue-600 rounded-full animate-ping absolute opacity-75" />
-        <div className="w-8 h-8 bg-blue-600 rounded-full" />
+        <div className="w-8 h-8 bg-gradient-to-r from-primary-cyan to-primary-blue rounded-full animate-ping absolute opacity-75" />
+        <div className="w-8 h-8 bg-gradient-to-r from-primary-cyan to-primary-blue rounded-full" />
       </div>
     </div>
   );

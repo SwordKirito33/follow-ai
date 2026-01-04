@@ -156,7 +156,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
           className="absolute w-[400px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden"
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 text-white">
+          <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-4 text-white">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5" />
@@ -175,10 +175,10 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
 
           {/* Content */}
           <div className="p-6">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            <h3 className="text-xl font-bold text-white dark:text-white mb-2">
               {step?.title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-gray-400 dark:text-gray-400 leading-relaxed">
               {step?.description}
             </p>
           </div>
@@ -191,7 +191,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
                 onClick={() => setCurrentStep(index)}
                 className={`w-2 h-2 rounded-full transition-all ${
                   index === currentStep
-                    ? 'w-6 bg-blue-600'
+                    ? 'w-6 bg-gradient-to-r from-primary-cyan to-primary-blue'
                     : index < currentStep
                     ? 'bg-blue-300'
                     : 'bg-gray-300 dark:bg-gray-600'
@@ -204,7 +204,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
           <div className="px-6 pb-6 flex items-center justify-between">
             <button
               onClick={onSkip}
-              className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-sm font-medium"
+              className="text-gray-500 hover:text-gray-300 dark:hover:text-gray-300 text-sm font-medium"
             >
               Skip tour
             </button>
@@ -212,7 +212,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
               {!isFirstStep && (
                 <button
                   onClick={handlePrev}
-                  className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-700 dark:text-gray-300 font-medium flex items-center gap-1 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  className="px-4 py-2 border border-white/20 dark:border-gray-600 rounded-xl text-gray-300 dark:text-gray-300 font-medium flex items-center gap-1 hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   Back
@@ -220,7 +220,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
               )}
               <button
                 onClick={handleNext}
-                className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium flex items-center gap-1 hover:shadow-lg transition-all"
+                className="px-6 py-2 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl font-medium flex items-center gap-1 hover:shadow-lg transition-all"
               >
                 {isLastStep ? (
                   <>

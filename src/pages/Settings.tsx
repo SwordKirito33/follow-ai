@@ -85,12 +85,12 @@ const Settings: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-8">
       <div className="container max-w-6xl">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Settings</h1>
+        <h1 className="text-3xl font-bold text-white dark:text-white mb-8">Settings</h1>
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar */}
           <div className="lg:w-64 flex-shrink-0">
-            <nav className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-2">
+            <nav className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 p-2">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
                 return (
@@ -99,8 +99,8 @@ const Settings: React.FC = () => {
                     onClick={() => setActiveTab(tab.id)}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
                       activeTab === tab.id
-                        ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                        ? 'bg-blue-50 dark:bg-blue-900/20 text-primary-cyan dark:text-blue-400'
+                        : 'text-gray-300 dark:text-gray-300 hover:bg-white/5 dark:hover:bg-gray-800'
                     }`}
                   >
                     <Icon size={20} />
@@ -117,12 +117,12 @@ const Settings: React.FC = () => {
               key={activeTab}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6"
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 p-6"
             >
               {/* Profile Tab */}
               {activeTab === 'profile' && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Profile Settings</h2>
+                  <h2 className="text-xl font-bold text-white dark:text-white">Profile Settings</h2>
 
                   {/* Avatar */}
                   <div className="flex items-center gap-6">
@@ -135,7 +135,7 @@ const Settings: React.FC = () => {
                       />
                     )}
                     <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white">Profile Photo</h3>
+                      <h3 className="font-semibold text-white dark:text-white">Profile Photo</h3>
                       <p className="text-sm text-gray-500 dark:text-gray-400">
                         Click on the avatar to upload a new photo
                       </p>
@@ -145,60 +145,60 @@ const Settings: React.FC = () => {
                   {/* Form Fields */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                         Display Name
                       </label>
                       <input
                         type="text"
                         value={profileForm.displayName}
                         onChange={(e) => setProfileForm({ ...profileForm, displayName: e.target.value })}
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                         Email
                       </label>
                       <input
                         type="email"
                         value={profileForm.email}
                         onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })}
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                         Bio
                       </label>
                       <textarea
                         value={profileForm.bio}
                         onChange={(e) => setProfileForm({ ...profileForm, bio: e.target.value })}
                         rows={3}
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                        className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                         placeholder="Tell us about yourself..."
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                         Website
                       </label>
                       <input
                         type="url"
                         value={profileForm.website}
                         onChange={(e) => setProfileForm({ ...profileForm, website: e.target.value })}
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="https://"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                         Twitter
                       </label>
                       <input
                         type="text"
                         value={profileForm.twitter}
                         onChange={(e) => setProfileForm({ ...profileForm, twitter: e.target.value })}
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="@username"
                       />
                     </div>
@@ -208,7 +208,7 @@ const Settings: React.FC = () => {
                     <button
                       onClick={handleSave}
                       disabled={isSaving}
-                      className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50"
+                      className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-cyan to-primary-blue text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50"
                     >
                       {isSaving ? (
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -224,16 +224,16 @@ const Settings: React.FC = () => {
               {/* Notifications Tab */}
               {activeTab === 'notifications' && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Notification Preferences</h2>
+                  <h2 className="text-xl font-bold text-white dark:text-white">Notification Preferences</h2>
 
                   <div className="space-y-4">
                     {Object.entries(notificationSettings).map(([key, value]) => (
                       <div
                         key={key}
-                        className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-gray-800 last:border-0"
+                        className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800 last:border-0"
                       >
                         <div>
-                          <p className="font-medium text-gray-900 dark:text-white">
+                          <p className="font-medium text-white dark:text-white">
                             {key.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase())}
                           </p>
                           <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -245,7 +245,7 @@ const Settings: React.FC = () => {
                             setNotificationSettings({ ...notificationSettings, [key]: !value })
                           }
                           className={`relative w-12 h-6 rounded-full transition-colors ${
-                            value ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
+                            value ? 'bg-gradient-to-r from-primary-cyan to-primary-blue' : 'bg-gray-300 dark:bg-gray-600'
                           }`}
                         >
                           <span
@@ -263,54 +263,54 @@ const Settings: React.FC = () => {
               {/* Security Tab */}
               {activeTab === 'security' && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Security Settings</h2>
+                  <h2 className="text-xl font-bold text-white dark:text-white">Security Settings</h2>
 
                   {/* Change Password */}
-                  <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Change Password</h3>
+                  <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
+                    <h3 className="font-semibold text-white dark:text-white mb-4">Change Password</h3>
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                           Current Password
                         </label>
                         <div className="relative">
                           <input
                             type={showPassword ? 'text' : 'password'}
-                            className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           />
                           <button
                             onClick={() => setShowPassword(!showPassword)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-400"
                           >
                             {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                           </button>
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                           New Password
                         </label>
                         <input
                           type="password"
-                          className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />
                       </div>
-                      <button className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                      <button className="px-4 py-2 bg-gradient-to-r from-primary-cyan to-primary-blue text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
                         Update Password
                       </button>
                     </div>
                   </div>
 
                   {/* Two-Factor Authentication */}
-                  <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                  <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="font-semibold text-gray-900 dark:text-white">Two-Factor Authentication</h3>
+                        <h3 className="font-semibold text-white dark:text-white">Two-Factor Authentication</h3>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
                           Add an extra layer of security to your account
                         </p>
                       </div>
-                      <button className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                      <button className="px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-lg hover:bg-white/10 dark:hover:bg-gray-700 transition-colors">
                         Enable
                       </button>
                     </div>
@@ -336,13 +336,13 @@ const Settings: React.FC = () => {
               {/* Appearance Tab */}
               {activeTab === 'appearance' && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Appearance</h2>
+                  <h2 className="text-xl font-bold text-white dark:text-white">Appearance</h2>
 
                   <div className="space-y-6">
                     {/* Theme */}
-                    <div className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-gray-800">
+                    <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
                       <div>
-                        <p className="font-medium text-gray-900 dark:text-white">Theme</p>
+                        <p className="font-medium text-white dark:text-white">Theme</p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
                           Choose your preferred color scheme
                         </p>
@@ -351,9 +351,9 @@ const Settings: React.FC = () => {
                     </div>
 
                     {/* Language */}
-                    <div className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-gray-800">
+                    <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
                       <div>
-                        <p className="font-medium text-gray-900 dark:text-white">Language</p>
+                        <p className="font-medium text-white dark:text-white">Language</p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
                           Select your preferred language
                         </p>
@@ -362,9 +362,9 @@ const Settings: React.FC = () => {
                     </div>
 
                     {/* Font */}
-                    <div className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-gray-800">
+                    <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
                       <div>
-                        <p className="font-medium text-gray-900 dark:text-white">Font</p>
+                        <p className="font-medium text-white dark:text-white">Font</p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
                           Choose your preferred font family
                         </p>
@@ -378,21 +378,21 @@ const Settings: React.FC = () => {
               {/* Billing Tab */}
               {activeTab === 'billing' && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Billing & Payments</h2>
+                  <h2 className="text-xl font-bold text-white dark:text-white">Billing & Payments</h2>
 
-                  <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Payment Methods</h3>
+                  <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
+                    <h3 className="font-semibold text-white dark:text-white mb-4">Payment Methods</h3>
                     <p className="text-gray-500 dark:text-gray-400 mb-4">
                       No payment methods added yet.
                     </p>
-                    <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <button className="flex items-center gap-2 px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-lg hover:bg-white/10 dark:hover:bg-gray-700 transition-colors">
                       <CreditCard size={18} />
                       Add Payment Method
                     </button>
                   </div>
 
-                  <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Billing History</h3>
+                  <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
+                    <h3 className="font-semibold text-white dark:text-white mb-4">Billing History</h3>
                     <p className="text-gray-500 dark:text-gray-400">
                       No billing history available.
                     </p>

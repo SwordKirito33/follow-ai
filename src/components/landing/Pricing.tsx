@@ -126,7 +126,7 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
         'border-2 transition-all duration-300',
         plan.popular
           ? 'border-purple-500 shadow-xl scale-105 z-10'
-          : 'border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700'
+          : 'border-white/10 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700'
       )}
     >
       {/* Badge */}
@@ -140,10 +140,10 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
 
       {/* Header */}
       <div className="mb-6">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+        <h3 className="text-xl font-bold text-white dark:text-white mb-2">
           {plan.name}
         </h3>
-        <p className="text-gray-600 dark:text-gray-400 text-sm">
+        <p className="text-gray-400 dark:text-gray-400 text-sm">
           {plan.description}
         </p>
       </div>
@@ -151,13 +151,13 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
       {/* Price */}
       <div className="mb-6">
         <div className="flex items-baseline gap-1">
-          <span className="text-4xl font-bold text-gray-900 dark:text-white">
+          <span className="text-4xl font-bold text-white dark:text-white">
             {currency}{monthlyEquivalent}
           </span>
           <span className="text-gray-500 dark:text-gray-400">/月</span>
         </div>
         {billing === 'yearly' && price > 0 && (
-          <p className="text-sm text-green-600 dark:text-green-400 mt-1">
+          <p className="text-sm text-accent-green dark:text-green-400 mt-1">
             年付 {currency}{price}，节省 {yearlyDiscount}%
           </p>
         )}
@@ -172,7 +172,7 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
                 className={cn(
                   'w-5 h-5 flex-shrink-0 mt-0.5',
                   feature.highlight
-                    ? 'text-purple-600 dark:text-purple-400'
+                    ? 'text-primary-purple dark:text-purple-400'
                     : 'text-green-500'
                 )}
                 fill="none"
@@ -188,7 +188,7 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
               </svg>
             ) : (
               <svg
-                className="w-5 h-5 flex-shrink-0 mt-0.5 text-gray-300 dark:text-gray-600"
+                className="w-5 h-5 flex-shrink-0 mt-0.5 text-gray-300 dark:text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -206,8 +206,8 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
                 'text-sm',
                 feature.included
                   ? feature.highlight
-                    ? 'text-gray-900 dark:text-white font-medium'
-                    : 'text-gray-700 dark:text-gray-300'
+                    ? 'text-white dark:text-white font-medium'
+                    : 'text-gray-300 dark:text-gray-300'
                   : 'text-gray-400 dark:text-gray-500'
               )}
             >
@@ -225,7 +225,7 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
           'w-full py-3 px-6 rounded-xl font-semibold text-center transition-all duration-300',
           plan.popular
             ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl'
-            : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600'
+            : 'bg-white/10 dark:bg-gray-700 text-white dark:text-white hover:bg-white/10 dark:hover:bg-gray-600'
         )}
       >
         {plan.cta.text}
@@ -250,16 +250,16 @@ export function Pricing({
   const [billing, setBilling] = useState<'monthly' | 'yearly'>(defaultBilling);
 
   return (
-    <section className={cn('py-20 bg-gray-50 dark:bg-gray-900', className)}>
+    <section className={cn('py-20 bg-white/5 dark:bg-gray-900', className)}>
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
           {subtitle && (
-            <p className="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">
+            <p className="text-sm font-semibold text-primary-purple dark:text-purple-400 uppercase tracking-wider mb-2">
               {subtitle}
             </p>
           )}
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white mb-4">
             {title}
           </h2>
 
@@ -270,7 +270,7 @@ export function Pricing({
                 className={cn(
                   'text-sm font-medium transition-colors',
                   billing === 'monthly'
-                    ? 'text-gray-900 dark:text-white'
+                    ? 'text-white dark:text-white'
                     : 'text-gray-500 dark:text-gray-400'
                 )}
               >
@@ -296,12 +296,12 @@ export function Pricing({
                 className={cn(
                   'text-sm font-medium transition-colors',
                   billing === 'yearly'
-                    ? 'text-gray-900 dark:text-white'
+                    ? 'text-white dark:text-white'
                     : 'text-gray-500 dark:text-gray-400'
                 )}
               >
                 年付
-                <span className="ml-1 px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs">
+                <span className="ml-1 px-2 py-0.5 rounded-full bg-accent-green/20 dark:bg-green-900/30 text-accent-green dark:text-green-400 text-xs">
                   省{yearlyDiscount}%
                 </span>
               </span>
@@ -323,18 +323,18 @@ export function Pricing({
 
         {/* FAQ Link */}
         <div className="text-center mt-12">
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-gray-400 dark:text-gray-400">
             有疑问？查看我们的{' '}
             <a
               href="/faq"
-              className="text-purple-600 dark:text-purple-400 hover:underline"
+              className="text-primary-purple dark:text-purple-400 hover:underline"
             >
               常见问题
             </a>{' '}
             或{' '}
             <a
               href="/contact"
-              className="text-purple-600 dark:text-purple-400 hover:underline"
+              className="text-primary-purple dark:text-purple-400 hover:underline"
             >
               联系我们
             </a>

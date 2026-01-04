@@ -229,20 +229,20 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: -20 }}
           data-command-palette
-          className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+          className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden"
         >
           {/* Search Input */}
-          <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+          <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10 dark:border-gray-700">
             <Search className="h-5 w-5 text-gray-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Type a command or search..."
-              className="flex-1 bg-transparent border-0 outline-none text-gray-900 dark:text-white placeholder-gray-400"
+              className="flex-1 bg-transparent border-0 outline-none text-white dark:text-white placeholder-gray-400"
               autoFocus
             />
-            <kbd className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 dark:bg-gray-800 rounded border border-gray-300 dark:border-gray-600">
+            <kbd className="px-2 py-1 text-xs font-semibold text-gray-500 bg-white/10 dark:bg-gray-800 rounded border border-white/20 dark:border-gray-600">
               ESC
             </kbd>
           </div>
@@ -266,7 +266,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                       className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
                         isSelected
                           ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-900 dark:text-blue-100'
-                          : 'text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800'
+                          : 'text-white dark:text-gray-100 hover:bg-white/5 dark:hover:bg-gray-800'
                       }`}
                     >
                       <Icon size={18} className="flex-shrink-0" />
@@ -282,14 +282,14 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Footer */}
-          <div className="px-4 py-2 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 flex items-center justify-between text-xs text-gray-500">
+          <div className="px-4 py-2 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50 flex items-center justify-between text-xs text-gray-500">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1">
-                <kbd className="px-1.5 py-0.5 bg-white dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600">↑↓</kbd>
+                <kbd className="px-1.5 py-0.5 bg-white dark:bg-gray-700 rounded border border-white/20 dark:border-gray-600">↑↓</kbd>
                 Navigate
               </span>
               <span className="flex items-center gap-1">
-                <kbd className="px-1.5 py-0.5 bg-white dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600">↵</kbd>
+                <kbd className="px-1.5 py-0.5 bg-white dark:bg-gray-700 rounded border border-white/20 dark:border-gray-600">↵</kbd>
                 Select
               </span>
             </div>

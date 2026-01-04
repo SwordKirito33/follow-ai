@@ -47,17 +47,17 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
   };
 
   const rarityBgColors = {
-    common: 'bg-gray-100 dark:bg-gray-800',
+    common: 'bg-white/10 dark:bg-gray-800',
     rare: 'bg-blue-50 dark:bg-blue-900/20',
     epic: 'bg-purple-50 dark:bg-purple-900/20',
     legendary: 'bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20',
   };
 
   const rarityTextColors = {
-    common: 'text-gray-600 dark:text-gray-400',
-    rare: 'text-blue-600 dark:text-blue-400',
-    epic: 'text-purple-600 dark:text-purple-400',
-    legendary: 'text-yellow-600 dark:text-yellow-400',
+    common: 'text-gray-400 dark:text-gray-400',
+    rare: 'text-primary-cyan dark:text-blue-400',
+    epic: 'text-primary-purple dark:text-purple-400',
+    legendary: 'text-accent-gold dark:text-yellow-400',
   };
 
   const getIcon = (iconName: string) => {
@@ -85,14 +85,14 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
   return (
     <div className={`bg-white dark:bg-gray-900 rounded-2xl shadow-lg ${className}`}>
       {/* Header */}
-      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+      <div className="p-6 border-b border-white/10 dark:border-gray-700">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+          <h2 className="text-xl font-bold text-white dark:text-white flex items-center gap-2">
             <Trophy className="w-6 h-6 text-yellow-500" />
             Achievements
           </h2>
           <div className="text-right">
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">
+            <p className="text-2xl font-bold text-white dark:text-white">
               {unlockedCount}/{achievements.length}
             </p>
             <p className="text-sm text-gray-500">Unlocked</p>
@@ -102,10 +102,10 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
         {/* Progress bar */}
         <div className="mb-4">
           <div className="flex justify-between text-sm mb-1">
-            <span className="text-gray-600 dark:text-gray-400">Completion</span>
-            <span className="font-medium text-gray-900 dark:text-white">{completionPercentage}%</span>
+            <span className="text-gray-400 dark:text-gray-400">Completion</span>
+            <span className="font-medium text-white dark:text-white">{completionPercentage}%</span>
           </div>
-          <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+          <div className="h-3 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${completionPercentage}%` }}
@@ -117,8 +117,8 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
         {/* Total XP earned */}
         <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl">
           <div className="flex items-center justify-between">
-            <span className="text-gray-600 dark:text-gray-400">Total XP from Achievements</span>
-            <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
+            <span className="text-gray-400 dark:text-gray-400">Total XP from Achievements</span>
+            <span className="text-xl font-bold text-primary-cyan dark:text-blue-400">
               +{totalXPFromAchievements.toLocaleString()} XP
             </span>
           </div>
@@ -126,7 +126,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
       </div>
 
       {/* Category tabs */}
-      <div className="p-4 border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
+      <div className="p-4 border-b border-white/10 dark:border-gray-700 overflow-x-auto">
         <div className="flex gap-2">
           {categories.map((category) => (
             <button
@@ -135,8 +135,8 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
               className={`
                 flex items-center gap-2 px-4 py-2 rounded-xl font-medium whitespace-nowrap transition-all
                 ${selectedCategory === category.id
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white'
+                  : 'bg-white/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-700'
                 }
               `}
             >
@@ -160,7 +160,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                 relative p-4 rounded-xl text-left transition-all
                 ${achievement.isUnlocked
                   ? rarityBgColors[achievement.rarity]
-                  : 'bg-gray-100 dark:bg-gray-800 opacity-60'
+                  : 'bg-white/10 dark:bg-gray-800 opacity-60'
                 }
                 ${achievement.rarity === 'legendary' && achievement.isUnlocked ? 'ring-2 ring-yellow-400' : ''}
               `}
@@ -193,7 +193,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                 <div className="flex-1 min-w-0">
                   <h4 className={`font-semibold truncate ${
                     achievement.isUnlocked
-                      ? 'text-gray-900 dark:text-white'
+                      ? 'text-white dark:text-white'
                       : 'text-gray-500 dark:text-gray-400'
                   }`}>
                     {achievement.name}
@@ -207,7 +207,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                     <div className="mt-2">
                       <div className="flex justify-between text-xs mb-1">
                         <span className="text-gray-500">Progress</span>
-                        <span className="text-gray-600 dark:text-gray-400">
+                        <span className="text-gray-400 dark:text-gray-400">
                           {achievement.progress}/{achievement.maxProgress}
                         </span>
                       </div>
@@ -223,7 +223,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                   {/* XP reward */}
                   <div className="mt-2 flex items-center gap-1 text-sm">
                     <Zap className="w-3 h-3 text-yellow-500" />
-                    <span className={achievement.isUnlocked ? 'text-green-600' : 'text-gray-500'}>
+                    <span className={achievement.isUnlocked ? 'text-accent-green' : 'text-gray-500'}>
                       {achievement.isUnlocked ? 'Earned' : ''} +{achievement.xpReward} XP
                     </span>
                   </div>
@@ -277,14 +277,14 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
 
               {/* Content */}
               <div className="p-6">
-                <p className="text-gray-600 dark:text-gray-400 text-center mb-4">
+                <p className="text-gray-400 dark:text-gray-400 text-center mb-4">
                   {selectedAchievement.description}
                 </p>
 
                 {/* Progress or completion */}
                 {selectedAchievement.isUnlocked ? (
                   <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-xl text-center">
-                    <p className="text-green-600 font-semibold flex items-center justify-center gap-2">
+                    <p className="text-accent-green font-semibold flex items-center justify-center gap-2">
                       <Trophy className="w-5 h-5" />
                       Unlocked!
                     </p>
@@ -295,10 +295,10 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                     )}
                   </div>
                 ) : (
-                  <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl">
+                  <div className="p-4 bg-white/10 dark:bg-gray-800 rounded-xl">
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-gray-600 dark:text-gray-400">Progress</span>
-                      <span className="font-medium text-gray-900 dark:text-white">
+                      <span className="text-gray-400 dark:text-gray-400">Progress</span>
+                      <span className="font-medium text-white dark:text-white">
                         {selectedAchievement.progress}/{selectedAchievement.maxProgress}
                       </span>
                     </div>
@@ -313,15 +313,15 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
 
                 {/* XP reward */}
                 <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl flex items-center justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">XP Reward</span>
-                  <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
+                  <span className="text-gray-400 dark:text-gray-400">XP Reward</span>
+                  <span className="text-xl font-bold text-primary-cyan dark:text-blue-400">
                     +{selectedAchievement.xpReward} XP
                   </span>
                 </div>
 
                 <button
                   onClick={() => setSelectedAchievement(null)}
-                  className="w-full mt-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  className="w-full mt-4 py-3 bg-white/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 rounded-xl font-medium hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
                 >
                   Close
                 </button>

@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
               <div className="bg-dark-card/50 px-4 py-3 border-b border-white/10 flex items-center justify-between">
                 <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t('common.verified')} Output</span>
                 <Tooltip content="Work output verified by our community consensus algorithm">
-                  <span className="flex items-center text-green-600 text-xs font-bold gap-1 cursor-help">
+                  <span className="flex items-center text-accent-green text-xs font-bold gap-1 cursor-help">
                     <CheckCircle size={14} /> {t('common.verifiedBy')}
                   </span>
                 </Tooltip>
@@ -88,10 +88,10 @@ const Hero: React.FC = () => {
                      {t('common.earned')} $50
                    </div>
                  </div>
-                 <p className="text-sm text-gray-700 mb-4">
+                 <p className="text-sm text-gray-300 mb-4">
                    "Here is the React component I built in 5 mins..."
                  </p>
-                 <div className="rounded-lg overflow-hidden border border-gray-200 bg-gray-900">
+                 <div className="rounded-lg overflow-hidden border border-white/10 bg-gray-900">
                    <img src="https://picsum.photos/seed/hero-code/500/300" alt="Code snippet" className="w-full h-48 object-cover opacity-80" />
                  </div>
               </div>

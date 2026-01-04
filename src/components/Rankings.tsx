@@ -8,8 +8,8 @@ const Rankings: React.FC = () => {
   const { t } = useLanguage();
   const topTools = TOOLS.slice(0, 3);
   const ranks = [
-    { class: 'bg-yellow-100 text-yellow-700 border-yellow-200', icon: '🏆', label: '1' },
-    { class: 'bg-gray-100 text-gray-700 border-gray-200', icon: '', label: '2' },
+    { class: 'bg-accent-gold/20 text-yellow-700 border-yellow-200', icon: '🏆', label: '1' },
+    { class: 'bg-white/10 text-gray-300 border-white/10', icon: '', label: '2' },
     { class: 'bg-orange-100 text-orange-800 border-orange-200', icon: '', label: '3' },
   ];
 
@@ -19,12 +19,12 @@ const Rankings: React.FC = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4 animate-slideDown">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 flex items-center gap-3 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white flex items-center gap-3 tracking-tight">
               <span className="text-3xl animate-float">🏆</span> <span className="gradient-text">{t('rankings.title')}</span>
             </h2>
-            <p className="text-gray-600 mt-2 font-medium">{t('rankings.subtitle')}</p>
+            <p className="text-gray-400 mt-2 font-medium">{t('rankings.subtitle')}</p>
           </div>
-          <span className="glass-card text-sm font-medium text-gray-600 px-4 py-2 rounded-full shadow-sm">
+          <span className="glass-card text-sm font-medium text-gray-400 px-4 py-2 rounded-full shadow-sm">
             {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
           </span>
         </div>
@@ -43,19 +43,19 @@ const Rankings: React.FC = () => {
                     <div className="flex items-center gap-1 text-amber-500 font-bold justify-end">
                       <Star size={16} fill="currentColor" /> {tool.rating}
                     </div>
-                    <div className="text-xs text-green-600 font-medium bg-green-50 px-2 py-0.5 rounded mt-1 inline-block">
+                    <div className="text-xs text-accent-green font-medium bg-green-50 px-2 py-0.5 rounded mt-1 inline-block">
                       {tool.growth}
                     </div>
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <h3 className="text-xl font-black text-gray-900 mb-1 tracking-tight">{tool.name}</h3>
-                  <p className="text-sm font-medium text-gray-600 mb-2">{tool.category}</p>
+                  <h3 className="text-xl font-black text-white mb-1 tracking-tight">{tool.name}</h3>
+                  <p className="text-sm font-medium text-gray-400 mb-2">{tool.category}</p>
                   {tool.useCases && tool.useCases.length > 0 && (
                     <div className="flex flex-wrap gap-1.5">
                       {tool.useCases.slice(0, 3).map((useCase, idx) => (
-                        <span key={idx} className="text-xs px-2 py-0.5 bg-blue-50 text-blue-700 rounded-full font-medium border border-blue-100">
+                        <span key={idx} className="text-xs px-2 py-0.5 bg-blue-50 text-primary-blue rounded-full font-medium border border-blue-100">
                           {useCase}
                         </span>
                       ))}
@@ -67,7 +67,7 @@ const Rankings: React.FC = () => {
                 </div>
 
                 <div className="mt-auto">
-                  <div className="text-sm text-gray-600 mb-4 flex items-center gap-2">
+                  <div className="text-sm text-gray-400 mb-4 flex items-center gap-2">
                     <TrendingUp size={16} className="text-blue-500" />
                     {tool.reviewCount} {t('rankings.reviewsToday')}
                   </div>

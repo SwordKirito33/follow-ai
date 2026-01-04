@@ -103,7 +103,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.1 }}
-        className="w-24 h-24 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 text-gray-400 dark:text-gray-500"
+        className="w-24 h-24 bg-white/10 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 text-gray-400 dark:text-gray-500"
       >
         {icon || content.icon}
       </motion.div>
@@ -112,7 +112,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="text-xl font-bold text-gray-900 dark:text-white mb-2"
+        className="text-xl font-bold text-white dark:text-white mb-2"
       >
         {title || content.title}
       </motion.h3>
@@ -132,7 +132,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           onClick={action.onClick}
-          className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+          className="px-6 py-3 bg-gradient-to-r from-primary-cyan to-primary-blue text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
         >
           {action.label}
         </motion.button>

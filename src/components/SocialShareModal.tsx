@@ -34,10 +34,10 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
         <div className="bg-green-50 p-6 border-b border-green-100">
           <div className="flex justify-between items-start">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-1">🎉 Review Submitted!</h2>
+              <h2 className="text-2xl font-bold text-white mb-1">🎉 Review Submitted!</h2>
               <p className="text-green-700 font-medium">Potential earnings: <span className="font-bold">$35</span> (pending verification)</p>
             </div>
-            <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors">
+            <button onClick={onClose} className="text-gray-400 hover:text-gray-400 transition-colors">
               <X size={24} />
             </button>
           </div>
@@ -47,18 +47,18 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
         <div className="p-6">
           <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
             📢 Share to Boost Your Reputation
-            <span className="text-xs font-normal text-white bg-blue-600 px-2 py-0.5 rounded-full">AI Generated</span>
+            <span className="text-xs font-normal text-white bg-gradient-to-r from-primary-cyan to-primary-blue px-2 py-0.5 rounded-full">AI Generated</span>
           </h3>
           
-          <div className="flex gap-2 mb-4 border-b border-gray-100 pb-1">
+          <div className="flex gap-2 mb-4 border-b border-white/10 pb-1">
             {['twitter', 'linkedin', 'reddit'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab as any)}
                 className={`px-4 py-2 rounded-t-lg font-medium text-sm transition-colors capitalize ${
                   activeTab === tab 
-                  ? 'bg-gray-100 text-gray-900 border-b-2 border-blue-600' 
-                  : 'text-gray-500 hover:bg-gray-50'
+                  ? 'bg-white/10 text-white border-b-2 border-blue-600' 
+                  : 'text-gray-500 hover:bg-white/5'
                 }`}
               >
                 {tab}
@@ -66,21 +66,21 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
             ))}
           </div>
 
-          <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 mb-6 font-mono text-sm text-gray-700 whitespace-pre-wrap">
+          <div className="bg-white/5 p-4 rounded-xl border border-white/10 mb-6 font-mono text-sm text-gray-300 whitespace-pre-wrap">
             {content[activeTab]}
           </div>
 
           <div className="flex gap-3">
             <button 
               onClick={() => handleCopy(content[activeTab])}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all"
+              className="flex-1 bg-gradient-to-r from-primary-cyan to-primary-blue hover:bg-blue-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all"
             >
               {copied ? <Check size={18} /> : <Copy size={18} />}
               {copied ? 'Copied!' : 'Copy Text'}
             </button>
             <button 
               onClick={onClose}
-              className="px-6 py-3 border border-gray-200 font-bold text-gray-600 rounded-xl hover:bg-gray-50 transition-colors"
+              className="px-6 py-3 border border-white/10 font-bold text-gray-400 rounded-xl hover:bg-white/5 transition-colors"
             >
               Skip
             </button>

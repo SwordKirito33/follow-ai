@@ -111,7 +111,7 @@ export function LineChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn('flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-lg', className)} style={{ height }}>
+      <div className={cn('flex items-center justify-center bg-white/5 dark:bg-gray-800 rounded-lg', className)} style={{ height }}>
         <p className="text-gray-400">暂无数据</p>
       </div>
     );
@@ -127,7 +127,7 @@ export function LineChart({
       >
         {/* Grid Lines */}
         {showGrid && (
-          <g className="text-gray-200 dark:text-gray-700">
+          <g className="text-gray-200 dark:text-gray-300">
             {[0, 0.25, 0.5, 0.75, 1].map((ratio) => (
               <line
                 key={ratio}
@@ -199,7 +199,7 @@ export function BarChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn('flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-lg', className)} style={{ height }}>
+      <div className={cn('flex items-center justify-center bg-white/5 dark:bg-gray-800 rounded-lg', className)} style={{ height }}>
         <p className="text-gray-400">暂无数据</p>
       </div>
     );
@@ -212,13 +212,13 @@ export function BarChart({
           <div key={i}>
             {showLabels && (
               <div className="flex justify-between mb-1 text-sm">
-                <span className="text-gray-600 dark:text-gray-400">{d.label}</span>
+                <span className="text-gray-400 dark:text-gray-400">{d.label}</span>
                 {showValues && (
-                  <span className="font-medium text-gray-900 dark:text-white">{d.value.toLocaleString()}</span>
+                  <span className="font-medium text-white dark:text-white">{d.value.toLocaleString()}</span>
                 )}
               </div>
             )}
-            <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+            <div className="h-3 bg-white/10 dark:bg-gray-800 rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-500"
                 style={{
@@ -308,7 +308,7 @@ export function PieChart({
 
   if (data.length === 0) {
     return (
-      <div className={cn('flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-lg', className)} style={{ width: size, height: size }}>
+      <div className={cn('flex items-center justify-center bg-white/5 dark:bg-gray-800 rounded-lg', className)} style={{ width: size, height: size }}>
         <p className="text-gray-400">暂无数据</p>
       </div>
     );
@@ -333,7 +333,7 @@ export function PieChart({
         {donut && (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="text-2xl font-bold text-white dark:text-white">
                 {total.toLocaleString()}
               </div>
               <div className="text-xs text-gray-500 dark:text-gray-400">总计</div>
@@ -350,7 +350,7 @@ export function PieChart({
                 className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: seg.color }}
               />
-              <span className="text-sm text-gray-600 dark:text-gray-400">
+              <span className="text-sm text-gray-400 dark:text-gray-400">
                 {seg.label}
                 {showLabels && ` (${seg.percentage}%)`}
               </span>
@@ -411,7 +411,7 @@ export function ProgressRing({
       </svg>
       {showValue && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-2xl font-bold text-gray-900 dark:text-white">
+          <span className="text-2xl font-bold text-white dark:text-white">
             {Math.round(percentage)}%
           </span>
           {label && (
@@ -449,11 +449,11 @@ export function StatCard({
   const isPositive = change !== undefined && change >= 0;
 
   return (
-    <div className={cn('bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700', className)}>
+    <div className={cn('bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-white/10 dark:border-gray-700', className)}>
       <div className="flex items-start justify-between">
         <div>
           <p className="text-sm text-gray-500 dark:text-gray-400">{title}</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">
+          <p className="text-2xl font-bold text-white dark:text-white mt-1">
             {typeof value === 'number' ? value.toLocaleString() : value}
           </p>
           {change !== undefined && (

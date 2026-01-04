@@ -122,8 +122,8 @@ export function EmptyState({
     isPrimary: boolean
   ) => {
     const buttonClasses = isPrimary
-      ? 'px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors'
-      : 'px-4 py-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200';
+      ? 'px-4 py-2 bg-gradient-to-r from-primary-cyan to-primary-blue text-white rounded-lg hover:bg-blue-700 transition-colors'
+      : 'px-4 py-2 text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200';
 
     if (actionConfig.href) {
       return (
@@ -149,7 +149,7 @@ export function EmptyState({
       )}
     >
       <div className="mb-4 text-gray-400">{renderIcon()}</div>
-      <h3 className={cn('font-semibold text-gray-900 dark:text-gray-100', titleSizeClasses[size])}>
+      <h3 className={cn('font-semibold text-white dark:text-gray-100', titleSizeClasses[size])}>
         {title}
       </h3>
       {description && (

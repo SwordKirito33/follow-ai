@@ -51,7 +51,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     };
 
     const variantColors = {
-      default: 'bg-blue-600',
+      default: 'bg-gradient-to-r from-primary-cyan to-primary-blue',
       success: 'bg-green-500',
       danger: 'bg-red-500',
     };
@@ -123,7 +123,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         {(label || description) && (
           <div className="flex-1 pt-0.5">
             {label && (
-              <span className="text-sm font-medium text-gray-900 dark:text-white">
+              <span className="text-sm font-medium text-white dark:text-white">
                 {label}
               </span>
             )}

@@ -99,7 +99,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             className={`
               absolute z-50 mt-2 ${getWidth()}
               bg-white dark:bg-gray-900
-              border border-gray-200 dark:border-gray-700
+              border border-white/10 dark:border-gray-700
               rounded-xl shadow-xl overflow-hidden
               ${align === 'right' ? 'right-0' : 'left-0'}
             `}
@@ -110,7 +110,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                   return (
                     <div
                       key={`divider-${index}`}
-                      className="my-1 border-t border-gray-200 dark:border-gray-700"
+                      className="my-1 border-t border-white/10 dark:border-gray-700"
                     />
                   );
                 }
@@ -123,8 +123,8 @@ const Dropdown: React.FC<DropdownProps> = ({
                     className={`
                       w-full px-4 py-2.5 flex items-center gap-3 text-left
                       transition-colors
-                      ${item.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}
-                      ${item.danger ? 'text-red-600 dark:text-red-400' : 'text-gray-700 dark:text-gray-300'}
+                      ${item.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/10 dark:hover:bg-gray-800'}
+                      ${item.danger ? 'text-red-600 dark:text-red-400' : 'text-gray-300 dark:text-gray-300'}
                       ${selectedId === item.id ? 'bg-blue-50 dark:bg-blue-900/20' : ''}
                     `}
                   >
@@ -140,7 +140,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                       )}
                     </div>
                     {selectedId === item.id && (
-                      <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <Check className="w-4 h-4 text-primary-cyan flex-shrink-0" />
                     )}
                   </button>
                 );
@@ -174,9 +174,9 @@ export const DropdownButton: React.FC<{
   className = '',
 }) => {
   const variantClasses = {
-    default: 'bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800',
-    outline: 'border-2 border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600',
-    ghost: 'hover:bg-gray-100 dark:hover:bg-gray-800',
+    default: 'bg-white dark:bg-gray-900 border border-white/20 dark:border-gray-700 hover:bg-white/5 dark:hover:bg-gray-800',
+    outline: 'border-2 border-white/20 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600',
+    ghost: 'hover:bg-white/10 dark:hover:bg-gray-800',
   };
 
   const sizeClasses = {
@@ -195,7 +195,7 @@ export const DropdownButton: React.FC<{
         <button
           className={`
             flex items-center gap-2 rounded-lg font-medium transition-colors
-            text-gray-700 dark:text-gray-300
+            text-gray-300 dark:text-gray-300
             ${variantClasses[variant]}
             ${sizeClasses[size]}
           `}

@@ -213,7 +213,7 @@ function NotificationItem({ notification, onDismiss }: NotificationItemProps) {
 
       {/* Content */}
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-gray-900 dark:text-white">
+        <p className="text-sm font-medium text-white dark:text-white">
           {notification.title}
         </p>
         {notification.message && (
@@ -224,7 +224,7 @@ function NotificationItem({ notification, onDismiss }: NotificationItemProps) {
         {notification.action && (
           <button
             onClick={notification.action.onClick}
-            className="mt-2 text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
+            className="mt-2 text-sm font-medium text-primary-purple dark:text-purple-400 hover:underline"
           >
             {notification.action.label}
           </button>
@@ -235,7 +235,7 @@ function NotificationItem({ notification, onDismiss }: NotificationItemProps) {
       {notification.dismissible && (
         <button
           onClick={handleDismiss}
-          className="flex-shrink-0 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          className="flex-shrink-0 text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -298,18 +298,18 @@ export function Alert({
       </div>
       <div className="flex-1 min-w-0">
         {title && (
-          <p className="text-sm font-medium text-gray-900 dark:text-white">
+          <p className="text-sm font-medium text-white dark:text-white">
             {title}
           </p>
         )}
-        <div className={cn('text-sm text-gray-600 dark:text-gray-400', title && 'mt-1')}>
+        <div className={cn('text-sm text-gray-400 dark:text-gray-400', title && 'mt-1')}>
           {children}
         </div>
       </div>
       {dismissible && (
         <button
           onClick={onDismiss}
-          className="flex-shrink-0 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          className="flex-shrink-0 text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -359,13 +359,13 @@ export function Banner({
       <div className="container mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className={config.iconColor}>{config.icon}</div>
-          <p className="text-sm text-gray-700 dark:text-gray-300">{children}</p>
+          <p className="text-sm text-gray-300 dark:text-gray-300">{children}</p>
         </div>
         <div className="flex items-center gap-3">
           {action && (
             <button
               onClick={action.onClick}
-              className="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline whitespace-nowrap"
+              className="text-sm font-medium text-primary-purple dark:text-purple-400 hover:underline whitespace-nowrap"
             >
               {action.label}
             </button>
@@ -373,7 +373,7 @@ export function Banner({
           {dismissible && (
             <button
               onClick={handleDismiss}
-              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+              className="text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -401,7 +401,7 @@ export function NotificationBell({ count = 0, onClick, className }: Notification
     <button
       onClick={onClick}
       className={cn(
-        'relative p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors',
+        'relative p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors',
         className
       )}
     >

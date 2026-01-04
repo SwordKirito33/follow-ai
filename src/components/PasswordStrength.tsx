@@ -21,7 +21,7 @@ const requirements: PasswordRequirement[] = [
 
 const PasswordStrength: React.FC<PasswordStrengthProps> = ({ password, showRequirements = true }) => {
   const strength = useMemo(() => {
-    if (!password) return { score: 0, label: '', color: 'bg-gray-200' };
+    if (!password) return { score: 0, label: '', color: 'bg-white/10' };
     
     let score = 0;
     requirements.forEach((req) => {
@@ -41,7 +41,7 @@ const PasswordStrength: React.FC<PasswordStrengthProps> = ({ password, showRequi
     <div className="mt-2 space-y-2">
       {/* Strength Bar */}
       <div className="flex items-center gap-2">
-        <div className="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+        <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
           <div
             className={`h-full transition-all duration-300 ${strength.color}`}
             style={{ width: `${(strength.score / requirements.length) * 100}%` }}
@@ -50,8 +50,8 @@ const PasswordStrength: React.FC<PasswordStrengthProps> = ({ password, showRequi
         <span className={`text-xs font-medium ${
           strength.score <= 1 ? 'text-red-600' :
           strength.score <= 2 ? 'text-orange-600' :
-          strength.score <= 3 ? 'text-yellow-600' :
-          'text-green-600'
+          strength.score <= 3 ? 'text-accent-gold' :
+          'text-accent-green'
         }`}>
           {strength.label}
         </span>
@@ -66,7 +66,7 @@ const PasswordStrength: React.FC<PasswordStrengthProps> = ({ password, showRequi
               <div
                 key={index}
                 className={`flex items-center gap-1.5 transition-colors ${
-                  passed ? 'text-green-600' : 'text-gray-400'
+                  passed ? 'text-accent-green' : 'text-gray-400'
                 }`}
               >
                 {passed ? (

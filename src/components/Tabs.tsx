@@ -74,28 +74,28 @@ const Tabs: React.FC<TabsProps> = ({
 
   const variantClasses = {
     default: {
-      container: 'bg-gray-100 dark:bg-gray-800 p-1 rounded-xl',
+      container: 'bg-white/10 dark:bg-gray-800 p-1 rounded-xl',
       tab: 'rounded-lg',
       activeTab: 'bg-white dark:bg-gray-900 shadow-sm',
-      inactiveTab: 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white',
+      inactiveTab: 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white',
     },
     pills: {
       container: 'gap-2',
       tab: 'rounded-full',
-      activeTab: 'bg-blue-600 text-white',
-      inactiveTab: 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800',
+      activeTab: 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white',
+      inactiveTab: 'text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800',
     },
     underline: {
-      container: 'border-b border-gray-200 dark:border-gray-700',
+      container: 'border-b border-white/10 dark:border-gray-700',
       tab: '',
-      activeTab: 'text-blue-600 dark:text-blue-400',
-      inactiveTab: 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white',
+      activeTab: 'text-primary-cyan dark:text-blue-400',
+      inactiveTab: 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white',
     },
     bordered: {
-      container: 'border border-gray-200 dark:border-gray-700 rounded-xl p-1',
+      container: 'border border-white/10 dark:border-gray-700 rounded-xl p-1',
       tab: 'rounded-lg',
-      activeTab: 'bg-gray-100 dark:bg-gray-800',
-      inactiveTab: 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50',
+      activeTab: 'bg-white/10 dark:bg-gray-800',
+      inactiveTab: 'text-gray-400 dark:text-gray-400 hover:bg-white/5 dark:hover:bg-gray-800/50',
     },
   };
 
@@ -113,7 +113,7 @@ const Tabs: React.FC<TabsProps> = ({
         {/* Underline indicator */}
         {variant === 'underline' && (
           <motion.div
-            className="absolute bottom-0 h-0.5 bg-blue-600 dark:bg-blue-400"
+            className="absolute bottom-0 h-0.5 bg-gradient-to-r from-primary-cyan to-primary-blue dark:bg-blue-400"
             initial={false}
             animate={indicatorStyle}
             transition={{ type: 'spring', stiffness: 500, damping: 30 }}
@@ -147,8 +147,8 @@ const Tabs: React.FC<TabsProps> = ({
                 className={`
                   px-1.5 py-0.5 text-xs font-bold rounded-full
                   ${activeTab === tab.id
-                    ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                    : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
+                    ? 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan dark:text-blue-400'
+                    : 'bg-white/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400'
                   }
                 `}
               >
@@ -206,15 +206,15 @@ export const VerticalTabs: React.FC<{
               flex items-center gap-3 px-4 py-3 rounded-xl text-left font-medium transition-all
               ${tab.disabled ? 'opacity-50 cursor-not-allowed' : ''}
               ${activeTab === tab.id
-                ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
-                : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                ? 'bg-blue-50 dark:bg-blue-900/20 text-primary-cyan dark:text-blue-400'
+                : 'text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800'
               }
             `}
           >
             {tab.icon}
             <span>{tab.label}</span>
             {tab.badge !== undefined && (
-              <span className="ml-auto px-2 py-0.5 text-xs font-bold bg-gray-200 dark:bg-gray-700 rounded-full">
+              <span className="ml-auto px-2 py-0.5 text-xs font-bold bg-white/10 dark:bg-gray-700 rounded-full">
                 {tab.badge}
               </span>
             )}

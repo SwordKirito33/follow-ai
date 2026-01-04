@@ -139,7 +139,7 @@ export function ErrorState({
     >
       <div className="text-red-400 mb-4">{config.icon}</div>
       
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+      <h2 className="text-xl font-semibold text-white dark:text-gray-100 mb-2">
         {displayTitle}
       </h2>
       
@@ -159,7 +159,7 @@ export function ErrorState({
         {onRetry && (
           <button
             onClick={onRetry}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-4 py-2 bg-gradient-to-r from-primary-cyan to-primary-blue text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
             Try Again
           </button>
@@ -168,7 +168,7 @@ export function ErrorState({
         {onGoBack && (
           <button
             onClick={onGoBack}
-            className="px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+            className="px-4 py-2 text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors"
           >
             Go Back
           </button>
@@ -177,7 +177,7 @@ export function ErrorState({
         {onGoHome && (
           <button
             onClick={onGoHome}
-            className="px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+            className="px-4 py-2 text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors"
           >
             Go Home
           </button>
@@ -300,7 +300,7 @@ interface ErrorBoundaryFallbackProps {
 
 export function ErrorBoundaryFallback({ error, resetErrorBoundary }: ErrorBoundaryFallbackProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-white/5 dark:bg-gray-900 p-4">
       <div className="max-w-md w-full">
         <ErrorState
           type="generic"
@@ -324,7 +324,7 @@ export function NotFoundPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
       <div className="text-center">
-        <div className="text-9xl font-bold text-gray-200 dark:text-gray-800 mb-4">404</div>
+        <div className="text-9xl font-bold text-gray-200 dark:text-gray-200 mb-4">404</div>
         <ErrorState
           type="notFound"
           onGoBack={() => window.history.back()}

@@ -40,7 +40,7 @@ function StarRating({ rating }: { rating: number }) {
           key={star}
           className={cn(
             'w-5 h-5',
-            star <= rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'
+            star <= rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-400'
           )}
           fill="currentColor"
           viewBox="0 0 20 20"
@@ -62,7 +62,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       className={cn(
         'p-6 rounded-2xl',
         'bg-white dark:bg-gray-800',
-        'border border-gray-100 dark:border-gray-700',
+        'border border-white/10 dark:border-gray-700',
         'shadow-sm hover:shadow-lg',
         'transition-all duration-300'
       )}
@@ -84,7 +84,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       )}
 
       {/* Content */}
-      <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+      <p className="text-gray-400 dark:text-gray-300 mb-6 leading-relaxed">
         "{testimonial.content}"
       </p>
 
@@ -102,7 +102,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           </div>
         )}
         <div>
-          <div className="font-semibold text-gray-900 dark:text-white">
+          <div className="font-semibold text-white dark:text-white">
             {testimonial.name}
           </div>
           <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -154,16 +154,16 @@ export function Testimonials({
   };
 
   return (
-    <section className={cn('py-20 bg-gray-50 dark:bg-gray-900', className)}>
+    <section className={cn('py-20 bg-white/5 dark:bg-gray-900', className)}>
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
           {subtitle && (
-            <p className="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">
+            <p className="text-sm font-semibold text-primary-purple dark:text-purple-400 uppercase tracking-wider mb-2">
               {subtitle}
             </p>
           )}
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white">
             {title}
           </h2>
         </div>
@@ -187,17 +187,17 @@ export function Testimonials({
             {/* Navigation Arrows */}
             <button
               onClick={goToPrev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center hover:bg-white/5 dark:hover:bg-gray-700 transition-colors"
             >
-              <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 text-gray-400 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center hover:bg-white/5 dark:hover:bg-gray-700 transition-colors"
             >
-              <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 text-gray-400 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>

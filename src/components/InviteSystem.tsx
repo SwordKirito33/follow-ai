@@ -88,9 +88,9 @@ const InviteSystem: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+    <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+      <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-6 text-white">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
             <Gift className="w-6 h-6" />
@@ -122,16 +122,16 @@ const InviteSystem: React.FC = () => {
       <div className="p-6 space-y-6">
         {/* Invite Code */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
             Your Invite Code
           </label>
           <div className="flex gap-2">
-            <div className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono text-lg font-bold text-gray-900 dark:text-white">
+            <div className="flex-1 px-4 py-3 bg-white/10 dark:bg-gray-800 rounded-lg font-mono text-lg font-bold text-white dark:text-white">
               {inviteCode}
             </div>
             <button
               onClick={() => copyToClipboard(inviteCode)}
-              className="px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+              className="px-4 py-3 bg-gradient-to-r from-primary-cyan to-primary-blue text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
             >
               {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
             </button>
@@ -140,7 +140,7 @@ const InviteSystem: React.FC = () => {
 
         {/* Invite Link */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
             Invite Link
           </label>
           <div className="flex gap-2">
@@ -148,20 +148,20 @@ const InviteSystem: React.FC = () => {
               type="text"
               value={inviteUrl}
               readOnly
-              className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm text-gray-700 dark:text-gray-300 truncate"
+              className="flex-1 px-4 py-3 bg-white/10 dark:bg-gray-800 rounded-lg text-sm text-gray-300 dark:text-gray-300 truncate"
             />
             <button
               onClick={() => copyToClipboard(inviteUrl)}
-              className="px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+              className="px-4 py-3 border border-white/20 dark:border-gray-600 rounded-lg hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
             >
-              <Copy className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+              <Copy className="w-5 h-5 text-gray-400 dark:text-gray-400" />
             </button>
           </div>
         </div>
 
         {/* Share Buttons */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+          <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-3">
             Share via
           </label>
           <div className="flex flex-wrap gap-3">
@@ -198,11 +198,11 @@ const InviteSystem: React.FC = () => {
 
         {/* Rewards Info */}
         <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-xl p-4">
-          <h3 className="font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-            <Gift className="w-5 h-5 text-yellow-600" />
+          <h3 className="font-semibold text-white dark:text-white mb-2 flex items-center gap-2">
+            <Gift className="w-5 h-5 text-accent-gold" />
             Rewards
           </h3>
-          <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+          <ul className="space-y-2 text-sm text-gray-400 dark:text-gray-400">
             <li className="flex items-center gap-2">
               <Check className="w-4 h-4 text-green-500" />
               <span>You get <strong>100 XP</strong> when your friend signs up</span>

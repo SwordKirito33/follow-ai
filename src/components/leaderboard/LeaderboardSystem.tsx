@@ -81,8 +81,8 @@ function RankBadge({ rank }: { rank: number }) {
     );
   }
   return (
-    <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
-      <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{rank}</span>
+    <div className="w-10 h-10 rounded-full bg-white/10 dark:bg-gray-700 flex items-center justify-center">
+      <span className="text-sm font-bold text-gray-400 dark:text-gray-300">{rank}</span>
     </div>
   );
 }
@@ -182,7 +182,7 @@ function Podium({ users, type, onUserClick }: { users: LeaderboardUser[]; type: 
           </div>
         </div>
         <div className="text-center mb-2">
-          <div className="font-semibold text-gray-900 dark:text-white truncate max-w-[100px]">
+          <div className="font-semibold text-white dark:text-white truncate max-w-[100px]">
             {user.displayName || user.username}
           </div>
           <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -232,7 +232,7 @@ function LeaderboardRow({ user, type, onClick }: LeaderboardRowProps) {
         'flex items-center gap-4 p-4 rounded-xl transition-all cursor-pointer',
         user.isCurrentUser
           ? 'bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-300 dark:border-purple-700'
-          : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700'
+          : 'bg-white dark:bg-gray-800 border border-white/10 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-700'
       )}
     >
       {/* Rank */}
@@ -250,12 +250,12 @@ function LeaderboardRow({ user, type, onClick }: LeaderboardRowProps) {
           <div className="flex items-center gap-2">
             <span className={cn(
               'font-semibold truncate',
-              user.isCurrentUser ? 'text-purple-700 dark:text-purple-300' : 'text-gray-900 dark:text-white'
+              user.isCurrentUser ? 'text-purple-700 dark:text-purple-300' : 'text-white dark:text-white'
             )}>
               {user.displayName || user.username}
             </span>
             {user.isCurrentUser && (
-              <span className="px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 text-xs">
+              <span className="px-2 py-0.5 rounded-full bg-primary-purple/20 dark:bg-purple-900/50 text-primary-purple dark:text-purple-400 text-xs">
                 你
               </span>
             )}
@@ -279,7 +279,7 @@ function LeaderboardRow({ user, type, onClick }: LeaderboardRowProps) {
 
       {/* Value */}
       <div className="text-right">
-        <div className="font-bold text-gray-900 dark:text-white">
+        <div className="font-bold text-white dark:text-white">
           {value?.toLocaleString()}
         </div>
         <div className="text-xs text-gray-500 dark:text-gray-400">
@@ -335,7 +335,7 @@ export function LeaderboardSystem({
                 'px-4 py-2 rounded-lg font-medium transition-colors',
                 type === t
                   ? 'bg-purple-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  : 'bg-white/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-700'
               )}
             >
               {typeConfig[t].icon} {typeConfig[t].label}
@@ -352,8 +352,8 @@ export function LeaderboardSystem({
               className={cn(
                 'px-3 py-1.5 rounded-lg text-sm font-medium transition-colors',
                 period === p
-                  ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'bg-gray-900 dark:bg-white text-white dark:text-white'
+                  : 'bg-white/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-700'
               )}
             >
               {periodConfig[p].label}
@@ -365,14 +365,14 @@ export function LeaderboardSystem({
       {/* Current User Highlight */}
       {currentUserRank && currentUserRank.rank > 10 && (
         <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-4 border border-purple-200 dark:border-purple-800">
-          <div className="text-sm text-purple-600 dark:text-purple-400 mb-2">你的排名</div>
+          <div className="text-sm text-primary-purple dark:text-purple-400 mb-2">你的排名</div>
           <LeaderboardRow user={currentUserRank} type={type} onClick={() => onUserClick?.(currentUserRank.id)} />
         </div>
       )}
 
       {/* Podium Toggle */}
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <h2 className="text-lg font-semibold text-white dark:text-white">
           {typeConfig[type].label} - {periodConfig[period].label}
         </h2>
         <label className="flex items-center gap-2 cursor-pointer">
@@ -380,9 +380,9 @@ export function LeaderboardSystem({
             type="checkbox"
             checked={showPodium}
             onChange={(e) => setShowPodium(e.target.checked)}
-            className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-purple-600 focus:ring-purple-500"
+            className="w-4 h-4 rounded border-white/20 dark:border-gray-600 text-primary-purple focus:ring-purple-500"
           />
-          <span className="text-sm text-gray-600 dark:text-gray-400">显示领奖台</span>
+          <span className="text-sm text-gray-400 dark:text-gray-400">显示领奖台</span>
         </label>
       </div>
 
@@ -407,8 +407,8 @@ export function LeaderboardSystem({
 
       {/* Empty State */}
       {processedUsers.length === 0 && (
-        <div className="text-center py-12 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
-          <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="text-center py-12 bg-white/5 dark:bg-gray-800/50 rounded-xl">
+          <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
           <p className="text-gray-500 dark:text-gray-400">暂无排行数据</p>

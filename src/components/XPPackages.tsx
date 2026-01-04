@@ -50,12 +50,12 @@ const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) =
   return (
     <div className="glass-card rounded-xl shadow-xl p-8 mb-8">
       <div className="flex items-center gap-3 mb-6">
-        <div className="bg-purple-100 p-3 rounded-lg text-purple-600">
+        <div className="bg-primary-purple/20 p-3 rounded-lg text-primary-purple">
           <Zap size={24} />
         </div>
         <div>
-          <h2 className="text-2xl font-black text-gray-900 tracking-tight">XP Packages</h2>
-          <p className="text-sm text-gray-600">Choose a package to purchase XP</p>
+          <h2 className="text-2xl font-black text-white tracking-tight">XP Packages</h2>
+          <p className="text-sm text-gray-400">Choose a package to purchase XP</p>
         </div>
       </div>
 
@@ -72,7 +72,7 @@ const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) =
               className={`relative rounded-xl p-6 border-2 transition-all ${
                 pkg.popular
                   ? 'bg-gradient-to-br from-purple-50 to-blue-50 border-purple-300 shadow-lg'
-                  : 'bg-white border-gray-200 hover:border-gray-300'
+                  : 'bg-white border-white/10 hover:border-white/20'
               }`}
             >
               {pkg.popular && (
@@ -92,11 +92,11 @@ const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) =
               )}
 
               <div className="text-center mb-4">
-                <div className="text-3xl font-black text-gray-900 mb-2">
+                <div className="text-3xl font-black text-white mb-2">
                   {pkg.amount.toLocaleString()} XP
                 </div>
-                <div className="text-sm text-gray-600 mb-1">{pkg.label}</div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">
+                <div className="text-sm text-gray-400 mb-1">{pkg.label}</div>
+                <div className="text-2xl font-bold text-white mb-1">
                   {formatCurrencyWithUSD(pkg.price, userCurrency, false)}
                 </div>
                 {discount > 0 && (
@@ -117,7 +117,7 @@ const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) =
               </FollowButton>
 
               {pkg.popular && (
-                <div className="mt-3 flex items-center justify-center gap-1 text-xs text-purple-600">
+                <div className="mt-3 flex items-center justify-center gap-1 text-xs text-primary-purple">
                   <Check size={12} />
                   <span>Best Value</span>
                 </div>

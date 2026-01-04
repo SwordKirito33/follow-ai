@@ -253,10 +253,10 @@ const Reviews: React.FC = () => {
 
   if (loading && submissions.length === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20">
+      <div className="min-h-screen flex items-center justify-center bg-transparent">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading submissions...</p>
+          <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading submissions...</p>
         </div>
       </div>
     );
@@ -264,14 +264,14 @@ const Reviews: React.FC = () => {
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <div className="text-center mb-12 animate-slideDown">
           <div className="flex items-center justify-between mb-4">
             <Link
               to="/admin"
-              className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2"
+              className="text-primary-cyan hover:text-primary-blue font-medium flex items-center gap-2"
             >
               ← Back to Dashboard
             </Link>
@@ -279,13 +279,13 @@ const Reviews: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-4 tracking-tight">
             Submission Reviews
           </h1>
-          <p className="text-xl text-gray-600 font-medium mb-4">
+          <p className="text-xl text-gray-400 font-medium mb-4">
             Review and approve user task submissions
           </p>
           {pendingTotal > 0 && (
             <div className="inline-block glass-card rounded-xl px-4 py-2">
-              <span className="text-lg font-bold text-blue-600">{pendingTotal}</span>
-              <span className="text-gray-600 ml-2">pending reviews</span>
+              <span className="text-lg font-bold text-primary-cyan">{pendingTotal}</span>
+              <span className="text-gray-400 ml-2">pending reviews</span>
             </div>
           )}
         </div>
@@ -304,8 +304,8 @@ const Reviews: React.FC = () => {
                 onClick={() => setCurrentTab(tab.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${
                   currentTab === tab.id
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white/50 text-gray-700 hover:bg-white/80'
+                    ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white shadow-lg'
+                    : 'glass-card text-gray-300 hover:glass-card'
                 }`}
               >
                 <Icon size={18} />
@@ -320,14 +320,14 @@ const Reviews: React.FC = () => {
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <div className="text-center">
-                <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-gray-600">Loading submissions...</p>
+                <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-gray-400">Loading submissions...</p>
               </div>
             </div>
           ) : submissions.length === 0 ? (
             <div className="glass-card rounded-xl p-12 text-center">
               <Clock size={48} className="mx-auto mb-4 text-gray-400" />
-              <p className="text-lg text-gray-600 mb-2">
+              <p className="text-lg text-gray-400 mb-2">
                 {currentTab === 'pending'
                   ? 'No pending reviews 🎉'
                   : `No submissions in this category`}
@@ -358,7 +358,7 @@ const Reviews: React.FC = () => {
                     />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="font-bold text-gray-900">
+                        <span className="font-bold text-white">
                           @{submission.username || 'unknown'}
                         </span>
                         <Badge variant="secondary" size="sm">
@@ -367,7 +367,7 @@ const Reviews: React.FC = () => {
                         <span className="text-sm text-gray-500">submitted</span>
                       </div>
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="font-semibold text-gray-800">{submission.task_title}</span>
+                        <span className="font-semibold text-gray-200">{submission.task_title}</span>
                         <span className="text-gray-400">·</span>
                         <div className="flex items-center gap-2">
                           {submission.tool_logo && (
@@ -377,7 +377,7 @@ const Reviews: React.FC = () => {
                               className="w-6 h-6 rounded"
                             />
                           )}
-                          <span className="text-sm text-gray-600">{submission.tool_name}</span>
+                          <span className="text-sm text-gray-400">{submission.tool_name}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-gray-500">
@@ -407,8 +407,8 @@ const Reviews: React.FC = () => {
                     {/* Output Text */}
                     {submission.submission_content && (
                       <div>
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">Output:</h4>
-                        <div className="bg-gray-50 rounded-lg p-4 font-mono text-sm text-gray-800 whitespace-pre-wrap break-words">
+                        <h4 className="text-sm font-semibold text-gray-300 mb-2">Output:</h4>
+                        <div className="bg-white/5 rounded-lg p-4 font-mono text-sm text-gray-200 whitespace-pre-wrap break-words">
                           {submission.submission_content}
                         </div>
                       </div>
@@ -417,8 +417,8 @@ const Reviews: React.FC = () => {
                     {/* Experience Text */}
                     {submission.experience_text && (
                       <div>
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">Experience:</h4>
-                        <p className="text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2">
+                        <h4 className="text-sm font-semibold text-gray-300 mb-2">Experience:</h4>
+                        <p className="text-gray-300 italic border-l-4 border-blue-500 pl-4 py-2">
                           "{submission.experience_text}"
                         </p>
                       </div>
@@ -431,7 +431,7 @@ const Reviews: React.FC = () => {
                           href={submission.output_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-primary-blue rounded-lg hover:bg-primary-blue/20 transition-colors"
                         >
                           <ExternalLink size={16} />
                           View Project
@@ -442,7 +442,7 @@ const Reviews: React.FC = () => {
                     {/* AI Tools Used */}
                     {submission.ai_tools_used && submission.ai_tools_used.length > 0 && (
                       <div>
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">AI Tools Used:</h4>
+                        <h4 className="text-sm font-semibold text-gray-300 mb-2">AI Tools Used:</h4>
                         <div className="flex flex-wrap gap-2">
                           {submission.ai_tools_used.map((tool, i) => (
                             <Badge key={i} variant="secondary" size="sm">
@@ -455,17 +455,17 @@ const Reviews: React.FC = () => {
                   </div>
 
                   {/* Task Info */}
-                  <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+                  <div className="mb-6 p-4 bg-white/5 rounded-lg">
                     <div className="flex items-center gap-4 flex-wrap">
                       <Badge variant={getDifficultyVariant(submission.difficulty)} size="sm">
                         {submission.difficulty.toUpperCase()}
                       </Badge>
-                      <div className="flex items-center gap-1 text-blue-600">
+                      <div className="flex items-center gap-1 text-primary-cyan">
                         <Trophy size={16} />
                         <span className="font-semibold">{submission.xp_reward} XP</span>
                       </div>
                       {typeof submission.estimated_time === 'number' && (
-                        <span className="text-sm text-gray-600">
+                        <span className="text-sm text-gray-400">
                           {submission.estimated_time} minutes
                         </span>
                       )}
@@ -476,7 +476,7 @@ const Reviews: React.FC = () => {
                       <div className="mt-4">
                         <button
                           onClick={() => toggleCriteria(submission.submission_id)}
-                          className="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
+                          className="flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors"
                         >
                           <ChevronDown
                             size={16}
@@ -485,8 +485,8 @@ const Reviews: React.FC = () => {
                           Acceptance Criteria
                         </button>
                         {isExpanded && (
-                          <div className="mt-2 p-3 bg-white rounded border border-gray-200">
-                            <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
+                          <div className="mt-2 p-3 bg-white rounded border border-white/10">
+                            <ul className="list-disc list-inside space-y-1 text-sm text-gray-300">
                               {criteria.map((criterion, i) => (
                                 <li key={i}>{criterion}</li>
                               ))}
@@ -499,9 +499,9 @@ const Reviews: React.FC = () => {
 
                   {/* Actions (Pending Tab) */}
                   {submission.submission_status === 'pending' && (
-                    <div className="space-y-4 pt-4 border-t border-gray-200">
+                    <div className="space-y-4 pt-4 border-t border-white/10">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-gray-300 mb-2">
                           Review Notes{' '}
                           <span className="text-gray-500 font-normal">
                             (optional for approve, required for reject)
@@ -516,7 +516,7 @@ const Reviews: React.FC = () => {
                             }))
                           }
                           placeholder="Add your review notes here..."
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                          className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                           rows={3}
                           disabled={isProcessing}
                         />
@@ -552,11 +552,11 @@ const Reviews: React.FC = () => {
 
                   {/* Review History (Approved/Rejected) */}
                   {submission.submission_status !== 'pending' && (
-                    <div className="pt-4 border-t border-gray-200 space-y-2">
+                    <div className="pt-4 border-t border-white/10 space-y-2">
                       {submission.review_notes && (
                         <div>
-                          <h4 className="text-sm font-semibold text-gray-700 mb-1">Review Notes:</h4>
-                          <p className="text-sm text-gray-600 bg-gray-50 rounded p-3">
+                          <h4 className="text-sm font-semibold text-gray-300 mb-1">Review Notes:</h4>
+                          <p className="text-sm text-gray-400 bg-white/5 rounded p-3">
                             {submission.review_notes}
                           </p>
                         </div>
@@ -568,7 +568,7 @@ const Reviews: React.FC = () => {
                       )}
                       {submission.submission_status === 'approved' &&
                         submission.reward_xp_awarded !== null && (
-                          <div className="flex items-center gap-2 text-green-600 font-semibold">
+                          <div className="flex items-center gap-2 text-accent-green font-semibold">
                             <Trophy size={16} />
                             <span>XP Awarded: {submission.reward_xp_awarded}</span>
                           </div>

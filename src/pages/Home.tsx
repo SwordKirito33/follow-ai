@@ -112,8 +112,8 @@ const Home: React.FC = () => {
                <h2 className="text-2xl sm:text-3xl font-black gradient-text tracking-tight">{t('reviews.title')}</h2>
                <div className="hidden sm:flex gap-2">
                  <button className="px-4 py-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white rounded-full text-sm font-medium hover:from-gray-800 hover:via-gray-700 hover:to-gray-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl border border-gray-700/50">{t('reviews.all')}</button>
-                 <button className="px-4 py-2 glass-card text-gray-700 rounded-full text-sm font-medium hover:bg-white/90 transition-all transform hover:scale-105 border border-white/30">{t('reviews.coding')}</button>
-                 <button className="px-4 py-2 glass-card text-gray-700 rounded-full text-sm font-medium hover:bg-white/90 transition-all transform hover:scale-105 border border-white/30">{t('reviews.design')}</button>
+                 <button className="px-4 py-2 glass-card text-gray-300 rounded-full text-sm font-medium hover:bg-white/90 transition-all transform hover:scale-105 border border-white/30">{t('reviews.coding')}</button>
+                 <button className="px-4 py-2 glass-card text-gray-300 rounded-full text-sm font-medium hover:bg-white/90 transition-all transform hover:scale-105 border border-white/30">{t('reviews.design')}</button>
                </div>
              </div>
              
@@ -136,21 +136,21 @@ const Home: React.FC = () => {
               <div className="relative z-10">
                 <h3 className="font-bold text-xl mb-2">Want to earn money?</h3>
                 <p className="text-blue-100 text-sm mb-4">Complete specific testing tasks for guaranteed rewards.</p>
-                <Link to="/tasks" className="block w-full bg-white text-blue-600 font-bold py-2 rounded-lg text-sm hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg text-center">
+                <Link to="/tasks" className="block w-full bg-white text-primary-cyan font-bold py-2 rounded-lg text-sm hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg text-center">
                   {t('home.viewTasks')}
                 </Link>
               </div>
             </div>
 
                    <div className="glass-card rounded-xl p-5 shadow-xl">
-                     <h3 className="font-bold text-gray-900 mb-2">{t('home.weeklyDigest')}</h3>
-                     <p className="text-sm text-gray-600 mb-3">{t('home.weeklyDigestDesc')}</p>
+                     <h3 className="font-bold text-white mb-2">{t('home.weeklyDigest')}</h3>
+                     <p className="text-sm text-gray-400 mb-3">{t('home.weeklyDigestDesc')}</p>
                      <form
                        onSubmit={(e) => { e.preventDefault(); alert('Subscribed!'); }}
                        className="space-y-3"
                      >
-                       <input type="email" required placeholder="you@example.com" className="w-full px-3 py-2 border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white/50 backdrop-blur-sm" />
-                       <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg">{t('home.subscribe')}</button>
+                       <input type="email" required placeholder="you@example.com" className="w-full px-3 py-2 border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none glass-card backdrop-blur-sm" />
+                       <button type="submit" className="w-full bg-gradient-to-r from-primary-blue to-primary-purple text-white font-semibold py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg">{t('home.subscribe')}</button>
                      </form>
                      <p className="text-xs text-gray-400 mt-2">{t('home.subscribers').replace('{count}', '2,340')}</p>
                    </div>
@@ -165,9 +165,9 @@ const Home: React.FC = () => {
           <div className="flex items-center justify-between mb-8 animate-slideDown">
             <div>
               <h2 className="text-3xl sm:text-4xl font-black gradient-text tracking-tight">{t('home.comingSoon')}</h2>
-              <p className="text-gray-600 text-sm font-medium mt-1">{t('home.comingSoonDesc')}</p>
+              <p className="text-gray-400 text-sm font-medium mt-1">{t('home.comingSoonDesc')}</p>
             </div>
-            <Link to="/submit" className="text-blue-600 text-sm font-semibold hover:text-blue-700 transition-all transform hover:scale-105">{t('home.notifyMe')}</Link>
+            <Link to="/submit" className="text-primary-cyan text-sm font-semibold hover:text-primary-blue transition-all transform hover:scale-105">{t('home.notifyMe')}</Link>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -177,11 +177,11 @@ const Home: React.FC = () => {
             ].map((item, idx) => (
               <div key={item.title} className="glass-card rounded-xl p-5 card-3d hover:shadow-2xl transition-all duration-300 animate-slideUp" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <div className="text-xs font-semibold text-amber-700 bg-gradient-to-r from-amber-100 to-orange-100 px-3 py-1 rounded-full inline-block mb-3 border border-amber-200">{item.date}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
-                <p className="text-sm text-gray-600 mb-3">{item.teaser}</p>
+                <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
+                <p className="text-sm text-gray-400 mb-3">{item.teaser}</p>
                 <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
                   <span>{item.interest} {t('home.peopleInterested')}</span>
-                  <button className="text-blue-600 font-semibold hover:text-blue-700 transition-all transform hover:scale-110">{t('home.notify')}</button>
+                  <button className="text-primary-cyan font-semibold hover:text-primary-blue transition-all transform hover:scale-110">{t('home.notify')}</button>
                 </div>
                 <button className="w-full bg-gradient-to-r from-gray-900 to-gray-800 text-white py-2 rounded-lg text-sm font-semibold hover:from-gray-800 hover:to-gray-700 transition-all transform hover:scale-105 shadow-lg">{t('home.preview')}</button>
               </div>

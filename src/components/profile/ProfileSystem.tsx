@@ -71,9 +71,9 @@ interface ProfileSystemProps {
 // ============================================
 
 const rarityColors: Record<Badge['rarity'], { bg: string; text: string; border: string }> = {
-  common: { bg: 'bg-gray-100 dark:bg-gray-700', text: 'text-gray-600 dark:text-gray-300', border: 'border-gray-300 dark:border-gray-600' },
-  rare: { bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-600 dark:text-blue-400', border: 'border-blue-300 dark:border-blue-700' },
-  epic: { bg: 'bg-purple-100 dark:bg-purple-900/30', text: 'text-purple-600 dark:text-purple-400', border: 'border-purple-300 dark:border-purple-700' },
+  common: { bg: 'bg-white/10 dark:bg-gray-700', text: 'text-gray-400 dark:text-gray-300', border: 'border-white/20 dark:border-gray-600' },
+  rare: { bg: 'bg-primary-blue/20 dark:bg-blue-900/30', text: 'text-primary-cyan dark:text-blue-400', border: 'border-blue-300 dark:border-blue-700' },
+  epic: { bg: 'bg-primary-purple/20 dark:bg-purple-900/30', text: 'text-primary-purple dark:text-purple-400', border: 'border-purple-300 dark:border-purple-700' },
   legendary: { bg: 'bg-amber-100 dark:bg-amber-900/30', text: 'text-amber-600 dark:text-amber-400', border: 'border-amber-300 dark:border-amber-700' },
 };
 
@@ -125,10 +125,10 @@ function LevelProgress({ level, xp, xpToNextLevel }: { level: number; xp: number
   return (
     <div className="w-full">
       <div className="flex justify-between text-sm mb-1">
-        <span className="font-medium text-purple-600 dark:text-purple-400">Lv.{level}</span>
+        <span className="font-medium text-primary-purple dark:text-purple-400">Lv.{level}</span>
         <span className="text-gray-500 dark:text-gray-400">{xp.toLocaleString()} / {(xp + xpToNextLevel).toLocaleString()} XP</span>
       </div>
-      <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="h-2 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500"
           style={{ width: `${progress}%` }}
@@ -140,9 +140,9 @@ function LevelProgress({ level, xp, xpToNextLevel }: { level: number; xp: number
 
 function StatCard({ label, value, icon }: { label: string; value: number | string; icon: string }) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-white/10 dark:border-gray-700 text-center">
       <div className="text-2xl mb-1">{icon}</div>
-      <div className="text-2xl font-bold text-gray-900 dark:text-white">{typeof value === 'number' ? value.toLocaleString() : value}</div>
+      <div className="text-2xl font-bold text-white dark:text-white">{typeof value === 'number' ? value.toLocaleString() : value}</div>
       <div className="text-sm text-gray-500 dark:text-gray-400">{label}</div>
     </div>
   );
@@ -171,12 +171,12 @@ function BadgeCard({ badge }: { badge: Badge }) {
 
 function ActivityItem({ activity }: { activity: Activity }) {
   return (
-    <div className="flex items-start gap-3 py-3 border-b border-gray-100 dark:border-gray-700 last:border-b-0">
-      <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-lg">
+    <div className="flex items-start gap-3 py-3 border-b border-white/10 dark:border-gray-700 last:border-b-0">
+      <div className="w-10 h-10 rounded-full bg-white/10 dark:bg-gray-700 flex items-center justify-center text-lg">
         {activityIcons[activity.type]}
       </div>
       <div className="flex-1 min-w-0">
-        <div className="font-medium text-gray-900 dark:text-white">{activity.title}</div>
+        <div className="font-medium text-white dark:text-white">{activity.title}</div>
         {activity.description && (
           <div className="text-sm text-gray-500 dark:text-gray-400 truncate">{activity.description}</div>
         )}
@@ -185,7 +185,7 @@ function ActivityItem({ activity }: { activity: Activity }) {
             {new Date(activity.timestamp).toLocaleDateString()}
           </span>
           {activity.xp && (
-            <span className="text-xs text-purple-600 dark:text-purple-400 font-medium">
+            <span className="text-xs text-primary-purple dark:text-purple-400 font-medium">
               +{activity.xp} XP
             </span>
           )}
@@ -232,12 +232,12 @@ function ProfileHeader({
         {/* Name & Bio */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-2xl font-bold text-white dark:text-white">
               {profile.displayName || profile.username}
             </h1>
             <p className="text-gray-500 dark:text-gray-400">@{profile.username}</p>
             {profile.bio && (
-              <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-md">{profile.bio}</p>
+              <p className="mt-2 text-gray-400 dark:text-gray-300 max-w-md">{profile.bio}</p>
             )}
             <div className="flex items-center gap-4 mt-3 text-sm text-gray-500 dark:text-gray-400">
               <span>📅 加入于 {new Date(profile.joinedAt).toLocaleDateString()}</span>
@@ -250,7 +250,7 @@ function ProfileHeader({
             {isOwnProfile ? (
               <button
                 onClick={onEditProfile}
-                className="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                className="px-4 py-2 rounded-lg bg-white/10 dark:bg-gray-700 text-gray-300 dark:text-gray-300 font-medium hover:bg-white/10 dark:hover:bg-gray-600 transition-colors"
               >
                 编辑资料
               </button>
@@ -260,7 +260,7 @@ function ProfileHeader({
                 className={cn(
                   'px-4 py-2 rounded-lg font-medium transition-colors',
                   isFollowing
-                    ? 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/30 dark:hover:text-red-400'
+                    ? 'bg-white/10 dark:bg-gray-700 text-gray-300 dark:text-gray-300 hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/30 dark:hover:text-red-400'
                     : 'bg-purple-600 text-white hover:bg-purple-700'
                 )}
               >
@@ -269,7 +269,7 @@ function ProfileHeader({
             )}
             <button
               onClick={onShareProfile}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              className="p-2 rounded-lg bg-white/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-600 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
@@ -289,7 +289,7 @@ function ProfileHeader({
               </a>
             )}
             {profile.socialLinks.github && (
-              <a href={profile.socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              <a href={profile.socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white dark:hover:text-white transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd"/>
                 </svg>
@@ -344,7 +344,7 @@ export function ProfileSystem({
       />
 
       {/* Tabs */}
-      <div className="border-b border-gray-200 dark:border-gray-700 px-6">
+      <div className="border-b border-white/10 dark:border-gray-700 px-6">
         <div className="flex gap-6">
           {(['overview', 'badges', 'activity'] as const).map((tab) => (
             <button
@@ -353,8 +353,8 @@ export function ProfileSystem({
               className={cn(
                 'py-4 border-b-2 font-medium transition-colors',
                 activeTab === tab
-                  ? 'border-purple-600 text-purple-600 dark:text-purple-400'
-                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                  ? 'border-purple-600 text-primary-purple dark:text-purple-400'
+                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300'
               )}
             >
               {tab === 'overview' && '概览'}
@@ -384,10 +384,10 @@ export function ProfileSystem({
             {profile.badges.length > 0 && (
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">最近获得的徽章</h3>
+                  <h3 className="text-lg font-semibold text-white dark:text-white">最近获得的徽章</h3>
                   <button
                     onClick={() => setActiveTab('badges')}
-                    className="text-sm text-purple-600 dark:text-purple-400 hover:underline"
+                    className="text-sm text-primary-purple dark:text-purple-400 hover:underline"
                   >
                     查看全部
                   </button>
@@ -404,15 +404,15 @@ export function ProfileSystem({
             {profile.recentActivity.length > 0 && (
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">最近动态</h3>
+                  <h3 className="text-lg font-semibold text-white dark:text-white">最近动态</h3>
                   <button
                     onClick={() => setActiveTab('activity')}
-                    className="text-sm text-purple-600 dark:text-purple-400 hover:underline"
+                    className="text-sm text-primary-purple dark:text-purple-400 hover:underline"
                   >
                     查看全部
                   </button>
                 </div>
-                <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4">
+                <div className="bg-white/5 dark:bg-gray-900/50 rounded-xl p-4">
                   {profile.recentActivity.slice(0, 5).map((activity) => (
                     <ActivityItem key={activity.id} activity={activity} />
                   ))}
@@ -445,7 +445,7 @@ export function ProfileSystem({
         {activeTab === 'activity' && (
           <div>
             {profile.recentActivity.length > 0 ? (
-              <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4">
+              <div className="bg-white/5 dark:bg-gray-900/50 rounded-xl p-4">
                 {profile.recentActivity.map((activity) => (
                   <ActivityItem key={activity.id} activity={activity} />
                 ))}

@@ -65,17 +65,17 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
     switch (type) {
       case 'review_approved':
       case 'payment_received':
-        return <CheckCircle size={20} className="text-green-600 dark:text-green-400" />;
+        return <CheckCircle size={20} className="text-accent-green dark:text-green-400" />;
       case 'review_rejected':
         return <AlertCircle size={20} className="text-red-600 dark:text-red-400" />;
       case 'bounty_available':
-        return <DollarSign size={20} className="text-blue-600 dark:text-blue-400" />;
+        return <DollarSign size={20} className="text-primary-cyan dark:text-blue-400" />;
       case 'comment_reply':
-        return <MessageCircle size={20} className="text-purple-600 dark:text-purple-400" />;
+        return <MessageCircle size={20} className="text-primary-purple dark:text-purple-400" />;
       case 'achievement':
         return <Star size={20} className="text-amber-600 dark:text-amber-400" />;
       default:
-        return <Bell size={20} className="text-gray-600 dark:text-gray-400" />;
+        return <Bell size={20} className="text-gray-400 dark:text-gray-400" />;
     }
   };
 
@@ -112,10 +112,10 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
     <div className="fixed inset-0 z-[10000] flex items-start justify-end p-4 pt-20 pointer-events-none">
       <div className="glass-card rounded-2xl shadow-2xl w-full max-w-md max-h-[80vh] overflow-hidden flex flex-col pointer-events-auto">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-between p-4 border-b border-white/10 dark:border-gray-700">
           <div className="flex items-center gap-2">
-            <Bell size={20} className="text-gray-600 dark:text-gray-400" />
-            <h2 className="text-lg font-black text-gray-900 dark:text-white tracking-tight">
+            <Bell size={20} className="text-gray-400 dark:text-gray-400" />
+            <h2 className="text-lg font-black text-white dark:text-white tracking-tight">
               Notifications
             </h2>
             {unreadCount > 0 && (
@@ -128,14 +128,14 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
             {unreadCount > 0 && (
               <button
                 onClick={markAllAsRead}
-                className="text-xs text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-xs text-primary-cyan dark:text-blue-400 hover:underline"
               >
                 Mark all read
               </button>
             )}
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+              className="text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
             >
               <X size={20} />
             </button>
@@ -154,7 +154,7 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
               {notifications.map((notification) => (
                 <div
                   key={notification.id}
-                  className={`p-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer ${
+                  className={`p-4 hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors cursor-pointer ${
                     !notification.read ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''
                   }`}
                   onClick={() => {
@@ -170,14 +170,14 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2 mb-1">
-                        <h4 className="text-sm font-semibold text-gray-900 dark:text-white">
+                        <h4 className="text-sm font-semibold text-white dark:text-white">
                           {notification.title}
                         </h4>
                         {!notification.read && (
-                          <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0 mt-1" />
+                          <div className="w-2 h-2 bg-gradient-to-r from-primary-cyan to-primary-blue rounded-full flex-shrink-0 mt-1" />
                         )}
                       </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      <p className="text-sm text-gray-400 dark:text-gray-400 mb-2">
                         {notification.message}
                       </p>
                       <span className="text-xs text-gray-500 dark:text-gray-500">

@@ -66,8 +66,8 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
   const [expandedSection, setExpandedSection] = useState<string | null>('steps');
 
   const difficultyColors = {
-    beginner: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
-    intermediate: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',
+    beginner: 'bg-accent-green/20 text-green-700 dark:bg-green-900/30 dark:text-green-400',
+    intermediate: 'bg-accent-gold/20 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',
     advanced: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400',
   };
 
@@ -76,9 +76,9 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+    <div className="min-h-screen bg-white/5 dark:bg-gray-950">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <div className="bg-gradient-to-r from-primary-blue to-primary-purple text-white">
         <div className="container mx-auto px-4 py-6">
           <button
             onClick={onBack}
@@ -159,17 +159,17 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
           <div className="lg:col-span-2 space-y-6">
             {/* Description */}
             <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-xl font-bold text-white dark:text-white mb-4">
                 About This Task
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-gray-400 dark:text-gray-400 leading-relaxed">
                 {task.longDescription}
               </p>
               <a
                 href={task.toolUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-4 text-blue-600 hover:text-blue-700 font-medium"
+                className="inline-flex items-center gap-2 mt-4 text-primary-cyan hover:text-primary-blue font-medium"
               >
                 Visit {task.toolName}
                 <ExternalLink className="w-4 h-4" />
@@ -182,7 +182,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                 onClick={() => toggleSection('requirements')}
                 className="w-full p-6 flex items-center justify-between text-left"
               >
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-xl font-bold text-white dark:text-white">
                   Requirements
                 </h2>
                 {expandedSection === 'requirements' ? (
@@ -201,7 +201,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                     {task.requirements.map((req, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-600 dark:text-gray-400">{req}</span>
+                        <span className="text-gray-400 dark:text-gray-400">{req}</span>
                       </li>
                     ))}
                   </ul>
@@ -215,7 +215,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                 onClick={() => toggleSection('steps')}
                 className="w-full p-6 flex items-center justify-between text-left"
               >
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-xl font-bold text-white dark:text-white">
                   Steps to Complete
                 </h2>
                 {expandedSection === 'steps' ? (
@@ -233,14 +233,14 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                   <div className="space-y-4">
                     {task.steps.map((step, index) => (
                       <div key={index} className="flex gap-4">
-                        <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0 text-blue-600 font-bold">
+                        <div className="w-8 h-8 bg-primary-blue/20 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0 text-primary-cyan font-bold">
                           {index + 1}
                         </div>
                         <div>
-                          <h4 className="font-semibold text-gray-900 dark:text-white">
+                          <h4 className="font-semibold text-white dark:text-white">
                             {step.title}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-400 mt-1">
+                          <p className="text-gray-400 dark:text-gray-400 mt-1">
                             {step.description}
                           </p>
                         </div>
@@ -294,30 +294,30 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
             <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg sticky top-6">
               {hasCompleted ? (
                 <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
-                    <CheckCircle className="w-8 h-8 text-green-600" />
+                  <div className="w-16 h-16 mx-auto mb-4 bg-accent-green/20 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                    <CheckCircle className="w-8 h-8 text-accent-green" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-bold text-white dark:text-white mb-2">
                     Task Completed!
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  <p className="text-gray-400 dark:text-gray-400 mb-4">
                     You've already earned {task.xpReward} XP from this task.
                   </p>
-                  <button className="w-full py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                  <button className="w-full py-3 border-2 border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 rounded-xl font-medium hover:bg-white/5 dark:hover:bg-gray-800 transition-colors">
                     View Submission
                   </button>
                 </div>
               ) : (
                 <>
                   <div className="text-center mb-6">
-                    <div className="text-4xl font-bold text-blue-600 mb-1">
+                    <div className="text-4xl font-bold text-primary-cyan mb-1">
                       {task.xpReward} XP
                     </div>
                     <p className="text-gray-500">Reward for completion</p>
                   </div>
                   <button
                     onClick={onStartTask}
-                    className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all"
+                    className="w-full py-4 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all"
                   >
                     Start Task
                   </button>
@@ -331,19 +331,19 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
             {/* Related tasks */}
             {task.relatedTasks.length > 0 && (
               <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+                <h3 className="font-bold text-white dark:text-white mb-4">
                   Related Tasks
                 </h3>
                 <div className="space-y-3">
                   {task.relatedTasks.map((related) => (
                     <button
                       key={related.id}
-                      className="w-full p-3 bg-gray-50 dark:bg-gray-800 rounded-xl text-left hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                      className="w-full p-3 bg-white/5 dark:bg-gray-800 rounded-xl text-left hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
                     >
-                      <p className="font-medium text-gray-900 dark:text-white line-clamp-1">
+                      <p className="font-medium text-white dark:text-white line-clamp-1">
                         {related.title}
                       </p>
-                      <p className="text-sm text-blue-600 mt-1">
+                      <p className="text-sm text-primary-cyan mt-1">
                         +{related.xpReward} XP
                       </p>
                     </button>

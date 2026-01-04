@@ -46,11 +46,11 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
       case 1:
         return 'bg-gradient-to-r from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/20 border-yellow-200 dark:border-yellow-700';
       case 2:
-        return 'bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800/50 dark:to-gray-700/50 border-gray-200 dark:border-gray-600';
+        return 'bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800/50 dark:to-gray-700/50 border-white/10 dark:border-gray-600';
       case 3:
         return 'bg-gradient-to-r from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20 border-amber-200 dark:border-amber-700';
       default:
-        return 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700';
+        return 'bg-white dark:bg-gray-900 border-white/10 dark:border-gray-700';
     }
   };
 
@@ -73,9 +73,9 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
   };
 
   return (
-    <div className={`bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden ${className}`}>
-      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+    <div className={`bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 overflow-hidden ${className}`}>
+      <div className="p-6 border-b border-white/10 dark:border-gray-700">
+        <h2 className="text-xl font-bold text-white dark:text-white flex items-center gap-2">
           <Trophy className="w-5 h-5 text-yellow-500" />
           {title}
         </h2>
@@ -115,11 +115,11 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
                 />
                 <div className="min-w-0">
                   <p className={`font-semibold truncate ${
-                    entry.isCurrentUser ? 'text-blue-600 dark:text-blue-400' : 'text-gray-900 dark:text-white'
+                    entry.isCurrentUser ? 'text-primary-cyan dark:text-blue-400' : 'text-white dark:text-white'
                   }`}>
                     {entry.displayName}
                     {entry.isCurrentUser && (
-                      <span className="ml-2 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded-full">
+                      <span className="ml-2 text-xs bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan dark:text-blue-400 px-2 py-0.5 rounded-full">
                         You
                       </span>
                     )}
@@ -132,7 +132,7 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
 
               {/* XP */}
               <div className="text-right">
-                <p className="font-bold text-gray-900 dark:text-white">
+                <p className="font-bold text-white dark:text-white">
                   {entry.totalXp.toLocaleString()} XP
                 </p>
                 {showTrend && (
@@ -195,7 +195,7 @@ export const LeaderboardPodium: React.FC<{
               level={entry.level}
               className="mb-3"
             />
-            <p className="font-bold text-gray-900 dark:text-white text-center">
+            <p className="font-bold text-white dark:text-white text-center">
               {entry.displayName}
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">

@@ -36,15 +36,15 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
 
   const iconBgColors = {
     danger: 'bg-red-100 dark:bg-red-900/30',
-    warning: 'bg-yellow-100 dark:bg-yellow-900/30',
-    info: 'bg-blue-100 dark:bg-blue-900/30',
-    success: 'bg-green-100 dark:bg-green-900/30',
+    warning: 'bg-accent-gold/20 dark:bg-yellow-900/30',
+    info: 'bg-primary-blue/20 dark:bg-blue-900/30',
+    success: 'bg-accent-green/20 dark:bg-green-900/30',
   };
 
   const confirmButtonColors = {
     danger: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
     warning: 'bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500',
-    info: 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500',
+    info: 'bg-gradient-to-r from-primary-cyan to-primary-blue hover:bg-blue-700 focus:ring-blue-500',
     success: 'bg-green-600 hover:bg-green-700 focus:ring-green-500',
   };
 
@@ -73,17 +73,17 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
                   {icons[variant]}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-bold text-white dark:text-white">
                     {title}
                   </h3>
-                  <p className="mt-2 text-gray-600 dark:text-gray-400">
+                  <p className="mt-2 text-gray-400 dark:text-gray-400">
                     {message}
                   </p>
                 </div>
                 <button
                   onClick={onClose}
                   disabled={isLoading}
-                  className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                  className="text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
                 >
                   <X size={20} />
                 </button>
@@ -91,11 +91,11 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
             </div>
 
             {/* Footer */}
-            <div className="px-6 py-4 bg-gray-50 dark:bg-gray-800/50 flex justify-end gap-3">
+            <div className="px-6 py-4 bg-white/5 dark:bg-gray-800/50 flex justify-end gap-3">
               <button
                 onClick={onClose}
                 disabled={isLoading}
-                className="px-4 py-2 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
+                className="px-4 py-2 text-gray-300 dark:text-gray-300 font-semibold rounded-lg hover:bg-white/10 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
               >
                 {cancelText}
               </button>

@@ -36,7 +36,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
             <motion.div
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center"
+              className="w-10 h-10 bg-gradient-to-br from-primary-blue to-primary-purple rounded-xl flex items-center justify-center"
             >
               <span className="text-white font-bold text-xl">F</span>
             </motion.div>
@@ -58,7 +58,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
               repeat: Infinity,
               delay: i * 0.2,
             }}
-            className="w-3 h-3 bg-blue-600 dark:bg-blue-400 rounded-full"
+            className="w-3 h-3 bg-gradient-to-r from-primary-cyan to-primary-blue dark:bg-blue-400 rounded-full"
           />
         ))}
       </div>
@@ -68,7 +68,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="text-gray-600 dark:text-gray-400 font-medium"
+        className="text-gray-400 dark:text-gray-400 font-medium"
       >
         {message}
       </motion.p>
@@ -100,7 +100,7 @@ export const ContentSkeleton: React.FC<{ lines?: number }> = ({ lines = 3 }) => 
     {Array.from({ length: lines }).map((_, i) => (
       <div
         key={i}
-        className="h-4 bg-gray-200 dark:bg-gray-700 rounded"
+        className="h-4 bg-white/10 dark:bg-gray-700 rounded"
         style={{ width: `${Math.random() * 40 + 60}%` }}
       />
     ))}
@@ -109,17 +109,17 @@ export const ContentSkeleton: React.FC<{ lines?: number }> = ({ lines = 3 }) => 
 
 // Card skeleton
 export const CardSkeleton: React.FC = () => (
-  <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 animate-pulse">
+  <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-white/10 dark:border-gray-700 animate-pulse">
     <div className="flex items-center gap-4 mb-4">
-      <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full" />
+      <div className="w-12 h-12 bg-white/10 dark:bg-gray-700 rounded-full" />
       <div className="flex-1 space-y-2">
-        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4" />
-        <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/2" />
+        <div className="h-4 bg-white/10 dark:bg-gray-700 rounded w-3/4" />
+        <div className="h-3 bg-white/10 dark:bg-gray-700 rounded w-1/2" />
       </div>
     </div>
     <div className="space-y-2">
-      <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded" />
-      <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-5/6" />
+      <div className="h-3 bg-white/10 dark:bg-gray-700 rounded" />
+      <div className="h-3 bg-white/10 dark:bg-gray-700 rounded w-5/6" />
     </div>
   </div>
 );

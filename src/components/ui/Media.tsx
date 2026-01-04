@@ -74,7 +74,7 @@ export function Image({
     return (
       <div
         className={cn(
-          'flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-400',
+          'flex items-center justify-center bg-white/10 dark:bg-gray-800 text-gray-400',
           className
         )}
         style={{ width, height }}
@@ -89,7 +89,7 @@ export function Image({
   return (
     <div className={cn('relative overflow-hidden', className)} style={{ width, height }}>
       {!isLoaded && (
-        <div className="absolute inset-0 animate-pulse bg-gray-200 dark:bg-gray-700" />
+        <div className="absolute inset-0 animate-pulse bg-white/10 dark:bg-gray-700" />
       )}
       <img
         ref={imgRef}
@@ -248,7 +248,7 @@ export function AvatarGroup({
       {remaining > 0 && (
         <div
           className={cn(
-            'rounded-full flex items-center justify-center font-medium bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 ring-2 ring-white dark:ring-gray-800',
+            'rounded-full flex items-center justify-center font-medium bg-white/10 dark:bg-gray-700 text-gray-400 dark:text-gray-300 ring-2 ring-white dark:ring-gray-800',
             sizeClasses[size]
           )}
         >

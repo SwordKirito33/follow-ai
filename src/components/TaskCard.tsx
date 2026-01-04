@@ -39,10 +39,10 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, userLevel, onApply, onView })
               <Badge variant="secondary" size="sm">Open</Badge>
             )}
           </div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+          <h3 className="text-lg font-bold text-white mb-2 line-clamp-2">
             {task.title}
           </h3>
-          <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+          <p className="text-sm text-gray-400 line-clamp-2 mb-3">
             {task.description}
           </p>
         </div>
@@ -51,16 +51,16 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, userLevel, onApply, onView })
       <div className="space-y-3">
         {/* Reward */}
         <div className="flex items-center justify-between">
-          <span className="text-sm text-gray-600">Reward</span>
-          <span className="text-lg font-bold text-blue-600">{reward}</span>
+          <span className="text-sm text-gray-400">Reward</span>
+          <span className="text-lg font-bold text-primary-cyan">{reward}</span>
         </div>
 
         {/* Level Requirement */}
         <div className="flex items-center justify-between">
-          <span className="text-sm text-gray-600">Min Level</span>
+          <span className="text-sm text-gray-400">Min Level</span>
           <div className="flex items-center gap-2">
             {userLevel >= task.min_level ? (
-              <span className="text-sm font-semibold text-green-600">Level {task.min_level}</span>
+              <span className="text-sm font-semibold text-accent-green">Level {task.min_level}</span>
             ) : (
               <div className="flex items-center gap-1 text-sm text-red-600">
                 <Lock size={14} />
@@ -77,7 +77,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, userLevel, onApply, onView })
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-2 pt-3 border-t border-gray-200">
+        <div className="flex items-center gap-2 pt-3 border-t border-white/10">
           <FollowButton
             onClick={() => onView(task.id)}
             variant="secondary"

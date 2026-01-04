@@ -141,14 +141,14 @@ const ToastItem: React.FC<ToastItemProps> = ({ toast, onRemove }) => {
     >
       <div className="flex-shrink-0">{icons[toast.type]}</div>
       <div className="flex-1 min-w-0">
-        <p className="font-semibold text-gray-900 dark:text-white">{toast.title}</p>
+        <p className="font-semibold text-white dark:text-white">{toast.title}</p>
         {toast.message && (
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">{toast.message}</p>
+          <p className="text-sm text-gray-400 dark:text-gray-400 mt-0.5">{toast.message}</p>
         )}
       </div>
       <button
         onClick={() => onRemove(toast.id)}
-        className="flex-shrink-0 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+        className="flex-shrink-0 text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
       >
         <X size={18} />
       </button>

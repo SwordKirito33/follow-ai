@@ -107,7 +107,7 @@ export function HeroSection({
                   className={cn(
                     'inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl',
                     'bg-white text-purple-900 font-semibold',
-                    'hover:bg-gray-100 transition-all duration-300',
+                    'hover:bg-white/10 transition-all duration-300',
                     'shadow-lg hover:shadow-xl hover:-translate-y-1'
                   )}
                 >
@@ -211,11 +211,11 @@ export function FeatureSection({
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           {subtitle && (
-            <p className="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">
+            <p className="text-sm font-semibold text-primary-purple dark:text-purple-400 uppercase tracking-wider mb-2">
               {subtitle}
             </p>
           )}
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white">
             {title}
           </h2>
         </div>
@@ -226,21 +226,21 @@ export function FeatureSection({
               key={index}
               className={cn(
                 'group p-8 rounded-2xl',
-                'bg-gray-50 dark:bg-gray-800',
+                'bg-white/5 dark:bg-gray-800',
                 'hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500',
                 'transition-all duration-300',
                 'hover:shadow-xl hover:-translate-y-2'
               )}
             >
-              <div className="w-14 h-14 rounded-xl bg-purple-100 dark:bg-purple-900/50 group-hover:bg-white/20 flex items-center justify-center mb-6 transition-colors">
-                <div className="text-purple-600 dark:text-purple-400 group-hover:text-white transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-primary-purple/20 dark:bg-purple-900/50 group-hover:bg-white/20 flex items-center justify-center mb-6 transition-colors">
+                <div className="text-primary-purple dark:text-purple-400 group-hover:text-white transition-colors">
                   {feature.icon}
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-white mb-3 transition-colors">
+              <h3 className="text-xl font-semibold text-white dark:text-white group-hover:text-white mb-3 transition-colors">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 group-hover:text-white/80 transition-colors">
+              <p className="text-gray-400 dark:text-gray-400 group-hover:text-white/80 transition-colors">
                 {feature.description}
               </p>
             </div>
@@ -300,8 +300,8 @@ export function CTASection({
             onClick={primaryCTA.onClick}
             className={cn(
               'inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl',
-              'bg-white text-purple-600 font-semibold',
-              'hover:bg-gray-100 transition-all duration-300',
+              'bg-white text-primary-purple font-semibold',
+              'hover:bg-white/10 transition-all duration-300',
               'shadow-lg hover:shadow-xl'
             )}
           >

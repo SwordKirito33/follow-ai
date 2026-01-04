@@ -91,7 +91,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
       icon: <Zap className="w-6 h-6" />,
       color: 'from-blue-500 to-blue-600',
       bgColor: 'bg-blue-50 dark:bg-blue-900/20',
-      textColor: 'text-blue-600',
+      textColor: 'text-primary-cyan',
     },
     {
       title: 'Global Rank',
@@ -100,7 +100,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
       icon: <Trophy className="w-6 h-6" />,
       color: 'from-yellow-500 to-orange-500',
       bgColor: 'bg-yellow-50 dark:bg-yellow-900/20',
-      textColor: 'text-yellow-600',
+      textColor: 'text-accent-gold',
       invertChange: true,
     },
     {
@@ -111,7 +111,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
       icon: <Target className="w-6 h-6" />,
       color: 'from-green-500 to-emerald-500',
       bgColor: 'bg-green-50 dark:bg-green-900/20',
-      textColor: 'text-green-600',
+      textColor: 'text-accent-green',
     },
     {
       title: 'Earnings',
@@ -120,20 +120,20 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
       icon: <TrendingUp className="w-6 h-6" />,
       color: 'from-purple-500 to-pink-500',
       bgColor: 'bg-purple-50 dark:bg-purple-900/20',
-      textColor: 'text-purple-600',
+      textColor: 'text-primary-purple',
     },
   ];
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case 'beginner':
-        return 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400';
+        return 'bg-accent-green/20 text-green-700 dark:bg-green-900/30 dark:text-green-400';
       case 'intermediate':
-        return 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400';
+        return 'bg-accent-gold/20 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400';
       case 'advanced':
         return 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400';
       default:
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-white/10 text-gray-300';
     }
   };
 
@@ -142,11 +142,11 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
-            <LayoutDashboard className="w-8 h-8 text-blue-600" />
+          <h1 className="text-3xl font-bold text-white dark:text-white flex items-center gap-3">
+            <LayoutDashboard className="w-8 h-8 text-primary-cyan" />
             Dashboard
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-gray-400 dark:text-gray-400 mt-1">
             Welcome back! Here's your testing overview.
           </p>
         </div>
@@ -186,7 +186,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
               {stat.change !== undefined && (
                 <div className={`flex items-center gap-1 text-sm ${
                   (stat.invertChange ? stat.change < 0 : stat.change > 0)
-                    ? 'text-green-600'
+                    ? 'text-accent-green'
                     : stat.change === 0
                     ? 'text-gray-500'
                     : 'text-red-600'
@@ -203,7 +203,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                 </div>
               )}
             </div>
-            <p className="text-3xl font-bold text-gray-900 dark:text-white mt-4">
+            <p className="text-3xl font-bold text-white dark:text-white mt-4">
               {stat.value}
             </p>
             <p className="text-sm text-gray-500 mt-1">{stat.title}</p>
@@ -216,19 +216,19 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
         {/* XP Chart */}
         <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-blue-600" />
+            <h3 className="text-lg font-bold text-white dark:text-white flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-primary-cyan" />
               XP Progress
             </h3>
-            <div className="flex gap-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+            <div className="flex gap-2 bg-white/10 dark:bg-gray-800 rounded-lg p-1">
               {(['week', 'month', 'year'] as const).map((period) => (
                 <button
                   key={period}
                   onClick={() => setSelectedPeriod(period)}
                   className={`px-3 py-1 rounded-md text-sm font-medium transition-all ${
                     selectedPeriod === period
-                      ? 'bg-white dark:bg-gray-700 text-blue-600 shadow-sm'
-                      : 'text-gray-500 hover:text-gray-700'
+                      ? 'bg-white dark:bg-gray-700 text-primary-cyan shadow-sm'
+                      : 'text-gray-500 hover:text-gray-300'
                   }`}
                 >
                   {period.charAt(0).toUpperCase() + period.slice(1)}
@@ -262,11 +262,11 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
         {/* Notifications */}
         <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
-              <Bell className="w-5 h-5 text-blue-600" />
+            <h3 className="text-lg font-bold text-white dark:text-white flex items-center gap-2">
+              <Bell className="w-5 h-5 text-primary-cyan" />
               Notifications
             </h3>
-            <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 text-xs font-medium rounded-full">
+            <span className="px-2 py-1 bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan text-xs font-medium rounded-full">
               {notifications.filter((n) => !n.read).length} new
             </span>
           </div>
@@ -276,23 +276,23 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                 key={notification.id}
                 className={`p-3 rounded-xl ${
                   notification.read
-                    ? 'bg-gray-50 dark:bg-gray-800'
+                    ? 'bg-white/5 dark:bg-gray-800'
                     : 'bg-blue-50 dark:bg-blue-900/20'
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div className={`p-2 rounded-lg ${
-                    notification.type === 'achievement' ? 'bg-yellow-100 dark:bg-yellow-900/30' :
-                    notification.type === 'reward' ? 'bg-green-100 dark:bg-green-900/30' :
-                    'bg-blue-100 dark:bg-blue-900/30'
+                    notification.type === 'achievement' ? 'bg-accent-gold/20 dark:bg-yellow-900/30' :
+                    notification.type === 'reward' ? 'bg-accent-green/20 dark:bg-green-900/30' :
+                    'bg-primary-blue/20 dark:bg-blue-900/30'
                   }`}>
-                    {notification.type === 'achievement' && <Trophy className="w-4 h-4 text-yellow-600" />}
-                    {notification.type === 'task' && <Target className="w-4 h-4 text-blue-600" />}
-                    {notification.type === 'reward' && <Gift className="w-4 h-4 text-green-600" />}
-                    {notification.type === 'system' && <Settings className="w-4 h-4 text-gray-600" />}
+                    {notification.type === 'achievement' && <Trophy className="w-4 h-4 text-accent-gold" />}
+                    {notification.type === 'task' && <Target className="w-4 h-4 text-primary-cyan" />}
+                    {notification.type === 'reward' && <Gift className="w-4 h-4 text-accent-green" />}
+                    {notification.type === 'system' && <Settings className="w-4 h-4 text-gray-400" />}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-900 dark:text-white text-sm truncate">
+                    <p className="font-medium text-white dark:text-white text-sm truncate">
                       {notification.title}
                     </p>
                     <p className="text-xs text-gray-500 truncate">{notification.message}</p>
@@ -309,13 +309,13 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
         {/* Recent tasks */}
         <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
-              <Clock className="w-5 h-5 text-green-600" />
+            <h3 className="text-lg font-bold text-white dark:text-white flex items-center gap-2">
+              <Clock className="w-5 h-5 text-accent-green" />
               Recent Tasks
             </h3>
             <button
               onClick={onViewAllTasks}
-              className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
+              className="text-sm text-primary-cyan hover:text-primary-blue flex items-center gap-1"
             >
               View all <ChevronRight className="w-4 h-4" />
             </button>
@@ -325,17 +325,17 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
               <button
                 key={task.id}
                 onClick={() => onTaskClick(task.id)}
-                className="w-full p-4 bg-gray-50 dark:bg-gray-800 rounded-xl flex items-center gap-4 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-left"
+                className="w-full p-4 bg-white/5 dark:bg-gray-800 rounded-xl flex items-center gap-4 hover:bg-white/10 dark:hover:bg-gray-700 transition-colors text-left"
               >
-                <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg">
-                  <Target className="w-5 h-5 text-green-600" />
+                <div className="p-2 bg-accent-green/20 dark:bg-green-900/30 rounded-lg">
+                  <Target className="w-5 h-5 text-accent-green" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-gray-900 dark:text-white truncate">{task.title}</p>
+                  <p className="font-medium text-white dark:text-white truncate">{task.title}</p>
                   <p className="text-sm text-gray-500">{task.tool}</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold text-green-600">+{task.xp} XP</p>
+                  <p className="font-semibold text-accent-green">+{task.xp} XP</p>
                   <div className="flex items-center gap-1 text-yellow-500">
                     {[...Array(5)].map((_, i) => (
                       <Star
@@ -353,13 +353,13 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
         {/* Upcoming tasks */}
         <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-purple-600" />
+            <h3 className="text-lg font-bold text-white dark:text-white flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-primary-purple" />
               Recommended Tasks
             </h3>
             <button
               onClick={onViewAllTasks}
-              className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
+              className="text-sm text-primary-cyan hover:text-primary-blue flex items-center gap-1"
             >
               Browse <ChevronRight className="w-4 h-4" />
             </button>
@@ -369,13 +369,13 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
               <button
                 key={task.id}
                 onClick={() => onTaskClick(task.id)}
-                className="w-full p-4 bg-gray-50 dark:bg-gray-800 rounded-xl flex items-center gap-4 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-left"
+                className="w-full p-4 bg-white/5 dark:bg-gray-800 rounded-xl flex items-center gap-4 hover:bg-white/10 dark:hover:bg-gray-700 transition-colors text-left"
               >
-                <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                  <Zap className="w-5 h-5 text-purple-600" />
+                <div className="p-2 bg-primary-purple/20 dark:bg-purple-900/30 rounded-lg">
+                  <Zap className="w-5 h-5 text-primary-purple" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-gray-900 dark:text-white truncate">{task.title}</p>
+                  <p className="font-medium text-white dark:text-white truncate">{task.title}</p>
                   <div className="flex items-center gap-2 mt-1">
                     <span className="text-sm text-gray-500">{task.tool}</span>
                     <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${getDifficultyColor(task.difficulty)}`}>
@@ -384,7 +384,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold text-purple-600">+{task.xp} XP</p>
+                  <p className="font-semibold text-primary-purple">+{task.xp} XP</p>
                   <p className="text-xs text-gray-500">
                     Due {new Date(task.deadline).toLocaleDateString()}
                   </p>

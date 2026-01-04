@@ -79,7 +79,7 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
       case 'milestone':
         return 'bg-orange-500 text-white';
       default:
-        return 'bg-gray-500 text-white';
+        return 'bg-white/50 text-white';
     }
   };
 
@@ -108,7 +108,7 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
   if (!activities.length) {
     return (
       <div className="text-center py-8">
-        <Clock className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-3" />
+        <Clock className="w-12 h-12 text-gray-300 dark:text-gray-400 mx-auto mb-3" />
         <p className="text-gray-500 dark:text-gray-400">No recent activity</p>
       </div>
     );
@@ -126,7 +126,7 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
         >
           {/* Timeline line */}
           {index < displayedActivities.length - 1 && (
-            <div className="absolute left-[17px] top-10 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700" />
+            <div className="absolute left-[17px] top-10 bottom-0 w-0.5 bg-white/10 dark:bg-gray-700" />
           )}
 
           {/* Icon */}
@@ -138,7 +138,7 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <p className="font-medium text-gray-900 dark:text-white">
+                <p className="font-medium text-white dark:text-white">
                   {activity.title}
                 </p>
                 {activity.description && (
@@ -156,25 +156,25 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
             {activity.metadata && (
               <div className="flex flex-wrap gap-2 mt-2">
                 {activity.metadata.xp && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-primary-blue/20 dark:bg-blue-900/30 text-primary-blue dark:text-blue-400 text-xs font-medium rounded-full">
                     <Zap className="w-3 h-3" />
                     +{activity.metadata.xp} XP
                   </span>
                 )}
                 {activity.metadata.level && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-xs font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-primary-purple/20 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-xs font-medium rounded-full">
                     <Trophy className="w-3 h-3" />
                     Level {activity.metadata.level}
                   </span>
                 )}
                 {activity.metadata.amount && activity.metadata.currency && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-accent-green/20 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-medium rounded-full">
                     <CreditCard className="w-3 h-3" />
                     {activity.metadata.currency}{activity.metadata.amount}
                   </span>
                 )}
                 {activity.metadata.badge && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 text-xs font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-accent-gold/20 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 text-xs font-medium rounded-full">
                     <Award className="w-3 h-3" />
                     {activity.metadata.badge}
                   </span>
@@ -190,7 +190,7 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           onClick={onLoadMore}
-          className="w-full py-3 text-sm font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
+          className="w-full py-3 text-sm font-medium text-primary-cyan dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
         >
           Load more activity
         </motion.button>

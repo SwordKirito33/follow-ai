@@ -90,10 +90,10 @@ const Modal: React.FC<ModalProps> = ({
           >
             {/* Header */}
             {(title || showCloseButton) && (
-              <div className="flex items-start justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+              <div className="flex items-start justify-between p-6 border-b border-white/10 dark:border-gray-700">
                 <div>
                   {title && (
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                    <h2 className="text-xl font-bold text-white dark:text-white">
                       {title}
                     </h2>
                   )}
@@ -106,7 +106,7 @@ const Modal: React.FC<ModalProps> = ({
                 {showCloseButton && (
                   <button
                     onClick={onClose}
-                    className="p-2 -mr-2 -mt-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                    className="p-2 -mr-2 -mt-2 text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -119,7 +119,7 @@ const Modal: React.FC<ModalProps> = ({
 
             {/* Footer */}
             {footer && (
-              <div className="p-6 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+              <div className="p-6 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50">
                 {footer}
               </div>
             )}
@@ -160,7 +160,7 @@ export const AlertModal: React.FC<{
   isLoading = false,
 }) => {
   const variantColors = {
-    info: 'bg-blue-600 hover:bg-blue-700',
+    info: 'bg-gradient-to-r from-primary-cyan to-primary-blue hover:bg-blue-700',
     warning: 'bg-yellow-500 hover:bg-yellow-600',
     danger: 'bg-red-600 hover:bg-red-700',
   };
@@ -176,7 +176,7 @@ export const AlertModal: React.FC<{
           <button
             onClick={onClose}
             disabled={isLoading}
-            className="px-4 py-2 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            className="px-4 py-2 text-gray-300 dark:text-gray-300 font-medium hover:bg-white/10 dark:hover:bg-gray-700 rounded-lg transition-colors"
           >
             {cancelText}
           </button>
@@ -190,7 +190,7 @@ export const AlertModal: React.FC<{
         </div>
       }
     >
-      <p className="text-gray-600 dark:text-gray-400">{message}</p>
+      <p className="text-gray-400 dark:text-gray-400">{message}</p>
     </Modal>
   );
 };

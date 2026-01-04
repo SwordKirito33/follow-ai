@@ -18,24 +18,24 @@ const LevelProgress: React.FC<LevelProgressProps> = ({
   return (
     <div className="glass-card rounded-xl shadow-xl p-6 mb-8">
       <div className="flex items-center gap-3 mb-6">
-        <div className="bg-purple-100 p-3 rounded-lg text-purple-600">
+        <div className="bg-primary-purple/20 p-3 rounded-lg text-primary-purple">
           <Award size={24} />
         </div>
         <div>
-          <h2 className="text-2xl font-black text-gray-900 tracking-tight">Level Progress</h2>
-          <p className="text-sm text-gray-600">Current Level: {levelInfo.level}</p>
+          <h2 className="text-2xl font-black text-white tracking-tight">Level Progress</h2>
+          <p className="text-sm text-gray-400">Current Level: {levelInfo.level}</p>
         </div>
       </div>
 
       {/* Progress Bar */}
       <div className="mb-6">
-        <div className="flex items-center justify-between text-sm text-gray-600 mb-2">
+        <div className="flex items-center justify-between text-sm text-gray-400 mb-2">
           <span>Level {levelInfo.level}</span>
           <span>Level {levelInfo.level + 1}</span>
         </div>
-        <div className="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
+        <div className="w-full h-4 bg-white/10 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-purple-600 to-blue-600 transition-all duration-700 ease-out flex items-center justify-end pr-2"
+            className="h-full bg-gradient-to-r from-primary-purple to-primary-blue transition-all duration-700 ease-out flex items-center justify-end pr-2"
             style={{ width: `${progressPercentage}%` }}
           >
             {progressPercentage > 10 && (
@@ -51,27 +51,27 @@ const LevelProgress: React.FC<LevelProgressProps> = ({
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-gray-50 rounded-lg p-4">
-          <div className="flex items-center gap-2 text-gray-600 mb-1">
+        <div className="bg-white/5 rounded-lg p-4">
+          <div className="flex items-center gap-2 text-gray-400 mb-1">
             <TrendingUp size={16} />
             <span className="text-xs">Current Level</span>
           </div>
-          <div className="text-2xl font-bold text-gray-900">{levelInfo.level}</div>
+          <div className="text-2xl font-bold text-white">{levelInfo.level}</div>
         </div>
-        <div className="bg-gray-50 rounded-lg p-4">
-          <div className="flex items-center gap-2 text-gray-600 mb-1">
+        <div className="bg-white/5 rounded-lg p-4">
+          <div className="flex items-center gap-2 text-gray-400 mb-1">
             <Award size={16} />
             <span className="text-xs">Total XP</span>
           </div>
-          <div className="text-2xl font-bold text-gray-900">{totalXp.toLocaleString()}</div>
+          <div className="text-2xl font-bold text-white">{totalXp.toLocaleString()}</div>
         </div>
-        <div className="bg-gray-50 rounded-lg p-4">
-          <div className="text-xs text-gray-600 mb-1">Current Level XP</div>
-          <div className="text-2xl font-bold text-gray-900">{currentXp.toLocaleString()}</div>
+        <div className="bg-white/5 rounded-lg p-4">
+          <div className="text-xs text-gray-400 mb-1">Current Level XP</div>
+          <div className="text-2xl font-bold text-white">{currentXp.toLocaleString()}</div>
         </div>
-        <div className="bg-gray-50 rounded-lg p-4">
-          <div className="text-xs text-gray-600 mb-1">XP to Next</div>
-          <div className="text-2xl font-bold text-blue-600">{levelInfo.xpToNext.toLocaleString()}</div>
+        <div className="bg-white/5 rounded-lg p-4">
+          <div className="text-xs text-gray-400 mb-1">XP to Next</div>
+          <div className="text-2xl font-bold text-primary-cyan">{levelInfo.xpToNext.toLocaleString()}</div>
         </div>
       </div>
     </div>

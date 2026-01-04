@@ -34,9 +34,9 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
         <img src={review.user.avatar} alt={review.user.name} className="w-10 h-10 rounded-full" />
         <div>
           <div className="flex items-center gap-2">
-            <h4 className="font-black text-gray-900 text-sm tracking-tight">{review.user.name}</h4>
+            <h4 className="font-black text-white text-sm tracking-tight">{review.user.name}</h4>
             <Tooltip content={t('reviewCard.levelBasedOn')}>
-              <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded cursor-help">
+              <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 bg-blue-50 text-primary-cyan rounded cursor-help">
                 {review.user.levelName}
               </span>
             </Tooltip>
@@ -48,7 +48,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
       {/* Tool Info */}
       <div className="px-4 pb-3 flex items-center gap-2">
         <LazyImage src={review.toolLogo} alt={review.toolName} className="w-6 h-6 rounded" />
-        <span className="font-bold text-sm text-gray-800 tracking-tight">{review.toolName}</span>
+        <span className="font-bold text-sm text-gray-200 tracking-tight">{review.toolName}</span>
         <span className="text-xs text-gray-400">• {review.toolCategory}</span>
       </div>
 
@@ -58,10 +58,10 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
           {[...Array(5)].map((_, i) => (
              <Star key={i} size={14} fill={i < Math.floor(review.rating) ? "currentColor" : "none"} className={i < Math.floor(review.rating) ? "" : "text-gray-300"} />
           ))}
-          <span className="ml-1 text-sm font-bold text-gray-700">{review.rating}</span>
+          <span className="ml-1 text-sm font-bold text-gray-300">{review.rating}</span>
         </div>
         <Tooltip content={t('reviewCard.aiAnalyzedScore')}>
-          <div className="flex items-center gap-1 text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full border border-green-100 cursor-help">
+          <div className="flex items-center gap-1 text-xs font-medium text-accent-green bg-green-50 px-2 py-1 rounded-full border border-green-100 cursor-help">
             <Check size={12} strokeWidth={3} />
             {t('reviewCard.quality')}: {review.qualityScore}/10
           </div>
@@ -70,7 +70,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
 
       {/* Review Text */}
       <div className="px-4 mb-3">
-        <p className="text-sm text-gray-600 line-clamp-3 leading-relaxed">
+        <p className="text-sm text-gray-400 line-clamp-3 leading-relaxed">
           {review.text}
         </p>
       </div>
@@ -88,18 +88,18 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
       </div>
 
       {/* Footer */}
-      <div className="p-4 flex items-center justify-between border-t border-gray-100 bg-gray-50/50">
+      <div className="p-4 flex items-center justify-between border-t border-white/10 bg-white/5/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={handleLike}
-            className={`flex items-center gap-1.5 text-xs font-medium transition-colors ${isLiked ? 'text-blue-600' : 'text-gray-500 hover:text-gray-900'}`}
+            className={`flex items-center gap-1.5 text-xs font-medium transition-colors ${isLiked ? 'text-primary-cyan' : 'text-gray-500 hover:text-white'}`}
             disabled={!isAuthenticated}
           >
             <ThumbsUp size={16} fill={isLiked ? "currentColor" : "none"} />
             {likes} {t('reviewCard.likes')}
           </button>
           <button 
-            className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-gray-900 transition-colors"
+            className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-white transition-colors"
             disabled={!isAuthenticated}
           >
             <MessageCircle size={16} />
@@ -112,7 +112,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
             className={`p-1.5 rounded transition-colors ${
               isFavorited
                 ? 'text-red-600 hover:text-red-700'
-                : 'text-gray-400 hover:text-gray-600'
+                : 'text-gray-400 hover:text-gray-400'
             }`}
             title={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
           >

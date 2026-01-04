@@ -35,8 +35,8 @@ export default function TaskSubmit() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading...</p>
         </div>
       </div>
     );
@@ -211,19 +211,19 @@ export default function TaskSubmit() {
   if (!task) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="animate-spin text-blue-600" size={32} />
+        <Loader2 className="animate-spin text-primary-cyan" size={32} />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-12 px-4">
+    <div className="min-h-screen bg-white/5 dark:bg-gray-950 py-12 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="mb-10">
-          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-2">
+          <h1 className="text-4xl sm:text-5xl font-black text-white dark:text-white tracking-tight mb-2">
             Submit Your Work
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">
+          <p className="text-lg text-gray-400 dark:text-gray-400 font-medium">
             Task: {task.title}
           </p>
         </div>
@@ -243,7 +243,7 @@ export default function TaskSubmit() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* File Upload */}
           <div className="glass-card p-6 rounded-xl shadow-xl">
-            <label className="block font-medium mb-2 text-gray-700 dark:text-gray-300">
+            <label className="block font-medium mb-2 text-gray-300 dark:text-gray-300">
               Output File (optional)
             </label>
             <input
@@ -260,7 +260,7 @@ export default function TaskSubmit() {
 
           {/* Text Output */}
           <div className="glass-card p-6 rounded-xl shadow-xl">
-            <label className="block font-medium mb-2 text-gray-700 dark:text-gray-300">
+            <label className="block font-medium mb-2 text-gray-300 dark:text-gray-300">
               Or Paste Text Output
             </label>
             <textarea
@@ -274,7 +274,7 @@ export default function TaskSubmit() {
 
           {/* Experience Text (CRITICAL) */}
           <div className="glass-card p-6 rounded-xl shadow-xl">
-            <label className="block font-medium mb-2 text-gray-700 dark:text-gray-300">
+            <label className="block font-medium mb-2 text-gray-300 dark:text-gray-300">
               Your Experience (Required - {MIN_EXPERIENCE_CHARS} characters minimum) *
             </label>
             <textarea
@@ -299,7 +299,7 @@ export default function TaskSubmit() {
               disabled={!canSubmit}
             />
             <div className="flex justify-between text-sm mt-1">
-              <span className={charCount < MIN_EXPERIENCE_CHARS ? 'text-red-600 font-medium' : 'text-green-600'}>
+              <span className={charCount < MIN_EXPERIENCE_CHARS ? 'text-red-600 font-medium' : 'text-accent-green'}>
                 {charCount} / {MIN_EXPERIENCE_CHARS} characters
               </span>
               {experienceError && (
@@ -315,7 +315,7 @@ export default function TaskSubmit() {
 
           {/* AI Tools Used */}
           <div className="glass-card p-6 rounded-xl shadow-xl">
-            <label className="block font-medium mb-2 text-gray-700 dark:text-gray-300">
+            <label className="block font-medium mb-2 text-gray-300 dark:text-gray-300">
               AI Tools Used (comma-separated)
             </label>
             <input

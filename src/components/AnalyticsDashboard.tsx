@@ -59,7 +59,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
     <div className={`space-y-6 ${className}`}>
       {/* Time range selector */}
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-white dark:text-white flex items-center gap-2">
           <BarChart3 className="w-6 h-6" />
           Analytics Dashboard
         </h2>
@@ -70,8 +70,8 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
               onClick={() => setTimeRange(range.value as typeof timeRange)}
               className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                 timeRange === range.value
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white'
+                  : 'bg-white/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-700'
               }`}
             >
               {range.label}
@@ -88,14 +88,14 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700"
+            className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700"
           >
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
                   {stat.label}
                 </p>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                <p className="text-2xl font-bold text-white dark:text-white">
                   {typeof stat.value === 'number'
                     ? stat.value.toLocaleString()
                     : stat.value}
@@ -114,7 +114,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
               <span
                 className={`text-sm font-medium ${
                   stat.changeType === 'increase'
-                    ? 'text-green-600'
+                    ? 'text-accent-green'
                     : stat.changeType === 'decrease'
                     ? 'text-red-600'
                     : 'text-gray-500'
@@ -134,8 +134,8 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* XP Chart */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+        <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700">
+          <h3 className="text-lg font-bold text-white dark:text-white mb-4 flex items-center gap-2">
             <Zap className="w-5 h-5 text-yellow-500" />
             XP Earned Over Time
           </h3>
@@ -143,8 +143,8 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
         </div>
 
         {/* Tasks Chart */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+        <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700">
+          <h3 className="text-lg font-bold text-white dark:text-white mb-4 flex items-center gap-2">
             <Target className="w-5 h-5 text-blue-500" />
             Tasks Completed
           </h3>
@@ -153,8 +153,8 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
       </div>
 
       {/* Activity feed */}
-      <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700">
+        <h3 className="text-lg font-bold text-white dark:text-white mb-4 flex items-center gap-2">
           <Activity className="w-5 h-5 text-purple-500" />
           Recent Activity
         </h3>
@@ -332,17 +332,17 @@ const ActivityFeed: React.FC = () => {
   const getActivityColor = (type: string) => {
     switch (type) {
       case 'task':
-        return 'bg-blue-100 dark:bg-blue-900/30 text-blue-600';
+        return 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan';
       case 'level':
-        return 'bg-purple-100 dark:bg-purple-900/30 text-purple-600';
+        return 'bg-primary-purple/20 dark:bg-purple-900/30 text-primary-purple';
       case 'achievement':
-        return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600';
+        return 'bg-accent-gold/20 dark:bg-yellow-900/30 text-accent-gold';
       case 'purchase':
-        return 'bg-green-100 dark:bg-green-900/30 text-green-600';
+        return 'bg-accent-green/20 dark:bg-green-900/30 text-accent-green';
       case 'streak':
         return 'bg-orange-100 dark:bg-orange-900/30 text-orange-600';
       default:
-        return 'bg-gray-100 dark:bg-gray-800 text-gray-600';
+        return 'bg-white/10 dark:bg-gray-800 text-gray-400';
     }
   };
 
@@ -360,7 +360,7 @@ const ActivityFeed: React.FC = () => {
             {getActivityIcon(activity.type)}
           </div>
           <div className="flex-1">
-            <p className="text-gray-900 dark:text-white font-medium">
+            <p className="text-white dark:text-white font-medium">
               {activity.message}
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -368,7 +368,7 @@ const ActivityFeed: React.FC = () => {
             </p>
           </div>
           {activity.xp > 0 && (
-            <span className="text-green-600 font-semibold">
+            <span className="text-accent-green font-semibold">
               +{activity.xp} XP
             </span>
           )}

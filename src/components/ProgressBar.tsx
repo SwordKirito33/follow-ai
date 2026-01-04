@@ -31,8 +31,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   };
 
   const variantClasses = {
-    default: 'bg-blue-600',
-    gradient: 'bg-gradient-to-r from-blue-600 to-purple-600',
+    default: 'bg-gradient-to-r from-primary-cyan to-primary-blue',
+    gradient: 'bg-gradient-to-r from-primary-blue to-primary-purple',
     success: 'bg-green-500',
     warning: 'bg-yellow-500',
     danger: 'bg-red-500',
@@ -43,19 +43,19 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       {(label || showValue) && (
         <div className="flex items-center justify-between mb-2">
           {label && (
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span className="text-sm font-medium text-gray-300 dark:text-gray-300">
               {label}
             </span>
           )}
           {showValue && (
-            <span className="text-sm font-semibold text-gray-900 dark:text-white">
+            <span className="text-sm font-semibold text-white dark:text-white">
               {Math.round(percentage)}%
             </span>
           )}
         </div>
       )}
       <div
-        className={`w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden ${sizeClasses[size]}`}
+        className={`w-full bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden ${sizeClasses[size]}`}
       >
         <motion.div
           initial={animated ? { width: 0 } : { width: `${percentage}%` }}
@@ -118,7 +118,7 @@ export const CircularProgress: React.FC<{
           fill="none"
           stroke="currentColor"
           strokeWidth={strokeWidth}
-          className="text-gray-200 dark:text-gray-700"
+          className="text-gray-200 dark:text-gray-300"
         />
         {/* Progress circle */}
         <motion.circle
@@ -137,7 +137,7 @@ export const CircularProgress: React.FC<{
       </svg>
       {showValue && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-2xl font-bold text-gray-900 dark:text-white">
+          <span className="text-2xl font-bold text-white dark:text-white">
             {Math.round(percentage)}%
           </span>
           {label && (
@@ -172,7 +172,7 @@ export const SegmentedProgress: React.FC<{
   return (
     <div className={className}>
       <div
-        className={`w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex ${sizeClasses[size]}`}
+        className={`w-full bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden flex ${sizeClasses[size]}`}
       >
         {segments.map((segment, index) => {
           const width = (segment.value / calculatedTotal) * 100;
@@ -196,7 +196,7 @@ export const SegmentedProgress: React.FC<{
                 className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: segment.color }}
               />
-              <span className="text-sm text-gray-600 dark:text-gray-400">
+              <span className="text-sm text-gray-400 dark:text-gray-400">
                 {segment.label || `Segment ${index + 1}`}: {segment.value}
               </span>
             </div>

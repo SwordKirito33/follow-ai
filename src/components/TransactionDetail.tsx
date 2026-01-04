@@ -63,13 +63,13 @@ const TransactionDetail: React.FC<TransactionDetailProps> = ({
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400';
+        return 'bg-accent-green/20 text-green-800 dark:bg-green-900/30 dark:text-green-400';
       case 'pending':
-        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400';
+        return 'bg-accent-gold/20 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400';
       case 'failed':
         return 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400';
       default:
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-white/10 text-gray-200';
     }
   };
 
@@ -128,14 +128,14 @@ Thank you for your purchase!
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="relative p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="relative p-6 border-b border-white/10 dark:border-gray-700">
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
               >
                 <X size={24} />
               </button>
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-xl font-bold text-white dark:text-white">
                 Transaction Details
               </h2>
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
@@ -155,7 +155,7 @@ Thank you for your purchase!
 
               {/* Amount */}
               <div className="text-center">
-                <p className="text-4xl font-bold text-gray-900 dark:text-white">
+                <p className="text-4xl font-bold text-white dark:text-white">
                   +{transaction.xp.toLocaleString()} XP
                 </p>
                 <p className="text-lg text-gray-500 dark:text-gray-400 mt-1">
@@ -165,32 +165,32 @@ Thank you for your purchase!
 
               {/* Details */}
               <div className="space-y-4">
-                <div className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-gray-800">
+                <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
                   <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
                     <Calendar size={18} />
                     <span>Date</span>
                   </div>
-                  <span className="font-medium text-gray-900 dark:text-white">
+                  <span className="font-medium text-white dark:text-white">
                     {formatDate(transaction.date)}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-gray-800">
+                <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
                   <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
                     <CreditCard size={18} />
                     <span>Payment Method</span>
                   </div>
-                  <span className="font-medium text-gray-900 dark:text-white">
+                  <span className="font-medium text-white dark:text-white">
                     {transaction.paymentMethod || 'Credit Card'}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-gray-800">
+                <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
                   <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
                     <Zap size={18} />
                     <span>XP Rate</span>
                   </div>
-                  <span className="font-medium text-gray-900 dark:text-white">
+                  <span className="font-medium text-white dark:text-white">
                     {(transaction.xp / transaction.amount).toFixed(0)} XP per {transaction.currency}
                   </span>
                 </div>
@@ -199,12 +199,12 @@ Thank you for your purchase!
                 <div className="py-3">
                   <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Transaction ID</p>
                   <div className="flex items-center gap-2">
-                    <code className="flex-1 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-700 dark:text-gray-300 truncate">
+                    <code className="flex-1 px-3 py-2 bg-white/10 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-300 dark:text-gray-300 truncate">
                       {transaction.id}
                     </code>
                     <button
                       onClick={() => copyToClipboard(transaction.id)}
-                      className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                      className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
                     >
                       {copied ? (
                         <Check size={18} className="text-green-500" />
@@ -222,7 +222,7 @@ Thank you for your purchase!
               {transaction.status === 'completed' && (
                 <button
                   onClick={handleDownloadReceipt}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-xl hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
                 >
                   <Download size={18} />
                   Download Receipt

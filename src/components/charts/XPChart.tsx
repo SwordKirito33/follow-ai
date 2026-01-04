@@ -88,7 +88,7 @@ const XPChart: React.FC<XPChartProps> = ({
   if (!data.length) {
     return (
       <div 
-        className="flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-xl"
+        className="flex items-center justify-center bg-white/5 dark:bg-gray-800 rounded-xl"
         style={{ height }}
       >
         <p className="text-gray-500 dark:text-gray-400">No data available</p>
@@ -99,7 +99,7 @@ const XPChart: React.FC<XPChartProps> = ({
   return (
     <div className="w-full">
       {title && (
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{title}</h3>
+        <h3 className="text-lg font-semibold text-white dark:text-white mb-4">{title}</h3>
       )}
       <div className="relative" style={{ height }}>
         <svg
@@ -129,7 +129,7 @@ const XPChart: React.FC<XPChartProps> = ({
               stroke="currentColor"
               strokeOpacity="0.1"
               strokeDasharray="2,2"
-              className="text-gray-400 dark:text-gray-600"
+              className="text-gray-400 dark:text-gray-400"
             />
           ))}
 

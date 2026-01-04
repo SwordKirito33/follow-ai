@@ -30,8 +30,8 @@ const Profile: React.FC = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading...</p>
         </div>
       </div>
     );
@@ -41,13 +41,13 @@ const Profile: React.FC = () => {
   // 如果未登录，显示登录提示
   if (!isAuthenticated || !user) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12 px-4 flex items-center justify-center">
+      <div className="min-h-screen bg-white/5 py-12 px-4 flex items-center justify-center">
         <div className="text-center max-w-md">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('auth.login')}</h2>
-          <p className="text-gray-600 mb-6">{t('auth.loginSubtitle')}</p>
+          <h2 className="text-2xl font-bold text-white mb-4">{t('auth.login')}</h2>
+          <p className="text-gray-400 mb-6">{t('auth.loginSubtitle')}</p>
           <button
             onClick={() => setShowAuthModal(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            className="bg-gradient-to-r from-primary-cyan to-primary-blue hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
           >
             {t('auth.login')}
           </button>
@@ -81,23 +81,23 @@ const Profile: React.FC = () => {
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Level 100 Special Reward Banner */}
         {isLevel100 && (
           <div className="glass-card rounded-xl shadow-xl p-6 mb-8 bg-gradient-to-r from-yellow-50 via-orange-50 to-yellow-50 border-2 border-yellow-300 animate-slideDown">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center text-4xl">
-                <Trophy className="text-yellow-600" size={32} />
+              <div className="w-16 h-16 bg-accent-gold/20 rounded-full flex items-center justify-center text-4xl">
+                <Trophy className="text-accent-gold" size={32} />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">
+                <h2 className="text-2xl font-black text-white mb-2 tracking-tight">
                   🏆 Level 100 Achievement Unlocked!
                 </h2>
-                <p className="text-lg text-gray-700 font-semibold mb-1">
+                <p className="text-lg text-gray-300 font-semibold mb-1">
                   Congratulations! You've reached Level 100!
                 </p>
-                <p className="text-gray-600">
+                <p className="text-gray-400">
                   You are eligible for: <strong>G63 全新车一辆</strong> or <strong>成为 Follow.ai 合伙人（享受分红）</strong>
                 </p>
                 <p className="text-sm text-gray-500 mt-2">

@@ -85,7 +85,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
       case 3:
         return 'bg-gradient-to-r from-amber-400/20 to-amber-500/20 border-amber-400/50';
       default:
-        return 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700';
+        return 'bg-white dark:bg-gray-900 border-white/10 dark:border-gray-700';
     }
   };
 
@@ -101,25 +101,25 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-white dark:text-white flex items-center gap-2">
             <Trophy className="w-7 h-7 text-yellow-500" />
             Leaderboard
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-gray-400 dark:text-gray-400 mt-1">
             {totalUsers.toLocaleString()} testers competing
           </p>
         </div>
 
         {/* Time range selector */}
-        <div className="flex gap-2 bg-gray-100 dark:bg-gray-800 rounded-xl p-1">
+        <div className="flex gap-2 bg-white/10 dark:bg-gray-800 rounded-xl p-1">
           {timeRanges.map((range) => (
             <button
               key={range.value}
               onClick={() => onTimeRangeChange(range.value as any)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 timeRange === range.value
-                  ? 'bg-white dark:bg-gray-700 text-blue-600 shadow-sm'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                  ? 'bg-white dark:bg-gray-700 text-primary-cyan shadow-sm'
+                  : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white'
               }`}
             >
               {range.label}
@@ -136,7 +136,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search users..."
-          className="w-full pl-12 pr-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full pl-12 pr-4 py-3 bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
@@ -144,17 +144,17 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
       {currentUserRank && (
         <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
-              <Star className="w-5 h-5 text-blue-600" />
+            <div className="w-10 h-10 bg-primary-blue/20 dark:bg-blue-800 rounded-full flex items-center justify-center">
+              <Star className="w-5 h-5 text-primary-cyan" />
             </div>
             <div>
-              <p className="text-sm text-blue-600 dark:text-blue-400">Your Rank</p>
-              <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">
+              <p className="text-sm text-primary-cyan dark:text-blue-400">Your Rank</p>
+              <p className="text-2xl font-bold text-primary-blue dark:text-blue-300">
                 #{currentUserRank}
               </p>
             </div>
           </div>
-          <p className="text-sm text-blue-600 dark:text-blue-400">
+          <p className="text-sm text-primary-cyan dark:text-blue-400">
             Top {((currentUserRank / totalUsers) * 100).toFixed(1)}%
           </p>
         </div>
@@ -174,17 +174,17 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
               <img
                 src={top3[1].avatar}
                 alt={top3[1].username}
-                className="w-20 h-20 rounded-full border-4 border-gray-300"
+                className="w-20 h-20 rounded-full border-4 border-white/20"
               />
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">
                 2
               </div>
             </div>
-            <p className="mt-4 font-semibold text-gray-900 dark:text-white truncate max-w-full">
+            <p className="mt-4 font-semibold text-white dark:text-white truncate max-w-full">
               {top3[1].username}
             </p>
             <p className="text-sm text-gray-500">{top3[1].totalXp.toLocaleString()} XP</p>
-            <div className="h-24 w-full bg-gray-200 dark:bg-gray-700 rounded-t-lg mt-4" />
+            <div className="h-24 w-full bg-white/10 dark:bg-gray-700 rounded-t-lg mt-4" />
           </motion.div>
         )}
 
@@ -206,10 +206,10 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
                 1
               </div>
             </div>
-            <p className="mt-4 font-bold text-gray-900 dark:text-white truncate max-w-full">
+            <p className="mt-4 font-bold text-white dark:text-white truncate max-w-full">
               {top3[0].username}
             </p>
-            <p className="text-sm text-yellow-600">{top3[0].totalXp.toLocaleString()} XP</p>
+            <p className="text-sm text-accent-gold">{top3[0].totalXp.toLocaleString()} XP</p>
             <div className="h-32 w-full bg-yellow-400 rounded-t-lg mt-4" />
           </motion.div>
         )}
@@ -232,7 +232,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
                 3
               </div>
             </div>
-            <p className="mt-4 font-semibold text-gray-900 dark:text-white truncate max-w-full">
+            <p className="mt-4 font-semibold text-white dark:text-white truncate max-w-full">
               {top3[2].username}
             </p>
             <p className="text-sm text-gray-500">{top3[2].totalXp.toLocaleString()} XP</p>
@@ -297,11 +297,11 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
               {/* Info */}
               <div className="flex-1 text-left">
                 <div className="flex items-center gap-2">
-                  <p className="font-semibold text-gray-900 dark:text-white">
+                  <p className="font-semibold text-white dark:text-white">
                     {user.username}
                   </p>
                   {user.isCurrentUser && (
-                    <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-300 text-xs rounded-full">
+                    <span className="px-2 py-0.5 bg-primary-blue/20 dark:bg-blue-800 text-primary-cyan dark:text-blue-300 text-xs rounded-full">
                       You
                     </span>
                   )}
@@ -321,7 +321,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
 
               {/* XP */}
               <div className="text-right">
-                <p className="font-bold text-blue-600">
+                <p className="font-bold text-primary-cyan">
                   {user.totalXp.toLocaleString()} XP
                 </p>
               </div>
@@ -332,7 +332,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
 
       {/* Load more */}
       {filteredUsers.length < totalUsers && (
-        <button className="w-full py-4 text-blue-600 font-medium hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-colors">
+        <button className="w-full py-4 text-primary-cyan font-medium hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-colors">
           Load More
         </button>
       )}

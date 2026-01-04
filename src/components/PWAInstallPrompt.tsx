@@ -77,13 +77,13 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) =
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
-            className="fixed top-0 left-0 right-0 z-50 bg-blue-600 text-white py-3 px-4 flex items-center justify-center gap-4"
+            className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary-cyan to-primary-blue text-white py-3 px-4 flex items-center justify-center gap-4"
           >
             <RefreshCw className="w-4 h-4" />
             <span className="text-sm font-medium">A new version is available!</span>
             <button
               onClick={updateApp}
-              className="px-4 py-1.5 bg-white text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-50 transition-colors"
+              className="px-4 py-1.5 bg-white text-primary-cyan rounded-lg text-sm font-medium hover:bg-blue-50 transition-colors"
             >
               Update Now
             </button>
@@ -100,9 +100,9 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) =
             exit={{ y: 100, opacity: 0 }}
             className={`fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 z-50 ${className}`}
           >
-            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden">
               {/* Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 text-white">
+              <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-4 text-white">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
@@ -125,20 +125,20 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) =
               {/* Content */}
               <div className="p-4">
                 <ul className="space-y-2 mb-4">
-                  <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                    <span className="w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600 text-xs">✓</span>
+                  <li className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-400">
+                    <span className="w-5 h-5 bg-accent-green/20 dark:bg-green-900/30 rounded-full flex items-center justify-center text-accent-green text-xs">✓</span>
                     Works offline
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                    <span className="w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600 text-xs">✓</span>
+                  <li className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-400">
+                    <span className="w-5 h-5 bg-accent-green/20 dark:bg-green-900/30 rounded-full flex items-center justify-center text-accent-green text-xs">✓</span>
                     Faster loading
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                    <span className="w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600 text-xs">✓</span>
+                  <li className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-400">
+                    <span className="w-5 h-5 bg-accent-green/20 dark:bg-green-900/30 rounded-full flex items-center justify-center text-accent-green text-xs">✓</span>
                     Push notifications
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                    <span className="w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600 text-xs">✓</span>
+                  <li className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-400">
+                    <span className="w-5 h-5 bg-accent-green/20 dark:bg-green-900/30 rounded-full flex items-center justify-center text-accent-green text-xs">✓</span>
                     Home screen access
                   </li>
                 </ul>
@@ -146,14 +146,14 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) =
                 <div className="flex gap-2">
                   <button
                     onClick={handleInstall}
-                    className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all"
+                    className="flex-1 py-3 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all"
                   >
                     <Download className="w-4 h-4" />
                     Install App
                   </button>
                   <button
                     onClick={handleDismiss}
-                    className="px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl font-medium transition-colors"
+                    className="px-4 py-3 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800 rounded-xl font-medium transition-colors"
                   >
                     Later
                   </button>
@@ -178,7 +178,7 @@ export const PWAInstallButton: React.FC<{ className?: string }> = ({ className =
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       onClick={installApp}
-      className={`p-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all ${className}`}
+      className={`p-2 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl hover:shadow-lg transition-all ${className}`}
       title="Install App"
     >
       <Download className="w-5 h-5" />
@@ -195,12 +195,12 @@ export const OnlineStatus: React.FC = () => {
       {isOnline ? (
         <>
           <Wifi className="w-4 h-4 text-green-500" />
-          <span className="text-sm text-green-600">Online</span>
+          <span className="text-sm text-accent-green">Online</span>
         </>
       ) : (
         <>
           <WifiOff className="w-4 h-4 text-yellow-500" />
-          <span className="text-sm text-yellow-600">Offline</span>
+          <span className="text-sm text-accent-gold">Offline</span>
         </>
       )}
     </div>

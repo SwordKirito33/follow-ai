@@ -64,8 +64,8 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ steps, onSubmit, onCancel
                     index < currentStep
                       ? 'bg-green-600 text-white'
                       : index === currentStep
-                      ? 'bg-blue-600 text-white ring-4 ring-blue-200 dark:ring-blue-900'
-                      : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
+                      ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white ring-4 ring-blue-200 dark:ring-blue-900'
+                      : 'bg-white/10 dark:bg-gray-700 text-gray-400 dark:text-gray-400'
                   }`}
                 >
                   {index < currentStep ? (
@@ -76,9 +76,9 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ steps, onSubmit, onCancel
                 </div>
                 <span className={`text-xs mt-2 text-center font-medium ${
                   index === currentStep
-                    ? 'text-blue-600 dark:text-blue-400 font-semibold'
+                    ? 'text-primary-cyan dark:text-blue-400 font-semibold'
                     : index < currentStep
-                    ? 'text-green-600 dark:text-green-400'
+                    ? 'text-accent-green dark:text-green-400'
                     : 'text-gray-500 dark:text-gray-500'
                 }`}>
                   {step.title}
@@ -89,7 +89,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ steps, onSubmit, onCancel
                   className={`flex-1 h-1 mx-2 transition-all ${
                     index < currentStep
                       ? 'bg-green-600'
-                      : 'bg-gray-200 dark:bg-gray-700'
+                      : 'bg-white/10 dark:bg-gray-700'
                   }`}
                 />
               )}
@@ -101,11 +101,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ steps, onSubmit, onCancel
       {/* Current Step Content */}
       <div className="glass-card rounded-xl p-8 min-h-[400px]">
         <div className="mb-6">
-          <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-2 tracking-tight">
+          <h2 className="text-2xl font-black text-white dark:text-white mb-2 tracking-tight">
             {currentStepData.title}
           </h2>
           {currentStepData.description && (
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-400 dark:text-gray-400">
               {currentStepData.description}
             </p>
           )}
@@ -119,7 +119,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ steps, onSubmit, onCancel
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex items-center justify-between pt-6 border-t border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-between pt-6 border-t border-white/10 dark:border-gray-700">
           <div>
             {onCancel && (
               <Button

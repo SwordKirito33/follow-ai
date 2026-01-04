@@ -41,9 +41,9 @@ const StatCard: React.FC<StatCardProps> = ({
   };
 
   const variantClasses = {
-    default: 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700',
+    default: 'bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700',
     gradient: 'bg-gradient-to-br from-blue-500 to-purple-600 text-white',
-    outline: 'bg-transparent border-2 border-gray-200 dark:border-gray-700',
+    outline: 'bg-transparent border-2 border-white/10 dark:border-gray-700',
   };
 
   const trendColors = {
@@ -74,7 +74,7 @@ const StatCard: React.FC<StatCardProps> = ({
             className={`w-10 h-10 rounded-xl flex items-center justify-center ${
               variant === 'gradient'
                 ? 'bg-white/20'
-                : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                : 'bg-blue-50 dark:bg-blue-900/30 text-primary-cyan dark:text-blue-400'
             }`}
           >
             {icon}
@@ -86,7 +86,7 @@ const StatCard: React.FC<StatCardProps> = ({
         <div>
           <p
             className={`font-bold ${valueSizes[size]} ${
-              variant === 'gradient' ? 'text-white' : 'text-gray-900 dark:text-white'
+              variant === 'gradient' ? 'text-white' : 'text-white dark:text-white'
             }`}
           >
             {typeof value === 'number' ? value.toLocaleString() : value}

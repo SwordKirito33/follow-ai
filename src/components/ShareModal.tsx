@@ -134,15 +134,15 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
             className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden"
           >
             {/* Header */}
-            <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="p-6 border-b border-white/10 dark:border-gray-700">
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-white dark:text-white flex items-center gap-2">
                   <Share2 className="w-5 h-5" />
                   Share
                 </h2>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                  className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg"
                 >
                   ✕
                 </button>
@@ -150,7 +150,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
             </div>
 
             {/* Content preview */}
-            <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="p-6 border-b border-white/10 dark:border-gray-700">
               <div className="flex gap-4">
                 {content.image && (
                   <img
@@ -160,7 +160,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
                   />
                 )}
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-gray-900 dark:text-white truncate">
+                  <h3 className="font-semibold text-white dark:text-white truncate">
                     {content.title}
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mt-1">
@@ -190,7 +190,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
               {typeof navigator !== 'undefined' && navigator.share && (
                 <button
                   onClick={nativeShare}
-                  className="w-full mb-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all"
+                  className="w-full mb-4 py-3 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all"
                 >
                   <Share2 className="w-5 h-5" />
                   Share via...
@@ -199,21 +199,21 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
 
               {/* Copy link */}
               <div className="flex gap-2">
-                <div className="flex-1 flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-xl">
+                <div className="flex-1 flex items-center gap-2 px-4 py-3 bg-white/10 dark:bg-gray-800 rounded-xl">
                   <Link2 className="w-4 h-4 text-gray-400 flex-shrink-0" />
                   <input
                     type="text"
                     value={content.url}
                     readOnly
-                    className="flex-1 bg-transparent text-sm text-gray-700 dark:text-gray-300 outline-none truncate"
+                    className="flex-1 bg-transparent text-sm text-gray-300 dark:text-gray-300 outline-none truncate"
                   />
                 </div>
                 <button
                   onClick={copyToClipboard}
                   className={`px-4 py-3 rounded-xl font-medium flex items-center gap-2 transition-colors ${
                     copied
-                      ? 'bg-green-100 dark:bg-green-900/30 text-green-600'
-                      : 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-200 dark:hover:bg-blue-900/50'
+                      ? 'bg-accent-green/20 dark:bg-green-900/30 text-accent-green'
+                      : 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan hover:bg-blue-200 dark:hover:bg-blue-900/50'
                   }`}
                 >
                   {copied ? (
@@ -233,7 +233,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
               {/* QR Code toggle */}
               <button
                 onClick={() => setShowQR(!showQR)}
-                className="w-full mt-4 py-3 border-2 border-gray-200 dark:border-gray-700 rounded-xl font-medium text-gray-700 dark:text-gray-300 flex items-center justify-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                className="w-full mt-4 py-3 border-2 border-white/10 dark:border-gray-700 rounded-xl font-medium text-gray-300 dark:text-gray-300 flex items-center justify-center gap-2 hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
               >
                 <QrCode className="w-5 h-5" />
                 {showQR ? 'Hide QR Code' : 'Show QR Code'}
@@ -248,7 +248,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
                     exit={{ opacity: 0, height: 0 }}
                     className="mt-4 overflow-hidden"
                   >
-                    <div className="p-6 bg-white rounded-xl border-2 border-gray-200 dark:border-gray-700 flex flex-col items-center">
+                    <div className="p-6 bg-white rounded-xl border-2 border-white/10 dark:border-gray-700 flex flex-col items-center">
                       <img
                         src={generateQRCode()}
                         alt="QR Code"
@@ -259,7 +259,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
                       </p>
                       <button
                         onClick={downloadQRCode}
-                        className="mt-3 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                        className="mt-3 px-4 py-2 bg-white/10 dark:bg-gray-800 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 flex items-center gap-2 hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
                       >
                         <Download className="w-4 h-4" />
                         Download QR

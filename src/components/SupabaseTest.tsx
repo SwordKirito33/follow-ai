@@ -138,15 +138,15 @@ const SupabaseTest: React.FC = () => {
             <h1 className="text-3xl font-bold gradient-text mb-2">
               Supabase Connection Test
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-400">
               Testing Supabase client, database connection, and services
             </p>
           </div>
 
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-12">
-              <Loader2 className="w-12 h-12 text-blue-600 animate-spin mb-4" />
-              <p className="text-gray-600">Running tests...</p>
+              <Loader2 className="w-12 h-12 text-primary-cyan animate-spin mb-4" />
+              <p className="text-gray-400">Running tests...</p>
             </div>
           ) : (
             <>
@@ -158,7 +158,7 @@ const SupabaseTest: React.FC = () => {
               }`}>
                 <div className="flex items-center gap-3">
                   {overallStatus === 'success' ? (
-                    <CheckCircle className="w-6 h-6 text-green-600" />
+                    <CheckCircle className="w-6 h-6 text-accent-green" />
                   ) : (
                     <XCircle className="w-6 h-6 text-red-600" />
                   )}
@@ -166,7 +166,7 @@ const SupabaseTest: React.FC = () => {
                     <h2 className="font-bold text-lg">
                       {overallStatus === 'success' ? 'All Tests Passed!' : 'Some Tests Failed'}
                     </h2>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-400">
                       {successCount} passed, {errorCount} failed out of {results.length} tests
                     </p>
                   </div>
@@ -186,23 +186,23 @@ const SupabaseTest: React.FC = () => {
                   >
                     <div className="flex items-start gap-3">
                       {result.status === 'success' ? (
-                        <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-5 h-5 text-accent-green mt-0.5 flex-shrink-0" />
                       ) : (
                         <XCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
                       )}
                       <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 mb-1">
+                        <h3 className="font-semibold text-white mb-1">
                           {result.name}
                         </h3>
-                        <p className="text-sm text-gray-700 mb-2">
+                        <p className="text-sm text-gray-300 mb-2">
                           {result.message}
                         </p>
                         {result.details && (
                           <details className="mt-2">
-                            <summary className="text-xs text-gray-500 cursor-pointer hover:text-gray-700">
+                            <summary className="text-xs text-gray-500 cursor-pointer hover:text-gray-300">
                               View details
                             </summary>
-                            <pre className="mt-2 p-2 bg-gray-100 rounded text-xs overflow-auto max-h-40">
+                            <pre className="mt-2 p-2 bg-white/10 rounded text-xs overflow-auto max-h-40">
                               {JSON.stringify(result.details, null, 2)}
                             </pre>
                           </details>
@@ -217,7 +217,7 @@ const SupabaseTest: React.FC = () => {
               <div className="mt-6 text-center">
                 <button
                   onClick={testConnection}
-                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  className="px-6 py-2 bg-gradient-to-r from-primary-cyan to-primary-blue hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
                 >
                   Run Tests Again
                 </button>
@@ -225,7 +225,7 @@ const SupabaseTest: React.FC = () => {
 
               {/* Console Note */}
               <div className="mt-6 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-gray-300">
                   <strong>Note:</strong> Check the browser console (F12) for detailed logs.
                 </p>
               </div>

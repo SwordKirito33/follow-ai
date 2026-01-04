@@ -55,7 +55,7 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+            <div className="relative bg-gradient-to-r from-primary-blue to-primary-purple p-6 text-white">
               <button
                 onClick={onClose}
                 className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
@@ -77,11 +77,11 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
             {/* Content */}
             <div className="p-6 space-y-6">
               {/* Package Details */}
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+              <div className="bg-white/5 dark:bg-gray-800 rounded-xl p-4">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-sm text-gray-500 dark:text-gray-400">Package</span>
                   {package_.discount && (
-                    <span className="px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold rounded-full">
+                    <span className="px-2 py-0.5 bg-accent-green/20 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold rounded-full">
                       {package_.discount}% OFF
                     </span>
                   )}
@@ -92,7 +92,7 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
                       <Zap className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900 dark:text-white text-lg">
+                      <p className="font-bold text-white dark:text-white text-lg">
                         {package_.xp.toLocaleString()} XP
                       </p>
                       {package_.label && (
@@ -100,7 +100,7 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
                       )}
                     </div>
                   </div>
-                  <p className="text-xl font-bold text-gray-900 dark:text-white">
+                  <p className="text-xl font-bold text-white dark:text-white">
                     {formatPrice(package_.price, package_.currency)}
                   </p>
                 </div>
@@ -108,10 +108,10 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
 
               {/* Security Notice */}
               <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                <Shield className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <Shield className="w-5 h-5 text-primary-cyan dark:text-blue-400 flex-shrink-0 mt-0.5" />
                 <div className="text-sm">
                   <p className="font-medium text-blue-900 dark:text-blue-100">Secure Payment</p>
-                  <p className="text-blue-700 dark:text-blue-300 text-xs mt-0.5">
+                  <p className="text-primary-blue dark:text-blue-300 text-xs mt-0.5">
                     Your payment is processed securely via Stripe. We never store your card details.
                   </p>
                 </div>
@@ -134,14 +134,14 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
               <button
                 onClick={onClose}
                 disabled={isLoading}
-                className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors disabled:opacity-50"
+                className="flex-1 px-4 py-3 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-xl hover:bg-white/5 dark:hover:bg-gray-800 transition-colors disabled:opacity-50"
               >
                 Cancel
               </button>
               <button
                 onClick={onConfirm}
                 disabled={isLoading}
-                className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-3 bg-gradient-to-r from-primary-blue to-primary-purple text-white font-semibold rounded-xl hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {isLoading ? (
                   <>

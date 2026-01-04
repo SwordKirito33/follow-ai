@@ -80,7 +80,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className={`w-full ${className}`}>
         {label && (
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+          <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1.5">
             {label}
             {props.required && <span className="text-red-500 ml-1">*</span>}
           </label>
@@ -96,12 +96,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             className={`
               w-full px-4 py-3 rounded-xl border-2 transition-all duration-200
               bg-white dark:bg-gray-900
-              border-gray-300 dark:border-gray-700
+              border-white/20 dark:border-gray-700
               ${stateClasses}
               ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
               focus:outline-none focus:ring-4
               placeholder:text-gray-400 dark:placeholder:text-gray-500
-              text-gray-900 dark:text-white
+              text-white dark:text-white
               resize-none
             `}
             {...props}

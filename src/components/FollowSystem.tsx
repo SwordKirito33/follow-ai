@@ -61,16 +61,16 @@ export const FollowButton: React.FC<FollowButtonProps> = ({
       if (isHovered) {
         return 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-200 dark:border-red-800';
       }
-      return 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700';
+      return 'bg-white/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 border-white/10 dark:border-gray-700';
     }
 
     switch (variant) {
       case 'outline':
-        return 'bg-transparent border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20';
+        return 'bg-transparent border-blue-600 text-primary-cyan hover:bg-blue-50 dark:hover:bg-blue-900/20';
       case 'minimal':
-        return 'bg-transparent text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20';
+        return 'bg-transparent text-primary-cyan hover:bg-blue-50 dark:hover:bg-blue-900/20';
       default:
-        return 'bg-blue-600 text-white hover:bg-blue-700 border-blue-600';
+        return 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white hover:bg-blue-700 border-blue-600';
     }
   };
 
@@ -163,14 +163,14 @@ export const FollowList: React.FC<FollowListProps> = ({
             className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-              <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <div className="flex items-center justify-between p-4 border-b border-white/10 dark:border-gray-700">
+              <h2 className="text-lg font-bold text-white dark:text-white flex items-center gap-2">
                 <Users className="w-5 h-5" />
                 {type === 'followers' ? 'Followers' : 'Following'}
               </h2>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg"
               >
                 ✕
               </button>
@@ -187,7 +187,7 @@ export const FollowList: React.FC<FollowListProps> = ({
                 users.map((user) => (
                   <div
                     key={user.id}
-                    className="flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                    className="flex items-center justify-between p-4 hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">
@@ -202,7 +202,7 @@ export const FollowList: React.FC<FollowListProps> = ({
                         )}
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900 dark:text-white">
+                        <p className="font-semibold text-white dark:text-white">
                           {user.username}
                         </p>
                         <p className="text-sm text-gray-500">
@@ -251,17 +251,17 @@ export const FollowStats: React.FC<FollowStatsProps> = ({
         onClick={onFollowersClick}
         className="text-center hover:opacity-80 transition-opacity"
       >
-        <p className="text-2xl font-bold text-gray-900 dark:text-white">
+        <p className="text-2xl font-bold text-white dark:text-white">
           {followersCount.toLocaleString()}
         </p>
         <p className="text-sm text-gray-500">Followers</p>
       </button>
-      <div className="w-px h-10 bg-gray-200 dark:bg-gray-700" />
+      <div className="w-px h-10 bg-white/10 dark:bg-gray-700" />
       <button
         onClick={onFollowingClick}
         className="text-center hover:opacity-80 transition-opacity"
       >
-        <p className="text-2xl font-bold text-gray-900 dark:text-white">
+        <p className="text-2xl font-bold text-white dark:text-white">
           {followingCount.toLocaleString()}
         </p>
         <p className="text-sm text-gray-500">Following</p>

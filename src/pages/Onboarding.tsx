@@ -92,19 +92,19 @@ const Onboarding: React.FC = () => {
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-4xl relative z-10">
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
-            <h1 className="text-3xl font-black text-gray-900">Welcome to Follow.ai!</h1>
-            <span className="text-sm font-semibold text-gray-600">
+            <h1 className="text-3xl font-black text-white">Welcome to Follow.ai!</h1>
+            <span className="text-sm font-semibold text-gray-400">
               {Math.round(progress)}% Complete
             </span>
           </div>
-          <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-500"
+              className="h-full bg-gradient-to-r from-primary-blue to-primary-purple transition-all duration-500"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -113,17 +113,17 @@ const Onboarding: React.FC = () => {
         {/* Step Content */}
         <div className="glass-card rounded-xl p-8 mb-6">
           <div className="flex items-start gap-4 mb-6">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary-blue/20 flex items-center justify-center">
               {currentStepData.completed ? (
-                <CheckCircle className="text-blue-600" size={24} />
+                <CheckCircle className="text-primary-cyan" size={24} />
               ) : (
-                <span className="text-blue-600 font-bold text-lg">{currentStep + 1}</span>
+                <span className="text-primary-cyan font-bold text-lg">{currentStep + 1}</span>
               )}
             </div>
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">{currentStepData.title}</h2>
-              <p className="text-gray-600 mb-4">{currentStepData.description}</p>
-              <div className="flex items-center gap-2 text-sm text-blue-600 font-semibold">
+              <h2 className="text-2xl font-bold text-white mb-2">{currentStepData.title}</h2>
+              <p className="text-gray-400 mb-4">{currentStepData.description}</p>
+              <div className="flex items-center gap-2 text-sm text-primary-cyan font-semibold">
                 <Sparkles size={16} />
                 <span>Complete to earn +{currentStepData.xpReward} XP</span>
               </div>
@@ -149,7 +149,7 @@ const Onboarding: React.FC = () => {
               {currentStepData.completed ? 'Update' : 'Get started'}
             </FollowButton>
             {currentStepData.completed && (
-              <div className="flex items-center gap-2 text-green-600">
+              <div className="flex items-center gap-2 text-accent-green">
                 <CheckCircle size={20} />
                 <span className="font-semibold">Completed</span>
               </div>
@@ -175,18 +175,18 @@ const Onboarding: React.FC = () => {
                   <div
                     className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${
                       isCompleted
-                        ? 'bg-green-100'
+                        ? 'bg-accent-green/20'
                         : isActive
-                        ? 'bg-blue-100'
-                        : 'bg-gray-100'
+                        ? 'bg-primary-blue/20'
+                        : 'bg-white/10'
                     }`}
                   >
                     {isCompleted ? (
-                      <CheckCircle className="text-green-600" size={20} />
+                      <CheckCircle className="text-accent-green" size={20} />
                     ) : (
                       <span
                         className={`font-bold ${
-                          isActive ? 'text-blue-600' : 'text-gray-400'
+                          isActive ? 'text-primary-cyan' : 'text-gray-400'
                         }`}
                       >
                         {index + 1}
@@ -194,12 +194,12 @@ const Onboarding: React.FC = () => {
                     )}
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900">{step.title}</h3>
-                    <p className="text-sm text-gray-600">{step.description}</p>
+                    <h3 className="font-semibold text-white">{step.title}</h3>
+                    <p className="text-sm text-gray-400">{step.description}</p>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Sparkles size={14} className="text-blue-500" />
-                    <span className="font-semibold text-blue-600">+{step.xpReward} XP</span>
+                    <span className="font-semibold text-primary-cyan">+{step.xpReward} XP</span>
                   </div>
                 </div>
               </div>

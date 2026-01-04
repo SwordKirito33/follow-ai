@@ -167,7 +167,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
         className="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
       >
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+        <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-6 text-white">
           <div className="flex items-start justify-between">
             <div>
               <h2 className="text-xl font-bold">Submit Task</h2>
@@ -185,8 +185,8 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
         {/* Form */}
         <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-6">
           {/* Task description */}
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
+            <p className="text-sm text-gray-400 dark:text-gray-400">
               {taskDescription}
             </p>
           </div>
@@ -194,7 +194,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
           {/* Rating */}
           {requiredFields.rating && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                 Rate this AI tool {requiredFields.rating && <span className="text-red-500">*</span>}
               </label>
               <div className="flex gap-2">
@@ -211,7 +211,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
                       className={`w-8 h-8 ${
                         star <= (hoverRating || rating)
                           ? 'fill-yellow-400 text-yellow-400'
-                          : 'text-gray-300 dark:text-gray-600'
+                          : 'text-gray-300 dark:text-gray-400'
                       }`}
                     />
                   </button>
@@ -228,7 +228,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
 
           {/* Feedback */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
               <MessageSquare className="w-4 h-4 inline mr-1" />
               Your Feedback {requiredFields.feedback && <span className="text-red-500">*</span>}
             </label>
@@ -237,10 +237,10 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
               onChange={(e) => setFeedback(e.target.value)}
               placeholder="Share your experience with this AI tool. What did you like? What could be improved?"
               rows={5}
-              className={`w-full px-4 py-3 rounded-xl border-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none resize-none transition-colors ${
+              className={`w-full px-4 py-3 rounded-xl border-2 bg-white dark:bg-gray-800 text-white dark:text-white focus:outline-none resize-none transition-colors ${
                 errors.feedback
                   ? 'border-red-500 focus:border-red-500'
-                  : 'border-gray-200 dark:border-gray-700 focus:border-blue-500'
+                  : 'border-white/10 dark:border-gray-700 focus:border-blue-500'
               }`}
             />
             <div className="flex justify-between mt-1">
@@ -255,7 +255,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
               <span
                 className={`text-sm ${
                   characterCount >= minCharacters
-                    ? 'text-green-600'
+                    ? 'text-accent-green'
                     : 'text-gray-500'
                 }`}
               >
@@ -267,7 +267,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
           {/* URL */}
           {requiredFields.url && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                 <Link2 className="w-4 h-4 inline mr-1" />
                 Related URL {requiredFields.url && <span className="text-red-500">*</span>}
               </label>
@@ -276,10 +276,10 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="https://example.com"
-                className={`w-full px-4 py-3 rounded-xl border-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none transition-colors ${
+                className={`w-full px-4 py-3 rounded-xl border-2 bg-white dark:bg-gray-800 text-white dark:text-white focus:outline-none transition-colors ${
                   errors.url
                     ? 'border-red-500 focus:border-red-500'
-                    : 'border-gray-200 dark:border-gray-700 focus:border-blue-500'
+                    : 'border-white/10 dark:border-gray-700 focus:border-blue-500'
                 }`}
               />
               {errors.url && (
@@ -293,7 +293,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
 
           {/* Screenshots */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
               <Image className="w-4 h-4 inline mr-1" />
               Screenshots {requiredFields.screenshots && <span className="text-red-500">*</span>}
               <span className="text-gray-500 font-normal ml-1">(max 5)</span>
@@ -311,7 +311,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
                   ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
                   : errors.screenshots
                   ? 'border-red-500 bg-red-50 dark:bg-red-900/20'
-                  : 'border-gray-300 dark:border-gray-600 hover:border-blue-400'
+                  : 'border-white/20 dark:border-gray-600 hover:border-blue-400'
               }`}
             >
               <input
@@ -323,7 +323,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
                 className="hidden"
               />
               <Upload className="w-10 h-10 mx-auto mb-3 text-gray-400" />
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-400 dark:text-gray-400">
                 Drag and drop images here, or click to select
               </p>
               <p className="text-sm text-gray-500 mt-1">
@@ -363,18 +363,18 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
         </form>
 
         {/* Footer */}
-        <div className="p-6 border-t border-gray-200 dark:border-gray-700 flex gap-3">
+        <div className="p-6 border-t border-white/10 dark:border-gray-700 flex gap-3">
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+            className="flex-1 py-3 border-2 border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 rounded-xl font-medium hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
           >
             Cancel
           </button>
           <button
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all disabled:opacity-50"
+            className="flex-1 py-3 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all disabled:opacity-50"
           >
             {isSubmitting ? (
               <>

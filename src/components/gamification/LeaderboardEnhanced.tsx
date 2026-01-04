@@ -167,7 +167,7 @@ export const LeaderboardEnhanced: React.FC<LeaderboardEnhancedProps> = ({
                 </div>
                 <p className="mt-4 font-medium text-foreground truncate max-w-[80px]">{top3[1].name}</p>
                 <p className="text-sm text-muted-foreground">{getValueByType(top3[1])}</p>
-                <div className="mt-2 h-20 w-20 bg-gray-200 rounded-t-lg mx-auto" />
+                <div className="mt-2 h-20 w-20 bg-white/10 rounded-t-lg mx-auto" />
               </div>
 
               {/* 第一名 */}

@@ -111,38 +111,38 @@ const CookieConsent: React.FC = () => {
           exit={{ y: 100, opacity: 0 }}
           className="fixed bottom-0 left-0 right-0 z-[9999] p-4"
         >
-          <div className="max-w-4xl mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <div className="max-w-4xl mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden">
             {!showSettings ? (
               // Main banner
               <div className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Cookie className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <div className="w-12 h-12 bg-primary-blue/20 dark:bg-blue-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Cookie className="w-6 h-6 text-primary-cyan dark:text-blue-400" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                    <h3 className="text-lg font-bold text-white dark:text-white mb-2">
                       We value your privacy
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                    <p className="text-gray-400 dark:text-gray-400 text-sm mb-4">
                       We use cookies to enhance your browsing experience, serve personalized content, 
                       and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
                     </p>
                     <div className="flex flex-wrap items-center gap-3">
                       <button
                         onClick={handleAcceptAll}
-                        className="px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
+                        className="px-6 py-2.5 bg-gradient-to-r from-primary-cyan to-primary-blue text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
                       >
                         Accept All
                       </button>
                       <button
                         onClick={handleRejectAll}
-                        className="px-6 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                        className="px-6 py-2.5 bg-white/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300 font-semibold rounded-xl hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
                       >
                         Reject All
                       </button>
                       <button
                         onClick={() => setShowSettings(true)}
-                        className="flex items-center gap-2 px-4 py-2.5 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                        className="flex items-center gap-2 px-4 py-2.5 text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white transition-colors"
                       >
                         <Settings className="w-4 h-4" />
                         Customize
@@ -154,14 +154,14 @@ const CookieConsent: React.FC = () => {
             ) : (
               // Settings panel
               <div>
-                <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div className="p-6 border-b border-white/10 dark:border-gray-700">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-lg font-bold text-white dark:text-white">
                       Cookie Preferences
                     </h3>
                     <button
                       onClick={() => setShowSettings(false)}
-                      className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                      className="p-2 text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -172,16 +172,16 @@ const CookieConsent: React.FC = () => {
                   {cookieTypes.map((type) => (
                     <div
                       key={type.key}
-                      className="flex items-start justify-between gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl"
+                      className="flex items-start justify-between gap-4 p-4 bg-white/5 dark:bg-gray-800 rounded-xl"
                     >
                       <div>
-                        <p className="font-semibold text-gray-900 dark:text-white">
+                        <p className="font-semibold text-white dark:text-white">
                           {type.label}
                           {type.required && (
                             <span className="ml-2 text-xs text-gray-500">(Required)</span>
                           )}
                         </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                        <p className="text-sm text-gray-400 dark:text-gray-400 mt-1">
                           {type.description}
                         </p>
                       </div>
@@ -197,7 +197,7 @@ const CookieConsent: React.FC = () => {
                         disabled={type.required}
                         className={`relative w-12 h-6 rounded-full transition-colors ${
                           preferences[type.key]
-                            ? 'bg-blue-600'
+                            ? 'bg-gradient-to-r from-primary-cyan to-primary-blue'
                             : 'bg-gray-300 dark:bg-gray-600'
                         } ${type.required ? 'opacity-50 cursor-not-allowed' : ''}`}
                       >
@@ -211,16 +211,16 @@ const CookieConsent: React.FC = () => {
                   ))}
                 </div>
 
-                <div className="p-6 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-3">
+                <div className="p-6 border-t border-white/10 dark:border-gray-700 flex justify-end gap-3">
                   <button
                     onClick={() => setShowSettings(false)}
-                    className="px-6 py-2.5 text-gray-600 dark:text-gray-400 font-semibold hover:text-gray-900 dark:hover:text-white transition-colors"
+                    className="px-6 py-2.5 text-gray-400 dark:text-gray-400 font-semibold hover:text-white dark:hover:text-white transition-colors"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleSavePreferences}
-                    className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
+                    className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-primary-cyan to-primary-blue text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
                   >
                     <Check className="w-4 h-4" />
                     Save Preferences

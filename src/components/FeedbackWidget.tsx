@@ -52,21 +52,21 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
       icon: <Lightbulb className="w-6 h-6" />,
       label: 'Feature Request',
       description: 'Suggest a new feature or improvement',
-      color: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600',
+      color: 'bg-accent-gold/20 dark:bg-yellow-900/30 text-accent-gold',
     },
     {
       type: 'question' as FeedbackType,
       icon: <HelpCircle className="w-6 h-6" />,
       label: 'Ask a Question',
       description: 'Need help with something',
-      color: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600',
+      color: 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan',
     },
     {
       type: 'other' as FeedbackType,
       icon: <MessageSquare className="w-6 h-6" />,
       label: 'General Feedback',
       description: 'Share your thoughts with us',
-      color: 'bg-purple-100 dark:bg-purple-900/30 text-purple-600',
+      color: 'bg-primary-purple/20 dark:bg-purple-900/30 text-primary-purple',
     },
   ];
 
@@ -125,7 +125,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
         onClick={() => setIsOpen(true)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className={`fixed bottom-6 right-6 z-40 p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-shadow ${className}`}
+        className={`fixed bottom-6 right-6 z-40 p-4 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-full shadow-lg hover:shadow-xl transition-shadow ${className}`}
       >
         <MessageSquare className="w-6 h-6" />
       </motion.button>
@@ -151,7 +151,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
               className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden"
             >
               {/* Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 text-white">
+              <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-4 text-white">
                 <div className="flex items-center justify-between">
                   <h2 className="text-lg font-bold flex items-center gap-2">
                     <MessageSquare className="w-5 h-5" />
@@ -180,20 +180,20 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                       exit={{ opacity: 0, x: 20 }}
                       className="space-y-3"
                     >
-                      <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      <p className="text-gray-400 dark:text-gray-400 mb-4">
                         What would you like to share with us?
                       </p>
                       {feedbackTypes.map((type) => (
                         <button
                           key={type.type}
                           onClick={() => handleTypeSelect(type.type)}
-                          className="w-full p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-colors flex items-center gap-4 text-left"
+                          className="w-full p-4 rounded-xl border-2 border-white/10 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-colors flex items-center gap-4 text-left"
                         >
                           <div className={`p-3 rounded-xl ${type.color}`}>
                             {type.icon}
                           </div>
                           <div>
-                            <p className="font-semibold text-gray-900 dark:text-white">
+                            <p className="font-semibold text-white dark:text-white">
                               {type.label}
                             </p>
                             <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -217,7 +217,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                       {/* Rating (for general feedback) */}
                       {feedbackType === 'other' && (
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                          <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                             How's your experience?
                           </label>
                           <div className="flex gap-2">
@@ -226,7 +226,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                               className={`flex-1 p-3 rounded-xl border-2 transition-colors flex items-center justify-center gap-2 ${
                                 rating === 1
                                   ? 'border-red-500 bg-red-50 dark:bg-red-900/20 text-red-600'
-                                  : 'border-gray-200 dark:border-gray-700 hover:border-red-300'
+                                  : 'border-white/10 dark:border-gray-700 hover:border-red-300'
                               }`}
                             >
                               <ThumbsDown className="w-5 h-5" />
@@ -236,8 +236,8 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                               onClick={() => setRating(5)}
                               className={`flex-1 p-3 rounded-xl border-2 transition-colors flex items-center justify-center gap-2 ${
                                 rating === 5
-                                  ? 'border-green-500 bg-green-50 dark:bg-green-900/20 text-green-600'
-                                  : 'border-gray-200 dark:border-gray-700 hover:border-green-300'
+                                  ? 'border-green-500 bg-green-50 dark:bg-green-900/20 text-accent-green'
+                                  : 'border-white/10 dark:border-gray-700 hover:border-green-300'
                               }`}
                             >
                               <ThumbsUp className="w-5 h-5" />
@@ -249,7 +249,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
 
                       {/* Message */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                           {feedbackType === 'bug'
                             ? 'Describe the bug'
                             : feedbackType === 'feature'
@@ -269,7 +269,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                               : 'Type your message here...'
                           }
                           rows={4}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none resize-none"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-white/10 dark:border-gray-700 bg-white dark:bg-gray-800 text-white dark:text-white focus:border-blue-500 focus:outline-none resize-none"
                         />
                       </div>
 
@@ -279,8 +279,8 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                           onClick={handleScreenshot}
                           className={`w-full p-3 rounded-xl border-2 transition-colors flex items-center justify-center gap-2 ${
                             screenshot
-                              ? 'border-green-500 bg-green-50 dark:bg-green-900/20 text-green-600'
-                              : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 text-gray-600 dark:text-gray-400'
+                              ? 'border-green-500 bg-green-50 dark:bg-green-900/20 text-accent-green'
+                              : 'border-white/10 dark:border-gray-700 hover:border-blue-300 text-gray-400 dark:text-gray-400'
                           }`}
                         >
                           {screenshot ? (
@@ -299,7 +299,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
 
                       {/* Email (optional) */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                           Email (optional)
                         </label>
                         <input
@@ -307,7 +307,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="your@email.com"
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-white/10 dark:border-gray-700 bg-white dark:bg-gray-800 text-white dark:text-white focus:border-blue-500 focus:outline-none"
                         />
                         <p className="text-xs text-gray-500 mt-1">
                           We'll only use this to follow up on your feedback
@@ -318,14 +318,14 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                       <div className="flex gap-2 pt-2">
                         <button
                           onClick={() => setStep('type')}
-                          className="px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl font-medium transition-colors"
+                          className="px-4 py-3 text-gray-400 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800 rounded-xl font-medium transition-colors"
                         >
                           Back
                         </button>
                         <button
                           onClick={handleSubmit}
                           disabled={!message.trim() || isSubmitting}
-                          className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="flex-1 py-3 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           {isSubmitting ? (
                             <motion.div
@@ -356,19 +356,19 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                        className="w-20 h-20 mx-auto mb-4 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center"
+                        className="w-20 h-20 mx-auto mb-4 bg-accent-green/20 dark:bg-green-900/30 rounded-full flex items-center justify-center"
                       >
-                        <Check className="w-10 h-10 text-green-600" />
+                        <Check className="w-10 h-10 text-accent-green" />
                       </motion.div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      <h3 className="text-xl font-bold text-white dark:text-white mb-2">
                         Feedback Sent!
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-6">
+                      <p className="text-gray-400 dark:text-gray-400 mb-6">
                         Thank you for helping us improve Follow.ai. We really appreciate it!
                       </p>
                       <button
                         onClick={handleClose}
-                        className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:shadow-lg transition-all"
+                        className="px-8 py-3 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl font-medium hover:shadow-lg transition-all"
                       >
                         Done
                       </button>

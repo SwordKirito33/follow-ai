@@ -37,7 +37,7 @@ function MenuButton({ isOpen, onClick }: MenuButtonProps) {
   return (
     <button
       onClick={onClick}
-      className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      className="lg:hidden p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-colors"
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
     >
       <div className="w-6 h-5 relative flex flex-col justify-between">
@@ -81,8 +81,8 @@ function NavLink({ item, isActive, onClick, mobile }: NavLinkProps) {
     : 'flex items-center gap-2 px-3 py-2 rounded-lg transition-colors text-sm font-medium';
 
   const activeClasses = isActive
-    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800';
+    ? 'bg-blue-50 dark:bg-blue-900/30 text-primary-cyan dark:text-blue-400'
+    : 'text-gray-400 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800';
 
   return (
     <Link href={item.href}>
@@ -90,7 +90,7 @@ function NavLink({ item, isActive, onClick, mobile }: NavLinkProps) {
         {item.icon && <span className="flex-shrink-0">{item.icon}</span>}
         <span>{item.label}</span>
         {item.badge && (
-          <span className="ml-auto px-2 py-0.5 text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full">
+          <span className="ml-auto px-2 py-0.5 text-xs bg-primary-blue/20 dark:bg-blue-900 text-primary-cyan dark:text-blue-400 rounded-full">
             {item.badge}
           </span>
         )}
@@ -153,11 +153,11 @@ function MobileMenu({ isOpen, onClose, items, actions }: MobileMenuProps) {
       >
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-            <span className="text-lg font-semibold text-gray-900 dark:text-white">Menu</span>
+          <div className="flex items-center justify-between p-4 border-b border-white/10 dark:border-gray-700">
+            <span className="text-lg font-semibold text-white dark:text-white">Menu</span>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="p-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -197,7 +197,7 @@ function MobileMenu({ isOpen, onClose, items, actions }: MobileMenuProps) {
 
           {/* Actions */}
           {actions && (
-            <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="p-4 border-t border-white/10 dark:border-gray-700">
               {actions}
             </div>
           )}
@@ -219,7 +219,7 @@ export function ResponsiveNav({ items, logo, actions, className }: NavProps) {
     <>
       <header
         className={cn(
-          'sticky top-0 z-30 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700',
+          'sticky top-0 z-30 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-white/10 dark:border-gray-700',
           className
         )}
       >
@@ -278,7 +278,7 @@ export function BottomNav({ items, className }: BottomNavProps) {
     <nav
       className={cn(
         'fixed bottom-0 left-0 right-0 z-30 lg:hidden',
-        'bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700',
+        'bg-white dark:bg-gray-900 border-t border-white/10 dark:border-gray-700',
         'safe-area-inset-bottom',
         className
       )}
@@ -292,7 +292,7 @@ export function BottomNav({ items, className }: BottomNavProps) {
                 className={cn(
                   'flex flex-col items-center justify-center flex-1 h-full px-2 transition-colors',
                   isActive
-                    ? 'text-blue-600 dark:text-blue-400'
+                    ? 'text-primary-cyan dark:text-blue-400'
                     : 'text-gray-500 dark:text-gray-400'
                 )}
               >

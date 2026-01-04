@@ -162,7 +162,7 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Search Input */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10 dark:border-gray-700">
               <Search className="w-5 h-5 text-gray-400" />
               <input
                 ref={inputRef}
@@ -171,17 +171,17 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Search pages, tasks, tools..."
-                className="flex-1 bg-transparent text-gray-900 dark:text-white placeholder-gray-400 outline-none text-lg"
+                className="flex-1 bg-transparent text-white dark:text-white placeholder-gray-400 outline-none text-lg"
               />
               {query && (
                 <button
                   onClick={() => setQuery('')}
-                  className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
+                  className="p-1 hover:bg-white/10 dark:hover:bg-gray-800 rounded"
                 >
                   <X className="w-4 h-4 text-gray-400" />
                 </button>
               )}
-              <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs text-gray-500">
+              <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-white/10 dark:bg-gray-800 rounded text-xs text-gray-500">
                 <Command className="w-3 h-3" />K
               </kbd>
             </div>
@@ -197,7 +197,7 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
                     </span>
                     <button
                       onClick={clearRecentSearches}
-                      className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                      className="text-xs text-gray-400 hover:text-gray-400 dark:hover:text-gray-300"
                     >
                       Clear
                     </button>
@@ -206,10 +206,10 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
                     <button
                       key={index}
                       onClick={() => setQuery(search)}
-                      className="flex items-center gap-2 w-full px-3 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                      className="flex items-center gap-2 w-full px-3 py-2 text-left hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
                     >
                       <Clock className="w-4 h-4 text-gray-400" />
-                      <span className="text-sm text-gray-700 dark:text-gray-300">{search}</span>
+                      <span className="text-sm text-gray-300 dark:text-gray-300">{search}</span>
                     </button>
                   ))}
                 </div>
@@ -230,11 +230,11 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
                       onMouseEnter={() => setSelectedIndex(index)}
                       className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-lg transition-colors ${
                         index === selectedIndex
-                          ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
-                          : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                          ? 'bg-blue-50 dark:bg-blue-900/20 text-primary-cyan dark:text-blue-400'
+                          : 'hover:bg-white/10 dark:hover:bg-gray-800 text-gray-300 dark:text-gray-300'
                       }`}
                     >
-                      <div className={`flex-shrink-0 ${index === selectedIndex ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400'}`}>
+                      <div className={`flex-shrink-0 ${index === selectedIndex ? 'text-primary-cyan dark:text-blue-400' : 'text-gray-400'}`}>
                         {result.icon || <FileText className="w-4 h-4" />}
                       </div>
                       <div className="flex-1 text-left">
@@ -253,28 +253,28 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
                 </div>
               ) : (
                 <div className="py-8 text-center">
-                  <Search className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-3" />
+                  <Search className="w-12 h-12 text-gray-300 dark:text-gray-400 mx-auto mb-3" />
                   <p className="text-gray-500 dark:text-gray-400">No results found</p>
                 </div>
               )}
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-3 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+            <div className="px-4 py-3 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50">
               <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
                 <div className="flex items-center gap-4">
                   <span className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">↑</kbd>
-                    <kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">↓</kbd>
+                    <kbd className="px-1.5 py-0.5 bg-white/10 dark:bg-gray-700 rounded">↑</kbd>
+                    <kbd className="px-1.5 py-0.5 bg-white/10 dark:bg-gray-700 rounded">↓</kbd>
                     to navigate
                   </span>
                   <span className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">↵</kbd>
+                    <kbd className="px-1.5 py-0.5 bg-white/10 dark:bg-gray-700 rounded">↵</kbd>
                     to select
                   </span>
                 </div>
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">esc</kbd>
+                  <kbd className="px-1.5 py-0.5 bg-white/10 dark:bg-gray-700 rounded">esc</kbd>
                   to close
                 </span>
               </div>

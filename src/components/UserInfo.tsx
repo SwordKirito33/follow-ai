@@ -48,14 +48,14 @@ const UserInfo: React.FC<UserInfoProps> = ({
               className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-white"
             />
             <div className="mb-2">
-              <h1 className="text-3xl font-black text-gray-900 tracking-tight">{displayName}</h1>
-              <p className="text-gray-600 font-medium">
+              <h1 className="text-3xl font-black text-white tracking-tight">{displayName}</h1>
+              <p className="text-gray-400 font-medium">
                 {email} • Joined {formattedDate}
               </p>
               <div className="flex items-center gap-2 mt-2">
-                <span className="text-sm font-semibold text-blue-600">Level {level}</span>
+                <span className="text-sm font-semibold text-primary-cyan">Level {level}</span>
                 <span className="text-gray-400">•</span>
-                <span className="text-sm text-gray-600">{totalXp.toLocaleString()} XP</span>
+                <span className="text-sm text-gray-400">{totalXp.toLocaleString()} XP</span>
               </div>
             </div>
           </div>

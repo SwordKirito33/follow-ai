@@ -114,12 +114,12 @@ const LevelUpAnimation: React.FC<LevelUpAnimationProps> = ({
                   </h2>
                   <div className="flex items-center justify-center gap-2 mb-4">
                     <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                    <span className="text-5xl font-black text-gray-900 dark:text-white">
+                    <span className="text-5xl font-black text-white dark:text-white">
                       {newLevel}
                     </span>
                     <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
                   </div>
-                  <p className="text-lg font-semibold text-gray-600 dark:text-gray-400 mb-6">
+                  <p className="text-lg font-semibold text-gray-400 dark:text-gray-400 mb-6">
                     {levelName}
                   </p>
                 </motion.div>
@@ -142,7 +142,7 @@ const LevelUpAnimation: React.FC<LevelUpAnimationProps> = ({
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.8 }}
                   onClick={onClose}
-                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all"
+                  className="px-8 py-3 bg-gradient-to-r from-primary-blue to-primary-purple text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all"
                 >
                   Awesome!
                 </motion.button>

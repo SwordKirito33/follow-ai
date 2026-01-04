@@ -34,7 +34,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden animate-slideUp">
         {/* Header */}
-        <div className="relative p-6 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="relative p-6 border-b border-white/10 bg-gradient-to-r from-primary-blue to-primary-purple text-white">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
@@ -46,7 +46,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Tool Selector */}
-        <div className="p-6 border-b border-gray-200 relative">
+        <div className="p-6 border-b border-white/10 relative">
           <div className="flex items-center gap-4 flex-wrap">
             {comparedTools.map(tool => (
               <div key={tool.id} className="flex items-center gap-2 glass-card px-4 py-2 rounded-lg">
@@ -54,7 +54,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
                 <span className="font-semibold text-sm">{tool.name}</span>
                 <button
                   onClick={() => removeTool(tool.id)}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-gray-400 hover:text-gray-400"
                 >
                   <X size={16} />
                 </button>
@@ -65,7 +65,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
               <div className="relative">
                 <button
                   onClick={() => setShowToolSelector(!showToolSelector)}
-                  className="flex items-center gap-2 glass-card px-4 py-2 rounded-lg border-2 border-dashed border-gray-300 hover:border-blue-500 transition-colors"
+                  className="flex items-center gap-2 glass-card px-4 py-2 rounded-lg border-2 border-dashed border-white/20 hover:border-blue-500 transition-colors"
                 >
                   <Plus size={20} />
                   <span className="text-sm font-medium">{t('comparison.addTool')}</span>
@@ -81,7 +81,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
                           <button
                             key={tool.id}
                             onClick={() => addTool(tool.id)}
-                            className="w-full flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition-colors text-left"
+                            className="w-full flex items-center gap-3 px-3 py-2 hover:bg-white/10 rounded-lg transition-colors text-left"
                           >
                             <img src={tool.logo} alt={tool.name} className="w-8 h-8 rounded" />
                             <div>
@@ -104,8 +104,8 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
           <div className="p-6 overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="pb-3 pr-4 font-semibold text-gray-700">{t('comparison.feature')}</th>
+                <tr className="border-b-2 border-white/10">
+                  <th className="pb-3 pr-4 font-semibold text-gray-300">{t('comparison.feature')}</th>
                   {comparedTools.map(tool => (
                     <th key={tool.id} className="pb-3 pr-4 text-center">
                       <div className="flex flex-col items-center gap-2">
@@ -117,7 +117,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-100">
+                <tr className="border-b border-white/10">
                   <td className="py-4 pr-4 font-medium">{t('comparison.rating')}</td>
                   {comparedTools.map(tool => (
                     <td key={tool.id} className="py-4 pr-4 text-center">
@@ -128,7 +128,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
                     </td>
                   ))}
                 </tr>
-                <tr className="border-b border-gray-100">
+                <tr className="border-b border-white/10">
                   <td className="py-4 pr-4 font-medium">{t('comparison.reviews')}</td>
                   {comparedTools.map(tool => (
                     <td key={tool.id} className="py-4 pr-4 text-center font-semibold">
@@ -136,22 +136,22 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
                     </td>
                   ))}
                 </tr>
-                <tr className="border-b border-gray-100">
+                <tr className="border-b border-white/10">
                   <td className="py-4 pr-4 font-medium">{t('comparison.growth')}</td>
                   {comparedTools.map(tool => (
                     <td key={tool.id} className="py-4 pr-4 text-center">
-                      <span className="text-green-600 font-semibold flex items-center justify-center gap-1">
+                      <span className="text-accent-green font-semibold flex items-center justify-center gap-1">
                         <TrendingUp size={14} />
                         {tool.growth}
                       </span>
                     </td>
                   ))}
                 </tr>
-                <tr className="border-b border-gray-100">
+                <tr className="border-b border-white/10">
                   <td className="py-4 pr-4 font-medium">{t('comparison.category')}</td>
                   {comparedTools.map(tool => (
                     <td key={tool.id} className="py-4 pr-4 text-center">
-                      <span className="text-xs bg-gray-100 px-2 py-1 rounded-full">{tool.category}</span>
+                      <span className="text-xs bg-white/10 px-2 py-1 rounded-full">{tool.category}</span>
                     </td>
                   ))}
                 </tr>
@@ -161,7 +161,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
                     <td key={tool.id} className="py-4 pr-4 text-center">
                       <div className="flex flex-wrap gap-1 justify-center">
                         {tool.useCases?.slice(0, 3).map((uc, idx) => (
-                          <span key={idx} className="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded">
+                          <span key={idx} className="text-xs bg-blue-50 text-primary-blue px-2 py-0.5 rounded">
                             {uc}
                           </span>
                         ))}
@@ -179,7 +179,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
             <p className="text-gray-500 mb-4">{t('comparison.selectTools')}</p>
             <button
               onClick={() => setShowToolSelector(true)}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              className="bg-gradient-to-r from-primary-cyan to-primary-blue hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
             >
               {t('comparison.addFirstTool')}
             </button>

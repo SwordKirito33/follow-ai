@@ -85,7 +85,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         {(label || description) && (
           <div className="flex-1">
             {label && (
-              <span className="text-sm font-medium text-gray-900 dark:text-white">
+              <span className="text-sm font-medium text-white dark:text-white">
                 {label}
               </span>
             )}
@@ -169,7 +169,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
-                className={`${dotSizes[size]} rounded-full bg-blue-600`}
+                className={`${dotSizes[size]} rounded-full bg-gradient-to-r from-primary-cyan to-primary-blue`}
               />
             )}
           </motion.div>
@@ -178,7 +178,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         {(label || description) && (
           <div className="flex-1">
             {label && (
-              <span className="text-sm font-medium text-gray-900 dark:text-white">
+              <span className="text-sm font-medium text-white dark:text-white">
                 {label}
               </span>
             )}
@@ -227,7 +227,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
   return (
     <div className={className}>
       {label && (
-        <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+        <p className="text-sm font-medium text-gray-300 dark:text-gray-300 mb-3">
           {label}
         </p>
       )}

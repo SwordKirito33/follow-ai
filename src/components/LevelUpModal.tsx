@@ -147,7 +147,7 @@ const LevelUpModal: React.FC<LevelUpModalProps> = ({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                   onClick={onClose}
-                  className="w-full bg-white text-blue-600 font-bold py-4 px-6 rounded-xl hover:bg-white/90 transition-colors shadow-lg"
+                  className="w-full bg-white text-primary-cyan font-bold py-4 px-6 rounded-xl hover:bg-white/90 transition-colors shadow-lg"
                 >
                   Continue
                 </motion.button>

@@ -49,11 +49,11 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
 
   return (
     <div className="glass-card rounded-xl shadow-xl p-6">
-      <h2 className="text-xl font-black text-gray-900 mb-6 tracking-tight">Review Submission</h2>
+      <h2 className="text-xl font-black text-white mb-6 tracking-tight">Review Submission</h2>
 
       {isReviewed ? (
         <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
-          <CheckCircle size={24} className="text-green-600 mx-auto mb-2" />
+          <CheckCircle size={24} className="text-accent-green mx-auto mb-2" />
           <p className="text-sm font-semibold text-green-700">
             This submission has been {currentStatus}
           </p>
@@ -71,7 +71,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
             </div>
           )}
           {currentFeedback && (
-            <div className="mt-2 text-sm text-gray-600 bg-white rounded p-2">
+            <div className="mt-2 text-sm text-gray-400 bg-white rounded p-2">
               {currentFeedback}
             </div>
           )}
@@ -80,21 +80,21 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
         <div className="space-y-6">
           {/* Action Selection */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">Action</label>
+            <label className="block text-sm font-semibold text-gray-300 mb-3">Action</label>
             <div className="grid grid-cols-2 gap-4">
               <button
                 onClick={() => setAction('approve')}
                 className={`p-4 rounded-lg border-2 transition-all ${
                   action === 'approve'
                     ? 'bg-green-50 border-green-500 shadow-md'
-                    : 'bg-white border-gray-200 hover:border-gray-300'
+                    : 'bg-white border-white/10 hover:border-white/20'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <CheckCircle size={20} className={action === 'approve' ? 'text-green-600' : 'text-gray-400'} />
-                  <span className="font-semibold text-gray-900">Approve</span>
+                  <CheckCircle size={20} className={action === 'approve' ? 'text-accent-green' : 'text-gray-400'} />
+                  <span className="font-semibold text-white">Approve</span>
                 </div>
-                <p className="text-xs text-gray-600">Accept this submission</p>
+                <p className="text-xs text-gray-400">Accept this submission</p>
               </button>
 
               <button
@@ -102,14 +102,14 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
                 className={`p-4 rounded-lg border-2 transition-all ${
                   action === 'reject'
                     ? 'bg-red-50 border-red-500 shadow-md'
-                    : 'bg-white border-gray-200 hover:border-gray-300'
+                    : 'bg-white border-white/10 hover:border-white/20'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <XCircle size={20} className={action === 'reject' ? 'text-red-600' : 'text-gray-400'} />
-                  <span className="font-semibold text-gray-900">Reject</span>
+                  <span className="font-semibold text-white">Reject</span>
                 </div>
-                <p className="text-xs text-gray-600">Reject this submission</p>
+                <p className="text-xs text-gray-400">Reject this submission</p>
               </button>
             </div>
           </div>
@@ -117,7 +117,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
           {/* Rating (only for approval) */}
           {action === 'approve' && (
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-3">
+              <label className="block text-sm font-semibold text-gray-300 mb-3">
                 Rating <span className="text-red-500">*</span>
               </label>
               <div className="flex items-center gap-2">
@@ -134,14 +134,14 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
                     />
                   </button>
                 ))}
-                <span className="ml-2 text-sm text-gray-600">{rating}/5</span>
+                <span className="ml-2 text-sm text-gray-400">{rating}/5</span>
               </div>
             </div>
           )}
 
           {/* Feedback */}
           <div>
-            <label htmlFor="feedback" className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="feedback" className="block text-sm font-semibold text-gray-300 mb-2">
               Feedback {action === 'approve' ? '(optional)' : ''}
             </label>
             <textarea
@@ -150,7 +150,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
               onChange={(e) => setFeedback(e.target.value)}
               rows={4}
               placeholder={action === 'approve' ? 'Add feedback for the tester...' : 'Explain why this submission was rejected...'}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none"
+              className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none"
             />
           </div>
 

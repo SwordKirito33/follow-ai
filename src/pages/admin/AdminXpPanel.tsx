@@ -92,8 +92,8 @@ const AdminXpPanel: React.FC = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Checking permissions...</p>
+          <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Checking permissions...</p>
         </div>
       </div>
     );
@@ -101,11 +101,11 @@ const AdminXpPanel: React.FC = () => {
 
   if (!isAdmin) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20">
+      <div className="min-h-screen flex items-center justify-center bg-transparent">
         <div className="text-center max-w-md mx-auto p-8">
           <Shield size={48} className="mx-auto mb-4 text-red-600" />
           <h2 className="text-3xl font-black gradient-text mb-4">Access Denied</h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-400 mb-6">
             You do not have admin permissions to access this panel.
           </p>
         </div>
@@ -119,22 +119,22 @@ const AdminXpPanel: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Shield size={32} className="text-blue-600" />
+            <Shield size={32} className="text-primary-cyan" />
             <h1 className="text-4xl sm:text-5xl font-black gradient-text tracking-tight">
               Admin XP Panel
             </h1>
           </div>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-400">
             Grant or revoke XP for users (event-sourced)
           </p>
         </div>
 
         {/* Form */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+        <div className="bg-white rounded-xl shadow-lg border border-white/10 p-6">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* User ID */}
             <div>
-              <label htmlFor="userId" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="userId" className="block text-sm font-semibold text-gray-300 mb-2">
                 User ID <span className="text-red-500">*</span>
               </label>
               <div className="relative">
@@ -146,14 +146,14 @@ const AdminXpPanel: React.FC = () => {
                   onChange={(e) => setUserId(e.target.value)}
                   placeholder="Enter user UUID"
                   required
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                 />
               </div>
             </div>
 
             {/* XP Amount */}
             <div>
-              <label htmlFor="xpAmount" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="xpAmount" className="block text-sm font-semibold text-gray-300 mb-2">
                 XP Amount <span className="text-red-500">*</span>
                 <span className="text-xs text-gray-500 font-normal ml-2">
                   (positive to grant, negative to revoke)
@@ -161,7 +161,7 @@ const AdminXpPanel: React.FC = () => {
               </label>
               <div className="relative">
                 {parseInt(xpAmount) > 0 ? (
-                  <Plus className="absolute left-3 top-1/2 transform -translate-y-1/2 text-green-600" size={20} />
+                  <Plus className="absolute left-3 top-1/2 transform -translate-y-1/2 text-accent-green" size={20} />
                 ) : parseInt(xpAmount) < 0 ? (
                   <Minus className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-600" size={20} />
                 ) : (
@@ -174,14 +174,14 @@ const AdminXpPanel: React.FC = () => {
                   onChange={(e) => setXpAmount(e.target.value)}
                   placeholder="e.g., 100 or -50"
                   required
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                 />
               </div>
             </div>
 
             {/* Reason */}
             <div>
-              <label htmlFor="reason" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="reason" className="block text-sm font-semibold text-gray-300 mb-2">
                 Reason (optional)
               </label>
               <textarea
@@ -190,7 +190,7 @@ const AdminXpPanel: React.FC = () => {
                 onChange={(e) => setReason(e.target.value)}
                 placeholder="Reason for this XP adjustment..."
                 rows={3}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none"
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none"
               />
             </div>
 
@@ -208,7 +208,7 @@ const AdminXpPanel: React.FC = () => {
             {/* Success Message */}
             {success && (
               <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-green-600 font-semibold">{success}</p>
+                <p className="text-accent-green font-semibold">{success}</p>
               </div>
             )}
 
@@ -216,7 +216,7 @@ const AdminXpPanel: React.FC = () => {
             <button
               type="submit"
               disabled={loading || !userId.trim() || !xpAmount.trim()}
-              className="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-primary-cyan to-primary-blue text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>
@@ -235,8 +235,8 @@ const AdminXpPanel: React.FC = () => {
           {/* Info Box */}
           <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <p className="text-sm text-blue-800">
-              <strong>Note:</strong> XP changes are event-sourced through the <code className="bg-blue-100 px-1 rounded">xp_events</code> table. 
-              The <code className="bg-blue-100 px-1 rounded">profiles</code> table is automatically updated by database triggers.
+              <strong>Note:</strong> XP changes are event-sourced through the <code className="bg-primary-blue/20 px-1 rounded">xp_events</code> table. 
+              The <code className="bg-primary-blue/20 px-1 rounded">profiles</code> table is automatically updated by database triggers.
             </p>
           </div>
         </div>

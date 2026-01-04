@@ -77,17 +77,17 @@ const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="relative p-6 border-b border-gray-200 dark:border-gray-700">
+        <div className="relative p-6 border-b border-white/10 dark:border-gray-700">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
           >
             <X size={24} />
           </button>
-          <h2 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-2xl font-black text-white dark:text-white tracking-tight">
             {t('auth.resetPassword')}
           </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+          <p className="text-sm text-gray-400 dark:text-gray-400 mt-2">
             Enter your email address and we'll send you a link to reset your password.
           </p>
         </div>
@@ -95,13 +95,13 @@ const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
         {success ? (
           <div className="p-6">
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="text-green-600 dark:text-green-400" size={32} />
+              <div className="w-16 h-16 bg-accent-green/20 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="text-accent-green dark:text-green-400" size={32} />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-lg font-semibold text-white dark:text-white mb-2">
                 Check your email
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <p className="text-gray-400 dark:text-gray-400 mb-6">
                 We've sent a password reset link to <strong>{email}</strong>
               </p>
               <FollowButton
@@ -124,7 +124,7 @@ const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
             )}
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-semibold text-gray-300 dark:text-gray-300 mb-2">
                 {t('auth.email')}
               </label>
               <div className="relative">
@@ -133,7 +133,7 @@ const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  className="w-full pl-10 pr-4 py-3 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white dark:bg-gray-800 text-white dark:text-white"
                   placeholder={t('auth.emailPlaceholder')}
                   disabled={isSubmitting}
                   required
@@ -155,7 +155,7 @@ const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
             <button
               type="button"
               onClick={onBackToLogin}
-              className="w-full flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors py-2"
+              className="w-full flex items-center justify-center gap-2 text-sm text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white transition-colors py-2"
             >
               <ArrowLeft size={16} />
               Back to Login

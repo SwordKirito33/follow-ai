@@ -106,7 +106,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
         <div className={`
           p-3 rounded-xl transition-all
           ${isCheckedInToday 
-            ? 'bg-green-100 dark:bg-green-900/30 text-green-600' 
+            ? 'bg-accent-green/20 dark:bg-green-900/30 text-accent-green' 
             : 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:shadow-lg hover:scale-105'
           }
         `}>
@@ -151,7 +151,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
               className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden"
             >
               {/* Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+              <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-6 text-white">
                 <div className="flex items-center justify-between">
                   <div>
                     <h2 className="text-2xl font-bold flex items-center gap-2">
@@ -198,10 +198,10 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                       className={`
                         relative p-3 rounded-xl text-center transition-all
                         ${day.isCompleted 
-                          ? 'bg-green-100 dark:bg-green-900/30 text-green-600' 
+                          ? 'bg-accent-green/20 dark:bg-green-900/30 text-accent-green' 
                           : day.isCurrent
-                            ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 ring-2 ring-blue-500'
-                            : 'bg-gray-100 dark:bg-gray-800 text-gray-400'
+                            ? 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan ring-2 ring-blue-500'
+                            : 'bg-white/10 dark:bg-gray-800 text-gray-400'
                         }
                       `}
                     >
@@ -231,8 +231,8 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                   className={`
                     w-full mt-6 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all
                     ${isCheckedInToday
-                      ? 'bg-gray-100 dark:bg-gray-800 text-gray-400 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:scale-[1.02]'
+                      ? 'bg-white/10 dark:bg-gray-800 text-gray-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-primary-blue to-primary-purple text-white hover:shadow-lg hover:scale-[1.02]'
                     }
                   `}
                 >
@@ -260,10 +260,10 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                   <div className="flex items-start gap-3">
                     <Flame className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">
+                      <p className="font-semibold text-white dark:text-white">
                         Streak Bonus
                       </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <p className="text-sm text-gray-400 dark:text-gray-400">
                         Keep your streak going! 7-day streak = Mystery Box + 2x XP
                       </p>
                     </div>
@@ -302,7 +302,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                 <Sparkles className="w-10 h-10 text-white" />
               </motion.div>
 
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-2xl font-bold text-white dark:text-white mb-2">
                 Check-In Complete!
               </h3>
 
@@ -310,12 +310,12 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl font-bold text-blue-600 mb-2"
+                className="text-4xl font-bold text-primary-cyan mb-2"
               >
                 +{rewardData.xp} XP
               </motion.div>
 
-              <p className="text-gray-600 dark:text-gray-400 mb-4">
+              <p className="text-gray-400 dark:text-gray-400 mb-4">
                 🔥 {rewardData.streak} day streak!
               </p>
 
@@ -324,7 +324,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="p-4 bg-purple-100 dark:bg-purple-900/30 rounded-xl text-purple-600 font-semibold"
+                  className="p-4 bg-primary-purple/20 dark:bg-purple-900/30 rounded-xl text-primary-purple font-semibold"
                 >
                   🎁 Bonus: {rewardData.bonus}
                 </motion.div>
@@ -332,7 +332,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
 
               <button
                 onClick={() => setShowReward(false)}
-                className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg transition-all"
+                className="mt-6 px-8 py-3 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl font-bold hover:shadow-lg transition-all"
               >
                 Awesome!
               </button>

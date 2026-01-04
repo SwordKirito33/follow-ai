@@ -40,9 +40,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       : type;
 
     const variantClasses = {
-      default: 'bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700',
-      filled: 'bg-gray-100 dark:bg-gray-800 border-transparent',
-      outline: 'bg-transparent border-gray-300 dark:border-gray-700',
+      default: 'bg-white dark:bg-gray-900 border-white/20 dark:border-gray-700',
+      filled: 'bg-white/10 dark:bg-gray-800 border-transparent',
+      outline: 'bg-transparent border-white/20 dark:border-gray-700',
     };
 
     const stateClasses = error
@@ -54,7 +54,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={`w-full ${className}`}>
         {label && (
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+          <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1.5">
             {label}
             {props.required && <span className="text-red-500 ml-1">*</span>}
           </label>
@@ -82,7 +82,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
               focus:outline-none focus:ring-4
               placeholder:text-gray-400 dark:placeholder:text-gray-500
-              text-gray-900 dark:text-white
+              text-white dark:text-white
             `}
             {...props}
           />
@@ -95,7 +95,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                className="text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
               >
                 {showPassword ? (
                   <EyeOff className="w-5 h-5" />

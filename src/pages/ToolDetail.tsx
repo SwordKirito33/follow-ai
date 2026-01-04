@@ -151,11 +151,11 @@ const ToolDetail: React.FC = () => {
 
   if (!tool) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12 px-4">
+      <div className="min-h-screen bg-white/5 py-12 px-4">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">{t('toolDetail.toolNotFound')}</h1>
-          <p className="text-gray-600 mb-6">{t('toolDetail.toolNotFoundDesc')}</p>
-          <Link to="/" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
+          <h1 className="text-3xl font-bold text-white mb-4">{t('toolDetail.toolNotFound')}</h1>
+          <p className="text-gray-400 mb-6">{t('toolDetail.toolNotFoundDesc')}</p>
+          <Link to="/" className="inline-block bg-gradient-to-r from-primary-cyan to-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
             {t('toolDetail.backToHome')}
           </Link>
         </div>
@@ -165,12 +165,12 @@ const ToolDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen py-8 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 transition-colors"
+          className="flex items-center gap-2 text-gray-400 hover:text-white mb-6 transition-colors"
         >
           <ArrowLeft size={20} />
           <span className="font-medium">{t('toolDetail.back')}</span>
@@ -183,27 +183,27 @@ const ToolDetail: React.FC = () => {
             <div className="flex-1">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                 <div>
-                  <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool.name}</h1>
-                  <p className="text-gray-600 mb-3">{tool.description}</p>
+                  <h1 className="text-3xl font-bold text-white mb-2">{tool.name}</h1>
+                  <p className="text-gray-400 mb-3">{tool.description}</p>
                   <div className="flex items-center gap-4 text-sm text-gray-500">
-                    <span className="bg-gray-100 px-3 py-1 rounded-full font-medium">{tool.category}</span>
+                    <span className="bg-white/10 px-3 py-1 rounded-full font-medium">{tool.category}</span>
                     <span className="flex items-center gap-1">
                       <Star size={16} className="text-amber-500 fill-amber-500" /> {tool.rating}
                     </span>
-                    <span className="flex items-center gap-1 text-green-600 font-semibold">
+                    <span className="flex items-center gap-1 text-accent-green font-semibold">
                       <TrendingUp size={16} /> {tool.growth}
                     </span>
                   </div>
                 </div>
                 <div className="text-right flex flex-col items-end gap-2">
-                  <div className="text-2xl font-black text-gray-900 mb-1">{tool.reviewCount}</div>
+                  <div className="text-2xl font-black text-white mb-1">{tool.reviewCount}</div>
                   <div className="text-sm text-gray-500">{t('toolDetail.verifiedReviews')}</div>
                   <button
                     onClick={() => setIsFavorite(!isFavorite)}
                     className={`p-2 rounded-lg transition-all ${
                       isFavorite
                         ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400'
-                        : 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                        : 'bg-white/10 text-gray-400 dark:bg-gray-800 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-700'
                     }`}
                     title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
                   >
@@ -222,10 +222,10 @@ const ToolDetail: React.FC = () => {
               {/* Use Cases */}
               {tool.useCases && tool.useCases.length > 0 && (
                 <div className="mb-4">
-                  <p className="text-sm font-semibold text-gray-700 mb-2">{t('rankings.useCases')}</p>
+                  <p className="text-sm font-semibold text-gray-300 mb-2">{t('rankings.useCases')}</p>
                   <div className="flex flex-wrap gap-2">
                     {tool.useCases.map((useCase, idx) => (
-                      <span key={idx} className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium border border-blue-100">
+                      <span key={idx} className="px-3 py-1.5 bg-blue-50 text-primary-blue rounded-lg text-sm font-medium border border-blue-100">
                         {useCase}
                       </span>
                     ))}
@@ -274,32 +274,32 @@ const ToolDetail: React.FC = () => {
           <div className="glass-card rounded-xl shadow-xl p-6 hover:bg-white/90 transition-all transform hover:scale-105">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-blue-50 rounded-lg">
-                <CheckCircle size={20} className="text-blue-600" />
+                <CheckCircle size={20} className="text-primary-cyan" />
               </div>
               <div>
-                <div className="text-2xl font-bold text-gray-900">{tool.reviewCount}</div>
+                <div className="text-2xl font-bold text-white">{tool.reviewCount}</div>
                 <div className="text-sm text-gray-500">{t('toolDetail.totalReviews')}</div>
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-sm border border-white/10 p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-green-50 rounded-lg">
-                <Star size={20} className="text-green-600 fill-green-600" />
+                <Star size={20} className="text-accent-green fill-green-600" />
               </div>
               <div>
-                <div className="text-2xl font-bold text-gray-900">{tool.rating}</div>
+                <div className="text-2xl font-bold text-white">{tool.rating}</div>
                 <div className="text-sm text-gray-500">{t('toolDetail.averageRating')}</div>
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-sm border border-white/10 p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-purple-50 rounded-lg">
-                <TrendingUp size={20} className="text-purple-600" />
+                <TrendingUp size={20} className="text-primary-purple" />
               </div>
               <div>
-                <div className="text-2xl font-bold text-gray-900">{tool.growth}</div>
+                <div className="text-2xl font-bold text-white">{tool.growth}</div>
                 <div className="text-sm text-gray-500">{t('toolDetail.growth24h')}</div>
               </div>
             </div>
@@ -307,7 +307,7 @@ const ToolDetail: React.FC = () => {
         </div>
 
         {/* Tabs Navigation */}
-        <div className="flex flex-wrap gap-2 mb-6 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex flex-wrap gap-2 mb-6 border-b border-white/10 dark:border-gray-700">
           {[
             { id: 'reviews', label: 'Verified Outputs', icon: CheckCircle },
             { id: 'about', label: 'About', icon: Info },
@@ -321,8 +321,8 @@ const ToolDetail: React.FC = () => {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 px-4 py-3 font-semibold transition-all border-b-2 ${
                   activeTab === tab.id
-                    ? 'border-blue-600 text-blue-600 dark:text-blue-400'
-                    : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                    ? 'border-blue-600 text-primary-cyan dark:text-blue-400'
+                    : 'border-transparent text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-gray-200'
                 }`}
               >
                 <Icon size={18} />
@@ -343,7 +343,7 @@ const ToolDetail: React.FC = () => {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as any)}
-                  className="appearance-none glass-card border border-white/30 px-4 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white/50 backdrop-blur-sm"
+                  className="appearance-none glass-card border border-white/30 px-4 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none glass-card backdrop-blur-sm"
                 >
                   <option value="newest">{t('reviewsFilter.newest')}</option>
                   <option value="oldest">{t('reviewsFilter.oldest')}</option>
@@ -358,7 +358,7 @@ const ToolDetail: React.FC = () => {
                 <select
                   value={filterRating || ''}
                   onChange={(e) => setFilterRating(e.target.value ? Number(e.target.value) : null)}
-                  className="appearance-none glass-card border border-white/30 px-4 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none bg-white/50 backdrop-blur-sm"
+                  className="appearance-none glass-card border border-white/30 px-4 py-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none glass-card backdrop-blur-sm"
                 >
                   <option value="">{t('reviewsFilter.allRatings')}</option>
                   <option value="5">5 ⭐</option>
@@ -370,7 +370,7 @@ const ToolDetail: React.FC = () => {
               
               <Link
                 to="/submit"
-                className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1 transition-all transform hover:scale-105"
+                className="text-primary-cyan hover:text-primary-blue font-semibold text-sm flex items-center gap-1 transition-all transform hover:scale-105"
               >
                 {t('toolDetail.writeReview')} <ArrowLeft size={16} className="rotate-180" />
               </Link>
@@ -382,7 +382,7 @@ const ToolDetail: React.FC = () => {
               <p className="text-gray-500 mb-4">{t('toolDetail.noReviewsYet')}</p>
               <Link
                 to="/submit"
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
+                className="inline-block bg-gradient-to-r from-primary-cyan to-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
               >
                 {t('toolDetail.submitFirstReview')}
               </Link>
@@ -395,13 +395,13 @@ const ToolDetail: React.FC = () => {
                 </div>
               ) : (
                 sortedReviews.map(review => (
-                <div key={review.id} className="border-b border-gray-100 last:border-0 pb-6 last:pb-0">
+                <div key={review.id} className="border-b border-white/10 last:border-0 pb-6 last:pb-0">
                   <div className="flex items-start gap-4 mb-3">
                     <LazyImage src={review.user.avatar} alt={review.user.name} className="w-12 h-12 rounded-full" />
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="font-bold text-gray-900">{review.user.name}</span>
-                        <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+                        <span className="font-bold text-white">{review.user.name}</span>
+                        <span className="text-xs bg-white/10 text-gray-400 px-2 py-0.5 rounded-full">
                           {review.user.levelName}
                         </span>
                         <span className="text-xs text-gray-400">{review.timeAgo}</span>
@@ -416,20 +416,20 @@ const ToolDetail: React.FC = () => {
                             />
                           ))}
                         </div>
-                        <span className="text-sm font-semibold text-gray-700">{review.rating}</span>
+                        <span className="text-sm font-semibold text-gray-300">{review.rating}</span>
                         <span className="text-xs text-gray-500">Quality: {review.qualityScore}/10</span>
                       </div>
-                      <p className="text-gray-700 mb-3">{review.text}</p>
+                      <p className="text-gray-300 mb-3">{review.text}</p>
                       {review.outputImage && (
                         <LazyImage
                           src={review.outputImage}
                           alt="Review output"
-                          className="rounded-lg border border-gray-200 max-w-full h-auto mb-3"
+                          className="rounded-lg border border-white/10 max-w-full h-auto mb-3"
                         />
                       )}
                       <div className="flex items-center gap-4 text-sm text-gray-500">
-                        <button className="hover:text-blue-600 transition-colors">👍 {review.likes} {t('toolDetail.likes')}</button>
-                        <button className="hover:text-blue-600 transition-colors">💬 {t('toolDetail.helpful')} ({review.helpful})</button>
+                        <button className="hover:text-primary-cyan transition-colors">👍 {review.likes} {t('toolDetail.likes')}</button>
+                        <button className="hover:text-primary-cyan transition-colors">💬 {t('toolDetail.helpful')} ({review.helpful})</button>
                       </div>
                     </div>
                   </div>
@@ -444,7 +444,7 @@ const ToolDetail: React.FC = () => {
                           commentSection.classList.toggle('hidden');
                         }
                       }}
-                      className="text-sm text-blue-600 dark:text-blue-400 hover:underline mb-2"
+                      className="text-sm text-primary-cyan dark:text-blue-400 hover:underline mb-2"
                     >
                       View Comments ({comments.filter(c => c.id.startsWith(`c${review.id}`)).length})
                     </button>
@@ -469,8 +469,8 @@ const ToolDetail: React.FC = () => {
         {activeTab === 'about' && (
           <div className="glass-card rounded-xl shadow-xl p-8 space-y-8">
             <div>
-              <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-4 tracking-tight">About {tool.name}</h2>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+              <h2 className="text-2xl font-black text-white dark:text-white mb-4 tracking-tight">About {tool.name}</h2>
+              <p className="text-gray-300 dark:text-gray-300 leading-relaxed mb-6">
                 {toolAbout.description}
               </p>
               {toolAbout.website && (
@@ -478,7 +478,7 @@ const ToolDetail: React.FC = () => {
                   href={toolAbout.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold"
+                  className="inline-flex items-center gap-2 text-primary-cyan dark:text-blue-400 hover:text-primary-blue dark:hover:text-blue-300 font-semibold"
                 >
                   Visit official website
                   <ExternalLink size={16} />
@@ -488,14 +488,14 @@ const ToolDetail: React.FC = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-black text-gray-900 dark:text-white mb-3 tracking-tight flex items-center gap-2">
-                  <CheckCircle size={20} className="text-green-600 dark:text-green-400" />
+                <h3 className="text-lg font-black text-white dark:text-white mb-3 tracking-tight flex items-center gap-2">
+                  <CheckCircle size={20} className="text-accent-green dark:text-green-400" />
                   Strengths
                 </h3>
                 <ul className="space-y-2">
                   {toolAbout.strengths.map((strength, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                      <span className="text-green-600 dark:text-green-400 mt-1">✓</span>
+                    <li key={idx} className="flex items-start gap-2 text-gray-300 dark:text-gray-300">
+                      <span className="text-accent-green dark:text-green-400 mt-1">✓</span>
                       {strength}
                     </li>
                   ))}
@@ -503,13 +503,13 @@ const ToolDetail: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="text-lg font-black text-gray-900 dark:text-white mb-3 tracking-tight flex items-center gap-2">
+                <h3 className="text-lg font-black text-white dark:text-white mb-3 tracking-tight flex items-center gap-2">
                   <AlertCircle size={20} className="text-amber-600 dark:text-amber-400" />
                   Limitations
                 </h3>
                 <ul className="space-y-2">
                   {toolAbout.limitations.map((limitation, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                    <li key={idx} className="flex items-start gap-2 text-gray-300 dark:text-gray-300">
                       <span className="text-amber-600 dark:text-amber-400 mt-1">•</span>
                       {limitation}
                     </li>
@@ -518,18 +518,18 @@ const ToolDetail: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-4 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="grid md:grid-cols-3 gap-4 pt-6 border-t border-white/10 dark:border-gray-700">
               <div>
                 <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Pricing</p>
-                <p className="text-gray-900 dark:text-white font-medium">{toolAbout.pricing}</p>
+                <p className="text-white dark:text-white font-medium">{toolAbout.pricing}</p>
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Launch Date</p>
-                <p className="text-gray-900 dark:text-white font-medium">{toolAbout.launchDate}</p>
+                <p className="text-white dark:text-white font-medium">{toolAbout.launchDate}</p>
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Company</p>
-                <p className="text-gray-900 dark:text-white font-medium">{toolAbout.company}</p>
+                <p className="text-white dark:text-white font-medium">{toolAbout.company}</p>
               </div>
             </div>
           </div>
@@ -539,7 +539,7 @@ const ToolDetail: React.FC = () => {
         {activeTab === 'bounties' && (
           <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight">
+              <h2 className="text-2xl font-black text-white dark:text-white tracking-tight">
                 Active Bounties for {tool.name}
               </h2>
                      <FollowButton to="/tasks" as="link" variant="secondary" size="sm">
@@ -550,7 +550,7 @@ const ToolDetail: React.FC = () => {
             {activeBounties.length === 0 ? (
               <div className="glass-card rounded-xl p-12 text-center">
                 <DollarSign size={48} className="mx-auto mb-4 text-gray-400 dark:text-gray-500" />
-                <p className="text-lg text-gray-600 dark:text-gray-400 mb-2">No active bounties</p>
+                <p className="text-lg text-gray-400 dark:text-gray-400 mb-2">No active bounties</p>
                 <p className="text-sm text-gray-500 dark:text-gray-500">Check back later for new opportunities</p>
               </div>
             ) : (
@@ -572,7 +572,7 @@ const ToolDetail: React.FC = () => {
         {activeTab === 'leaderboard' && (
           <div className="glass-card rounded-xl shadow-xl p-8">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight">
+              <h2 className="text-2xl font-black text-white dark:text-white tracking-tight">
                 Top Contributors for {tool.name}
               </h2>
               <Badge variant="info" size="md">
@@ -584,7 +584,7 @@ const ToolDetail: React.FC = () => {
               {toolLeaderboard.map((entry) => (
                 <div
                   key={entry.rank}
-                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors"
                 >
                   <div className="flex-shrink-0">
                     {entry.rank === 1 ? (
@@ -594,7 +594,7 @@ const ToolDetail: React.FC = () => {
                     ) : entry.rank === 3 ? (
                       <Trophy className="w-8 h-8 text-orange-500" />
                     ) : (
-                      <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-sm font-black text-gray-600 dark:text-gray-400">
+                      <div className="w-8 h-8 rounded-full bg-white/10 dark:bg-gray-800 flex items-center justify-center text-sm font-black text-gray-400 dark:text-gray-400">
                         {entry.rank}
                       </div>
                     )}
@@ -605,10 +605,10 @@ const ToolDetail: React.FC = () => {
                     className="w-12 h-12 rounded-full"
                   />
                   <div className="flex-1">
-                    <h3 className="font-black text-gray-900 dark:text-white mb-1">
+                    <h3 className="font-black text-white dark:text-white mb-1">
                       {entry.user.name}
                     </h3>
-                    <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                    <div className="flex items-center gap-4 text-sm text-gray-400 dark:text-gray-400">
                       <span>{entry.outputs} verified outputs</span>
                       <span className="flex items-center gap-1">
                         <Star size={14} className="text-amber-500 fill-current" />
@@ -617,7 +617,7 @@ const ToolDetail: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xl font-black text-green-600 dark:text-green-400">
+                    <div className="text-xl font-black text-accent-green dark:text-green-400">
                       ${entry.rewards}
                     </div>
                     <div className="text-xs text-gray-500 dark:text-gray-500">Total rewards</div>

@@ -136,7 +136,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => setIsFocused(true)}
             placeholder={placeholder}
-            className="w-full pl-12 pr-24 py-4 bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-2xl focus:border-blue-500 focus:outline-none transition-colors text-lg"
+            className="w-full pl-12 pr-24 py-4 bg-white dark:bg-gray-900 border-2 border-white/10 dark:border-gray-700 rounded-2xl focus:border-blue-500 focus:outline-none transition-colors text-lg"
           />
           
           {/* Keyboard shortcut hint */}
@@ -145,12 +145,12 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
               <button
                 type="button"
                 onClick={() => setQuery('')}
-                className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                className="p-1 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg"
               >
                 <X className="w-4 h-4 text-gray-400" />
               </button>
             )}
-            <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs text-gray-500">
+            <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-white/10 dark:bg-gray-800 rounded-lg text-xs text-gray-500">
               <span>⌘</span>
               <span>K</span>
             </kbd>
@@ -165,13 +165,13 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute z-50 w-full mt-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden"
+            className="absolute z-50 w-full mt-2 bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden"
           >
             {/* Recent searches */}
             {recentSearches.length > 0 && (
-              <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+              <div className="p-4 border-b border-white/10 dark:border-gray-700">
                 <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                  <h4 className="text-sm font-semibold text-gray-300 dark:text-gray-300 flex items-center gap-2">
                     <History className="w-4 h-4" />
                     Recent Searches
                   </h4>
@@ -187,7 +187,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
                     <button
                       key={index}
                       onClick={() => handleSuggestionClick(search)}
-                      className="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg text-sm transition-colors"
+                      className="px-3 py-1.5 bg-white/10 dark:bg-gray-800 hover:bg-white/10 dark:hover:bg-gray-700 rounded-lg text-sm transition-colors"
                     >
                       {search}
                     </button>
@@ -197,8 +197,8 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
             )}
 
             {/* Popular searches */}
-            <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-              <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2 mb-3">
+            <div className="p-4 border-b border-white/10 dark:border-gray-700">
+              <h4 className="text-sm font-semibold text-gray-300 dark:text-gray-300 flex items-center gap-2 mb-3">
                 <TrendingUp className="w-4 h-4" />
                 Popular Searches
               </h4>
@@ -207,7 +207,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
                   <button
                     key={index}
                     onClick={() => handleSuggestionClick(search)}
-                    className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg text-sm transition-colors"
+                    className="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/20 text-primary-cyan dark:text-blue-400 hover:bg-primary-blue/20 dark:hover:bg-blue-900/30 rounded-lg text-sm transition-colors"
                   >
                     {search}
                   </button>
@@ -217,7 +217,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
 
             {/* Tool suggestions */}
             <div className="p-4">
-              <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2 mb-3">
+              <h4 className="text-sm font-semibold text-gray-300 dark:text-gray-300 flex items-center gap-2 mb-3">
                 <Star className="w-4 h-4" />
                 Browse by Tool
               </h4>
@@ -226,7 +226,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
                   <button
                     key={index}
                     onClick={() => handleSuggestionClick(tool.name)}
-                    className="flex items-center gap-2 px-3 py-2 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 bg-white/5 dark:bg-gray-800 hover:bg-white/10 dark:hover:bg-gray-700 rounded-lg text-sm transition-colors"
                   >
                     <span>{tool.icon}</span>
                     <span className="truncate">{tool.name}</span>

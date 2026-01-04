@@ -145,10 +145,10 @@ function NewsletterForm({
 
   return (
     <div className="max-w-md">
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+      <h3 className="text-lg font-semibold text-white dark:text-white mb-2">
         {title}
       </h3>
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+      <p className="text-sm text-gray-400 dark:text-gray-400 mb-4">
         {description}
       </p>
       <form onSubmit={handleSubmit} className="flex gap-2">
@@ -161,9 +161,9 @@ function NewsletterForm({
           className={cn(
             'flex-1 px-4 py-2 rounded-lg',
             'bg-white dark:bg-gray-800',
-            'border border-gray-300 dark:border-gray-600',
+            'border border-white/20 dark:border-gray-600',
             'focus:ring-2 focus:ring-purple-500 focus:border-transparent',
-            'text-gray-900 dark:text-white',
+            'text-white dark:text-white',
             'placeholder-gray-500'
           )}
         />
@@ -182,7 +182,7 @@ function NewsletterForm({
         </button>
       </form>
       {status === 'success' && (
-        <p className="mt-2 text-sm text-green-600 dark:text-green-400">
+        <p className="mt-2 text-sm text-accent-green dark:text-green-400">
           订阅成功！感谢您的关注。
         </p>
       )}
@@ -206,7 +206,7 @@ export function Footer({
   className,
 }: FooterProps) {
   return (
-    <footer className={cn('bg-gray-100 dark:bg-gray-900', className)}>
+    <footer className={cn('bg-white/10 dark:bg-gray-900', className)}>
       <div className="container mx-auto px-4 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
@@ -217,12 +217,12 @@ export function Footer({
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
                   <span className="text-white font-bold text-xl">F</span>
                 </div>
-                <span className="text-xl font-bold text-gray-900 dark:text-white">
+                <span className="text-xl font-bold text-white dark:text-white">
                   Follow.ai
                 </span>
               </div>
             )}
-            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-sm">
+            <p className="text-gray-400 dark:text-gray-400 mb-6 max-w-sm">
               {description}
             </p>
             {/* Social Links */}
@@ -233,7 +233,7 @@ export function Footer({
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-purple-100 dark:hover:bg-purple-900/50 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                  className="w-10 h-10 rounded-full bg-white/10 dark:bg-gray-800 flex items-center justify-center text-gray-400 dark:text-gray-400 hover:bg-primary-purple/20 dark:hover:bg-purple-900/50 hover:text-primary-purple dark:hover:text-purple-400 transition-colors"
                   aria-label={link.name}
                 >
                   {link.icon}
@@ -245,7 +245,7 @@ export function Footer({
           {/* Navigation Sections */}
           {sections.map((section) => (
             <div key={section.title}>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="font-semibold text-white dark:text-white mb-4">
                 {section.title}
               </h3>
               <ul className="space-y-3">
@@ -255,7 +255,7 @@ export function Footer({
                       href={link.href}
                       target={link.external ? '_blank' : undefined}
                       rel={link.external ? 'noopener noreferrer' : undefined}
-                      className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                      className="text-gray-400 dark:text-gray-400 hover:text-primary-purple dark:hover:text-purple-400 transition-colors"
                     >
                       {link.label}
                       {link.external && (
@@ -283,32 +283,32 @@ export function Footer({
 
         {/* Newsletter */}
         {showNewsletter && (
-          <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mb-8">
+          <div className="border-t border-white/10 dark:border-gray-800 pt-8 mb-8">
             <NewsletterForm title={newsletterTitle} description={newsletterDescription} />
           </div>
         )}
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+        <div className="border-t border-white/10 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-gray-400 dark:text-gray-400">
             {copyrightText}
           </p>
           <div className="flex gap-6 text-sm">
             <a
               href="/privacy"
-              className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              className="text-gray-400 dark:text-gray-400 hover:text-primary-purple dark:hover:text-purple-400 transition-colors"
             >
               隐私政策
             </a>
             <a
               href="/terms"
-              className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              className="text-gray-400 dark:text-gray-400 hover:text-primary-purple dark:hover:text-purple-400 transition-colors"
             >
               服务条款
             </a>
             <a
               href="/sitemap"
-              className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              className="text-gray-400 dark:text-gray-400 hover:text-primary-purple dark:hover:text-purple-400 transition-colors"
             >
               网站地图
             </a>

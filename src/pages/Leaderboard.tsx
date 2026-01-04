@@ -57,19 +57,19 @@ const Leaderboard: React.FC = () => {
     if (rank === 1) return <Trophy className="w-6 h-6 text-yellow-500" />;
     if (rank === 2) return <Medal className="w-6 h-6 text-gray-400" />;
     if (rank === 3) return <Award className="w-6 h-6 text-orange-500" />;
-    return <span className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-sm font-bold text-gray-600 dark:text-gray-400">{rank}</span>;
+    return <span className="w-8 h-8 rounded-full bg-white/10 dark:bg-gray-800 flex items-center justify-center text-sm font-bold text-gray-400 dark:text-gray-400">{rank}</span>;
   };
   
   return (
     <div className="min-h-screen py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl sm:text-6xl font-black text-gray-900 mb-4 tracking-tight">
+          <h1 className="text-5xl sm:text-6xl font-black text-white mb-4 tracking-tight">
             Leaderboard
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-medium">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-medium">
             See who's leading the AI tool benchmark and earning the most rewards
           </p>
         </div>
@@ -84,8 +84,8 @@ const Leaderboard: React.FC = () => {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
                   activeTab === tab.id
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                    ? 'bg-gradient-to-r from-primary-blue to-primary-purple text-white shadow-lg'
+                    : 'bg-white dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-700'
                 }`}
               >
                 <Icon size={20} />
@@ -101,8 +101,8 @@ const Leaderboard: React.FC = () => {
             <div className="space-y-4">
               {loading ? (
                 <div className="text-center py-12">
-                  <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                  <p className="text-gray-600">Loading leaderboard...</p>
+                  <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                  <p className="text-gray-400">Loading leaderboard...</p>
                 </div>
               ) : error ? (
                 <div className="text-center py-12">
@@ -110,13 +110,13 @@ const Leaderboard: React.FC = () => {
                 </div>
               ) : leaderboard.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-gray-600">No users found</p>
+                  <p className="text-gray-400">No users found</p>
                 </div>
               ) : (
                 leaderboard.map((contributor, index) => (
                   <div
                     key={contributor.id}
-                    className="flex items-center gap-6 p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                    className="flex items-center gap-6 p-6 rounded-xl hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors"
                   >
                     <div className="flex-shrink-0">
                       {getRankBadge(index + 1)}
@@ -127,15 +127,15 @@ const Leaderboard: React.FC = () => {
                       className="w-12 h-12 rounded-full"
                     />
                     <div className="flex-1">
-                      <h3 className="text-lg font-black text-gray-900 dark:text-white mb-1">
+                      <h3 className="text-lg font-black text-white dark:text-white mb-1">
                         {contributor.full_name || contributor.username || 'User'}
                       </h3>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-black text-blue-600 dark:text-blue-400 mb-1">
+                      <div className="text-2xl font-black text-primary-cyan dark:text-blue-400 mb-1">
                         {(contributor.total_xp || 0).toLocaleString()} XP
                       </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">Total XP</div>
+                      <div className="text-sm text-gray-400 dark:text-gray-400">Total XP</div>
                     </div>
                   </div>
                 ))
@@ -148,7 +148,7 @@ const Leaderboard: React.FC = () => {
               {topContributorsWeek.map((contributor) => (
                 <div
                   key={contributor.rank}
-                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors"
                 >
                   <div className="flex-shrink-0">
                     {getRankBadge(contributor.rank)}
@@ -159,10 +159,10 @@ const Leaderboard: React.FC = () => {
                     className="w-12 h-12 rounded-full"
                   />
                   <div className="flex-1">
-                    <h3 className="text-lg font-black text-gray-900 dark:text-white mb-1">
+                    <h3 className="text-lg font-black text-white dark:text-white mb-1">
                       {contributor.name}
                     </h3>
-                    <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                    <div className="flex items-center gap-4 text-sm text-gray-400 dark:text-gray-400">
                       <span className="flex items-center gap-1">
                         <Star size={14} className="text-amber-500" />
                         {contributor.score}/10 avg score
@@ -171,10 +171,10 @@ const Leaderboard: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-black text-green-600 dark:text-green-400 mb-1">
+                    <div className="text-2xl font-black text-accent-green dark:text-green-400 mb-1">
                       ${contributor.rewards.toLocaleString()}
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Total rewards</div>
+                    <div className="text-sm text-gray-400 dark:text-gray-400">Total rewards</div>
                   </div>
                 </div>
               ))}
@@ -188,7 +188,7 @@ const Leaderboard: React.FC = () => {
               {topToolsWeek.map((tool) => (
                 <div
                   key={tool.rank}
-                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors"
                 >
                   <div className="flex-shrink-0">
                     {getRankBadge(tool.rank)}
@@ -199,10 +199,10 @@ const Leaderboard: React.FC = () => {
                     className="w-16 h-16 rounded-xl object-cover"
                   />
                   <div className="flex-1">
-                    <h3 className="text-lg font-black text-gray-900 dark:text-white mb-1">
+                    <h3 className="text-lg font-black text-white dark:text-white mb-1">
                       {tool.name}
                     </h3>
-                    <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                    <div className="flex items-center gap-4 text-sm text-gray-400 dark:text-gray-400">
                       <span className="flex items-center gap-1">
                         <Star size={14} className="text-amber-500 fill-current" />
                         {tool.score}

@@ -89,7 +89,7 @@ function StarRating({ rating, interactive = false, onChange }: {
               'w-6 h-6',
               (hoverRating || rating) >= star
                 ? 'text-yellow-400'
-                : 'text-gray-300 dark:text-gray-600'
+                : 'text-gray-300 dark:text-gray-400'
             )}
             fill="currentColor"
             viewBox="0 0 20 20"
@@ -115,10 +115,10 @@ function RatingBreakdown({ reviews }: { reviews: Review[] }) {
         const percentage = totalReviews > 0 ? (count / totalReviews) * 100 : 0;
         return (
           <div key={rating} className="flex items-center gap-2">
-            <span className="text-sm text-gray-600 dark:text-gray-400 w-8">
+            <span className="text-sm text-gray-400 dark:text-gray-400 w-8">
               {rating}星
             </span>
-            <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+            <div className="flex-1 h-2 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
               <div
                 className="h-full bg-yellow-400 rounded-full transition-all duration-500"
                 style={{ width: `${percentage}%` }}
@@ -138,7 +138,7 @@ function ReviewCard({ review }: { review: Review }) {
   const [isHelpful, setIsHelpful] = useState(false);
 
   return (
-    <div className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+    <div className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-white/10 dark:border-gray-700">
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
@@ -154,7 +154,7 @@ function ReviewCard({ review }: { review: Review }) {
             </div>
           )}
           <div>
-            <div className="font-medium text-gray-900 dark:text-white">
+            <div className="font-medium text-white dark:text-white">
               {review.userName}
             </div>
             <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -167,13 +167,13 @@ function ReviewCard({ review }: { review: Review }) {
 
       {/* Title */}
       {review.title && (
-        <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+        <h4 className="font-semibold text-white dark:text-white mb-2">
           {review.title}
         </h4>
       )}
 
       {/* Content */}
-      <p className="text-gray-600 dark:text-gray-400 mb-4">
+      <p className="text-gray-400 dark:text-gray-400 mb-4">
         {review.content}
       </p>
 
@@ -182,12 +182,12 @@ function ReviewCard({ review }: { review: Review }) {
         <div className="grid md:grid-cols-2 gap-4 mb-4">
           {review.pros && review.pros.length > 0 && (
             <div>
-              <h5 className="text-sm font-medium text-green-600 dark:text-green-400 mb-2">
+              <h5 className="text-sm font-medium text-accent-green dark:text-green-400 mb-2">
                 优点
               </h5>
               <ul className="space-y-1">
                 {review.pros.map((pro, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <li key={index} className="flex items-start gap-2 text-sm text-gray-400 dark:text-gray-400">
                     <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
@@ -204,7 +204,7 @@ function ReviewCard({ review }: { review: Review }) {
               </h5>
               <ul className="space-y-1">
                 {review.cons.map((con, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <li key={index} className="flex items-start gap-2 text-sm text-gray-400 dark:text-gray-400">
                     <svg className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -218,14 +218,14 @@ function ReviewCard({ review }: { review: Review }) {
       )}
 
       {/* Helpful */}
-      <div className="flex items-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+      <div className="flex items-center gap-4 pt-4 border-t border-white/10 dark:border-gray-700">
         <button
           onClick={() => setIsHelpful(!isHelpful)}
           className={cn(
             'flex items-center gap-2 text-sm transition-colors',
             isHelpful
-              ? 'text-purple-600 dark:text-purple-400'
-              : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+              ? 'text-primary-purple dark:text-purple-400'
+              : 'text-gray-500 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300'
           )}
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -233,7 +233,7 @@ function ReviewCard({ review }: { review: Review }) {
           </svg>
           有帮助 ({review.helpful + (isHelpful ? 1 : 0)})
         </button>
-        <button className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+        <button className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300">
           举报
         </button>
       </div>
@@ -317,7 +317,7 @@ export function ToolDetail({
           <div className="flex flex-col gap-3">
             <button
               onClick={onVisitWebsite}
-              className="px-6 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors"
+              className="px-6 py-3 bg-white text-primary-purple font-semibold rounded-xl hover:bg-white/10 transition-colors"
             >
               访问网站
             </button>
@@ -349,7 +349,7 @@ export function ToolDetail({
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-4 border-b border-gray-200 dark:border-gray-700 mb-8">
+      <div className="flex gap-4 border-b border-white/10 dark:border-gray-700 mb-8">
         {[
           { id: 'overview', label: '概览' },
           { id: 'reviews', label: `评价 (${reviews.length})` },
@@ -361,8 +361,8 @@ export function ToolDetail({
             className={cn(
               'px-4 py-3 font-medium transition-colors border-b-2 -mb-px',
               activeTab === tab.id
-                ? 'text-purple-600 dark:text-purple-400 border-purple-600 dark:border-purple-400'
-                : 'text-gray-500 dark:text-gray-400 border-transparent hover:text-gray-700 dark:hover:text-gray-300'
+                ? 'text-primary-purple dark:text-purple-400 border-purple-600 dark:border-purple-400'
+                : 'text-gray-500 dark:text-gray-400 border-transparent hover:text-gray-300 dark:hover:text-gray-300'
             )}
           >
             {tab.label}
@@ -377,11 +377,11 @@ export function ToolDetail({
           <div className="lg:col-span-2 space-y-8">
             {/* Description */}
             {tool.longDescription && (
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-white/10 dark:border-gray-700">
+                <h2 className="text-xl font-semibold text-white dark:text-white mb-4">
                   关于 {tool.name}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line">
+                <p className="text-gray-400 dark:text-gray-400 whitespace-pre-line">
                   {tool.longDescription}
                 </p>
               </div>
@@ -389,8 +389,8 @@ export function ToolDetail({
 
             {/* Features */}
             {tool.features && tool.features.length > 0 && (
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-white/10 dark:border-gray-700">
+                <h2 className="text-xl font-semibold text-white dark:text-white mb-4">
                   主要功能
                 </h2>
                 <ul className="grid md:grid-cols-2 gap-3">
@@ -399,7 +399,7 @@ export function ToolDetail({
                       <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-600 dark:text-gray-400">{feature}</span>
+                      <span className="text-gray-400 dark:text-gray-400">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -408,8 +408,8 @@ export function ToolDetail({
 
             {/* Screenshots */}
             {tool.screenshots && tool.screenshots.length > 0 && (
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-white/10 dark:border-gray-700">
+                <h2 className="text-xl font-semibold text-white dark:text-white mb-4">
                   截图
                 </h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -480,18 +480,18 @@ export function ToolDetail({
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Quick Info */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-white/10 dark:border-gray-700">
+              <h3 className="font-semibold text-white dark:text-white mb-4">
                 基本信息
               </h3>
               <dl className="space-y-4">
                 <div>
                   <dt className="text-sm text-gray-500 dark:text-gray-400">分类</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">{tool.category}</dd>
+                  <dd className="font-medium text-white dark:text-white">{tool.category}</dd>
                 </div>
                 <div>
                   <dt className="text-sm text-gray-500 dark:text-gray-400">定价</dt>
-                  <dd className="font-medium text-gray-900 dark:text-white">
+                  <dd className="font-medium text-white dark:text-white">
                     {tool.pricing === 'free' ? '免费' : tool.pricing === 'freemium' ? '免费增值' : '付费'}
                     {tool.pricingDetails && (
                       <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">
@@ -508,7 +508,7 @@ export function ToolDetail({
                         href={tool.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-purple-600 dark:text-purple-400 hover:underline break-all"
+                        className="text-primary-purple dark:text-purple-400 hover:underline break-all"
                       >
                         {tool.website.replace(/^https?:\/\//, '')}
                       </a>
@@ -520,8 +520,8 @@ export function ToolDetail({
 
             {/* Rating Breakdown */}
             {reviews.length > 0 && (
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-white/10 dark:border-gray-700">
+                <h3 className="font-semibold text-white dark:text-white mb-4">
                   评分分布
                 </h3>
                 <RatingBreakdown reviews={reviews} />
@@ -543,7 +543,7 @@ export function ToolDetail({
         <div className="space-y-6">
           {/* Write Review Button */}
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+            <h2 className="text-xl font-semibold text-white dark:text-white">
               用户评价 ({reviews.length})
             </h2>
             <button
@@ -562,8 +562,8 @@ export function ToolDetail({
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-gray-50 dark:bg-gray-800 rounded-xl">
-              <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="text-center py-12 bg-white/5 dark:bg-gray-800 rounded-xl">
+              <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
               <p className="text-gray-500 dark:text-gray-400 mb-4">
@@ -581,7 +581,7 @@ export function ToolDetail({
       )}
 
       {activeTab === 'alternatives' && (
-        <div className="text-center py-12 bg-gray-50 dark:bg-gray-800 rounded-xl">
+        <div className="text-center py-12 bg-white/5 dark:bg-gray-800 rounded-xl">
           <p className="text-gray-500 dark:text-gray-400">
             替代品功能即将上线
           </p>

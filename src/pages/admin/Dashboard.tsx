@@ -207,10 +207,10 @@ const Dashboard: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20">
+      <div className="min-h-screen flex items-center justify-center bg-transparent">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading dashboard...</p>
+          <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading dashboard...</p>
         </div>
       </div>
     );
@@ -218,50 +218,50 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
         <div className="text-center mb-12 animate-slideDown">
           <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-4 tracking-tight">
             Admin Command Center
           </h1>
-          <p className="text-xl text-gray-600 font-medium">Manage AI tools and generate tasks</p>
+          <p className="text-xl text-gray-400 font-medium">Manage AI tools and generate tasks</p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="glass-card rounded-xl p-6 animate-slideUp">
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-blue-100 rounded-lg">
-                <Briefcase className="h-6 w-6 text-blue-600" />
+              <div className="p-3 bg-primary-blue/20 rounded-lg">
+                <Briefcase className="h-6 w-6 text-primary-cyan" />
               </div>
               <div>
-                <p className="text-sm text-gray-600 mb-1">Total Tools</p>
-                <p className="text-2xl font-bold text-gray-900">{totalTools}</p>
+                <p className="text-sm text-gray-400 mb-1">Total Tools</p>
+                <p className="text-2xl font-bold text-white">{totalTools}</p>
               </div>
             </div>
           </div>
 
           <div className="glass-card rounded-xl p-6 animate-slideUp" style={{ animationDelay: '0.1s' }}>
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-purple-100 rounded-lg">
-                <Zap className="h-6 w-6 text-purple-600" />
+              <div className="p-3 bg-primary-purple/20 rounded-lg">
+                <Zap className="h-6 w-6 text-primary-purple" />
               </div>
               <div>
-                <p className="text-sm text-gray-600 mb-1">Total Tasks</p>
-                <p className="text-2xl font-bold text-gray-900">{totalTasks}</p>
+                <p className="text-sm text-gray-400 mb-1">Total Tasks</p>
+                <p className="text-2xl font-bold text-white">{totalTasks}</p>
               </div>
             </div>
           </div>
 
           <div className="glass-card rounded-xl p-6 animate-slideUp" style={{ animationDelay: '0.2s' }}>
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-green-100 rounded-lg">
-                <TrendingUp className="h-6 w-6 text-green-600" />
+              <div className="p-3 bg-accent-green/20 rounded-lg">
+                <TrendingUp className="h-6 w-6 text-accent-green" />
               </div>
               <div>
-                <p className="text-sm text-gray-600 mb-1">Avg Tasks/Tool</p>
-                <p className="text-2xl font-bold text-gray-900">{avgTasksPerTool}</p>
+                <p className="text-sm text-gray-400 mb-1">Avg Tasks/Tool</p>
+                <p className="text-2xl font-bold text-white">{avgTasksPerTool}</p>
               </div>
             </div>
           </div>
@@ -331,9 +331,9 @@ const Dashboard: React.FC = () => {
                     </div>
                   )}
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-bold text-gray-900 mb-1 truncate">{tool.name}</h3>
+                    <h3 className="text-lg font-bold text-white mb-1 truncate">{tool.name}</h3>
                     {tool.tagline && (
-                      <p className="text-sm text-gray-600 line-clamp-2">{tool.tagline}</p>
+                      <p className="text-sm text-gray-400 line-clamp-2">{tool.tagline}</p>
                     )}
                   </div>
                   {tool.website_url && (
@@ -341,7 +341,7 @@ const Dashboard: React.FC = () => {
                       href={tool.website_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-shrink-0 p-2 text-gray-400 hover:text-blue-600 transition-colors"
+                      className="flex-shrink-0 p-2 text-gray-400 hover:text-primary-cyan transition-colors"
                     >
                       <ExternalLink className="h-4 w-4" />
                     </a>
@@ -354,8 +354,8 @@ const Dashboard: React.FC = () => {
                 </div>
 
                 {/* Task Stats */}
-                <div className="mb-4 p-3 bg-gray-50 rounded-lg">
-                  <p className="text-sm font-medium text-gray-700 mb-2">Tasks:</p>
+                <div className="mb-4 p-3 bg-white/5 rounded-lg">
+                  <p className="text-sm font-medium text-gray-300 mb-2">Tasks:</p>
                   <div className="flex items-center gap-3 text-sm">
                     <span className="flex items-center gap-1">
                       <span className="w-2 h-2 bg-green-500 rounded-full"></span>
@@ -369,7 +369,7 @@ const Dashboard: React.FC = () => {
                       <span className="w-2 h-2 bg-red-500 rounded-full"></span>
                       A: {tool.advanced_count}
                     </span>
-                    <span className="ml-auto font-semibold text-gray-900">
+                    <span className="ml-auto font-semibold text-white">
                       Total: {tool.task_count}/3
                     </span>
                   </div>
@@ -397,7 +397,7 @@ const Dashboard: React.FC = () => {
         {tools.length === 0 && !loading && (
           <div className="glass-card rounded-xl p-12 text-center">
             <Briefcase size={48} className="mx-auto mb-4 text-gray-400" />
-            <p className="text-lg text-gray-600 mb-2">No tools found</p>
+            <p className="text-lg text-gray-400 mb-2">No tools found</p>
             <p className="text-sm text-gray-500">Add tools to the database to get started</p>
           </div>
         )}
@@ -408,22 +408,22 @@ const Dashboard: React.FC = () => {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="glass-card rounded-xl p-8 max-w-md w-full animate-scaleIn">
             <div className="text-center mb-6">
-              <Loader2 className="h-12 w-12 text-blue-600 animate-spin mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Generating Tasks...</h3>
-              <p className="text-sm text-gray-600">
+              <Loader2 className="h-12 w-12 text-primary-cyan animate-spin mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Generating Tasks...</h3>
+              <p className="text-sm text-gray-400">
                 {progress.currentTool && `Currently processing: ${progress.currentTool}`}
               </p>
             </div>
 
             {/* Progress Bar */}
             <div className="mb-6">
-              <div className="flex justify-between text-sm text-gray-600 mb-2">
+              <div className="flex justify-between text-sm text-gray-400 mb-2">
                 <span>Progress</span>
                 <span>{progress.current}/{progress.total}</span>
               </div>
-              <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300"
+                  className="h-full bg-gradient-to-r from-primary-blue to-primary-purple transition-all duration-300"
                   style={{ width: `${(progress.current / progress.total) * 100}%` }}
                 />
               </div>

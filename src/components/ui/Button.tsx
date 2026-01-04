@@ -26,9 +26,9 @@ const Button: React.FC<ButtonProps> = ({
   
   const variants = {
     primary: 'bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl focus:ring-blue-500',
-    secondary: 'bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-gray-900 dark:text-white focus:ring-gray-500',
+    secondary: 'bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white dark:text-white focus:ring-gray-500',
     danger: 'bg-red-600 hover:bg-red-700 text-white shadow-lg hover:shadow-xl focus:ring-red-500',
-    ghost: 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 focus:ring-gray-500'
+    ghost: 'hover:bg-white/10 dark:hover:bg-gray-800 text-gray-300 dark:text-gray-300 focus:ring-gray-500'
   };
   
   const sizes = {

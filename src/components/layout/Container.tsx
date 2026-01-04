@@ -64,7 +64,7 @@ export function PageLayout({
   className,
 }: PageLayoutProps) {
   return (
-    <div className={cn('min-h-screen bg-gray-50 dark:bg-gray-900', className)}>
+    <div className={cn('min-h-screen bg-white/5 dark:bg-gray-900', className)}>
       <Container className="py-6 sm:py-8">
         {breadcrumbs && <div className="mb-4">{breadcrumbs}</div>}
         
@@ -72,7 +72,7 @@ export function PageLayout({
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div>
               {title && (
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+                <h1 className="text-2xl sm:text-3xl font-bold text-white dark:text-white">
                   {title}
                 </h1>
               )}
@@ -115,7 +115,7 @@ export function Section({
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
           <div>
             {title && (
-              <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
+              <h2 className="text-lg sm:text-xl font-semibold text-white dark:text-white">
                 {title}
               </h2>
             )}
@@ -164,15 +164,15 @@ export function Card({
   return (
     <div
       className={cn(
-        'bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm',
+        'bg-white dark:bg-gray-800 rounded-xl border border-white/10 dark:border-gray-700 shadow-sm',
         className
       )}
     >
       {(title || actions) && (
-        <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-white/10 dark:border-gray-700">
           <div>
             {title && (
-              <h3 className="font-semibold text-gray-900 dark:text-white">{title}</h3>
+              <h3 className="font-semibold text-white dark:text-white">{title}</h3>
             )}
             {description && (
               <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
@@ -185,7 +185,7 @@ export function Card({
       <div className={cardPadding[padding]}>{children}</div>
       
       {footer && (
-        <div className="px-4 sm:px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 rounded-b-xl">
+        <div className="px-4 sm:px-6 py-4 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50 rounded-b-xl">
           {footer}
         </div>
       )}
@@ -302,7 +302,7 @@ export function Divider({ orientation = 'horizontal', className }: DividerProps)
   return (
     <div
       className={cn(
-        'bg-gray-200 dark:bg-gray-700',
+        'bg-white/10 dark:bg-gray-700',
         orientation === 'horizontal' ? 'h-px w-full' : 'w-px h-full',
         className
       )}

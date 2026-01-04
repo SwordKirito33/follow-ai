@@ -67,13 +67,13 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between p-6 border-b border-white/10 dark:border-gray-700">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
-                  <Keyboard className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <div className="w-10 h-10 bg-primary-blue/20 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+                  <Keyboard className="w-5 h-5 text-primary-cyan dark:text-blue-400" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                  <h2 className="text-xl font-bold text-white dark:text-white">
                     Keyboard Shortcuts
                   </h2>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -83,7 +83,7 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
               </div>
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                className="text-gray-400 hover:text-gray-400 dark:hover:text-gray-300 transition-colors"
               >
                 <X size={24} />
               </button>
@@ -101,15 +101,15 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
                       {categoryShortcuts.map((shortcut, index) => (
                         <div
                           key={index}
-                          className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                          className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
                         >
-                          <span className="text-sm text-gray-700 dark:text-gray-300">
+                          <span className="text-sm text-gray-300 dark:text-gray-300">
                             {shortcut.description}
                           </span>
                           <div className="flex items-center gap-1">
                             {shortcut.keys.map((key, keyIndex) => (
                               <React.Fragment key={keyIndex}>
-                                <kbd className="inline-flex items-center justify-center min-w-[24px] h-6 px-2 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded text-xs font-mono text-gray-700 dark:text-gray-300 shadow-sm">
+                                <kbd className="inline-flex items-center justify-center min-w-[24px] h-6 px-2 bg-white/10 dark:bg-gray-700 border border-white/10 dark:border-gray-600 rounded text-xs font-mono text-gray-300 dark:text-gray-300 shadow-sm">
                                   {key === '⌘' ? (
                                     <Command className="w-3 h-3" />
                                   ) : (
@@ -131,9 +131,9 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
             </div>
 
             {/* Footer */}
-            <div className="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+            <div className="p-4 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50">
               <p className="text-xs text-center text-gray-500 dark:text-gray-400">
-                Press <kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded text-xs">?</kbd> anytime to show this help
+                Press <kbd className="px-1.5 py-0.5 bg-white/10 dark:bg-gray-700 rounded text-xs">?</kbd> anytime to show this help
               </p>
             </div>
           </motion.div>

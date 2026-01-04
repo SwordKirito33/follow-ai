@@ -17,7 +17,7 @@ const TaskPreview: React.FC<TaskPreviewProps> = ({ formData, userLevel }) => {
 
   return (
     <div className="glass-card rounded-xl shadow-xl p-6 sticky top-8">
-      <h2 className="text-xl font-black text-gray-900 mb-4 tracking-tight">Task Preview</h2>
+      <h2 className="text-xl font-black text-white mb-4 tracking-tight">Task Preview</h2>
 
       {!formData.title ? (
         <div className="text-center py-12 text-gray-400">
@@ -41,14 +41,14 @@ const TaskPreview: React.FC<TaskPreviewProps> = ({ formData, userLevel }) => {
               )}
               <Badge variant="secondary" size="sm">Open</Badge>
             </div>
-            <h3 className="text-xl font-bold text-gray-900">{formData.title}</h3>
+            <h3 className="text-xl font-bold text-white">{formData.title}</h3>
           </div>
 
           {/* Description */}
           {formData.description && (
             <div>
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">Description</h4>
-              <div className="text-sm text-gray-600 whitespace-pre-wrap bg-gray-50 p-3 rounded-lg">
+              <h4 className="text-sm font-semibold text-gray-300 mb-2">Description</h4>
+              <div className="text-sm text-gray-400 whitespace-pre-wrap bg-white/5 p-3 rounded-lg">
                 {formData.description}
               </div>
             </div>
@@ -57,8 +57,8 @@ const TaskPreview: React.FC<TaskPreviewProps> = ({ formData, userLevel }) => {
           {/* Requirements */}
           {formData.requirements && (
             <div>
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">Requirements</h4>
-              <div className="text-sm text-gray-600 whitespace-pre-wrap bg-gray-50 p-3 rounded-lg">
+              <h4 className="text-sm font-semibold text-gray-300 mb-2">Requirements</h4>
+              <div className="text-sm text-gray-400 whitespace-pre-wrap bg-white/5 p-3 rounded-lg">
                 {formData.requirements}
               </div>
             </div>
@@ -66,8 +66,8 @@ const TaskPreview: React.FC<TaskPreviewProps> = ({ formData, userLevel }) => {
 
           {/* Reward */}
           <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-            <div className="text-sm text-gray-600 mb-1">Reward</div>
-            <div className="text-2xl font-bold text-blue-600">
+            <div className="text-sm text-gray-400 mb-1">Reward</div>
+            <div className="text-2xl font-bold text-primary-cyan">
               {formData.taskType === 'xp' ? (
                 <>+{formData.xpReward || 0} XP</>
               ) : (
@@ -79,7 +79,7 @@ const TaskPreview: React.FC<TaskPreviewProps> = ({ formData, userLevel }) => {
           {/* Level Requirement */}
           {formData.taskType === 'paid' && (
             <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
-              <div className="text-sm text-gray-600 mb-1">Minimum Level Required</div>
+              <div className="text-sm text-gray-400 mb-1">Minimum Level Required</div>
               <div className="text-lg font-bold text-yellow-700">
                 Level {formData.paymentAmount && formData.paymentAmount < 50 ? 5 :
                       formData.paymentAmount && formData.paymentAmount < 200 ? 10 : 15}
@@ -94,7 +94,7 @@ const TaskPreview: React.FC<TaskPreviewProps> = ({ formData, userLevel }) => {
           )}
 
           {/* Metadata */}
-          <div className="flex items-center gap-4 text-xs text-gray-500 pt-4 border-t border-gray-200">
+          <div className="flex items-center gap-4 text-xs text-gray-500 pt-4 border-t border-white/10">
             <div className="flex items-center gap-1">
               <Calendar size={12} />
               <span>Posted now</span>

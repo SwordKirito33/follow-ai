@@ -163,11 +163,11 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 min-w-[160px] z-50"
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-white/10 dark:border-gray-700 py-2 min-w-[160px] z-50"
           >
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-300 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
             >
               <Upload className="w-4 h-4" />
               Upload Photo

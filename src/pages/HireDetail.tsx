@@ -81,7 +81,7 @@ const HireDetail: React.FC = () => {
       <div className="container mx-auto max-w-4xl">
         <button
           onClick={() => navigate('/hire')}
-          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6"
+          className="flex items-center gap-2 text-gray-400 hover:text-white mb-6"
         >
           <ArrowLeft size={20} />
           <span>Back to marketplace</span>
@@ -91,13 +91,13 @@ const HireDetail: React.FC = () => {
           <div className="flex items-start justify-between mb-6">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-3">
-                <h1 className="text-3xl font-black text-gray-900">{task.title}</h1>
+                <h1 className="text-3xl font-black text-white">{task.title}</h1>
                 {task.status === 'open' && <Badge variant="success" size="md">Open</Badge>}
                 {daysLeft !== null && daysLeft <= 3 && (
                   <Badge variant="warning" size="md">Closing soon</Badge>
                 )}
               </div>
-              <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+              <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
                 <span className="flex items-center gap-1">
                   <Briefcase size={16} />
                   {task.category}
@@ -122,24 +122,24 @@ const HireDetail: React.FC = () => {
           <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl">
             <div className="flex items-center gap-6">
               {task.rewardType === 'money' && (
-                <div className="flex items-center gap-2 text-green-600 font-bold text-lg">
+                <div className="flex items-center gap-2 text-accent-green font-bold text-lg">
                   <DollarSign size={24} />
                   <span>${task.budgetMin} - ${task.budgetMax}</span>
                 </div>
               )}
               {task.rewardType === 'xp' && (
-                <div className="flex items-center gap-2 text-blue-600 font-bold text-lg">
+                <div className="flex items-center gap-2 text-primary-cyan font-bold text-lg">
                   <Zap size={24} />
                   <span>+{task.xpReward} XP</span>
                 </div>
               )}
               {task.rewardType === 'money_and_xp' && (
                 <div className="flex items-center gap-6">
-                  <div className="flex items-center gap-2 text-green-600 font-bold text-lg">
+                  <div className="flex items-center gap-2 text-accent-green font-bold text-lg">
                     <DollarSign size={24} />
                     <span>${task.budgetMin} - ${task.budgetMax}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-blue-600 font-bold text-lg">
+                  <div className="flex items-center gap-2 text-primary-cyan font-bold text-lg">
                     <Zap size={24} />
                     <span>+{task.xpReward} XP</span>
                   </div>
@@ -150,8 +150,8 @@ const HireDetail: React.FC = () => {
 
           {/* Description */}
           <div className="mb-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">Description</h2>
-            <p className="text-gray-700 leading-relaxed">{task.description}</p>
+            <h2 className="text-xl font-bold text-white mb-3">Description</h2>
+            <p className="text-gray-300 leading-relaxed">{task.description}</p>
           </div>
 
           {/* Requirements */}
@@ -180,7 +180,7 @@ const HireDetail: React.FC = () => {
 
           {/* Application Form or CTA */}
           {!showApplicationForm ? (
-            <div className="pt-6 border-t border-gray-200">
+            <div className="pt-6 border-t border-white/10">
               {canApply ? (
                 <FollowButton
                   onClick={() => setShowApplicationForm(true)}
@@ -228,10 +228,10 @@ const HireDetail: React.FC = () => {
               )}
             </div>
           ) : (
-            <div className="pt-6 border-t border-gray-200 space-y-4">
-              <h3 className="text-xl font-bold text-gray-900">Your Proposal</h3>
+            <div className="pt-6 border-t border-white/10 space-y-4">
+              <h3 className="text-xl font-bold text-white">Your Proposal</h3>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Why are you the right fit? *
                 </label>
                 <textarea
@@ -239,11 +239,11 @@ const HireDetail: React.FC = () => {
                   onChange={(e) => setProposal(e.target.value)}
                   placeholder="Describe your experience, approach, and why you're perfect for this task..."
                   rows={6}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Estimated Timeline (optional)
                 </label>
                 <input
@@ -251,7 +251,7 @@ const HireDetail: React.FC = () => {
                   value={estimatedTimeline}
                   onChange={(e) => setEstimatedTimeline(e.target.value)}
                   placeholder="e.g., 3-5 days"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
               <div className="flex gap-3">

@@ -71,7 +71,7 @@ function PasswordStrength({ password }: { password: string }) {
             key={i}
             className={cn(
               'h-1 flex-1 rounded-full transition-colors',
-              i <= strength.score ? colorClasses[strength.color] : 'bg-gray-200 dark:bg-gray-700'
+              i <= strength.score ? colorClasses[strength.color] : 'bg-white/10 dark:bg-gray-700'
             )}
           />
         ))}
@@ -94,7 +94,7 @@ function SocialLoginButtons({ onSocialLogin, isLoading }: { onSocialLogin?: (pro
     <div className="space-y-3">
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-200 dark:border-gray-700" />
+          <div className="w-full border-t border-white/10 dark:border-gray-700" />
         </div>
         <div className="relative flex justify-center text-sm">
           <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">
@@ -107,7 +107,7 @@ function SocialLoginButtons({ onSocialLogin, isLoading }: { onSocialLogin?: (pro
         <button
           onClick={() => onSocialLogin('google')}
           disabled={isLoading}
-          className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
+          className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-white/10 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-white/5 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -115,29 +115,29 @@ function SocialLoginButtons({ onSocialLogin, isLoading }: { onSocialLogin?: (pro
             <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
             <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
           </svg>
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:inline">Google</span>
+          <span className="text-sm font-medium text-gray-300 dark:text-gray-300 hidden sm:inline">Google</span>
         </button>
 
         <button
           onClick={() => onSocialLogin('github')}
           disabled={isLoading}
-          className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
+          className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-white/10 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-white/5 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
           </svg>
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:inline">GitHub</span>
+          <span className="text-sm font-medium text-gray-300 dark:text-gray-300 hidden sm:inline">GitHub</span>
         </button>
 
         <button
           onClick={() => onSocialLogin('twitter')}
           disabled={isLoading}
-          className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
+          className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-white/10 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-white/5 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
         >
           <svg className="w-5 h-5" fill="#1DA1F2" viewBox="0 0 24 24">
             <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
           </svg>
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:inline">Twitter</span>
+          <span className="text-sm font-medium text-gray-300 dark:text-gray-300 hidden sm:inline">Twitter</span>
         </button>
       </div>
     </div>
@@ -280,7 +280,7 @@ export function AuthSystem({
               {(mode === 'forgot_password' || mode === 'reset_password') && <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />}
             </svg>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-2xl font-bold text-white dark:text-white">
             {mode === 'login' && '欢迎回来'}
             {mode === 'register' && '创建账户'}
             {mode === 'forgot_password' && '忘记密码'}
@@ -302,7 +302,7 @@ export function AuthSystem({
         )}
         {successMessage && (
           <div className="mb-4 p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
-            <p className="text-sm text-green-600 dark:text-green-400">{successMessage}</p>
+            <p className="text-sm text-accent-green dark:text-green-400">{successMessage}</p>
           </div>
         )}
 
@@ -311,7 +311,7 @@ export function AuthSystem({
           {/* Username (Register only) */}
           {mode === 'register' && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1">
                 用户名 <span className="text-red-500">*</span>
               </label>
               <input
@@ -320,7 +320,7 @@ export function AuthSystem({
                 value={formData.username}
                 onChange={handleChange}
                 placeholder="your_username"
-                className="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-2.5 rounded-lg border border-white/10 dark:border-gray-700 bg-white dark:bg-gray-900 text-white dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
           )}
@@ -328,7 +328,7 @@ export function AuthSystem({
           {/* Display Name (Register only) */}
           {mode === 'register' && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1">
                 显示名称
               </label>
               <input
@@ -337,7 +337,7 @@ export function AuthSystem({
                 value={formData.displayName}
                 onChange={handleChange}
                 placeholder="您的昵称"
-                className="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-2.5 rounded-lg border border-white/10 dark:border-gray-700 bg-white dark:bg-gray-900 text-white dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
           )}
@@ -345,7 +345,7 @@ export function AuthSystem({
           {/* Email */}
           {mode !== 'reset_password' && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1">
                 邮箱 <span className="text-red-500">*</span>
               </label>
               <input
@@ -354,7 +354,7 @@ export function AuthSystem({
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="you@example.com"
-                className="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-2.5 rounded-lg border border-white/10 dark:border-gray-700 bg-white dark:bg-gray-900 text-white dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
           )}
@@ -362,7 +362,7 @@ export function AuthSystem({
           {/* Password */}
           {mode !== 'forgot_password' && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1">
                 {mode === 'reset_password' ? '新密码' : '密码'} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
@@ -372,12 +372,12 @@ export function AuthSystem({
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="••••••••"
-                  className="w-full px-4 py-2.5 pr-10 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 pr-10 rounded-lg border border-white/10 dark:border-gray-700 bg-white dark:bg-gray-900 text-white dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-400 dark:hover:text-gray-300"
                 >
                   {showPassword ? (
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -400,7 +400,7 @@ export function AuthSystem({
           {/* Confirm Password */}
           {(mode === 'register' || mode === 'reset_password') && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1">
                 确认密码 <span className="text-red-500">*</span>
               </label>
               <input
@@ -409,7 +409,7 @@ export function AuthSystem({
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-2.5 rounded-lg border border-white/10 dark:border-gray-700 bg-white dark:bg-gray-900 text-white dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
           )}
@@ -420,7 +420,7 @@ export function AuthSystem({
               <button
                 type="button"
                 onClick={() => setMode('forgot_password')}
-                className="text-sm text-purple-600 dark:text-purple-400 hover:underline"
+                className="text-sm text-primary-purple dark:text-purple-400 hover:underline"
               >
                 忘记密码？
               </button>
@@ -435,13 +435,13 @@ export function AuthSystem({
                 name="agreeTerms"
                 checked={formData.agreeTerms}
                 onChange={handleChange}
-                className="mt-1 w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-purple-600 focus:ring-purple-500"
+                className="mt-1 w-4 h-4 rounded border-white/20 dark:border-gray-600 text-primary-purple focus:ring-purple-500"
               />
-              <label className="text-sm text-gray-600 dark:text-gray-400">
+              <label className="text-sm text-gray-400 dark:text-gray-400">
                 我已阅读并同意{' '}
-                <a href="/terms" className="text-purple-600 dark:text-purple-400 hover:underline">服务条款</a>
+                <a href="/terms" className="text-primary-purple dark:text-purple-400 hover:underline">服务条款</a>
                 {' '}和{' '}
-                <a href="/privacy" className="text-purple-600 dark:text-purple-400 hover:underline">隐私政策</a>
+                <a href="/privacy" className="text-primary-purple dark:text-purple-400 hover:underline">隐私政策</a>
               </label>
             </div>
           )}
@@ -479,11 +479,11 @@ export function AuthSystem({
         )}
 
         {/* Mode Switch */}
-        <div className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+        <div className="mt-6 text-center text-sm text-gray-400 dark:text-gray-400">
           {mode === 'login' && (
             <>
               还没有账户？{' '}
-              <button onClick={() => setMode('register')} className="text-purple-600 dark:text-purple-400 font-medium hover:underline">
+              <button onClick={() => setMode('register')} className="text-primary-purple dark:text-purple-400 font-medium hover:underline">
                 立即注册
               </button>
             </>
@@ -491,13 +491,13 @@ export function AuthSystem({
           {mode === 'register' && (
             <>
               已有账户？{' '}
-              <button onClick={() => setMode('login')} className="text-purple-600 dark:text-purple-400 font-medium hover:underline">
+              <button onClick={() => setMode('login')} className="text-primary-purple dark:text-purple-400 font-medium hover:underline">
                 立即登录
               </button>
             </>
           )}
           {(mode === 'forgot_password' || mode === 'reset_password') && (
-            <button onClick={() => setMode('login')} className="text-purple-600 dark:text-purple-400 font-medium hover:underline">
+            <button onClick={() => setMode('login')} className="text-primary-purple dark:text-purple-400 font-medium hover:underline">
               返回登录
             </button>
           )}

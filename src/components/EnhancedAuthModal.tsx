@@ -176,12 +176,12 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
         {/* Right side - Form */}
         <div className="w-full md:w-1/2 p-8">
           <div className="flex justify-between items-center mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h3 className="text-2xl font-bold text-white dark:text-white">
               {mode === 'login' ? 'Log In' : mode === 'signup' ? 'Sign Up' : 'Reset Password'}
             </h3>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
             >
               <X className="w-5 h-5 text-gray-500" />
             </button>
@@ -194,7 +194,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                 <button
                   onClick={onGoogleLogin}
                   disabled={isLoading}
-                  className="flex items-center justify-center gap-2 py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  className="flex items-center justify-center gap-2 py-3 border border-white/10 dark:border-gray-700 rounded-xl hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24">
                     <path
@@ -214,23 +214,23 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                       d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                     />
                   </svg>
-                  <span className="font-medium text-gray-700 dark:text-gray-300">Google</span>
+                  <span className="font-medium text-gray-300 dark:text-gray-300">Google</span>
                 </button>
                 <button
                   onClick={onGithubLogin}
                   disabled={isLoading}
-                  className="flex items-center justify-center gap-2 py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  className="flex items-center justify-center gap-2 py-3 border border-white/10 dark:border-gray-700 rounded-xl hover:bg-white/5 dark:hover:bg-gray-800 transition-colors"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                   </svg>
-                  <span className="font-medium text-gray-700 dark:text-gray-300">GitHub</span>
+                  <span className="font-medium text-gray-300 dark:text-gray-300">GitHub</span>
                 </button>
               </div>
 
               <div className="relative mb-6">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-200 dark:border-gray-700" />
+                  <div className="w-full border-t border-white/10 dark:border-gray-700" />
                 </div>
                 <div className="relative flex justify-center text-sm">
                   <span className="px-4 bg-white dark:bg-gray-900 text-gray-500">or continue with email</span>
@@ -257,7 +257,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="mb-4 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl flex items-center gap-2 text-green-600 dark:text-green-400"
+                className="mb-4 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl flex items-center gap-2 text-accent-green dark:text-green-400"
               >
                 <Check className="w-5 h-5 flex-shrink-0" />
                 <span className="text-sm">{success}</span>
@@ -269,7 +269,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
           <form onSubmit={handleSubmit} className="space-y-4">
             {mode === 'signup' && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1">
                   Username
                 </label>
                 <div className="relative">
@@ -280,14 +280,14 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="johndoe"
                     required
-                    className="w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-12 pr-4 py-3 border border-white/10 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
             )}
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1">
                 Email
               </label>
               <div className="relative">
@@ -298,14 +298,14 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   required
-                  className="w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-12 pr-4 py-3 border border-white/10 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
 
             {mode !== 'forgot' && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1">
                   Password
                 </label>
                 <div className="relative">
@@ -317,12 +317,12 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                     placeholder="••••••••"
                     required
                     minLength={8}
-                    className="w-full pl-12 pr-12 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-12 pr-12 py-3 border border-white/10 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-400"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -331,7 +331,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                 {/* Password strength indicator */}
                 {mode === 'signup' && password && (
                   <div className="mt-2">
-                    <div className="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${passwordStrength}%` }}
@@ -354,7 +354,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setMode('forgot')}
-                  className="text-sm text-blue-600 hover:text-blue-700"
+                  className="text-sm text-primary-cyan hover:text-primary-blue"
                 >
                   Forgot password?
                 </button>
@@ -364,7 +364,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all disabled:opacity-50"
+              className="w-full py-3 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all disabled:opacity-50"
             >
               {isLoading ? (
                 <Loader2 className="w-5 h-5 animate-spin" />
@@ -378,13 +378,13 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
           </form>
 
           {/* Switch mode */}
-          <p className="mt-6 text-center text-gray-600 dark:text-gray-400">
+          <p className="mt-6 text-center text-gray-400 dark:text-gray-400">
             {mode === 'login' ? (
               <>
                 Don't have an account?{' '}
                 <button
                   onClick={() => setMode('signup')}
-                  className="text-blue-600 hover:text-blue-700 font-medium"
+                  className="text-primary-cyan hover:text-primary-blue font-medium"
                 >
                   Sign up
                 </button>
@@ -394,7 +394,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                 Already have an account?{' '}
                 <button
                   onClick={() => setMode('login')}
-                  className="text-blue-600 hover:text-blue-700 font-medium"
+                  className="text-primary-cyan hover:text-primary-blue font-medium"
                 >
                   Log in
                 </button>
@@ -402,7 +402,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
             ) : (
               <button
                 onClick={() => setMode('login')}
-                className="text-blue-600 hover:text-blue-700 font-medium"
+                className="text-primary-cyan hover:text-primary-blue font-medium"
               >
                 Back to login
               </button>

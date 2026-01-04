@@ -46,21 +46,21 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
   const getTypeStyles = (type: Notification['type']) => {
     switch (type) {
       case 'success':
-        return 'bg-green-100 dark:bg-green-900/30 text-green-600';
+        return 'bg-accent-green/20 dark:bg-green-900/30 text-accent-green';
       case 'warning':
-        return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600';
+        return 'bg-accent-gold/20 dark:bg-yellow-900/30 text-accent-gold';
       case 'error':
         return 'bg-red-100 dark:bg-red-900/30 text-red-600';
       case 'xp':
-        return 'bg-purple-100 dark:bg-purple-900/30 text-purple-600';
+        return 'bg-primary-purple/20 dark:bg-purple-900/30 text-primary-purple';
       case 'level':
-        return 'bg-blue-100 dark:bg-blue-900/30 text-blue-600';
+        return 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-cyan';
       case 'follow':
         return 'bg-pink-100 dark:bg-pink-900/30 text-pink-600';
       case 'task':
         return 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600';
       default:
-        return 'bg-gray-100 dark:bg-gray-800 text-gray-600';
+        return 'bg-white/10 dark:bg-gray-800 text-gray-400';
     }
   };
 
@@ -104,9 +104,9 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
       {/* Bell button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+        className="relative p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-xl transition-colors"
       >
-        <Bell className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+        <Bell className="w-6 h-6 text-gray-400 dark:text-gray-400" />
         {unreadCount > 0 && (
           <motion.span
             initial={{ scale: 0 }}
@@ -132,18 +132,18 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
               initial={{ opacity: 0, y: -10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              className="absolute right-0 mt-2 w-96 max-h-[80vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50"
+              className="absolute right-0 mt-2 w-96 max-h-[80vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden z-50"
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-                <h3 className="font-bold text-gray-900 dark:text-white">
+              <div className="flex items-center justify-between p-4 border-b border-white/10 dark:border-gray-700">
+                <h3 className="font-bold text-white dark:text-white">
                   Notifications
                 </h3>
                 <div className="flex items-center gap-2">
                   {unreadCount > 0 && (
                     <button
                       onClick={onMarkAllAsRead}
-                      className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg text-gray-500 hover:text-gray-700"
+                      className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg text-gray-500 hover:text-gray-300"
                       title="Mark all as read"
                     >
                       <CheckCheck className="w-4 h-4" />
@@ -152,7 +152,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                   {notifications.length > 0 && (
                     <button
                       onClick={onClearAll}
-                      className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg text-gray-500 hover:text-red-500"
+                      className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg text-gray-500 hover:text-red-500"
                       title="Clear all"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -177,8 +177,8 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
                       className={`
-                        p-4 border-b border-gray-100 dark:border-gray-800 cursor-pointer
-                        hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors
+                        p-4 border-b border-white/10 dark:border-gray-800 cursor-pointer
+                        hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors
                         ${!notification.read ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}
                       `}
                       onClick={() => {
@@ -200,7 +200,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                         {/* Content */}
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start justify-between gap-2">
-                            <p className="font-semibold text-gray-900 dark:text-white text-sm">
+                            <p className="font-semibold text-white dark:text-white text-sm">
                               {notification.title}
                             </p>
                             <button
@@ -208,12 +208,12 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                                 e.stopPropagation();
                                 onDelete(notification.id);
                               }}
-                              className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                              className="p-1 hover:bg-white/10 dark:hover:bg-gray-700 rounded opacity-0 group-hover:opacity-100 transition-opacity"
                             >
                               <X className="w-3 h-3 text-gray-400" />
                             </button>
                           </div>
-                          <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2">
+                          <p className="text-sm text-gray-400 dark:text-gray-400 mt-0.5 line-clamp-2">
                             {notification.message}
                           </p>
                           <div className="flex items-center justify-between mt-2">
@@ -223,7 +223,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                             {notification.actionUrl && (
                               <a
                                 href={notification.actionUrl}
-                                className="text-xs text-blue-600 hover:underline"
+                                className="text-xs text-primary-cyan hover:underline"
                                 onClick={(e) => e.stopPropagation()}
                               >
                                 {notification.actionLabel || 'View'}
@@ -234,7 +234,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
 
                         {/* Unread indicator */}
                         {!notification.read && (
-                          <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0 mt-2" />
+                          <div className="w-2 h-2 bg-gradient-to-r from-primary-cyan to-primary-blue rounded-full flex-shrink-0 mt-2" />
                         )}
                       </div>
                     </motion.div>
@@ -244,8 +244,8 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
 
               {/* Footer */}
               {notifications.length > 0 && (
-                <div className="p-3 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
-                  <button className="w-full py-2 text-sm text-blue-600 hover:text-blue-700 font-medium">
+                <div className="p-3 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50">
+                  <button className="w-full py-2 text-sm text-primary-cyan hover:text-primary-blue font-medium">
                     View All Notifications
                   </button>
                 </div>
@@ -274,20 +274,20 @@ export const NotificationToast: React.FC<{
       initial={{ opacity: 0, y: -50, scale: 0.9 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -50, scale: 0.9 }}
-      className="fixed top-4 right-4 z-[9999] max-w-sm bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+      className="fixed top-4 right-4 z-[9999] max-w-sm bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden"
     >
       <div className="p-4 flex gap-3">
         <div className="flex-1">
-          <p className="font-semibold text-gray-900 dark:text-white text-sm">
+          <p className="font-semibold text-white dark:text-white text-sm">
             {notification.title}
           </p>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+          <p className="text-sm text-gray-400 dark:text-gray-400 mt-0.5">
             {notification.message}
           </p>
         </div>
         <button
           onClick={onClose}
-          className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
+          className="p-1 hover:bg-white/10 dark:hover:bg-gray-800 rounded"
         >
           <X className="w-4 h-4 text-gray-400" />
         </button>
@@ -296,7 +296,7 @@ export const NotificationToast: React.FC<{
         initial={{ width: '100%' }}
         animate={{ width: '0%' }}
         transition={{ duration: duration / 1000, ease: 'linear' }}
-        className="h-1 bg-blue-600"
+        className="h-1 bg-gradient-to-r from-primary-cyan to-primary-blue"
       />
     </motion.div>
   );

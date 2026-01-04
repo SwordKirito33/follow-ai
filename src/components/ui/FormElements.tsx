@@ -77,7 +77,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1"
           >
             {label}
             {props.required && <span className="text-red-500 ml-1">*</span>}
@@ -95,16 +95,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             className={cn(
               'w-full rounded-lg border transition-colors',
               'bg-white dark:bg-gray-900',
-              'text-gray-900 dark:text-white',
+              'text-white dark:text-white',
               'placeholder-gray-400 dark:placeholder-gray-500',
               'focus:outline-none focus:ring-2',
               error
                 ? 'border-red-500 focus:ring-red-500/20'
-                : 'border-gray-200 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20',
+                : 'border-white/10 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20',
               sizeClasses[size],
               leftIcon && 'pl-10',
               rightIcon && 'pr-10',
-              props.disabled && 'opacity-50 cursor-not-allowed bg-gray-50 dark:bg-gray-800'
+              props.disabled && 'opacity-50 cursor-not-allowed bg-white/5 dark:bg-gray-800'
             )}
             aria-invalid={!!error}
             aria-describedby={error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined}
@@ -148,7 +148,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label
             htmlFor={textareaId}
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1"
           >
             {label}
             {props.required && <span className="text-red-500 ml-1">*</span>}
@@ -162,13 +162,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           className={cn(
             'w-full rounded-lg border py-2.5 px-4 transition-colors resize-none',
             'bg-white dark:bg-gray-900',
-            'text-gray-900 dark:text-white',
+            'text-white dark:text-white',
             'placeholder-gray-400 dark:placeholder-gray-500',
             'focus:outline-none focus:ring-2',
             error
               ? 'border-red-500 focus:ring-red-500/20'
-              : 'border-gray-200 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20',
-            props.disabled && 'opacity-50 cursor-not-allowed bg-gray-50 dark:bg-gray-800'
+              : 'border-white/10 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20',
+            props.disabled && 'opacity-50 cursor-not-allowed bg-white/5 dark:bg-gray-800'
           )}
           aria-invalid={!!error}
           aria-describedby={error ? `${textareaId}-error` : hint ? `${textareaId}-hint` : undefined}
@@ -216,7 +216,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {label && (
           <label
             htmlFor={selectId}
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1"
           >
             {label}
             {props.required && <span className="text-red-500 ml-1">*</span>}
@@ -229,12 +229,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             className={cn(
               'w-full rounded-lg border py-2.5 px-4 pr-10 transition-colors appearance-none',
               'bg-white dark:bg-gray-900',
-              'text-gray-900 dark:text-white',
+              'text-white dark:text-white',
               'focus:outline-none focus:ring-2',
               error
                 ? 'border-red-500 focus:ring-red-500/20'
-                : 'border-gray-200 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20',
-              props.disabled && 'opacity-50 cursor-not-allowed bg-gray-50 dark:bg-gray-800'
+                : 'border-white/10 dark:border-gray-700 focus:border-purple-500 focus:ring-purple-500/20',
+              props.disabled && 'opacity-50 cursor-not-allowed bg-white/5 dark:bg-gray-800'
             )}
             aria-invalid={!!error}
             aria-describedby={error ? `${selectId}-error` : hint ? `${selectId}-hint` : undefined}
@@ -290,8 +290,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           type="checkbox"
           id={checkboxId}
           className={cn(
-            'mt-0.5 w-4 h-4 rounded border-gray-300 dark:border-gray-600',
-            'text-purple-600 focus:ring-purple-500 focus:ring-offset-0',
+            'mt-0.5 w-4 h-4 rounded border-white/20 dark:border-gray-600',
+            'text-primary-purple focus:ring-purple-500 focus:ring-offset-0',
             'bg-white dark:bg-gray-900',
             props.disabled && 'opacity-50 cursor-not-allowed'
           )}
@@ -303,7 +303,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               <label
                 htmlFor={checkboxId}
                 className={cn(
-                  'text-sm font-medium text-gray-700 dark:text-gray-300',
+                  'text-sm font-medium text-gray-300 dark:text-gray-300',
                   props.disabled && 'opacity-50 cursor-not-allowed'
                 )}
               >
@@ -359,13 +359,13 @@ export function RadioGroup({
             onChange={() => onChange?.(option.value)}
             disabled={option.disabled}
             className={cn(
-              'mt-0.5 w-4 h-4 border-gray-300 dark:border-gray-600',
-              'text-purple-600 focus:ring-purple-500 focus:ring-offset-0',
+              'mt-0.5 w-4 h-4 border-white/20 dark:border-gray-600',
+              'text-primary-purple focus:ring-purple-500 focus:ring-offset-0',
               'bg-white dark:bg-gray-900'
             )}
           />
           <div>
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span className="text-sm font-medium text-gray-300 dark:text-gray-300">
               {option.label}
             </span>
             {option.description && (
@@ -413,7 +413,7 @@ export function Switch({
           'relative inline-flex shrink-0 rounded-full transition-colors duration-200',
           'focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2',
           sizeClass.track,
-          checked ? 'bg-purple-600' : 'bg-gray-200 dark:bg-gray-700',
+          checked ? 'bg-purple-600' : 'bg-white/10 dark:bg-gray-700',
           disabled && 'opacity-50 cursor-not-allowed'
         )}
       >
@@ -432,7 +432,7 @@ export function Switch({
             <label
               htmlFor={id}
               className={cn(
-                'text-sm font-medium text-gray-700 dark:text-gray-300',
+                'text-sm font-medium text-gray-300 dark:text-gray-300',
                 disabled && 'opacity-50 cursor-not-allowed'
               )}
             >
@@ -508,7 +508,7 @@ export function FileInput({
   return (
     <div className={className}>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1">
           {label}
         </label>
       )}
@@ -517,7 +517,7 @@ export function FileInput({
           'relative border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors',
           dragActive
             ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20'
-            : 'border-gray-200 dark:border-gray-700 hover:border-purple-400 dark:hover:border-purple-600',
+            : 'border-white/10 dark:border-gray-700 hover:border-purple-400 dark:hover:border-purple-600',
           error && 'border-red-500'
         )}
         onDragEnter={handleDrag}
@@ -547,8 +547,8 @@ export function FileInput({
             d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
           />
         </svg>
-        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-medium text-purple-600 dark:text-purple-400">点击上传</span>
+        <p className="mt-2 text-sm text-gray-400 dark:text-gray-400">
+          <span className="font-medium text-primary-purple dark:text-purple-400">点击上传</span>
           {' '}或拖拽文件到此处
         </p>
         {accept && (
@@ -606,7 +606,7 @@ export function SearchInput({ onSearch, onClear, value, onChange, ...props }: Se
             onClick={() => {
               onClear?.();
             }}
-            className="hover:text-gray-600 dark:hover:text-gray-300"
+            className="hover:text-gray-400 dark:hover:text-gray-300"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

@@ -1,0 +1,22 @@
+# Supabase Edge Functions Configuration
+
+# Stripe webhook 不需要 JWT 验证（Stripe 使用自己的签名验证）
+[functions.stripe-webhook]
+verify_jwt = false
+
+# 其他支付相关函数需要用户认证
+[functions.create-payment-intent]
+verify_jwt = true
+
+[functions.create-bounty-payment]
+verify_jwt = true
+
+[functions.request-payout]
+verify_jwt = true
+
+# 工具相关函数
+[functions.tool-scout]
+verify_jwt = true
+
+[functions.task-generator]
+verify_jwt = true

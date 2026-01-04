@@ -20,19 +20,19 @@ const WalletBalance: React.FC<WalletBalanceProps> = ({
   return (
     <div className="glass-card rounded-xl shadow-xl p-8 mb-8">
       <div className="flex items-center gap-3 mb-6">
-        <div className="bg-blue-100 p-3 rounded-lg text-blue-600">
+        <div className="bg-primary-blue/20 p-3 rounded-lg text-primary-cyan">
           <Wallet size={24} />
         </div>
         <div>
-          <h2 className="text-2xl font-black text-gray-900 tracking-tight">Wallet Balance</h2>
-          <p className="text-sm text-gray-600">Your XP wallet overview</p>
+          <h2 className="text-2xl font-black text-white tracking-tight">Wallet Balance</h2>
+          <p className="text-sm text-gray-400">Your XP wallet overview</p>
         </div>
       </div>
 
       {/* Main Balance */}
       <div className="mb-6">
-        <div className="text-sm text-gray-600 mb-2">Current Balance</div>
-        <div className="text-5xl font-black text-gray-900 mb-2">
+        <div className="text-sm text-gray-400 mb-2">Current Balance</div>
+        <div className="text-5xl font-black text-white mb-2">
           {balance.toLocaleString()} XP
         </div>
         <div className="text-sm text-gray-500">
@@ -43,11 +43,11 @@ const WalletBalance: React.FC<WalletBalanceProps> = ({
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-          <div className="flex items-center gap-2 text-green-600 mb-2">
+          <div className="flex items-center gap-2 text-accent-green mb-2">
             <TrendingUp size={16} />
             <span className="text-sm font-semibold">Total Purchased</span>
           </div>
-          <div className="text-2xl font-bold text-gray-900">
+          <div className="text-2xl font-bold text-white">
             {totalPurchased.toLocaleString()} XP
           </div>
           <div className="text-xs text-gray-500 mt-1">
@@ -60,7 +60,7 @@ const WalletBalance: React.FC<WalletBalanceProps> = ({
             <TrendingDown size={16} />
             <span className="text-sm font-semibold">Total Spent</span>
           </div>
-          <div className="text-2xl font-bold text-gray-900">
+          <div className="text-2xl font-bold text-white">
             {totalSpent.toLocaleString()} XP
           </div>
           <div className="text-xs text-gray-500 mt-1">

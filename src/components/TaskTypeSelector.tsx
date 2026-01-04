@@ -17,7 +17,7 @@ const TaskTypeSelector: React.FC<TaskTypeSelectorProps> = ({
 }) => {
   return (
     <div className="glass-card rounded-xl shadow-xl p-6 mb-8">
-      <h2 className="text-xl font-black text-gray-900 mb-4 tracking-tight">Task Type</h2>
+      <h2 className="text-xl font-black text-white mb-4 tracking-tight">Task Type</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* XP Task */}
         <button
@@ -25,19 +25,19 @@ const TaskTypeSelector: React.FC<TaskTypeSelectorProps> = ({
           className={`p-6 rounded-xl border-2 transition-all text-left ${
             selectedType === 'xp'
               ? 'bg-blue-50 border-blue-500 shadow-md'
-              : 'bg-white border-gray-200 hover:border-gray-300'
+              : 'bg-white border-white/10 hover:border-white/20'
           }`}
         >
           <div className="flex items-center gap-3 mb-3">
-            <div className={`p-2 rounded-lg ${selectedType === 'xp' ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'}`}>
+            <div className={`p-2 rounded-lg ${selectedType === 'xp' ? 'bg-primary-blue/20 text-primary-cyan' : 'bg-white/10 text-gray-400'}`}>
               <Zap size={24} />
             </div>
             <div>
-              <h3 className="font-bold text-lg text-gray-900">XP Task</h3>
-              <p className="text-sm text-gray-600">Pay with XP</p>
+              <h3 className="font-bold text-lg text-white">XP Task</h3>
+              <p className="text-sm text-gray-400">Pay with XP</p>
             </div>
           </div>
-          <p className="text-sm text-gray-600 mb-2">
+          <p className="text-sm text-gray-400 mb-2">
             Perfect for simple tasks like reviews, feedback, and testing.
           </p>
           <div className="flex items-center gap-2 text-xs text-gray-500">
@@ -51,19 +51,19 @@ const TaskTypeSelector: React.FC<TaskTypeSelectorProps> = ({
           className={`p-6 rounded-xl border-2 transition-all text-left ${
             selectedType === 'paid'
               ? 'bg-green-50 border-green-500 shadow-md'
-              : 'bg-white border-gray-200 hover:border-gray-300'
+              : 'bg-white border-white/10 hover:border-white/20'
           }`}
         >
           <div className="flex items-center gap-3 mb-3">
-            <div className={`p-2 rounded-lg ${selectedType === 'paid' ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-600'}`}>
+            <div className={`p-2 rounded-lg ${selectedType === 'paid' ? 'bg-accent-green/20 text-accent-green' : 'bg-white/10 text-gray-400'}`}>
               <DollarSign size={24} />
             </div>
             <div>
-              <h3 className="font-bold text-lg text-gray-900">Paid Task</h3>
-              <p className="text-sm text-gray-600">Pay with real money</p>
+              <h3 className="font-bold text-lg text-white">Paid Task</h3>
+              <p className="text-sm text-gray-400">Pay with real money</p>
             </div>
           </div>
-          <p className="text-sm text-gray-600 mb-2">
+          <p className="text-sm text-gray-400 mb-2">
             For complex tasks like development, design, and consulting.
           </p>
           <div className="space-y-1 text-xs text-gray-500">

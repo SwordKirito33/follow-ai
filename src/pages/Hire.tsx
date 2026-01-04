@@ -111,7 +111,7 @@ const Hire: React.FC = () => {
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
         <div className="mb-8 animate-slideDown">
@@ -120,7 +120,7 @@ const Hire: React.FC = () => {
               <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 tracking-tight">
                 Hire Marketplace
               </h1>
-              <p className="text-xl text-gray-600 font-medium">
+              <p className="text-xl text-gray-400 font-medium">
                 Find AI talent or post your tasks
               </p>
             </div>
@@ -144,7 +144,7 @@ const Hire: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search tasks..."
-                className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                className="w-full pl-10 pr-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
               />
             </div>
           </div>
@@ -154,15 +154,15 @@ const Hire: React.FC = () => {
           {/* Filter Sidebar */}
           <div className="lg:col-span-1">
             <div className="glass-card rounded-xl p-6 space-y-6 sticky top-4">
-              <h3 className="font-bold text-gray-900 text-lg mb-4">Filters</h3>
+              <h3 className="font-bold text-white text-lg mb-4">Filters</h3>
 
               {/* Category Filter */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
+                <label className="block text-sm font-semibold text-gray-300 mb-2">Category</label>
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 >
                   {categories.map((cat) => (
                     <option key={cat} value={cat}>
@@ -174,11 +174,11 @@ const Hire: React.FC = () => {
 
               {/* Reward Type Filter */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Reward Type</label>
+                <label className="block text-sm font-semibold text-gray-300 mb-2">Reward Type</label>
                 <select
                   value={selectedRewardType}
                   onChange={(e) => setSelectedRewardType(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 >
                   {rewardTypes.map((type) => (
                     <option key={type} value={type}>
@@ -190,7 +190,7 @@ const Hire: React.FC = () => {
 
               {/* Min Level Filter */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Min Level: {selectedMinLevel === 0 ? 'Any' : selectedMinLevel}
                 </label>
                 <input
@@ -210,7 +210,7 @@ const Hire: React.FC = () => {
             {filteredTasks.length === 0 ? (
               <div className="glass-card rounded-xl p-12 text-center">
                 <Briefcase size={48} className="mx-auto mb-4 text-gray-400" />
-                <p className="text-lg text-gray-600 mb-2">No tasks found</p>
+                <p className="text-lg text-gray-400 mb-2">No tasks found</p>
                 <p className="text-sm text-gray-500">Try adjusting your filters</p>
               </div>
             ) : (
@@ -229,7 +229,7 @@ const Hire: React.FC = () => {
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-xl font-bold text-gray-900">{task.title}</h3>
+                            <h3 className="text-xl font-bold text-white">{task.title}</h3>
                             {task.status === 'open' && (
                               <Badge variant="success" size="sm">Open</Badge>
                             )}
@@ -237,12 +237,12 @@ const Hire: React.FC = () => {
                               <Badge variant="warning" size="sm">Closing soon</Badge>
                             )}
                           </div>
-                          <p className="text-gray-600 mb-3">{task.description}</p>
+                          <p className="text-gray-400 mb-3">{task.description}</p>
                         </div>
                       </div>
 
                       {/* Task Meta */}
-                      <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
+                      <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-400">
                         <div className="flex items-center gap-1">
                           <Briefcase size={16} />
                           <span>{task.category}</span>
@@ -264,24 +264,24 @@ const Hire: React.FC = () => {
                       {/* Rewards */}
                       <div className="flex items-center gap-4 mb-4">
                         {task.rewardType === 'money' && (
-                          <div className="flex items-center gap-2 text-green-600 font-bold">
+                          <div className="flex items-center gap-2 text-accent-green font-bold">
                             <DollarSign size={20} />
                             <span>${task.budgetMin} - ${task.budgetMax}</span>
                           </div>
                         )}
                         {task.rewardType === 'xp' && (
-                          <div className="flex items-center gap-2 text-blue-600 font-bold">
+                          <div className="flex items-center gap-2 text-primary-cyan font-bold">
                             <Zap size={20} />
                             <span>+{task.xpReward} XP</span>
                           </div>
                         )}
                         {task.rewardType === 'money_and_xp' && (
                           <div className="flex items-center gap-4">
-                            <div className="flex items-center gap-2 text-green-600 font-bold">
+                            <div className="flex items-center gap-2 text-accent-green font-bold">
                               <DollarSign size={20} />
                               <span>${task.budgetMin} - ${task.budgetMax}</span>
                             </div>
-                            <div className="flex items-center gap-2 text-blue-600 font-bold">
+                            <div className="flex items-center gap-2 text-primary-cyan font-bold">
                               <Zap size={20} />
                               <span>+{task.xpReward} XP</span>
                             </div>
@@ -310,10 +310,10 @@ const Hire: React.FC = () => {
                       </div>
 
                       {/* CTA */}
-                      <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                      <div className="flex items-center justify-between pt-4 border-t border-white/10">
                         <Link
                           to={`/hire/${task.id}`}
-                          className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                          className="text-primary-cyan hover:text-primary-blue font-semibold text-sm"
                         >
                           View details →
                         </Link>

@@ -131,11 +131,11 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
       <div className="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-center justify-between">
-          <h2 className="text-2xl font-black text-gray-900 tracking-tight">Task Details</h2>
+        <div className="sticky top-0 bg-white border-b border-white/10 p-6 flex items-center justify-between">
+          <h2 className="text-2xl font-black text-white tracking-tight">Task Details</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 hover:bg-white/10 rounded-lg transition-colors"
           >
             <X size={20} />
           </button>
@@ -146,8 +146,8 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
           {loading ? (
             <div className="flex items-center justify-center py-12">
               <div className="text-center">
-                <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-gray-600">Loading task...</p>
+                <div className="w-12 h-12 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-gray-400">Loading task...</p>
               </div>
             </div>
           ) : !task ? (
@@ -174,7 +174,7 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
                     <Badge variant="secondary" size="md">Open</Badge>
                   )}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{task.title}</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">{task.title}</h3>
                 <div className="flex items-center gap-2 text-sm text-gray-500">
                   <Calendar size={14} />
                   <span>Posted {new Date(task.created_at).toLocaleDateString()}</span>
@@ -183,16 +183,16 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
 
               {/* Description */}
               <div>
-                <h4 className="text-sm font-semibold text-gray-700 mb-2">Description</h4>
-                <div className="text-gray-600 whitespace-pre-wrap bg-gray-50 p-4 rounded-lg">
+                <h4 className="text-sm font-semibold text-gray-300 mb-2">Description</h4>
+                <div className="text-gray-400 whitespace-pre-wrap bg-white/5 p-4 rounded-lg">
                   {task.description}
                 </div>
               </div>
 
               {/* Requirements - Using description if no requirements field */}
               <div>
-                <h4 className="text-sm font-semibold text-gray-700 mb-2">Task Details</h4>
-                <div className="text-gray-600 whitespace-pre-wrap bg-gray-50 p-4 rounded-lg">
+                <h4 className="text-sm font-semibold text-gray-300 mb-2">Task Details</h4>
+                <div className="text-gray-400 whitespace-pre-wrap bg-white/5 p-4 rounded-lg">
                   {task.description}
                 </div>
               </div>
@@ -200,16 +200,16 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
               {/* Reward & Level */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                  <div className="text-sm text-gray-600 mb-1">Reward</div>
-                  <div className="text-2xl font-bold text-blue-600">{reward}</div>
+                  <div className="text-sm text-gray-400 mb-1">Reward</div>
+                  <div className="text-2xl font-bold text-primary-cyan">{reward}</div>
                 </div>
                 <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
-                  <div className="text-sm text-gray-600 mb-1">Min Level</div>
+                  <div className="text-sm text-gray-400 mb-1">Min Level</div>
                   <div className="flex items-center gap-2">
                     {userLevel >= task.min_level ? (
                       <>
-                        <CheckCircle size={20} className="text-green-600" />
-                        <span className="text-xl font-bold text-green-600">Level {task.min_level}</span>
+                        <CheckCircle size={20} className="text-accent-green" />
+                        <span className="text-xl font-bold text-accent-green">Level {task.min_level}</span>
                       </>
                     ) : (
                       <>
@@ -227,12 +227,12 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
               </div>
 
               {/* Apply Button */}
-              <div className="pt-4 border-t border-gray-200">
+              <div className="pt-4 border-t border-white/10">
                 {hasApplied ? (
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
-                    <CheckCircle size={20} className="text-green-600 mx-auto mb-2" />
+                    <CheckCircle size={20} className="text-accent-green mx-auto mb-2" />
                     <p className="text-sm font-semibold text-green-700">Application Submitted</p>
-                    <p className="text-xs text-green-600 mt-1">Waiting for creator's response</p>
+                    <p className="text-xs text-accent-green mt-1">Waiting for creator's response</p>
                   </div>
                 ) : (
                   <FollowButton

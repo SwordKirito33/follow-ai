@@ -63,14 +63,14 @@ const HireNew: React.FC = () => {
       <div className="container mx-auto max-w-3xl">
         <button
           onClick={() => navigate('/hire')}
-          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6"
+          className="flex items-center gap-2 text-gray-400 hover:text-white mb-6"
         >
           <ArrowLeft size={20} />
           <span>Back to marketplace</span>
         </button>
 
-        <h1 className="text-4xl font-black text-gray-900 mb-2">Post a Hire Task</h1>
-        <p className="text-gray-600 mb-8">Find the perfect AI talent for your project</p>
+        <h1 className="text-4xl font-black text-white mb-2">Post a Hire Task</h1>
+        <p className="text-gray-400 mb-8">Find the perfect AI talent for your project</p>
 
         {/* Step Indicator */}
         <div className="flex items-center gap-2 mb-8">
@@ -79,8 +79,8 @@ const HireNew: React.FC = () => {
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
                   s <= step
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-400'
+                    ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white'
+                    : 'bg-white/10 text-gray-400'
                 }`}
               >
                 {s < step ? <CheckCircle size={20} /> : s}
@@ -88,7 +88,7 @@ const HireNew: React.FC = () => {
               {s < 5 && (
                 <div
                   className={`h-1 flex-1 ${
-                    s < step ? 'bg-blue-600' : 'bg-gray-200'
+                    s < step ? 'bg-gradient-to-r from-primary-cyan to-primary-blue' : 'bg-white/10'
                   }`}
                 />
               )}
@@ -101,9 +101,9 @@ const HireNew: React.FC = () => {
           {/* Step 1: Basics */}
           {step === 1 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900">Task Basics</h2>
+              <h2 className="text-2xl font-bold text-white">Task Basics</h2>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Title *
                 </label>
                 <input
@@ -111,17 +111,17 @@ const HireNew: React.FC = () => {
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   placeholder="e.g., Build AI-Powered Landing Page"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Category *
                 </label>
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 >
                   <option value="">Select category</option>
                   {categories.map((cat) => (
@@ -132,7 +132,7 @@ const HireNew: React.FC = () => {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Short Description *
                 </label>
                 <textarea
@@ -140,7 +140,7 @@ const HireNew: React.FC = () => {
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="Brief description of what you need..."
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
                 />
               </div>
             </div>
@@ -149,9 +149,9 @@ const HireNew: React.FC = () => {
           {/* Step 2: Scope */}
           {step === 2 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900">Detailed Scope</h2>
+              <h2 className="text-2xl font-bold text-white">Detailed Scope</h2>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Detailed Description
                 </label>
                 <textarea
@@ -159,11 +159,11 @@ const HireNew: React.FC = () => {
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="Detailed requirements, deliverables, timeline expectations..."
                   rows={8}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Deadline (optional)
                 </label>
                 <input
@@ -175,7 +175,7 @@ const HireNew: React.FC = () => {
                       deadline: e.target.value ? new Date(e.target.value).toISOString() : undefined,
                     })
                   }
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
             </div>
@@ -184,9 +184,9 @@ const HireNew: React.FC = () => {
           {/* Step 3: Requirements */}
           {step === 3 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900">Requirements</h2>
+              <h2 className="text-2xl font-bold text-white">Requirements</h2>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Required Skills (comma-separated)
                 </label>
                 <input
@@ -199,11 +199,11 @@ const HireNew: React.FC = () => {
                     })
                   }
                   placeholder="e.g., React, TypeScript, AI Tools"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Required AI Tools (comma-separated)
                 </label>
                 <input
@@ -216,11 +216,11 @@ const HireNew: React.FC = () => {
                     })
                   }
                   placeholder="e.g., GPT-4, Midjourney, Cursor"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Minimum Level Required
                 </label>
                 <input
@@ -231,7 +231,7 @@ const HireNew: React.FC = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, minLevel: Number(e.target.value) })
                   }
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
             </div>
@@ -240,9 +240,9 @@ const HireNew: React.FC = () => {
           {/* Step 4: Rewards */}
           {step === 4 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900">Rewards</h2>
+              <h2 className="text-2xl font-bold text-white">Rewards</h2>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                <label className="block text-sm font-semibold text-gray-300 mb-3">
                   Reward Type *
                 </label>
                 <div className="space-y-3">
@@ -252,7 +252,7 @@ const HireNew: React.FC = () => {
                       className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
                         formData.rewardType === type
                           ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                          : 'border-white/10 hover:border-white/20'
                       }`}
                     >
                       <input
@@ -261,13 +261,13 @@ const HireNew: React.FC = () => {
                         value={type}
                         checked={formData.rewardType === type}
                         onChange={() => setFormData({ ...formData, rewardType: type })}
-                        className="w-4 h-4 text-blue-600"
+                        className="w-4 h-4 text-primary-cyan"
                       />
                       <div>
                         <div className="font-semibold">
                           {type === 'xp' ? 'XP Only' : type === 'money' ? 'Money Only' : 'Money + XP'}
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-gray-400">
                           {type === 'xp'
                             ? 'Perfect for learning challenges'
                             : type === 'money'
@@ -283,7 +283,7 @@ const HireNew: React.FC = () => {
               {formData.rewardType === 'money' || formData.rewardType === 'money_and_xp' ? (
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-300 mb-2">
                       Min Budget ($)
                     </label>
                     <input
@@ -293,11 +293,11 @@ const HireNew: React.FC = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, budgetMin: Number(e.target.value) })
                       }
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-300 mb-2">
                       Max Budget ($)
                     </label>
                     <input
@@ -307,7 +307,7 @@ const HireNew: React.FC = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, budgetMax: Number(e.target.value) })
                       }
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                     />
                   </div>
                 </div>
@@ -315,7 +315,7 @@ const HireNew: React.FC = () => {
 
               {formData.rewardType === 'xp' || formData.rewardType === 'money_and_xp' ? (
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">
                     XP Reward
                   </label>
                   <input
@@ -325,7 +325,7 @@ const HireNew: React.FC = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, xpReward: Number(e.target.value) })
                     }
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-blue-500 outline-none"
                   />
                 </div>
               ) : null}
@@ -335,19 +335,19 @@ const HireNew: React.FC = () => {
           {/* Step 5: Review */}
           {step === 5 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900">Review & Publish</h2>
+              <h2 className="text-2xl font-bold text-white">Review & Publish</h2>
               <div className="space-y-4">
                 <div>
                   <span className="text-sm font-semibold text-gray-500">Title</span>
-                  <p className="text-gray-900 font-medium">{formData.title}</p>
+                  <p className="text-white font-medium">{formData.title}</p>
                 </div>
                 <div>
                   <span className="text-sm font-semibold text-gray-500">Category</span>
-                  <p className="text-gray-900 font-medium">{formData.category}</p>
+                  <p className="text-white font-medium">{formData.category}</p>
                 </div>
                 <div>
                   <span className="text-sm font-semibold text-gray-500">Reward</span>
-                  <p className="text-gray-900 font-medium">
+                  <p className="text-white font-medium">
                     {formData.rewardType === 'money' && `$${formData.budgetMin} - $${formData.budgetMax}`}
                     {formData.rewardType === 'xp' && `+${formData.xpReward} XP`}
                     {formData.rewardType === 'money_and_xp' &&
@@ -356,14 +356,14 @@ const HireNew: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-sm font-semibold text-gray-500">Required Level</span>
-                  <p className="text-gray-900 font-medium">Level {formData.minLevel}+</p>
+                  <p className="text-white font-medium">Level {formData.minLevel}+</p>
                 </div>
               </div>
             </div>
           )}
 
           {/* Navigation */}
-          <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-200">
+          <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/10">
             {step > 1 ? (
               <FollowButton
                 onClick={() => setStep(step - 1)}

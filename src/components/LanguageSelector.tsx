@@ -50,7 +50,7 @@ const LanguageSelector: React.FC = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 dark:hover:bg-gray-800 transition-colors text-gray-300 dark:text-gray-300"
         aria-label={t('language.selectLanguage')}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
@@ -68,11 +68,11 @@ const LanguageSelector: React.FC = () => {
 
       {isOpen && (
         <div 
-          className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 z-50 animate-fadeIn"
+          className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-white/10 dark:border-gray-700 py-2 z-50 animate-fadeIn"
           role="listbox"
           aria-label="Select language"
         >
-          <div className="px-3 py-2 border-b border-gray-100 dark:border-gray-800">
+          <div className="px-3 py-2 border-b border-white/10 dark:border-gray-800">
             <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               {t('language.selectLanguage')}
             </p>
@@ -82,7 +82,7 @@ const LanguageSelector: React.FC = () => {
               <button
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
-                className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-left ${
+                className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-white/5 dark:hover:bg-gray-800 transition-colors text-left ${
                   locale === lang.code ? 'bg-blue-50 dark:bg-blue-900/20' : ''
                 }`}
                 role="option"
@@ -91,7 +91,7 @@ const LanguageSelector: React.FC = () => {
                 <div className="flex items-center gap-3">
                   <span className="text-xl">{lang.flag}</span>
                   <div>
-                    <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                    <span className="text-sm font-medium text-white dark:text-gray-100">
                       {lang.name}
                     </span>
                     <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
@@ -100,7 +100,7 @@ const LanguageSelector: React.FC = () => {
                   </div>
                 </div>
                 {locale === lang.code && (
-                  <Check size={16} className="text-blue-600 dark:text-blue-400" />
+                  <Check size={16} className="text-primary-cyan dark:text-blue-400" />
                 )}
               </button>
             ))}

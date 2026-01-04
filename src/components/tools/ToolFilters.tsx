@@ -81,7 +81,7 @@ function FilterSection({ title, children, collapsible = true, defaultExpanded = 
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
   return (
-    <div className="border-b border-gray-200 dark:border-gray-700 pb-4 mb-4 last:border-b-0 last:pb-0 last:mb-0">
+    <div className="border-b border-white/10 dark:border-gray-700 pb-4 mb-4 last:border-b-0 last:pb-0 last:mb-0">
       <button
         onClick={() => collapsible && setIsExpanded(!isExpanded)}
         className={cn(
@@ -90,7 +90,7 @@ function FilterSection({ title, children, collapsible = true, defaultExpanded = 
         )}
         disabled={!collapsible}
       >
-        <h3 className="font-semibold text-gray-900 dark:text-white">{title}</h3>
+        <h3 className="font-semibold text-white dark:text-white">{title}</h3>
         {collapsible && (
           <svg
             className={cn(
@@ -145,9 +145,9 @@ function CheckboxFilter({ options, selected, onChange, maxVisible = 5 }: Checkbo
             type="checkbox"
             checked={selected.includes(option.value)}
             onChange={() => handleToggle(option.value)}
-            className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-purple-600 focus:ring-purple-500"
+            className="w-4 h-4 rounded border-white/20 dark:border-gray-600 text-primary-purple focus:ring-purple-500"
           />
-          <span className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white">
+          <span className="text-sm text-gray-300 dark:text-gray-300 group-hover:text-white dark:group-hover:text-white">
             {option.label}
           </span>
           {option.count !== undefined && (
@@ -160,7 +160,7 @@ function CheckboxFilter({ options, selected, onChange, maxVisible = 5 }: Checkbo
       {hasMore && (
         <button
           onClick={() => setShowAll(!showAll)}
-          className="text-sm text-purple-600 dark:text-purple-400 hover:underline mt-2"
+          className="text-sm text-primary-purple dark:text-purple-400 hover:underline mt-2"
         >
           {showAll ? '收起' : `显示全部 (${options.length})`}
         </button>
@@ -193,7 +193,7 @@ function RatingFilter({ value, onChange }: RatingFilterProps) {
             name="rating"
             checked={value === rating}
             onChange={() => onChange(value === rating ? null : rating)}
-            className="w-4 h-4 border-gray-300 dark:border-gray-600 text-purple-600 focus:ring-purple-500"
+            className="w-4 h-4 border-white/20 dark:border-gray-600 text-primary-purple focus:ring-purple-500"
           />
           <div className="flex items-center gap-1">
             {[1, 2, 3, 4, 5].map((star) => (
@@ -201,7 +201,7 @@ function RatingFilter({ value, onChange }: RatingFilterProps) {
                 key={star}
                 className={cn(
                   'w-4 h-4',
-                  star <= rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'
+                  star <= rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-400'
                 )}
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -209,7 +209,7 @@ function RatingFilter({ value, onChange }: RatingFilterProps) {
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
             ))}
-            <span className="text-sm text-gray-600 dark:text-gray-400 ml-1">
+            <span className="text-sm text-gray-400 dark:text-gray-400 ml-1">
               及以上
             </span>
           </div>
@@ -300,10 +300,10 @@ export function ToolFilters({
             placeholder="搜索工具..."
             className={cn(
               'w-full pl-10 pr-4 py-2 rounded-lg',
-              'bg-gray-100 dark:bg-gray-700',
+              'bg-white/10 dark:bg-gray-700',
               'border border-transparent',
               'focus:border-purple-500 focus:ring-1 focus:ring-purple-500',
-              'text-gray-900 dark:text-white',
+              'text-white dark:text-white',
               'placeholder-gray-500'
             )}
           />
@@ -319,7 +319,7 @@ export function ToolFilters({
             </span>
             <button
               onClick={clearAllFilters}
-              className="text-sm text-purple-600 dark:text-purple-400 hover:underline"
+              className="text-sm text-primary-purple dark:text-purple-400 hover:underline"
             >
               清除全部
             </button>
@@ -330,7 +330,7 @@ export function ToolFilters({
               return (
                 <span
                   key={cat}
-                  className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs"
+                  className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-primary-purple/20 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs"
                 >
                   {option?.label || cat}
                   <button
@@ -353,7 +353,7 @@ export function ToolFilters({
               return (
                 <span
                   key={price}
-                  className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs"
+                  className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-accent-green/20 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs"
                 >
                   {option?.label || price}
                   <button
@@ -372,7 +372,7 @@ export function ToolFilters({
               );
             })}
             {filters.rating && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 text-xs">
+              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-accent-gold/20 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 text-xs">
                 {filters.rating}+ 星
                 <button
                   onClick={() => updateFilters({ rating: null })}
@@ -395,10 +395,10 @@ export function ToolFilters({
           onChange={(e) => updateFilters({ sortBy: e.target.value })}
           className={cn(
             'w-full px-3 py-2 rounded-lg',
-            'bg-gray-100 dark:bg-gray-700',
+            'bg-white/10 dark:bg-gray-700',
             'border border-transparent',
             'focus:border-purple-500 focus:ring-1 focus:ring-purple-500',
-            'text-gray-900 dark:text-white'
+            'text-white dark:text-white'
           )}
         >
           {sortOptions.map((option) => (
@@ -456,14 +456,14 @@ export function ToolFilters({
           'hidden lg:block',
           'bg-white dark:bg-gray-800',
           'rounded-xl p-6',
-          'border border-gray-200 dark:border-gray-700',
+          'border border-white/10 dark:border-gray-700',
           className
         )}
       >
         {totalResults !== undefined && (
-          <div className="mb-4 pb-4 border-b border-gray-200 dark:border-gray-700">
+          <div className="mb-4 pb-4 border-b border-white/10 dark:border-gray-700">
             <span className="text-sm text-gray-500 dark:text-gray-400">
-              找到 <strong className="text-gray-900 dark:text-white">{totalResults}</strong> 个工具
+              找到 <strong className="text-white dark:text-white">{totalResults}</strong> 个工具
             </span>
           </div>
         )}
@@ -485,7 +485,7 @@ export function ToolFilters({
         </svg>
         筛选
         {activeFilterCount > 0 && (
-          <span className="w-5 h-5 rounded-full bg-white text-purple-600 text-xs flex items-center justify-center">
+          <span className="w-5 h-5 rounded-full bg-white text-primary-purple text-xs flex items-center justify-center">
             {activeFilterCount}
           </span>
         )}
@@ -499,13 +499,13 @@ export function ToolFilters({
             onClick={() => setIsMobileOpen(false)}
           />
           <div className="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-white dark:bg-gray-800 overflow-y-auto">
-            <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+            <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-white/10 dark:border-gray-700 p-4 flex items-center justify-between">
+              <h2 className="text-lg font-semibold text-white dark:text-white">
                 筛选
               </h2>
               <button
                 onClick={() => setIsMobileOpen(false)}
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                className="p-2 hover:bg-white/10 dark:hover:bg-gray-700 rounded-lg"
               >
                 <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -515,7 +515,7 @@ export function ToolFilters({
             <div className="p-4">
               <FilterContent />
             </div>
-            <div className="sticky bottom-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4">
+            <div className="sticky bottom-0 bg-white dark:bg-gray-800 border-t border-white/10 dark:border-gray-700 p-4">
               <button
                 onClick={() => setIsMobileOpen(false)}
                 className="w-full py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"

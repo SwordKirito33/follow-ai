@@ -111,7 +111,7 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
           {getInitials(name)}
         </div>
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400">
+        <div className="w-full h-full flex items-center justify-center bg-white/10 dark:bg-gray-700 text-gray-500 dark:text-gray-400">
           <User className="w-1/2 h-1/2" />
         </div>
       )}
@@ -128,7 +128,7 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
       {/* Level badge */}
       {showLevel && level !== undefined && (
         <span
-          className={`absolute -bottom-1 -right-1 ${levelSizes[size]} rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold flex items-center justify-center border-2 border-white dark:border-gray-900`}
+          className={`absolute -bottom-1 -right-1 ${levelSizes[size]} rounded-full bg-gradient-to-r from-primary-blue to-primary-purple text-white font-bold flex items-center justify-center border-2 border-white dark:border-gray-900`}
         >
           {level}
         </span>
@@ -173,7 +173,7 @@ export const AvatarGroup: React.FC<{
       ))}
       {remainingCount > 0 && (
         <div
-          className={`relative ${overlapClasses[size]} flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 font-semibold ring-2 ring-white dark:ring-gray-900 ${
+          className={`relative ${overlapClasses[size]} flex items-center justify-center rounded-full bg-white/10 dark:bg-gray-700 text-gray-400 dark:text-gray-300 font-semibold ring-2 ring-white dark:ring-gray-900 ${
             size === 'xs'
               ? 'w-6 h-6 text-xs'
               : size === 'sm'

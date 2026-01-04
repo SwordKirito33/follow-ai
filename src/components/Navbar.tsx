@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
     }
   };
 
-  const isActive = (path: string) => location.pathname === path ? 'text-blue-600 font-semibold' : 'text-gray-600 hover:text-gray-900';
+  const isActive = (path: string) => location.pathname === path ? 'text-primary-cyan font-semibold' : 'text-gray-400 hover:text-white';
 
   return (
     <nav className="sticky top-0 z-50 glass-nav h-[70px] flex items-center">
@@ -80,8 +80,8 @@ const Navbar: React.FC = () => {
             to="/rankings" 
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               location.pathname === '/rankings' 
-                ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20' 
-                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                ? 'text-primary-cyan bg-blue-50 dark:bg-blue-900/20' 
+                : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/10 dark:hover:bg-gray-800'
             }`}
           >
             {t('nav.browseTools')}
@@ -90,8 +90,8 @@ const Navbar: React.FC = () => {
             to="/tasks" 
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               location.pathname === '/tasks' 
-                ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20' 
-                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                ? 'text-primary-cyan bg-blue-50 dark:bg-blue-900/20' 
+                : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/10 dark:hover:bg-gray-800'
             }`}
           >
             {t('nav.earnMoney')}
@@ -100,8 +100,8 @@ const Navbar: React.FC = () => {
             to="/leaderboard" 
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               location.pathname === '/leaderboard' 
-                ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20' 
-                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                ? 'text-primary-cyan bg-blue-50 dark:bg-blue-900/20' 
+                : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/10 dark:hover:bg-gray-800'
             }`}
           >
             Leaderboard
@@ -111,8 +111,8 @@ const Navbar: React.FC = () => {
               to="/xp-history" 
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 location.pathname === '/xp-history' 
-                  ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20' 
-                  : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  ? 'text-primary-cyan bg-blue-50 dark:bg-blue-900/20' 
+                  : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/10 dark:hover:bg-gray-800'
               }`}
             >
               XP History
@@ -123,8 +123,8 @@ const Navbar: React.FC = () => {
               to="/wallet" 
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 location.pathname === '/wallet' 
-                  ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20' 
-                  : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  ? 'text-primary-cyan bg-blue-50 dark:bg-blue-900/20' 
+                  : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/10 dark:hover:bg-gray-800'
               }`}
             >
               Wallet
@@ -134,8 +134,8 @@ const Navbar: React.FC = () => {
             to="/hire" 
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               location.pathname === '/hire' 
-                ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20' 
-                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                ? 'text-primary-cyan bg-blue-50 dark:bg-blue-900/20' 
+                : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/10 dark:hover:bg-gray-800'
             }`}
           >
             Hire
@@ -150,7 +150,7 @@ const Navbar: React.FC = () => {
             <>
               <button
                 onClick={() => setShowNotifications(!showNotifications)}
-                className="relative p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="relative p-2 rounded-lg text-gray-300 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors"
                 title="Notifications"
               >
                 <Bell size={20} />
@@ -172,14 +172,14 @@ const Navbar: React.FC = () => {
               </FollowButton>
               <Link 
                 to="/dashboard" 
-                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors"
               >
                 <User size={18} />
                 <span className="hidden lg:inline">Dashboard</span>
               </Link>
               <Link 
                 to="/profile" 
-                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors"
               >
                 <User size={18} />
                 <span className="hidden lg:inline">{t('nav.profile')}</span>
@@ -187,7 +187,7 @@ const Navbar: React.FC = () => {
               {isAdmin && (
                 <Link 
                   to="/admin/xp" 
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors"
                 >
                   <Shield size={18} />
                   <span className="hidden lg:inline">Admin XP</span>
@@ -215,14 +215,14 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-gray-600" onClick={toggleMobileMenu}>
+        <button className="md:hidden text-gray-400" onClick={toggleMobileMenu}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-[70px] left-0 w-full bg-white border-b border-gray-200 shadow-lg md:hidden flex flex-col p-4 gap-4">
+        <div className="absolute top-[70px] left-0 w-full bg-white border-b border-white/10 shadow-lg md:hidden flex flex-col p-4 gap-4">
           <Link to="/" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.browseTools')}</Link>
           <Link to="/tasks" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.earnMoney')}</Link>
           <Link to="/payments" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.payments')}</Link>

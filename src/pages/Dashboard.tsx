@@ -17,8 +17,8 @@ const Dashboard: React.FC = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading...</p>
         </div>
       </div>
     );
@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
     return (
       <div className="min-h-screen py-12 px-4 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-600 mb-4">Please log in to view your dashboard</p>
+          <p className="text-gray-400 mb-4">Please log in to view your dashboard</p>
           <FollowButton to="/" as="link" variant="primary">
             Go to Home
           </FollowButton>
@@ -87,22 +87,22 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <div className="mb-8 animate-slideDown">
           <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 tracking-tight">
             Dashboard
           </h1>
-          <p className="text-xl text-gray-600 font-medium">Welcome back, {user.displayName || user.name}!</p>
+          <p className="text-xl text-gray-300 font-medium">Welcome back, {user.displayName || user.name}!</p>
         </div>
 
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Level & XP */}
-          <div className="glass-card rounded-xl p-6 hover:shadow-xl transition-all">
+          <div className="glass-card rounded-xl p-6 transition-all">
             <div className="flex items-center justify-between mb-4">
-              <div className="bg-purple-100 p-3 rounded-lg text-purple-600">
+              <div className="bg-primary-purple/20 p-3 rounded-lg text-primary-purple">
                 <Award size={24} />
               </div>
               <Badge variant="primary" size="md">
@@ -110,57 +110,57 @@ const Dashboard: React.FC = () => {
               </Badge>
             </div>
             <div className="mb-2">
-              <div className="flex items-center justify-between text-sm text-gray-600 mb-1">
+              <div className="flex items-center justify-between text-sm text-gray-400 mb-1">
                 <span>XP Progress</span>
                 <span>{levelInfo.xpToNext} to next</span>
               </div>
-              <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-purple-600 to-blue-600 transition-all duration-700 ease-out"
+                  className="h-full bg-gradient-to-r from-primary-purple to-primary-blue transition-all duration-700 ease-out"
                   style={{ width: `${levelInfo.progress * 100}%` }}
                 />
               </div>
             </div>
-            <div className="text-2xl font-bold text-gray-900">{userXp.toLocaleString()} XP</div>
+            <div className="text-2xl font-bold text-white">{userXp.toLocaleString()} XP</div>
           </div>
 
           {/* Total Earnings */}
-          <div className="glass-card rounded-xl p-6 hover:shadow-xl transition-all">
+          <div className="glass-card rounded-xl p-6 transition-all">
             <div className="flex items-center justify-between mb-4">
-              <div className="bg-green-100 p-3 rounded-lg text-green-600">
+              <div className="bg-accent-green/20 p-3 rounded-lg text-accent-green">
                 <DollarSign size={24} />
               </div>
             </div>
-            <div className="text-sm text-gray-600 mb-1">Total Earnings</div>
-            <div className="text-2xl font-bold text-gray-900">${(user.earnings ?? 0).toLocaleString()}</div>
+            <div className="text-sm text-gray-400 mb-1">Total Earnings</div>
+            <div className="text-2xl font-bold gradient-text">${(user.earnings ?? 0).toLocaleString()}</div>
           </div>
 
           {/* Profile Completion */}
-          <div className="glass-card rounded-xl p-6 hover:shadow-xl transition-all">
+          <div className="glass-card rounded-xl p-6 transition-all">
             <div className="flex items-center justify-between mb-4">
-              <div className="bg-blue-100 p-3 rounded-lg text-blue-600">
+              <div className="bg-primary-blue/20 p-3 rounded-lg text-primary-blue">
                 <CheckCircle size={24} />
               </div>
             </div>
-            <div className="text-sm text-gray-600 mb-1">Profile Completion</div>
-            <div className="text-2xl font-bold text-gray-900">{profileCompletion}%</div>
-            <div className="mt-2 w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div className="text-sm text-gray-400 mb-1">Profile Completion</div>
+            <div className="text-2xl font-bold text-white">{profileCompletion}%</div>
+            <div className="mt-2 w-full h-2 bg-white/10 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-700 ease-out"
+                className="h-full bg-gradient-to-r from-primary-blue to-accent-green transition-all duration-700 ease-out"
                 style={{ width: `${profileCompletion}%` }}
               />
             </div>
           </div>
 
           {/* Unlocked Features */}
-          <div className="glass-card rounded-xl p-6 hover:shadow-xl transition-all">
+          <div className="glass-card rounded-xl p-6 transition-all">
             <div className="flex items-center justify-between mb-4">
-              <div className="bg-yellow-100 p-3 rounded-lg text-yellow-600">
+              <div className="bg-accent-gold/20 p-3 rounded-lg text-accent-gold">
                 <Zap size={24} />
               </div>
             </div>
-            <div className="text-sm text-gray-600 mb-1">Unlocked Features</div>
-            <div className="text-2xl font-bold text-gray-900">
+            <div className="text-sm text-gray-400 mb-1">Unlocked Features</div>
+            <div className="text-2xl font-bold text-white">
               {user.progression?.unlockedFeatures?.length || 2}
             </div>
             <div className="mt-2 flex flex-wrap gap-1">
@@ -174,14 +174,14 @@ const Dashboard: React.FC = () => {
         </div>
 
         {/* Next Best Action */}
-        <div className="glass-card rounded-xl p-6 mb-8 border-l-4 border-blue-500">
+        <div className="glass-card rounded-xl p-6 mb-8 border-l-4 border-primary-cyan">
           <div className="flex items-start gap-4">
-            <div className="bg-blue-100 p-3 rounded-lg text-blue-600 flex-shrink-0">
+            <div className="bg-primary-cyan/20 p-3 rounded-lg text-primary-cyan flex-shrink-0">
               <NextActionIcon size={24} />
             </div>
             <div className="flex-1">
-              <h3 className="text-xl font-bold text-gray-900 mb-1">{nextAction.title}</h3>
-              <p className="text-gray-600 mb-4">{nextAction.description}</p>
+              <h3 className="text-xl font-bold text-white mb-1">{nextAction.title}</h3>
+              <p className="text-gray-400 mb-4">{nextAction.description}</p>
               <FollowButton
                 to={nextAction.route}
                 as="link"
@@ -203,12 +203,12 @@ const Dashboard: React.FC = () => {
             className="glass-card rounded-xl p-6 hover:shadow-xl transition-all group"
           >
             <div className="flex items-center gap-4 mb-3">
-              <div className="bg-blue-100 p-3 rounded-lg text-blue-600 group-hover:scale-110 transition-transform">
+              <div className="bg-primary-blue/20 p-3 rounded-lg text-primary-cyan group-hover:scale-110 transition-transform">
                 <FileText size={24} />
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Submit Output</h3>
+              <h3 className="text-lg font-bold text-white">Submit Output</h3>
             </div>
-            <p className="text-gray-600 text-sm">Submit a new AI tool output for verification</p>
+            <p className="text-gray-400 text-sm">Submit a new AI tool output for verification</p>
           </Link>
 
           <Link
@@ -216,12 +216,12 @@ const Dashboard: React.FC = () => {
             className="glass-card rounded-xl p-6 hover:shadow-xl transition-all group"
           >
             <div className="flex items-center gap-4 mb-3">
-              <div className="bg-green-100 p-3 rounded-lg text-green-600 group-hover:scale-110 transition-transform">
+              <div className="bg-accent-green/20 p-3 rounded-lg text-accent-green group-hover:scale-110 transition-transform">
                 <DollarSign size={24} />
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Browse Tasks</h3>
+              <h3 className="text-lg font-bold text-white">Browse Tasks</h3>
             </div>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-400 text-sm">
               {canAccessMoneyBounties ? 'View XP challenges and paid bounties' : 'Complete XP challenges to unlock paid tasks'}
             </p>
           </Link>
@@ -231,12 +231,12 @@ const Dashboard: React.FC = () => {
             className="glass-card rounded-xl p-6 hover:shadow-xl transition-all group"
           >
             <div className="flex items-center gap-4 mb-3">
-              <div className="bg-purple-100 p-3 rounded-lg text-purple-600 group-hover:scale-110 transition-transform">
+              <div className="bg-primary-purple/20 p-3 rounded-lg text-primary-purple group-hover:scale-110 transition-transform">
                 <Briefcase size={24} />
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Hire Marketplace</h3>
+              <h3 className="text-lg font-bold text-white">Hire Marketplace</h3>
             </div>
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-400 text-sm">
               {canAccessHire ? 'Find custom projects and long-term work' : 'Reach Level 3 to access'}
             </p>
           </Link>
@@ -244,7 +244,7 @@ const Dashboard: React.FC = () => {
 
         {/* Recent Activity (Placeholder) */}
         <div className="glass-card rounded-xl p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Recent Activity</h2>
+          <h2 className="text-xl font-bold text-white mb-4">Recent Activity</h2>
           <div className="text-center py-8 text-gray-500">
             <FileText size={48} className="mx-auto mb-4 opacity-50" />
             <p>No recent activity</p>

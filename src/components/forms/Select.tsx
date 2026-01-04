@@ -85,7 +85,7 @@ const Select: React.FC<SelectProps> = ({
   return (
     <div className={`w-full ${className}`} ref={containerRef}>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+        <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-1.5">
           {label}
         </label>
       )}
@@ -99,14 +99,14 @@ const Select: React.FC<SelectProps> = ({
             w-full px-4 py-3 rounded-xl border-2 transition-all duration-200
             flex items-center justify-between gap-2
             bg-white dark:bg-gray-900
-            ${error ? 'border-red-500' : 'border-gray-300 dark:border-gray-700'}
+            ${error ? 'border-red-500' : 'border-white/20 dark:border-gray-700'}
             ${isOpen ? 'border-blue-500 ring-4 ring-blue-500/20' : ''}
             ${disabled ? 'opacity-50 cursor-not-allowed' : 'hover:border-gray-400 dark:hover:border-gray-600'}
           `}
         >
           <span
             className={`flex items-center gap-2 truncate ${
-              selectedOption ? 'text-gray-900 dark:text-white' : 'text-gray-400'
+              selectedOption ? 'text-white dark:text-white' : 'text-gray-400'
             }`}
           >
             {selectedOption?.icon}
@@ -118,7 +118,7 @@ const Select: React.FC<SelectProps> = ({
               <button
                 type="button"
                 onClick={handleClear}
-                className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
+                className="p-1 hover:bg-white/10 dark:hover:bg-gray-800 rounded-full"
               >
                 <span className="text-gray-400 text-sm">✕</span>
               </button>
@@ -137,10 +137,10 @@ const Select: React.FC<SelectProps> = ({
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="absolute z-50 w-full mt-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl overflow-hidden"
+              className="absolute z-50 w-full mt-2 bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl shadow-xl overflow-hidden"
             >
               {searchable && (
-                <div className="p-2 border-b border-gray-200 dark:border-gray-700">
+                <div className="p-2 border-b border-white/10 dark:border-gray-700">
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                     <input
@@ -149,7 +149,7 @@ const Select: React.FC<SelectProps> = ({
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Search..."
-                      className="w-full pl-9 pr-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm focus:outline-none"
+                      className="w-full pl-9 pr-4 py-2 bg-white/10 dark:bg-gray-800 rounded-lg text-sm focus:outline-none"
                     />
                   </div>
                 </div>
@@ -170,16 +170,16 @@ const Select: React.FC<SelectProps> = ({
                       className={`
                         w-full px-4 py-3 flex items-center justify-between gap-2 text-left
                         transition-colors
-                        ${option.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}
+                        ${option.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/10 dark:hover:bg-gray-800'}
                         ${option.value === value ? 'bg-blue-50 dark:bg-blue-900/20' : ''}
                       `}
                     >
-                      <span className="flex items-center gap-2 truncate text-gray-900 dark:text-white">
+                      <span className="flex items-center gap-2 truncate text-white dark:text-white">
                         {option.icon}
                         {option.label}
                       </span>
                       {option.value === value && (
-                        <Check className="w-4 h-4 text-blue-600" />
+                        <Check className="w-4 h-4 text-primary-cyan" />
                       )}
                     </button>
                   ))

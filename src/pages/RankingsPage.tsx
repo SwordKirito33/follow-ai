@@ -44,7 +44,7 @@ const RankingsPage: React.FC = () => {
     }
   ];
 
-  const badgeClasses = ['bg-yellow-100 text-yellow-800', 'bg-gray-100 text-gray-700', 'bg-orange-100 text-orange-800'];
+  const badgeClasses = ['bg-accent-gold/20 text-yellow-800', 'bg-white/10 text-gray-300', 'bg-orange-100 text-orange-800'];
 
   // Filter tools based on search and filters
   const filteredTools = extendedTools.filter(tool => {
@@ -60,7 +60,7 @@ const RankingsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-6xl space-y-10 relative z-10">
         {/* Search and Compare */}
         <div className="space-y-4 animate-slideDown">
@@ -85,14 +85,14 @@ const RankingsPage: React.FC = () => {
 
         <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 animate-slideDown">
           <div>
-            <h1 className="text-4xl sm:text-5xl font-black text-gray-900 flex items-center gap-3 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl font-black text-white flex items-center gap-3 tracking-tight">
               <span className="text-4xl animate-float">🏆</span> <span className="gradient-text">{t('rankingsPage.title')}</span>
             </h1>
-            <p className="text-gray-600 mt-2 font-medium">{t('rankingsPage.subtitle')}</p>
+            <p className="text-gray-400 mt-2 font-medium">{t('rankingsPage.subtitle')}</p>
           </div>
           <div className="flex flex-wrap gap-2">
             {[t('rankingsPage.today'), t('rankingsPage.thisWeek'), t('rankingsPage.thisMonth'), t('rankingsPage.allTime')].map((label, idx) => (
-              <button key={label} className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all transform hover:scale-105 ${idx === 0 ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white border-transparent shadow-lg' : 'glass-card text-gray-700 border-white/30 hover:bg-white/90'}`}>
+              <button key={label} className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all transform hover:scale-105 ${idx === 0 ? 'bg-gradient-to-r from-primary-blue to-primary-purple text-white border-transparent shadow-lg' : 'glass-card text-gray-300 border-white/30 hover:bg-white/90'}`}>
                 {label}
               </button>
             ))}
@@ -117,7 +117,7 @@ const RankingsPage: React.FC = () => {
         {/* Empty State */}
         {filteredTools.length === 0 && (
           <div className="text-center py-16 glass-card rounded-2xl">
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-lg text-gray-400 dark:text-gray-400 mb-4">
               No tools found matching your filters.
             </p>
             <Button
@@ -138,7 +138,7 @@ const RankingsPage: React.FC = () => {
               <h2 className="text-2xl font-bold gradient-text">{t('rankingsPage.dailyTop10')}</h2>
               <p className="text-sm text-gray-500">{t('rankingsPage.updatedHourly')}</p>
             </div>
-            <span className="text-xs text-gray-600 glass-card px-3 py-1 rounded-full animate-pulse">{t('rankingsPage.live')}</span>
+            <span className="text-xs text-gray-400 glass-card px-3 py-1 rounded-full animate-pulse">{t('rankingsPage.live')}</span>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
@@ -164,7 +164,7 @@ const RankingsPage: React.FC = () => {
                   filteredTools.map((tool, idx) => (
                   <tr key={tool.id} className="border-b last:border-0">
                     <td className="py-3 pr-4">
-                      <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold ${idx === 0 ? 'bg-yellow-100 text-yellow-800' : idx === 1 ? 'bg-gray-100 text-gray-700' : idx === 2 ? 'bg-orange-100 text-orange-800' : 'bg-gray-50 text-gray-600'}`}>
+                      <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold ${idx === 0 ? 'bg-accent-gold/20 text-yellow-800' : idx === 1 ? 'bg-white/10 text-gray-300' : idx === 2 ? 'bg-orange-100 text-orange-800' : 'bg-white/5 text-gray-400'}`}>
                         {idx + 1}
                       </span>
                     </td>
@@ -172,12 +172,12 @@ const RankingsPage: React.FC = () => {
                       <div className="flex items-center gap-2">
                         <LazyImage src={tool.logo} alt={tool.name} className="w-8 h-8 rounded" />
                         <div>
-                          <div className="font-semibold text-gray-900">{tool.name}</div>
+                          <div className="font-semibold text-white">{tool.name}</div>
                           <div className="text-xs text-gray-500">{t('rankingsPage.validated')}</div>
                           {tool.useCases && tool.useCases.length > 0 && (
                             <div className="flex flex-wrap gap-1 mt-1">
                               {tool.useCases.slice(0, 3).map((useCase, idx) => (
-                                <span key={idx} className="text-[10px] px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded font-medium">
+                                <span key={idx} className="text-[10px] px-1.5 py-0.5 bg-blue-50 text-primary-cyan rounded font-medium">
                                   {useCase}
                                 </span>
                               ))}
@@ -189,16 +189,16 @@ const RankingsPage: React.FC = () => {
                         </div>
                       </div>
                     </td>
-                    <td className="py-3 pr-4 text-gray-600">{tool.category}</td>
-                    <td className="py-3 pr-4 text-gray-900 font-semibold">{tool.reviewCount}</td>
-                    <td className="py-3 pr-4 text-gray-900 font-semibold">⭐ {tool.rating}</td>
+                    <td className="py-3 pr-4 text-gray-400">{tool.category}</td>
+                    <td className="py-3 pr-4 text-white font-semibold">{tool.reviewCount}</td>
+                    <td className="py-3 pr-4 text-white font-semibold">⭐ {tool.rating}</td>
                     <td className="py-3 pr-4">
-                      <span className="text-green-600 font-semibold flex items-center gap-1">
+                      <span className="text-accent-green font-semibold flex items-center gap-1">
                         <TrendingUp size={14} /> {tool.growth}
                       </span>
                     </td>
                     <td className="py-3 pr-0 text-right">
-                      <Link to={`/tool/${tool.id}`} className="inline-block px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700">
+                      <Link to={`/tool/${tool.id}`} className="inline-block px-3 py-1.5 rounded-lg bg-gradient-to-r from-primary-cyan to-primary-blue text-white text-xs font-semibold hover:bg-blue-700">
                         {t('rankingsPage.review')}
                       </Link>
                     </td>

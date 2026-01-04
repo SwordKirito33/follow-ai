@@ -124,11 +124,11 @@ export function DataTable<T extends Record<string, unknown>>({
   };
 
   return (
-    <div className={cn('overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700', className)}>
+    <div className={cn('overflow-hidden rounded-lg border border-white/10 dark:border-gray-700', className)}>
       <div className="overflow-x-auto">
         <table className="w-full">
           {/* Header */}
-          <thead className="bg-gray-50 dark:bg-gray-800">
+          <thead className="bg-white/5 dark:bg-gray-800">
             <tr>
               {selectable && (
                 <th className={cn('w-12', compact ? 'px-3 py-2' : 'px-4 py-3')}>
@@ -139,7 +139,7 @@ export function DataTable<T extends Record<string, unknown>>({
                       if (el) el.indeterminate = isSomeSelected;
                     }}
                     onChange={handleSelectAll}
-                    className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-purple-600 focus:ring-purple-500"
+                    className="w-4 h-4 rounded border-white/20 dark:border-gray-600 text-primary-purple focus:ring-purple-500"
                   />
                 </th>
               )}
@@ -149,7 +149,7 @@ export function DataTable<T extends Record<string, unknown>>({
                   className={cn(
                     'text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
                     compact ? 'px-3 py-2' : 'px-4 py-3',
-                    column.sortable && 'cursor-pointer select-none hover:text-gray-700 dark:hover:text-gray-300',
+                    column.sortable && 'cursor-pointer select-none hover:text-gray-300 dark:hover:text-gray-300',
                     column.align === 'center' && 'text-center',
                     column.align === 'right' && 'text-right'
                   )}
@@ -164,7 +164,7 @@ export function DataTable<T extends Record<string, unknown>>({
                           className={cn(
                             'w-3 h-3 -mb-1',
                             sortConfig?.key === column.key && sortConfig.direction === 'asc'
-                              ? 'text-purple-600'
+                              ? 'text-primary-purple'
                               : 'text-gray-400'
                           )}
                           fill="currentColor"
@@ -176,7 +176,7 @@ export function DataTable<T extends Record<string, unknown>>({
                           className={cn(
                             'w-3 h-3',
                             sortConfig?.key === column.key && sortConfig.direction === 'desc'
-                              ? 'text-purple-600'
+                              ? 'text-primary-purple'
                               : 'text-gray-400'
                           )}
                           fill="currentColor"
@@ -200,12 +200,12 @@ export function DataTable<T extends Record<string, unknown>>({
                 <tr key={index}>
                   {selectable && (
                     <td className={cn(compact ? 'px-3 py-2' : 'px-4 py-3')}>
-                      <div className="w-4 h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+                      <div className="w-4 h-4 bg-white/10 dark:bg-gray-700 rounded animate-pulse" />
                     </td>
                   )}
                   {columns.map((column) => (
                     <td key={String(column.key)} className={cn(compact ? 'px-3 py-2' : 'px-4 py-3')}>
-                      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+                      <div className="h-4 bg-white/10 dark:bg-gray-700 rounded animate-pulse" />
                     </td>
                   ))}
                 </tr>
@@ -228,11 +228,11 @@ export function DataTable<T extends Record<string, unknown>>({
                   onClick={() => onRowClick?.(row)}
                   className={cn(
                     'transition-colors',
-                    striped && index % 2 === 1 && 'bg-gray-50 dark:bg-gray-800/50',
-                    hoverable && 'hover:bg-gray-50 dark:hover:bg-gray-800',
+                    striped && index % 2 === 1 && 'bg-white/5 dark:bg-gray-800/50',
+                    hoverable && 'hover:bg-white/5 dark:hover:bg-gray-800',
                     onRowClick && 'cursor-pointer',
                     isRowSelected(row) && 'bg-purple-50 dark:bg-purple-900/20',
-                    bordered && 'border-b border-gray-200 dark:border-gray-700'
+                    bordered && 'border-b border-white/10 dark:border-gray-700'
                   )}
                 >
                   {selectable && (
@@ -245,7 +245,7 @@ export function DataTable<T extends Record<string, unknown>>({
                           handleSelectRow(row);
                         }}
                         onClick={(e) => e.stopPropagation()}
-                        className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-purple-600 focus:ring-purple-500"
+                        className="w-4 h-4 rounded border-white/20 dark:border-gray-600 text-primary-purple focus:ring-purple-500"
                       />
                     </td>
                   )}
@@ -253,7 +253,7 @@ export function DataTable<T extends Record<string, unknown>>({
                     <td
                       key={String(column.key)}
                       className={cn(
-                        'text-sm text-gray-900 dark:text-white',
+                        'text-sm text-white dark:text-white',
                         compact ? 'px-3 py-2' : 'px-4 py-3',
                         column.align === 'center' && 'text-center',
                         column.align === 'right' && 'text-right'
@@ -283,11 +283,11 @@ interface BadgeCellProps {
 
 export function BadgeCell({ value, variant = 'default' }: BadgeCellProps) {
   const variantClasses = {
-    default: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300',
-    success: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
-    warning: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400',
+    default: 'bg-white/10 dark:bg-gray-800 text-gray-300 dark:text-gray-300',
+    success: 'bg-accent-green/20 dark:bg-green-900/30 text-green-700 dark:text-green-400',
+    warning: 'bg-accent-gold/20 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400',
     error: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400',
-    info: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
+    info: 'bg-primary-blue/20 dark:bg-blue-900/30 text-primary-blue dark:text-blue-400',
   };
 
   return (
@@ -309,14 +309,14 @@ export function AvatarCell({ src, name, subtitle }: AvatarCellProps) {
       {src ? (
         <img src={src} alt={name} className="w-8 h-8 rounded-full object-cover" />
       ) : (
-        <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-          <span className="text-sm font-medium text-purple-600 dark:text-purple-400">
+        <div className="w-8 h-8 rounded-full bg-primary-purple/20 dark:bg-purple-900/30 flex items-center justify-center">
+          <span className="text-sm font-medium text-primary-purple dark:text-purple-400">
             {name.charAt(0).toUpperCase()}
           </span>
         </div>
       )}
       <div>
-        <div className="font-medium text-gray-900 dark:text-white">{name}</div>
+        <div className="font-medium text-white dark:text-white">{name}</div>
         {subtitle && <div className="text-xs text-gray-500 dark:text-gray-400">{subtitle}</div>}
       </div>
     </div>
@@ -346,7 +346,7 @@ export function ActionsCell({ actions }: ActionsCellProps) {
             'p-1.5 rounded-lg transition-colors',
             action.variant === 'danger'
               ? 'text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20'
-              : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800'
+              : 'text-gray-500 hover:bg-white/10 dark:hover:bg-gray-800'
           )}
           title={action.label}
         >
@@ -368,7 +368,7 @@ export function ProgressCell({ value, max = 100, showLabel = true }: ProgressCel
 
   return (
     <div className="flex items-center gap-2">
-      <div className="flex-1 h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+      <div className="flex-1 h-2 bg-white/10 dark:bg-gray-800 rounded-full overflow-hidden">
         <div
           className="h-full bg-purple-600 rounded-full transition-all"
           style={{ width: `${percentage}%` }}
@@ -416,7 +416,7 @@ export function DateCell({ date, format = 'date' }: DateCellProps) {
   };
 
   return (
-    <span className="text-gray-600 dark:text-gray-400">{formatDate()}</span>
+    <span className="text-gray-400 dark:text-gray-400">{formatDate()}</span>
   );
 }
 

@@ -121,17 +121,17 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
         }}
       >
         {/* Header */}
-        <div className="relative p-6 border-b border-gray-200">
+        <div className="relative p-6 border-b border-white/10">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-400 transition-colors"
           >
             <X size={24} />
           </button>
-          <h2 className="text-3xl font-black text-gray-900 tracking-tight">
+          <h2 className="text-3xl font-black text-white tracking-tight">
             {mode === 'login' ? t('auth.login') : t('auth.signup')}
           </h2>
-          <p className="text-sm text-gray-600 mt-2 font-medium">
+          <p className="text-sm text-gray-400 mt-2 font-medium">
             {mode === 'login' ? t('auth.loginSubtitle') : t('auth.signupSubtitle')}
           </p>
         </div>
@@ -147,7 +147,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
           {mode === 'signup' && (
             <>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   {t('auth.username') || 'Username'}
                 </label>
                 <div className="relative">
@@ -156,7 +156,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ''))}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                    className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                     placeholder={t('auth.usernamePlaceholder') || 'username (3-20 characters)'}
                     minLength={3}
                     maxLength={20}
@@ -170,7 +170,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                 </p>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   {t('auth.name')}
                 </label>
                 <div className="relative">
@@ -179,7 +179,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                    className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                     placeholder={t('auth.namePlaceholder')}
                     disabled={isSubmitting}
                     required
@@ -190,7 +190,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
           )}
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               {t('auth.email')}
             </label>
             <div className="relative">
@@ -199,7 +199,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                 placeholder={t('auth.emailPlaceholder')}
                 disabled={isSubmitting}
                 required
@@ -208,7 +208,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               {t('auth.password')}
             </label>
             <div className="relative">
@@ -217,7 +217,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                className="w-full pl-10 pr-12 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                 placeholder={t('auth.passwordPlaceholder')}
                 disabled={isSubmitting}
                 required
@@ -225,7 +225,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-400 transition-colors"
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
@@ -247,7 +247,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                   // Dispatch event to open forgot password modal
                   window.dispatchEvent(new CustomEvent('open-forgot-password'));
                 }}
-                className="text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                className="text-sm text-primary-cyan hover:text-primary-blue font-medium transition-colors"
               >
                 {t('auth.forgotPassword') || 'Forgot password?'}
               </button>
@@ -273,13 +273,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
 
         {/* Footer */}
         <div className="px-6 pb-6">
-          <div className="text-center text-sm text-gray-600">
+          <div className="text-center text-sm text-gray-400">
             {mode === 'login' ? (
               <>
                 {t('auth.noAccount')}{' '}
                 <button
                   onClick={() => setMode('signup')}
-                  className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
+                  className="text-primary-cyan hover:text-primary-blue font-semibold transition-colors"
                 >
                   {t('auth.signup')}
                 </button>
@@ -289,7 +289,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                 {t('auth.haveAccount')}{' '}
                 <button
                   onClick={() => setMode('login')}
-                  className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
+                  className="text-primary-cyan hover:text-primary-blue font-semibold transition-colors"
                 >
                   {t('auth.login')}
                 </button>

@@ -49,7 +49,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
             />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <h3 className="text-xl font-black text-gray-900 dark:text-white tracking-tight truncate">
+              <h3 className="text-xl font-black text-white dark:text-white tracking-tight truncate">
                 {tool.name}
               </h3>
               {rank && rank <= 3 && (
@@ -58,19 +58,19 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
                 </Badge>
               )}
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-2">
+            <p className="text-sm text-gray-400 dark:text-gray-400 mb-2 line-clamp-2">
               {tool.description || `${tool.category} tool`}
             </p>
             <div className="flex items-center gap-3 text-sm">
               <div className="flex items-center gap-1 text-amber-500">
                 <Star size={14} className="fill-current" />
-                <span className="font-bold text-gray-900 dark:text-white">{tool.rating}</span>
+                <span className="font-bold text-white dark:text-white">{tool.rating}</span>
               </div>
               <span className="text-gray-500 dark:text-gray-400">
                 {tool.reviewCount} reviews
               </span>
               {tool.growth && (
-                <span className="flex items-center gap-1 text-green-600 dark:text-green-400 font-semibold">
+                <span className="flex items-center gap-1 text-accent-green dark:text-green-400 font-semibold">
                   <TrendingUp size={14} />
                   {tool.growth}
                 </span>
@@ -99,7 +99,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
       {/* Bounty Badge */}
       {tool.hasBounty && tool.bountyAmount && (
         <div className="flex items-center gap-2 p-3 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg mb-4 border border-green-200 dark:border-green-800">
-          <DollarSign size={16} className="text-green-600 dark:text-green-400" />
+          <DollarSign size={16} className="text-accent-green dark:text-green-400" />
           <span className="text-sm font-bold text-green-700 dark:text-green-400">
             Active bounty: ${tool.bountyAmount}
           </span>
@@ -111,7 +111,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
         <Badge variant="default" size="sm">
           {tool.category}
         </Badge>
-        <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+        <span className="text-sm font-semibold text-primary-cyan dark:text-blue-400 group-hover:text-primary-blue dark:group-hover:text-blue-300 transition-colors">
           View tool →
         </span>
       </div>

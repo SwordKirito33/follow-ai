@@ -102,7 +102,7 @@ const SubmitReview: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-12 px-4">
+    <div className="min-h-screen bg-white/5 dark:bg-gray-950 py-12 px-4">
       {/* Components for "Black Tech" interactions */}
       <AchievementNotification achievement={achievement} onClose={() => setAchievement(null)} />
       <SocialShareModal 
@@ -114,10 +114,10 @@ const SubmitReview: React.FC = () => {
 
       <div className="max-w-3xl mx-auto">
         <div className="mb-10 text-center">
-          <h1 className="text-4xl sm:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-2">
+          <h1 className="text-4xl sm:text-5xl font-black text-white dark:text-white tracking-tight mb-2">
             {t('submitReview.title')}
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">
+          <p className="text-lg text-gray-400 dark:text-gray-400 font-medium">
             {t('submitReview.subtitle')}
           </p>
         </div>
@@ -125,7 +125,7 @@ const SubmitReview: React.FC = () => {
         {/* Progress Indicator */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+            <span className="text-sm font-semibold text-gray-300 dark:text-gray-300">
               Submission Progress
             </span>
             <span className="text-sm text-gray-500 dark:text-gray-500">
@@ -136,9 +136,9 @@ const SubmitReview: React.FC = () => {
               ].reduce((a, b) => a + b, 0)}/3 Complete
             </span>
           </div>
-          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div className="w-full bg-white/10 dark:bg-gray-700 rounded-full h-2">
             <div
-              className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-primary-blue to-primary-purple h-2 rounded-full transition-all duration-300"
               style={{
                 width: `${([
                   file ? 1 : 0,
@@ -153,10 +153,10 @@ const SubmitReview: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Tool Selection */}
                <div className="glass-card p-6 rounded-xl shadow-xl">
-            <label className="block text-sm font-bold text-gray-700 mb-2">
+            <label className="block text-sm font-bold text-gray-300 mb-2">
               {t('submitReview.toolSelection')}
             </label>
-            <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+            <select className="w-full p-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
               <option value="">{t('submitReview.selectTool')}</option>
               <option value="cursor">Cursor</option>
               <option value="claude">Claude 3.5 Sonnet</option>
@@ -166,14 +166,14 @@ const SubmitReview: React.FC = () => {
 
           {/* Mandatory Upload Section - BLACK TECH #1 Integration */}
                <div className="glass-card p-6 rounded-xl shadow-xl">
-            <label className="block text-sm font-bold text-gray-700 mb-2">
+            <label className="block text-sm font-bold text-gray-300 mb-2">
               {t('submitReview.uploadWork')} <span className="text-red-500">{t('submitReview.mandatory')}</span>
             </label>
             <p className="text-xs text-gray-500 mb-4">{t('submitReview.mandatoryNote')}</p>
 
             <div 
               className={`border-2 border-dashed rounded-xl p-8 text-center transition-colors relative overflow-hidden ${
-                file ? 'border-green-300 bg-green-50' : 'border-gray-300 hover:border-blue-400 bg-gray-50'
+                file ? 'border-green-300 bg-green-50' : 'border-white/20 hover:border-blue-400 bg-white/5'
               }`}
               onClick={() => !file && fileInputRef.current?.click()}
             >
@@ -188,16 +188,16 @@ const SubmitReview: React.FC = () => {
               {!file && uploadProgress === 0 && (
                 <div className="cursor-pointer">
                   <UploadCloud className="mx-auto h-10 w-10 text-gray-400 mb-2" />
-                  <p className="text-sm font-medium text-gray-600">{t('submitReview.clickToUpload')}</p>
+                  <p className="text-sm font-medium text-gray-400">{t('submitReview.clickToUpload')}</p>
                   <p className="text-xs text-gray-400 mt-1">{t('submitReview.fileTypes')}</p>
                 </div>
               )}
 
               {uploadProgress > 0 && uploadProgress < 100 && (
                  <div className="w-full">
-                    <p className="text-sm font-bold text-blue-600 mb-2">{t('submitReview.uploading')} {uploadProgress}%</p>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
-                      <div className="bg-blue-600 h-2.5 rounded-full transition-all duration-100" style={{ width: `${uploadProgress}%` }}></div>
+                    <p className="text-sm font-bold text-primary-cyan mb-2">{t('submitReview.uploading')} {uploadProgress}%</p>
+                    <div className="w-full bg-white/10 rounded-full h-2.5">
+                      <div className="bg-gradient-to-r from-primary-cyan to-primary-blue h-2.5 rounded-full transition-all duration-100" style={{ width: `${uploadProgress}%` }}></div>
                     </div>
                  </div>
               )}
@@ -226,8 +226,8 @@ const SubmitReview: React.FC = () => {
             {/* AI Quality Analysis Display */}
             {analyzing && (
                <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-100 flex items-center gap-3">
-                 <Loader2 className="animate-spin text-blue-600" size={20} />
-                 <span className="text-sm font-medium text-blue-700">{t('submitReview.analyzing')}</span>
+                 <Loader2 className="animate-spin text-primary-cyan" size={20} />
+                 <span className="text-sm font-medium text-primary-blue">{t('submitReview.analyzing')}</span>
                </div>
             )}
 
@@ -281,7 +281,7 @@ const SubmitReview: React.FC = () => {
 
           {/* Review Text */}
           <div className="glass-card p-6 rounded-xl shadow-xl">
-            <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-bold text-gray-300 dark:text-gray-300 mb-2">
               {t('submitReview.yourExperience')} <span className="text-red-500">*</span>
             </label>
             <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
@@ -289,7 +289,7 @@ const SubmitReview: React.FC = () => {
               and what you actually got. Be specific and honest.
             </p>
             <textarea 
-              className="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-40 bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-y"
+              className="w-full p-4 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-40 bg-white dark:bg-gray-800 text-white dark:text-white resize-y"
               placeholder={t('submitReview.experiencePlaceholder')}
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
@@ -299,7 +299,7 @@ const SubmitReview: React.FC = () => {
               <span className="text-gray-500 dark:text-gray-400">
                 {t('submitReview.minimumWords').replace('{count}', MIN_CHARACTERS.toString())}
               </span>
-              <span className={characterCount < MIN_CHARACTERS ? "text-red-500 font-semibold" : "text-green-600 font-semibold"}>
+              <span className={characterCount < MIN_CHARACTERS ? "text-red-500 font-semibold" : "text-accent-green font-semibold"}>
                 {characterCount} / {MIN_CHARACTERS} {t('submitReview.words')}
               </span>
             </div>
@@ -307,29 +307,29 @@ const SubmitReview: React.FC = () => {
           
           {/* Additional Context (Optional) */}
           <div className="glass-card p-6 rounded-xl shadow-xl">
-            <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-bold text-gray-300 dark:text-gray-300 mb-2">
               Additional Context (Optional)
             </label>
             <textarea 
-              className="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-32 bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-y"
+              className="w-full p-4 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none h-32 bg-white dark:bg-gray-800 text-white dark:text-white resize-y"
               placeholder="Any additional context, constraints, or goals you had when using the tool..."
             ></textarea>
           </div>
 
-        <div className="bg-white rounded-xl border border-gray-200 p-4 space-y-2">
-          <div className="flex items-start gap-2 text-sm text-gray-700">
-            <ShieldCheck size={18} className="text-green-600 mt-0.5" />
+        <div className="bg-white rounded-xl border border-white/10 p-4 space-y-2">
+          <div className="flex items-start gap-2 text-sm text-gray-300">
+            <ShieldCheck size={18} className="text-accent-green mt-0.5" />
             <div>
-              <p className="font-semibold text-gray-900">{t('submitReview.verificationChecklist')}</p>
-              <ul className="list-disc list-inside text-xs text-gray-600 space-y-1 mt-1">
-                <li className={file ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.outputUploaded')}</li>
-                <li className={analysisComplete ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.aiAnalysisCompleted')}</li>
-                <li className={characterCount >= MIN_CHARACTERS ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.narrativeWords').replace('{count}', MIN_CHARACTERS.toString())}</li>
-                <li className={qualityScore && qualityScore >= 5 ? 'text-gray-700' : 'text-red-600'}>{t('submitReview.qualityScoreMin')}</li>
+              <p className="font-semibold text-white">{t('submitReview.verificationChecklist')}</p>
+              <ul className="list-disc list-inside text-xs text-gray-400 space-y-1 mt-1">
+                <li className={file ? 'text-gray-300' : 'text-red-600'}>{t('submitReview.outputUploaded')}</li>
+                <li className={analysisComplete ? 'text-gray-300' : 'text-red-600'}>{t('submitReview.aiAnalysisCompleted')}</li>
+                <li className={characterCount >= MIN_CHARACTERS ? 'text-gray-300' : 'text-red-600'}>{t('submitReview.narrativeWords').replace('{count}', MIN_CHARACTERS.toString())}</li>
+                <li className={qualityScore && qualityScore >= 5 ? 'text-gray-300' : 'text-red-600'}>{t('submitReview.qualityScoreMin')}</li>
               </ul>
             </div>
           </div>
-          <label className="flex items-center gap-2 text-xs text-gray-700">
+          <label className="flex items-center gap-2 text-xs text-gray-300">
             <input
               type="checkbox"
               checked={manualReviewRequested}
@@ -355,28 +355,28 @@ const SubmitReview: React.FC = () => {
             <div className="flex items-start gap-3 text-sm glass-card rounded-xl p-4 border-l-4 border-amber-500">
               <AlertCircle size={20} className="text-amber-600 dark:text-amber-400 mt-0.5 flex-shrink-0" />
               <div className="space-y-2">
-                <p className="font-black text-gray-900 dark:text-white">{t('submitReview.completeSteps')}</p>
+                <p className="font-black text-white dark:text-white">{t('submitReview.completeSteps')}</p>
                 <ul className="space-y-1.5">
                   <li className={`flex items-center gap-2 ${
-                    file ? "text-gray-700 dark:text-gray-300" : "text-red-600 dark:text-red-400"
+                    file ? "text-gray-300 dark:text-gray-300" : "text-red-600 dark:text-red-400"
                   }`}>
-                    <span className={file ? "text-green-600" : "text-red-500"}>
+                    <span className={file ? "text-accent-green" : "text-red-500"}>
                       {file ? '✓' : '✗'}
                     </span>
                     {t('submitReview.uploadFile')}
                   </li>
                   <li className={`flex items-center gap-2 ${
-                    analysisComplete && qualityScore !== null ? "text-gray-700 dark:text-gray-300" : "text-red-600 dark:text-red-400"
+                    analysisComplete && qualityScore !== null ? "text-gray-300 dark:text-gray-300" : "text-red-600 dark:text-red-400"
                   }`}>
-                    <span className={analysisComplete && qualityScore !== null ? "text-green-600" : "text-red-500"}>
+                    <span className={analysisComplete && qualityScore !== null ? "text-accent-green" : "text-red-500"}>
                       {analysisComplete && qualityScore !== null ? '✓' : '✗'}
                     </span>
                     {t('submitReview.waitAnalysis')}
                   </li>
                   <li className={`flex items-center gap-2 ${
-                    characterCount >= MIN_CHARACTERS ? "text-gray-700 dark:text-gray-300" : "text-red-600 dark:text-red-400"
+                    characterCount >= MIN_CHARACTERS ? "text-gray-300 dark:text-gray-300" : "text-red-600 dark:text-red-400"
                   }`}>
-                    <span className={characterCount >= MIN_CHARACTERS ? "text-green-600" : "text-red-500"}>
+                    <span className={characterCount >= MIN_CHARACTERS ? "text-accent-green" : "text-red-500"}>
                       {characterCount >= MIN_CHARACTERS ? '✓' : '✗'}
                     </span>
                     {t('submitReview.writeWords').replace('{count}', MIN_CHARACTERS.toString())}

@@ -149,8 +149,8 @@ const CreateTask: React.FC = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading...</p>
         </div>
       </div>
     );
@@ -160,8 +160,8 @@ const CreateTask: React.FC = () => {
     return (
       <div className="min-h-screen py-12 px-4 flex items-center justify-center">
         <div className="text-center max-w-md">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Please Log In</h2>
-          <p className="text-gray-600 mb-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Please Log In</h2>
+          <p className="text-gray-400 mb-6">
             You need to be logged in to create tasks.
           </p>
         </div>
@@ -175,14 +175,14 @@ const CreateTask: React.FC = () => {
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
         <div className="mb-8 animate-slideDown">
           <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 tracking-tight">
             Create Task
           </h1>
-          <p className="text-xl text-gray-600 font-medium">
+          <p className="text-xl text-gray-400 font-medium">
             Publish XP tasks or paid tasks for testers
           </p>
         </div>
@@ -191,10 +191,10 @@ const CreateTask: React.FC = () => {
         {taskType === 'xp' && (
           <div className="glass-card rounded-xl shadow-xl p-4 mb-8 bg-blue-50 border border-blue-200">
             <div className="flex items-center gap-3">
-              <Wallet size={20} className="text-blue-600" />
+              <Wallet size={20} className="text-primary-cyan" />
               <div>
-                <div className="text-sm font-semibold text-gray-900">Wallet Balance</div>
-                <div className="text-lg font-bold text-blue-600">
+                <div className="text-sm font-semibold text-white">Wallet Balance</div>
+                <div className="text-lg font-bold text-primary-cyan">
                   {walletBalance.toLocaleString()} XP
                 </div>
               </div>

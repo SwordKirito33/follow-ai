@@ -54,11 +54,11 @@ const XPHistory: React.FC<XPHistoryProps> = ({ userId, limit = 50 }) => {
   if (loading) {
     return (
       <div className="glass-card rounded-xl shadow-xl p-6">
-        <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">XP History</h2>
+        <h2 className="text-2xl font-black text-white mb-6 tracking-tight">XP History</h2>
         <div className="flex items-center justify-center py-12">
           <div className="text-center">
-            <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading XP history...</p>
+            <div className="w-12 h-12 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p className="text-gray-400">Loading XP history...</p>
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@ const XPHistory: React.FC<XPHistoryProps> = ({ userId, limit = 50 }) => {
   if (error) {
     return (
       <div className="glass-card rounded-xl shadow-xl p-6">
-        <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">XP History</h2>
+        <h2 className="text-2xl font-black text-white mb-6 tracking-tight">XP History</h2>
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
           <p className="text-red-600">Error: {error}</p>
         </div>
@@ -78,7 +78,7 @@ const XPHistory: React.FC<XPHistoryProps> = ({ userId, limit = 50 }) => {
 
   return (
     <div className="glass-card rounded-xl shadow-xl p-6">
-      <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">XP History</h2>
+      <h2 className="text-2xl font-black text-white mb-6 tracking-tight">XP History</h2>
       {events.length === 0 ? (
         <div className="text-center py-12">
           <p className="text-gray-500 mb-2">No XP events yet</p>
@@ -95,26 +95,26 @@ const XPHistory: React.FC<XPHistoryProps> = ({ userId, limit = 50 }) => {
             return (
               <div
                 key={event.id}
-                className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                className="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
               >
                 <div className="flex items-center gap-4 flex-1">
                   <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                      isPositive ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'
+                      isPositive ? 'bg-accent-green/20 text-accent-green' : 'bg-red-100 text-red-600'
                     }`}
                   >
                     <Icon size={20} />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className={`font-bold ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
+                      <span className={`font-bold ${isPositive ? 'text-accent-green' : 'text-red-600'}`}>
                         {isPositive ? '+' : ''}{event.amount} XP
                       </span>
                       <span className="text-sm text-gray-500">•</span>
-                      <span className="text-sm text-gray-600">{getSourceLabel(event.source)}</span>
+                      <span className="text-sm text-gray-400">{getSourceLabel(event.source)}</span>
                     </div>
                     {event.reason && (
-                      <p className="text-sm text-gray-600 mb-1">{event.reason}</p>
+                      <p className="text-sm text-gray-400 mb-1">{event.reason}</p>
                     )}
                     <div className="flex items-center gap-2 text-xs text-gray-500">
                       <Calendar size={12} />

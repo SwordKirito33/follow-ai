@@ -38,10 +38,10 @@ const HowItWorks: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/10 to-white"></div>
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tight">
             How it works
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-medium">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-medium">
             Earn money by testing AI tools. It's that simple.
           </p>
         </div>
@@ -67,10 +67,10 @@ const HowItWorks: React.FC = () => {
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-xl font-black text-gray-900 mb-3 tracking-tight">
+                  <h3 className="text-xl font-black text-white mb-3 tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed">
                     {step.description}
                   </p>
                 </div>

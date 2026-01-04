@@ -44,7 +44,7 @@ const SocialLogin: React.FC<SocialLoginProps> = ({ onSuccess, onError }) => {
     <div className="space-y-3">
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
+          <div className="w-full border-t border-white/20 dark:border-gray-600"></div>
         </div>
         <div className="relative flex justify-center text-sm">
           <span className="px-2 bg-white dark:bg-gray-900 text-gray-500">Or continue with</span>
@@ -57,10 +57,10 @@ const SocialLogin: React.FC<SocialLoginProps> = ({ onSuccess, onError }) => {
           type="button"
           onClick={() => handleSocialLogin('google')}
           disabled={loading !== null}
-          className="flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/20 dark:border-gray-600 rounded-lg hover:bg-white/5 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading === 'google' ? (
-            <div className="w-5 h-5 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+            <div className="w-5 h-5 border-2 border-white/20 border-t-blue-600 rounded-full animate-spin"></div>
           ) : (
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path
@@ -81,7 +81,7 @@ const SocialLogin: React.FC<SocialLoginProps> = ({ onSuccess, onError }) => {
               />
             </svg>
           )}
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Google</span>
+          <span className="text-sm font-medium text-gray-300 dark:text-gray-300">Google</span>
         </button>
 
         {/* GitHub Login */}
@@ -89,10 +89,10 @@ const SocialLogin: React.FC<SocialLoginProps> = ({ onSuccess, onError }) => {
           type="button"
           onClick={() => handleSocialLogin('github')}
           disabled={loading !== null}
-          className="flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 border border-white/20 dark:border-gray-600 rounded-lg hover:bg-white/5 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading === 'github' ? (
-            <div className="w-5 h-5 border-2 border-gray-300 border-t-gray-900 rounded-full animate-spin"></div>
+            <div className="w-5 h-5 border-2 border-white/20 border-t-gray-900 rounded-full animate-spin"></div>
           ) : (
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -102,7 +102,7 @@ const SocialLogin: React.FC<SocialLoginProps> = ({ onSuccess, onError }) => {
               />
             </svg>
           )}
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">GitHub</span>
+          <span className="text-sm font-medium text-gray-300 dark:text-gray-300">GitHub</span>
         </button>
       </div>
     </div>
