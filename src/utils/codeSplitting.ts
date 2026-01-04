@@ -19,6 +19,11 @@ interface PreloadableComponent<T extends ComponentType<unknown>> {
   preload: () => Promise<{ default: T }>;
 }
 
+interface LazyWrapperProps {
+  children: React.ReactNode;
+  fallback?: React.ReactNode;
+}
+
 // ============================================
 // Lazy Component Factory
 // ============================================
@@ -62,22 +67,21 @@ export function createLazyComponent<T extends ComponentType<unknown>>(
 // Lazy Component Wrapper
 // ============================================
 
-interface LazyWrapperProps {
-  children: React.ReactNode;
-  fallback?: React.ReactNode;
-}
-
 /**
  * Default loading fallback component
  */
 function DefaultFallback(): JSX.Element {
-  return (
-    <div className="flex items-center justify-center min-h-[200px]">
-      <div className="flex flex-col items-center gap-3">
-        <div className="w-8 h-8 border-3 border-purple-200 border-t-purple-600 rounded-full animate-spin" />
-        <span className="text-sm text-gray-500">加载中...</span>
-      </div>
-    </div>
+  return React.createElement(
+    'div',
+    { className: 'flex items-center justify-center min-h-[200px]' },
+    React.createElement(
+      'div',
+      { className: 'flex flex-col items-center gap-3' },
+      React.createElement('div', {
+        className: 'w-8 h-8 border-3 border-purple-200 border-t-purple-600 rounded-full animate-spin',
+      }),
+      React.createElement('span', { className: 'text-sm text-gray-500' }, 'Loading...')
+    )
   );
 }
 
@@ -85,10 +89,10 @@ function DefaultFallback(): JSX.Element {
  * Wrapper component for lazy-loaded components
  */
 export function LazyWrapper({ children, fallback }: LazyWrapperProps): JSX.Element {
-  return (
-    <Suspense fallback={fallback || <DefaultFallback />}>
-      {children}
-    </Suspense>
+  return React.createElement(
+    Suspense,
+    { fallback: fallback || React.createElement(DefaultFallback) },
+    children
   );
 }
 
@@ -225,7 +229,6 @@ export async function importNamed<T, K extends keyof T>(
 
 /**
  * Create a named chunk for webpack
- * Usage: lazyWithChunkName(() => import(/* webpackChunkName: "my-chunk" * / './MyComponent'))
  */
 export function lazyWithChunkName<T extends ComponentType<unknown>>(
   importFn: () => Promise<{ default: T }>,

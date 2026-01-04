@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 
 /**
  * Hook to manage focus trap in modals/dialogs
@@ -127,20 +127,3 @@ export function useKeyboardNavigation(items: HTMLElement[] = []) {
 
   return { focusedIndex, setFocusedIndex, handleKeyDown };
 }
-
-/**
- * Hook to skip to main content
- */
-export function useSkipToMainContent() {
-  return (
-    <a
-      href="#main-content"
-      className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-blue-600 focus:text-white"
-    >
-      Skip to main content
-    </a>
-  );
-}
-
-// Import React for useState/useEffect
-import React from 'react';
