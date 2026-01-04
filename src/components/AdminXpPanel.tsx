@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/lib/supabase';
 import { adminGrantXp, listXpEvents } from '@/lib/xp-service';
 import { useToast } from './ui/toast';
@@ -13,6 +14,7 @@ interface AdminXpPanelProps {
 
 const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
   const { user, refreshProfile } = useAuth();
+  const { t } = useLanguage();
   const toast = useToast();
   const [isAdmin, setIsAdmin] = useState(false);
   const [checkingAdmin, setCheckingAdmin] = useState(true);
@@ -83,7 +85,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
       setSearchResults(data || []);
     } catch (err: any) {
       console.error('Failed to search users:', err);
-      toast.error('Failed to search users');
+      toast.error(t('admin.searchFailed'));
     } finally {
       setLoading(false);
     }
@@ -92,12 +94,12 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
   // Grant/Revoke XP
   const grantXp = async (targetUserId: string, xpAmount: number) => {
     if (!isAdmin) {
-      toast.error('You are not authorized to grant XP');
+      toast.error(t('admin.notAuthorized'));
       return;
     }
 
     if (!targetUserId || xpAmount === 0) {
-      toast.error('Invalid user ID or XP amount');
+      toast.error(t('admin.invalidInput'));
       return;
     }
 
@@ -112,7 +114,11 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
         metadata: { admin_id: user?.id, timestamp: new Date().toISOString() },
       });
 
-      toast.success(`Successfully ${xpAmount > 0 ? 'granted' : 'revoked'} ${Math.abs(xpAmount)} XP`);
+      toast.success(
+        xpAmount > 0 
+          ? t('admin.grantSuccess', { amount: Math.abs(xpAmount) })
+          : t('admin.revokeSuccess', { amount: Math.abs(xpAmount) })
+      );
       
       // Refresh profile if target is self
       if (targetUserId === user?.id) {
@@ -130,7 +136,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
       setSearchResults([]);
     } catch (err: any) {
       console.error('Failed to grant XP:', err);
-      toast.error(err.message || 'Failed to grant XP');
+      toast.error(err.message || t('admin.grantFailed'));
     } finally {
       setLoading(false);
     }
@@ -143,7 +149,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center">
         <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 text-center">
           <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Checking permissions...</p>
+          <p className="text-gray-400">{t('admin.checkingPermissions')}</p>
         </div>
       </div>
     );
@@ -153,13 +159,13 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
     return (
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 max-w-md w-full text-center">
-          <Shield size={48} className="mx-auto mb-4 text-red-600" />
-          <h2 className="text-2xl font-bold text-white mb-4">Access Denied</h2>
+          <Shield size={48} className="mx-auto mb-4 text-red-500" />
+          <h2 className="text-2xl font-bold text-white mb-4">{t('admin.accessDenied')}</h2>
           <p className="text-gray-400 mb-6">
-            You do not have admin permissions to access this panel.
+            {t('admin.noPermission')}
           </p>
           <FollowButton onClick={onClose} variant="primary">
-            Close
+            {t('common.close')}
           </FollowButton>
         </div>
       </div>
@@ -173,11 +179,11 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
         <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm border-b border-white/10 p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Shield size={24} className="text-primary-cyan" />
-            <h2 className="text-2xl font-bold text-white">Admin XP Panel</h2>
+            <h2 className="text-2xl font-bold text-white">{t('admin.xpPanelTitle')}</h2>
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-400 transition-colors"
+            className="text-gray-400 hover:text-white transition-colors"
           >
             ✕
           </button>
@@ -188,7 +194,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
           {/* User Search */}
           <div>
             <label className="block text-sm font-semibold text-gray-300 mb-2">
-              Search User
+              {t('admin.searchUser')}
             </label>
             <div className="flex gap-2">
               <div className="relative flex-1">
@@ -198,12 +204,12 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && searchUsers()}
-                  placeholder="Search by username or name..."
-                  className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  placeholder={t('admin.searchPlaceholder')}
+                  className="w-full pl-10 pr-4 py-2 bg-gray-800/50 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                 />
               </div>
               <FollowButton onClick={searchUsers} variant="secondary" disabled={loading}>
-                Search
+                {t('common.search')}
               </FollowButton>
             </div>
 
@@ -213,7 +219,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
                 {searchResults.map((result) => (
                   <div
                     key={result.id}
-                    className="flex items-center justify-between p-3 border border-white/10 rounded-lg hover:bg-slate-800/50/5 cursor-pointer"
+                    className="flex items-center justify-between p-3 bg-gray-800/30 border border-white/10 rounded-lg hover:bg-gray-800/50 cursor-pointer transition-colors"
                     onClick={async () => {
                       setUserId(result.id);
                       setSearchQuery(result.username || result.full_name || '');
@@ -229,10 +235,10 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
                       />
                       <div>
                         <div className="font-semibold text-white">
-                          {result.full_name || result.username || 'User'}
+                          {result.full_name || result.username || t('common.user')}
                         </div>
                         <div className="text-sm text-gray-400">
-                          Level {result.level || 1} • {result.total_xp || 0} XP
+                          {t('profile.level')} {result.level || 1} • {result.total_xp || 0} XP
                         </div>
                       </div>
                     </div>
@@ -245,8 +251,8 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
 
           {/* Selected User */}
           {userId && (
-            <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-              <div className="text-sm text-gray-400 mb-1">Selected User:</div>
+            <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
+              <div className="text-sm text-gray-400 mb-1">{t('admin.selectedUser')}:</div>
               <div className="font-semibold text-white">{searchQuery}</div>
             </div>
           )}
@@ -254,28 +260,28 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
           {/* XP Amount */}
           <div>
             <label className="block text-sm font-semibold text-gray-300 mb-2">
-              XP Amount (positive to grant, negative to revoke)
+              {t('admin.xpAmount')}
             </label>
             <input
               type="number"
               value={deltaXp}
               onChange={(e) => setDeltaXp(e.target.value)}
-              placeholder="e.g., 100 or -50"
-              className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+              placeholder={t('admin.xpPlaceholder')}
+              className="w-full px-4 py-2 bg-gray-800/50 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
             />
           </div>
 
           {/* Note */}
           <div>
             <label className="block text-sm font-semibold text-gray-300 mb-2">
-              Note (optional)
+              {t('admin.note')}
             </label>
             <textarea
               value={note}
               onChange={(e) => setNote(e.target.value)}
-              placeholder="Reason for this XP adjustment..."
+              placeholder={t('admin.notePlaceholder')}
               rows={3}
-              className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none"
+              className="w-full px-4 py-2 bg-gray-800/50 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none"
             />
           </div>
 
@@ -292,22 +298,22 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
               disabled={!userId || !deltaXp || loading}
               icon={parseInt(deltaXp) > 0 ? Plus : Minus}
             >
-              {parseInt(deltaXp) > 0 ? 'Grant XP' : 'Revoke XP'}
+              {parseInt(deltaXp) > 0 ? t('admin.grantXp') : t('admin.revokeXp')}
             </FollowButton>
             <FollowButton onClick={onClose} variant="secondary">
-              Cancel
+              {t('common.cancel')}
             </FollowButton>
           </div>
 
           {/* Admin Events History */}
           {userId && adminEvents.length > 0 && (
             <div className="mt-8 pt-6 border-t border-white/10">
-              <h3 className="text-lg font-bold text-white mb-4">Recent Admin Actions</h3>
+              <h3 className="text-lg font-bold text-white mb-4">{t('admin.recentActions')}</h3>
               <div className="space-y-2 max-h-64 overflow-y-auto">
                 {adminEvents.map((event: any) => (
                   <div
                     key={event.id}
-                    className="flex items-center justify-between p-3 bg-slate-800/50/5 rounded-lg text-sm"
+                    className="flex items-center justify-between p-3 bg-gray-800/30 rounded-lg text-sm"
                   >
                     <div>
                       <div className="font-semibold text-white">
@@ -332,4 +338,3 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
 };
 
 export default AdminXpPanel;
-

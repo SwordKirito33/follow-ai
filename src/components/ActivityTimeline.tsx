@@ -12,6 +12,7 @@ import {
   Target,
   Clock
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Activity {
   id: string;
@@ -41,6 +42,8 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
   showLoadMore = false,
   onLoadMore,
 }) => {
+  const { t } = useLanguage();
+
   const getActivityIcon = (type: Activity['type']) => {
     switch (type) {
       case 'xp_earned':
@@ -79,7 +82,7 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
       case 'milestone':
         return 'bg-orange-500 text-white';
       default:
-        return 'bg-slate-800/50/50 text-white';
+        return 'bg-gray-500 text-white';
     }
   };
 
@@ -92,10 +95,10 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
     const hours = Math.floor(diff / 3600000);
     const days = Math.floor(diff / 86400000);
 
-    if (minutes < 1) return 'Just now';
-    if (minutes < 60) return `${minutes}m ago`;
-    if (hours < 24) return `${hours}h ago`;
-    if (days < 7) return `${days}d ago`;
+    if (minutes < 1) return t('activity.justNow');
+    if (minutes < 60) return t('activity.minutesAgo', { count: minutes });
+    if (hours < 24) return t('activity.hoursAgo', { count: hours });
+    if (days < 7) return t('activity.daysAgo', { count: days });
     
     return date.toLocaleDateString('en-US', {
       month: 'short',
@@ -108,8 +111,8 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
   if (!activities.length) {
     return (
       <div className="text-center py-8">
-        <Clock className="w-12 h-12 text-gray-300 dark:text-gray-400 mx-auto mb-3" />
-        <p className="text-gray-400 dark:text-gray-300">No recent activity</p>
+        <Clock className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+        <p className="text-gray-400">{t('activity.noRecentActivity')}</p>
       </div>
     );
   }
@@ -126,7 +129,7 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
         >
           {/* Timeline line */}
           {index < displayedActivities.length - 1 && (
-            <div className="absolute left-[17px] top-10 bottom-0 w-0.5 bg-slate-800/50/10 dark:bg-gray-700" />
+            <div className="absolute left-[17px] top-10 bottom-0 w-0.5 bg-gray-700" />
           )}
 
           {/* Icon */}
@@ -138,16 +141,16 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <p className="font-medium text-white dark:text-white">
+                <p className="font-medium text-white">
                   {activity.title}
                 </p>
                 {activity.description && (
-                  <p className="text-sm text-gray-400 dark:text-gray-300 mt-0.5">
+                  <p className="text-sm text-gray-400 mt-0.5">
                     {activity.description}
                   </p>
                 )}
               </div>
-              <span className="text-xs text-gray-400 dark:text-gray-400 whitespace-nowrap">
+              <span className="text-xs text-gray-400 whitespace-nowrap">
                 {formatTimestamp(activity.timestamp)}
               </span>
             </div>
@@ -156,25 +159,25 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
             {activity.metadata && (
               <div className="flex flex-wrap gap-2 mt-2">
                 {activity.metadata.xp && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-primary-blue/20 dark:bg-blue-900/30 text-primary-blue dark:text-blue-400 text-xs font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-900/30 text-blue-400 text-xs font-medium rounded-full">
                     <Zap className="w-3 h-3" />
                     +{activity.metadata.xp} XP
                   </span>
                 )}
                 {activity.metadata.level && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-primary-purple/20 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-xs font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-purple-900/30 text-purple-400 text-xs font-medium rounded-full">
                     <Trophy className="w-3 h-3" />
-                    Level {activity.metadata.level}
+                    {t('profile.level')} {activity.metadata.level}
                   </span>
                 )}
                 {activity.metadata.amount && activity.metadata.currency && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-accent-green/20 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-green-900/30 text-green-400 text-xs font-medium rounded-full">
                     <CreditCard className="w-3 h-3" />
                     {activity.metadata.currency}{activity.metadata.amount}
                   </span>
                 )}
                 {activity.metadata.badge && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-accent-gold/20 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 text-xs font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-yellow-900/30 text-yellow-400 text-xs font-medium rounded-full">
                     <Award className="w-3 h-3" />
                     {activity.metadata.badge}
                   </span>
@@ -190,9 +193,9 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           onClick={onLoadMore}
-          className="w-full py-3 text-sm font-medium text-primary-cyan dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
+          className="w-full py-3 text-sm font-medium text-blue-400 hover:bg-blue-900/20 rounded-lg transition-colors"
         >
-          Load more activity
+          {t('activity.loadMore')}
         </motion.button>
       )}
     </div>

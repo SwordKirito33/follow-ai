@@ -23,6 +23,8 @@ export default {
 
   // Common
   common: {
+    user: 'Usuário',
+
     loading: 'Carregando...',
     error: 'Erro',
     success: 'Sucesso',
@@ -350,6 +352,22 @@ export default {
   },
 
   socialShare: {
+    skip: 'Pular',
+
+    copyText: 'Copiar texto',
+
+    copied: 'Copiado!',
+
+    aiGenerated: 'Gerado por IA',
+
+    shareToBoost: 'Compartilhe para aumentar sua reputação',
+
+    pendingVerification: 'verificação pendente',
+
+    potentialEarnings: 'Ganhos potenciais',
+
+    reviewSubmitted: 'Avaliação enviada!',
+
     title: "Compartilhar",
     shareOn: "Compartilhar no",
     twitter: "Twitter",
@@ -508,5 +526,37 @@ export default {
     all: 'Todos',
     coding: 'Programação',
     design: 'Design',
+  },
+
+  admin: {
+    xpPanelTitle: 'Painel XP Admin',
+    searchUser: 'Buscar Usuário',
+    searchPlaceholder: 'Buscar por nome de usuário ou nome...',
+    selectedUser: 'Usuário Selecionado',
+    xpAmount: 'Quantidade de XP (positivo para conceder, negativo para revogar)',
+    xpPlaceholder: 'ex., 100 ou -50',
+    note: 'Nota (opcional)',
+    notePlaceholder: 'Motivo deste ajuste de XP...',
+    grantXp: 'Conceder XP',
+    revokeXp: 'Revogar XP',
+    recentActions: 'Ações Recentes do Admin',
+    checkingPermissions: 'Verificando permissões...',
+    accessDenied: 'Acesso Negado',
+    noPermission: 'Você não tem permissões de admin para acessar este painel.',
+    notAuthorized: 'Você não está autorizado a conceder XP',
+    invalidInput: 'ID de usuário ou quantidade de XP inválidos',
+    grantSuccess: '{amount} XP concedidos com sucesso',
+    revokeSuccess: '{amount} XP revogados com sucesso',
+    grantFailed: 'Falha ao conceder XP',
+    searchFailed: 'Falha ao buscar usuários',
+  },
+
+  activity: {
+    justNow: 'Agora mesmo',
+    minutesAgo: 'há {count}m',
+    hoursAgo: 'há {count}h',
+    daysAgo: 'há {count}d',
+    noRecentActivity: 'Sem atividade recente',
+    loadMore: 'Carregar mais atividade',
   },
 };

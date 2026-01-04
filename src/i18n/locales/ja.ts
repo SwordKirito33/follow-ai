@@ -54,6 +54,10 @@ export const ja = {
   
   // Common
   common: {
+    user: 'ユーザー',
+
+    search: '検索',
+
     loading: '読み込み中...',
     error: 'エラー',
     success: '成功',
@@ -296,6 +300,22 @@ export const ja = {
   },
 
   socialShare: {
+    skip: 'スキップ',
+
+    copyText: 'テキストをコピー',
+
+    copied: 'コピーしました！',
+
+    aiGenerated: 'AI生成',
+
+    shareToBoost: 'シェアして評判を上げる',
+
+    pendingVerification: '検証待ち',
+
+    potentialEarnings: '予想収益',
+
+    reviewSubmitted: 'レビューが送信されました！',
+
     title: "共有",
     shareOn: "共有先",
     twitter: "Twitter",
@@ -455,5 +475,37 @@ export const ja = {
     feature: '機能',
     productHunt: 'Product Hunt',
     followAi: 'Follow-ai',
+  },
+
+  admin: {
+    xpPanelTitle: '管理者 XP パネル',
+    searchUser: 'ユーザー検索',
+    searchPlaceholder: 'ユーザー名または名前で検索...',
+    selectedUser: '選択されたユーザー',
+    xpAmount: 'XP 量（正の値で付与、負の値で取り消し）',
+    xpPlaceholder: '例：100 または -50',
+    note: 'メモ（任意）',
+    notePlaceholder: 'この XP 調整の理由...',
+    grantXp: 'XP を付与',
+    revokeXp: 'XP を取り消し',
+    recentActions: '最近の管理者アクション',
+    checkingPermissions: '権限を確認中...',
+    accessDenied: 'アクセス拒否',
+    noPermission: 'このパネルにアクセスする管理者権限がありません。',
+    notAuthorized: 'XP を付与する権限がありません',
+    invalidInput: '無効なユーザー ID または XP 量',
+    grantSuccess: '{amount} XP を正常に付与しました',
+    revokeSuccess: '{amount} XP を正常に取り消しました',
+    grantFailed: 'XP の付与に失敗しました',
+    searchFailed: 'ユーザーの検索に失敗しました',
+  },
+
+  activity: {
+    justNow: 'たった今',
+    minutesAgo: '{count}分前',
+    hoursAgo: '{count}時間前',
+    daysAgo: '{count}日前',
+    noRecentActivity: '最近のアクティビティはありません',
+    loadMore: 'さらに読み込む',
   },
 };

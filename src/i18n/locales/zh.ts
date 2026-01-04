@@ -163,6 +163,10 @@ export const zh = {
   
   // Common
   common: {
+    user: '用户',
+
+    search: '搜索',
+
     loading: '加载中...',
     error: '错误',
     success: '成功',
@@ -902,6 +906,22 @@ export const zh = {
   },
 
   socialShare: {
+    skip: '跳过',
+
+    copyText: '复制文本',
+
+    copied: '已复制！',
+
+    aiGenerated: 'AI 生成',
+
+    shareToBoost: '分享以提升您的声誉',
+
+    pendingVerification: '待验证',
+
+    potentialEarnings: '预计收益',
+
+    reviewSubmitted: '评测已提交！',
+
     title: "分享",
     shareOn: "分享到",
     twitter: "Twitter",
@@ -1040,6 +1060,38 @@ export const zh = {
     perInvite: "每次成功邀请",
     totalEarned: "邀请总收益",
     pendingRewards: "待发放奖励",
+  },
+
+  admin: {
+    xpPanelTitle: '管理员 XP 面板',
+    searchUser: '搜索用户',
+    searchPlaceholder: '按用户名或姓名搜索...',
+    selectedUser: '已选用户',
+    xpAmount: 'XP 数量（正数授予，负数撤销）',
+    xpPlaceholder: '例如：100 或 -50',
+    note: '备注（可选）',
+    notePlaceholder: '此次 XP 调整的原因...',
+    grantXp: '授予 XP',
+    revokeXp: '撤销 XP',
+    recentActions: '最近管理员操作',
+    checkingPermissions: '正在检查权限...',
+    accessDenied: '访问被拒绝',
+    noPermission: '您没有管理员权限访问此面板。',
+    notAuthorized: '您无权授予 XP',
+    invalidInput: '无效的用户 ID 或 XP 数量',
+    grantSuccess: '成功授予 {amount} XP',
+    revokeSuccess: '成功撤销 {amount} XP',
+    grantFailed: '授予 XP 失败',
+    searchFailed: '搜索用户失败',
+  },
+
+  activity: {
+    justNow: '刚刚',
+    minutesAgo: '{count}分钟前',
+    hoursAgo: '{count}小时前',
+    daysAgo: '{count}天前',
+    noRecentActivity: '暂无最近活动',
+    loadMore: '加载更多活动',
   },
 };
 

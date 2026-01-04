@@ -143,6 +143,10 @@ export const en = {
   
   // Common
   common: {
+    user: 'User',
+
+    search: 'Search',
+
     loading: 'Loading...',
     error: 'Error',
     success: 'Success',
@@ -865,6 +869,22 @@ export const en = {
   },
 
   socialShare: {
+    skip: 'Skip',
+
+    copyText: 'Copy Text',
+
+    copied: 'Copied!',
+
+    aiGenerated: 'AI Generated',
+
+    shareToBoost: 'Share to Boost Your Reputation',
+
+    pendingVerification: 'pending verification',
+
+    potentialEarnings: 'Potential earnings',
+
+    reviewSubmitted: 'Review Submitted!',
+
     title: "Share",
     shareOn: "Share on",
     twitter: "Twitter",
@@ -1003,6 +1023,38 @@ export const en = {
     perInvite: "Per successful invite",
     totalEarned: "Total earned from invites",
     pendingRewards: "Pending rewards",
+  },
+
+  admin: {
+    xpPanelTitle: 'Admin XP Panel',
+    searchUser: 'Search User',
+    searchPlaceholder: 'Search by username or name...',
+    selectedUser: 'Selected User',
+    xpAmount: 'XP Amount (positive to grant, negative to revoke)',
+    xpPlaceholder: 'e.g., 100 or -50',
+    note: 'Note (optional)',
+    notePlaceholder: 'Reason for this XP adjustment...',
+    grantXp: 'Grant XP',
+    revokeXp: 'Revoke XP',
+    recentActions: 'Recent Admin Actions',
+    checkingPermissions: 'Checking permissions...',
+    accessDenied: 'Access Denied',
+    noPermission: 'You do not have admin permissions to access this panel.',
+    notAuthorized: 'You are not authorized to grant XP',
+    invalidInput: 'Invalid user ID or XP amount',
+    grantSuccess: 'Successfully granted {amount} XP',
+    revokeSuccess: 'Successfully revoked {amount} XP',
+    grantFailed: 'Failed to grant XP',
+    searchFailed: 'Failed to search users',
+  },
+
+  activity: {
+    justNow: 'Just now',
+    minutesAgo: '{count}m ago',
+    hoursAgo: '{count}h ago',
+    daysAgo: '{count}d ago',
+    noRecentActivity: 'No recent activity',
+    loadMore: 'Load more activity',
   },
 };
 

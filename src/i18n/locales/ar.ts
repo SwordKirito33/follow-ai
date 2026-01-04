@@ -23,6 +23,8 @@ export default {
 
   // Common
   common: {
+    user: 'مستخدم',
+
     loading: 'جاري التحميل...',
     error: 'خطأ',
     success: 'نجاح',
@@ -350,6 +352,22 @@ export default {
   },
 
   socialShare: {
+    skip: 'تخطي',
+
+    copyText: 'نسخ النص',
+
+    copied: 'تم النسخ!',
+
+    aiGenerated: 'مُنشأ بالذكاء الاصطناعي',
+
+    shareToBoost: 'شارك لتعزيز سمعتك',
+
+    pendingVerification: 'في انتظار التحقق',
+
+    potentialEarnings: 'الأرباح المحتملة',
+
+    reviewSubmitted: 'تم إرسال المراجعة!',
+
     title: "مشاركة",
     shareOn: "مشاركة على",
     twitter: "تويتر",
@@ -508,5 +526,37 @@ export default {
     all: 'الكل',
     coding: 'البرمجة',
     design: 'التصميم',
+  },
+
+  admin: {
+    xpPanelTitle: 'لوحة XP للمسؤول',
+    searchUser: 'بحث عن مستخدم',
+    searchPlaceholder: 'البحث باسم المستخدم أو الاسم...',
+    selectedUser: 'المستخدم المحدد',
+    xpAmount: 'كمية XP (موجب للمنح، سالب للإلغاء)',
+    xpPlaceholder: 'مثال: 100 أو -50',
+    note: 'ملاحظة (اختياري)',
+    notePlaceholder: 'سبب تعديل XP هذا...',
+    grantXp: 'منح XP',
+    revokeXp: 'إلغاء XP',
+    recentActions: 'إجراءات المسؤول الأخيرة',
+    checkingPermissions: 'جاري التحقق من الصلاحيات...',
+    accessDenied: 'تم رفض الوصول',
+    noPermission: 'ليس لديك صلاحيات المسؤول للوصول إلى هذه اللوحة.',
+    notAuthorized: 'غير مصرح لك بمنح XP',
+    invalidInput: 'معرف مستخدم أو كمية XP غير صالحة',
+    grantSuccess: 'تم منح {amount} XP بنجاح',
+    revokeSuccess: 'تم إلغاء {amount} XP بنجاح',
+    grantFailed: 'فشل في منح XP',
+    searchFailed: 'فشل في البحث عن المستخدمين',
+  },
+
+  activity: {
+    justNow: 'الآن',
+    minutesAgo: 'منذ {count} دقيقة',
+    hoursAgo: 'منذ {count} ساعة',
+    daysAgo: 'منذ {count} يوم',
+    noRecentActivity: 'لا يوجد نشاط حديث',
+    loadMore: 'تحميل المزيد من النشاط',
   },
 };

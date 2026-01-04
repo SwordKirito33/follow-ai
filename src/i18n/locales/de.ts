@@ -54,6 +54,10 @@ export const de = {
   
   // Common
   common: {
+    user: 'Benutzer',
+
+    search: 'Suchen',
+
     loading: 'Laden...',
     error: 'Fehler',
     success: 'Erfolg',
@@ -296,6 +300,22 @@ export const de = {
   },
 
   socialShare: {
+    skip: 'Überspringen',
+
+    copyText: 'Text kopieren',
+
+    copied: 'Kopiert!',
+
+    aiGenerated: 'KI-generiert',
+
+    shareToBoost: 'Teilen Sie, um Ihren Ruf zu steigern',
+
+    pendingVerification: 'ausstehende Verifizierung',
+
+    potentialEarnings: 'Potenzielle Einnahmen',
+
+    reviewSubmitted: 'Bewertung eingereicht!',
+
     title: "Teilen",
     shareOn: "Teilen auf",
     twitter: "Twitter",
@@ -455,5 +475,37 @@ export const de = {
     feature: 'Funktion',
     productHunt: 'Product Hunt',
     followAi: 'Follow-ai',
+  },
+
+  admin: {
+    xpPanelTitle: 'Admin XP-Panel',
+    searchUser: 'Benutzer suchen',
+    searchPlaceholder: 'Nach Benutzername oder Name suchen...',
+    selectedUser: 'Ausgewählter Benutzer',
+    xpAmount: 'XP-Menge (positiv zum Gewähren, negativ zum Widerrufen)',
+    xpPlaceholder: 'z.B., 100 oder -50',
+    note: 'Notiz (optional)',
+    notePlaceholder: 'Grund für diese XP-Anpassung...',
+    grantXp: 'XP gewähren',
+    revokeXp: 'XP widerrufen',
+    recentActions: 'Letzte Admin-Aktionen',
+    checkingPermissions: 'Berechtigungen werden überprüft...',
+    accessDenied: 'Zugriff verweigert',
+    noPermission: 'Sie haben keine Admin-Berechtigung für dieses Panel.',
+    notAuthorized: 'Sie sind nicht berechtigt, XP zu gewähren',
+    invalidInput: 'Ungültige Benutzer-ID oder XP-Menge',
+    grantSuccess: '{amount} XP erfolgreich gewährt',
+    revokeSuccess: '{amount} XP erfolgreich widerrufen',
+    grantFailed: 'XP-Gewährung fehlgeschlagen',
+    searchFailed: 'Benutzersuche fehlgeschlagen',
+  },
+
+  activity: {
+    justNow: 'Gerade eben',
+    minutesAgo: 'vor {count}m',
+    hoursAgo: 'vor {count}h',
+    daysAgo: 'vor {count}T',
+    noRecentActivity: 'Keine aktuelle Aktivität',
+    loadMore: 'Mehr Aktivität laden',
   },
 };

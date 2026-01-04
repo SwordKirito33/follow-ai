@@ -23,6 +23,8 @@ export default {
 
   // Common
   common: {
+    user: 'Пользователь',
+
     loading: 'Загрузка...',
     error: 'Ошибка',
     success: 'Успешно',
@@ -350,6 +352,22 @@ export default {
   },
 
   socialShare: {
+    skip: 'Пропустить',
+
+    copyText: 'Копировать текст',
+
+    copied: 'Скопировано!',
+
+    aiGenerated: 'Сгенерировано ИИ',
+
+    shareToBoost: 'Поделитесь, чтобы повысить репутацию',
+
+    pendingVerification: 'ожидает проверки',
+
+    potentialEarnings: 'Потенциальный заработок',
+
+    reviewSubmitted: 'Отзыв отправлен!',
+
     title: "Поделиться",
     shareOn: "Поделиться в",
     twitter: "Twitter",
@@ -508,5 +526,37 @@ export default {
     all: 'Все',
     coding: 'Программирование',
     design: 'Дизайн',
+  },
+
+  admin: {
+    xpPanelTitle: 'Панель XP администратора',
+    searchUser: 'Поиск пользователя',
+    searchPlaceholder: 'Поиск по имени пользователя или имени...',
+    selectedUser: 'Выбранный пользователь',
+    xpAmount: 'Количество XP (положительное для начисления, отрицательное для отмены)',
+    xpPlaceholder: 'напр., 100 или -50',
+    note: 'Примечание (необязательно)',
+    notePlaceholder: 'Причина этой корректировки XP...',
+    grantXp: 'Начислить XP',
+    revokeXp: 'Отменить XP',
+    recentActions: 'Недавние действия администратора',
+    checkingPermissions: 'Проверка разрешений...',
+    accessDenied: 'Доступ запрещен',
+    noPermission: 'У вас нет прав администратора для доступа к этой панели.',
+    notAuthorized: 'Вы не авторизованы для начисления XP',
+    invalidInput: 'Неверный ID пользователя или количество XP',
+    grantSuccess: 'Успешно начислено {amount} XP',
+    revokeSuccess: 'Успешно отменено {amount} XP',
+    grantFailed: 'Не удалось начислить XP',
+    searchFailed: 'Не удалось найти пользователей',
+  },
+
+  activity: {
+    justNow: 'Только что',
+    minutesAgo: '{count}м назад',
+    hoursAgo: '{count}ч назад',
+    daysAgo: '{count}д назад',
+    noRecentActivity: 'Нет недавней активности',
+    loadMore: 'Загрузить больше активности',
   },
 };

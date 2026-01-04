@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Copy, Check } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Props {
   isOpen: boolean;
@@ -11,6 +12,7 @@ interface Props {
 const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }) => {
   const [activeTab, setActiveTab] = useState<'twitter' | 'linkedin' | 'reddit'>('twitter');
   const [copied, setCopied] = useState(false);
+  const { t } = useLanguage();
 
   if (!isOpen) return null;
 
@@ -31,13 +33,15 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
       <div className="relative bg-gray-900/95 backdrop-blur-sm rounded-2xl w-full max-w-2xl shadow-2xl animate-scale-in overflow-hidden">
         {/* Header */}
-        <div className="bg-green-50 p-6 border-b border-green-100">
+        <div className="bg-gradient-to-r from-green-600/20 to-emerald-600/20 p-6 border-b border-green-500/20">
           <div className="flex justify-between items-start">
             <div>
-              <h2 className="text-2xl font-bold text-white mb-1">🎉 Review Submitted!</h2>
-              <p className="text-green-700 font-medium">Potential earnings: <span className="font-bold">$35</span> (pending verification)</p>
+              <h2 className="text-2xl font-bold text-white mb-1">🎉 {t('socialShare.reviewSubmitted')}</h2>
+              <p className="text-green-400 font-medium">
+                {t('socialShare.potentialEarnings')}: <span className="font-bold">$35</span> ({t('socialShare.pendingVerification')})
+              </p>
             </div>
-            <button onClick={onClose} className="text-gray-400 hover:text-gray-400 transition-colors">
+            <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
               <X size={24} />
             </button>
           </div>
@@ -45,9 +49,11 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
 
         {/* Body */}
         <div className="p-6">
-          <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-            📢 Share to Boost Your Reputation
-            <span className="text-xs font-normal text-white bg-gradient-to-r from-primary-cyan to-primary-blue px-2 py-0.5 rounded-full">AI Generated</span>
+          <h3 className="font-bold text-lg text-white mb-4 flex items-center gap-2">
+            📢 {t('socialShare.shareToBoost')}
+            <span className="text-xs font-normal text-white bg-gradient-to-r from-primary-cyan to-primary-blue px-2 py-0.5 rounded-full">
+              {t('socialShare.aiGenerated')}
+            </span>
           </h3>
           
           <div className="flex gap-2 mb-4 border-b border-white/10 pb-1">
@@ -57,8 +63,8 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
                 onClick={() => setActiveTab(tab as any)}
                 className={`px-4 py-2 rounded-t-lg font-medium text-sm transition-colors capitalize ${
                   activeTab === tab 
-                  ? 'bg-slate-800/50/10 text-white border-b-2 border-blue-600' 
-                  : 'text-gray-400 hover:bg-slate-800/50/5'
+                  ? 'bg-gray-800/50 text-white border-b-2 border-blue-500' 
+                  : 'text-gray-400 hover:bg-gray-800/30 hover:text-gray-300'
                 }`}
               >
                 {tab}
@@ -66,23 +72,23 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
             ))}
           </div>
 
-          <div className="bg-slate-800/50/5 p-4 rounded-xl border border-white/10 mb-6 font-mono text-sm text-gray-300 whitespace-pre-wrap">
+          <div className="bg-gray-800/50 p-4 rounded-xl border border-white/10 mb-6 font-mono text-sm text-gray-300 whitespace-pre-wrap">
             {content[activeTab]}
           </div>
 
           <div className="flex gap-3">
             <button 
               onClick={() => handleCopy(content[activeTab])}
-              className="flex-1 bg-gradient-to-r from-primary-cyan to-primary-blue hover:bg-blue-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all"
+              className="flex-1 bg-gradient-to-r from-primary-cyan to-primary-blue hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all"
             >
               {copied ? <Check size={18} /> : <Copy size={18} />}
-              {copied ? 'Copied!' : 'Copy Text'}
+              {copied ? t('socialShare.copied') : t('socialShare.copyText')}
             </button>
             <button 
               onClick={onClose}
-              className="px-6 py-3 border border-white/10 font-bold text-gray-400 rounded-xl hover:bg-slate-800/50/5 transition-colors"
+              className="px-6 py-3 border border-white/20 font-bold text-gray-300 rounded-xl hover:bg-gray-800/50 hover:text-white transition-colors"
             >
-              Skip
+              {t('socialShare.skip')}
             </button>
           </div>
         </div>

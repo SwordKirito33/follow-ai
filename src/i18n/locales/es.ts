@@ -54,6 +54,10 @@ export const es = {
   
   // Common
   common: {
+    user: 'Usuario',
+
+    search: 'Buscar',
+
     loading: 'Cargando...',
     error: 'Error',
     success: 'Éxito',
@@ -296,6 +300,22 @@ export const es = {
   },
 
   socialShare: {
+    skip: 'Omitir',
+
+    copyText: 'Copiar texto',
+
+    copied: '¡Copiado!',
+
+    aiGenerated: 'Generado por IA',
+
+    shareToBoost: 'Comparte para aumentar tu reputación',
+
+    pendingVerification: 'pendiente de verificación',
+
+    potentialEarnings: 'Ganancias potenciales',
+
+    reviewSubmitted: '¡Reseña enviada!',
+
     title: "Compartir",
     shareOn: "Compartir en",
     twitter: "Twitter",
@@ -455,5 +475,37 @@ export const es = {
     feature: 'Característica',
     productHunt: 'Product Hunt',
     followAi: 'Follow-ai',
+  },
+
+  admin: {
+    xpPanelTitle: 'Panel de XP de Administrador',
+    searchUser: 'Buscar Usuario',
+    searchPlaceholder: 'Buscar por nombre de usuario o nombre...',
+    selectedUser: 'Usuario Seleccionado',
+    xpAmount: 'Cantidad de XP (positivo para otorgar, negativo para revocar)',
+    xpPlaceholder: 'ej., 100 o -50',
+    note: 'Nota (opcional)',
+    notePlaceholder: 'Razón de este ajuste de XP...',
+    grantXp: 'Otorgar XP',
+    revokeXp: 'Revocar XP',
+    recentActions: 'Acciones Recientes del Administrador',
+    checkingPermissions: 'Verificando permisos...',
+    accessDenied: 'Acceso Denegado',
+    noPermission: 'No tienes permisos de administrador para acceder a este panel.',
+    notAuthorized: 'No estás autorizado para otorgar XP',
+    invalidInput: 'ID de usuario o cantidad de XP inválidos',
+    grantSuccess: 'Se otorgaron {amount} XP exitosamente',
+    revokeSuccess: 'Se revocaron {amount} XP exitosamente',
+    grantFailed: 'Error al otorgar XP',
+    searchFailed: 'Error al buscar usuarios',
+  },
+
+  activity: {
+    justNow: 'Ahora mismo',
+    minutesAgo: 'hace {count}m',
+    hoursAgo: 'hace {count}h',
+    daysAgo: 'hace {count}d',
+    noRecentActivity: 'Sin actividad reciente',
+    loadMore: 'Cargar más actividad',
   },
 };

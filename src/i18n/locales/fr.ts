@@ -54,6 +54,10 @@ export const fr = {
   
   // Common
   common: {
+    user: 'Utilisateur',
+
+    search: 'Rechercher',
+
     loading: 'Chargement...',
     error: 'Erreur',
     success: 'Succès',
@@ -296,6 +300,22 @@ export const fr = {
   },
 
   socialShare: {
+    skip: 'Passer',
+
+    copyText: 'Copier le texte',
+
+    copied: 'Copié !',
+
+    aiGenerated: 'Généré par IA',
+
+    shareToBoost: 'Partagez pour booster votre réputation',
+
+    pendingVerification: 'en attente de vérification',
+
+    potentialEarnings: 'Gains potentiels',
+
+    reviewSubmitted: 'Avis soumis !',
+
     title: "Partager",
     shareOn: "Partager sur",
     twitter: "Twitter",
@@ -455,5 +475,37 @@ export const fr = {
     feature: 'Fonctionnalité',
     productHunt: 'Product Hunt',
     followAi: 'Follow-ai',
+  },
+
+  admin: {
+    xpPanelTitle: 'Panneau XP Admin',
+    searchUser: 'Rechercher un utilisateur',
+    searchPlaceholder: 'Rechercher par nom d\'utilisateur ou nom...',
+    selectedUser: 'Utilisateur sélectionné',
+    xpAmount: 'Montant XP (positif pour accorder, négatif pour révoquer)',
+    xpPlaceholder: 'ex., 100 ou -50',
+    note: 'Note (optionnel)',
+    notePlaceholder: 'Raison de cet ajustement XP...',
+    grantXp: 'Accorder XP',
+    revokeXp: 'Révoquer XP',
+    recentActions: 'Actions Admin Récentes',
+    checkingPermissions: 'Vérification des permissions...',
+    accessDenied: 'Accès Refusé',
+    noPermission: 'Vous n\'avez pas les permissions admin pour accéder à ce panneau.',
+    notAuthorized: 'Vous n\'êtes pas autorisé à accorder des XP',
+    invalidInput: 'ID utilisateur ou montant XP invalide',
+    grantSuccess: '{amount} XP accordés avec succès',
+    revokeSuccess: '{amount} XP révoqués avec succès',
+    grantFailed: 'Échec de l\'attribution des XP',
+    searchFailed: 'Échec de la recherche d\'utilisateurs',
+  },
+
+  activity: {
+    justNow: 'À l\'instant',
+    minutesAgo: 'il y a {count}m',
+    hoursAgo: 'il y a {count}h',
+    daysAgo: 'il y a {count}j',
+    noRecentActivity: 'Aucune activité récente',
+    loadMore: 'Charger plus d\'activité',
   },
 };

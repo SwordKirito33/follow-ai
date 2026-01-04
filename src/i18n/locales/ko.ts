@@ -54,6 +54,10 @@ export const ko = {
   
   // Common
   common: {
+    user: '사용자',
+
+    search: '검색',
+
     loading: '로딩 중...',
     error: '오류',
     success: '성공',
@@ -296,6 +300,22 @@ export const ko = {
   },
 
   socialShare: {
+    skip: '건너뛰기',
+
+    copyText: '텍스트 복사',
+
+    copied: '복사됨!',
+
+    aiGenerated: 'AI 생성',
+
+    shareToBoost: '공유하여 평판 높이기',
+
+    pendingVerification: '검증 대기 중',
+
+    potentialEarnings: '예상 수익',
+
+    reviewSubmitted: '리뷰가 제출되었습니다!',
+
     title: "공유",
     shareOn: "공유하기",
     twitter: "트위터",
@@ -455,5 +475,37 @@ export const ko = {
     feature: '기능',
     productHunt: 'Product Hunt',
     followAi: 'Follow-ai',
+  },
+
+  admin: {
+    xpPanelTitle: '관리자 XP 패널',
+    searchUser: '사용자 검색',
+    searchPlaceholder: '사용자 이름 또는 이름으로 검색...',
+    selectedUser: '선택된 사용자',
+    xpAmount: 'XP 양 (양수는 부여, 음수는 취소)',
+    xpPlaceholder: '예: 100 또는 -50',
+    note: '메모 (선택사항)',
+    notePlaceholder: '이 XP 조정의 이유...',
+    grantXp: 'XP 부여',
+    revokeXp: 'XP 취소',
+    recentActions: '최근 관리자 작업',
+    checkingPermissions: '권한 확인 중...',
+    accessDenied: '접근 거부',
+    noPermission: '이 패널에 접근할 관리자 권한이 없습니다.',
+    notAuthorized: 'XP를 부여할 권한이 없습니다',
+    invalidInput: '잘못된 사용자 ID 또는 XP 양',
+    grantSuccess: '{amount} XP를 성공적으로 부여했습니다',
+    revokeSuccess: '{amount} XP를 성공적으로 취소했습니다',
+    grantFailed: 'XP 부여 실패',
+    searchFailed: '사용자 검색 실패',
+  },
+
+  activity: {
+    justNow: '방금',
+    minutesAgo: '{count}분 전',
+    hoursAgo: '{count}시간 전',
+    daysAgo: '{count}일 전',
+    noRecentActivity: '최근 활동 없음',
+    loadMore: '더 불러오기',
   },
 };
