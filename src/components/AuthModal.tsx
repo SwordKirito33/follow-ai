@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { X, Mail, Lock, User, Loader2, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -25,6 +25,8 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
   
   const { login, signup } = useAuth();
   const { t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (isOpen) {
@@ -54,6 +56,9 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
         // Wait a bit for auth state to update before closing
         setTimeout(() => {
           onClose();
+          // Redirect to original page or dashboard
+          const from = location.state?.from?.pathname || '/dashboard';
+          navigate(from);
         }, 500);
       } else {
         if (!email || !password || !name || !username) {
@@ -78,6 +83,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
         }
         await signup(email, password, name, username);
         // Wait a bit for auth state to update before closing
+        // Redirect to dashboard after signup
         setTimeout(() => {
           onClose();
         }, 500);
