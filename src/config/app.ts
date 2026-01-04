@@ -2,7 +2,7 @@
 
 export const APP_CONFIG = {
   // App info
-  name: 'Follow.ai',
+  name: 'Follow-ai',
   description: 'The premier platform for AI tool testing and earning rewards',
   version: '2.0.0',
   
@@ -203,9 +203,9 @@ export const APP_CONFIG = {
 
   // SEO defaults
   seo: {
-    titleTemplate: '%s | Follow.ai',
-    defaultTitle: 'Follow.ai - AI Tool Testing Platform',
-    defaultDescription: 'Join Follow.ai to test AI tools, earn XP, and climb the leaderboard. The premier platform for AI enthusiasts.',
+    titleTemplate: '%s | Follow-ai',
+    defaultTitle: 'Follow-ai - AI Tool Testing Platform',
+    defaultDescription: 'Join Follow-ai to test AI tools, earn XP, and climb the leaderboard. The premier platform for AI enthusiasts.',
     defaultImage: '/og-image.png',
     twitterHandle: '@followai',
   },

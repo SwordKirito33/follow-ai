@@ -157,6 +157,13 @@ export const zh = {
     close: '关闭',
     viewMore: '查看更多',
     viewAll: '查看全部',
+    remove: '移除',
+    verified: '已验证',
+    verifiedBy: '由 Follow-ai 验证',
+    hoursAgo: '小时前',
+    earned: '已赚取',
+    terms: '条款',
+    compare: '对比',
   },
   
   // Footer
