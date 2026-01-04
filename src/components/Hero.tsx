@@ -9,21 +9,22 @@ const Hero: React.FC = () => {
   
   return (
     <section className="relative pt-16 pb-20 px-4 overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+      {/* 新设计：深色背景 + 动态光效 */}
+      <div className="absolute inset-0 bg-transparent"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-cyan/20 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-purple/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-primary-blue/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Content */}
         <div className="space-y-10 text-center lg:text-left">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 leading-[1.05]">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.05]">
             Where AI tools prove themselves <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 animate-gradient bg-[length:200%_auto]">
+            <span className="gradient-text">
               with real work
             </span>
           </h1>
           
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
             Follow.ai is the benchmark platform for AI tools. Users submit real prompts and outputs, we verify and score them, and you earn money for high-quality results.
           </p>
           
@@ -50,25 +51,25 @@ const Hero: React.FC = () => {
 
           <div className="flex justify-center lg:justify-start gap-8 sm:gap-12 pt-6">
             <div className="text-center lg:text-left">
-              <strong className="block text-3xl sm:text-4xl font-black text-gray-900 mb-1">3,458</strong>
-              <span className="text-sm font-medium text-gray-600">{t('hero.stats.reviews')}</span>
+              <strong className="block text-3xl sm:text-4xl font-black text-white mb-1">3,458</strong>
+              <span className="text-sm font-medium text-gray-400">{t('hero.stats.reviews')}</span>
             </div>
             <div className="text-center lg:text-left">
-              <strong className="block text-3xl sm:text-4xl font-black text-gray-900 mb-1">127</strong>
-              <span className="text-sm font-medium text-gray-600">{t('hero.stats.tools')}</span>
+              <strong className="block text-3xl sm:text-4xl font-black text-white mb-1">127</strong>
+              <span className="text-sm font-medium text-gray-400">{t('hero.stats.tools')}</span>
             </div>
             <div className="text-center lg:text-left">
-              <strong className="block text-3xl sm:text-4xl font-black text-gray-900 mb-1">$45,820</strong>
-              <span className="text-sm font-medium text-gray-600">{t('hero.stats.earned')}</span>
+              <strong className="block text-3xl sm:text-4xl font-black gradient-text mb-1">$45,820</strong>
+              <span className="text-sm font-medium text-gray-400">{t('hero.stats.earned')}</span>
             </div>
           </div>
         </div>
         
         {/* Hero Image / Demo Card */}
         <div className="relative mx-auto w-full max-w-md lg:max-w-full animate-slideUp">
-            <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur-xl opacity-30 animate-pulse"></div>
+            <div className="absolute -inset-2 bg-gradient-to-r from-primary-cyan via-primary-blue to-primary-purple rounded-2xl blur-xl opacity-30 animate-pulse"></div>
             <div className="relative glass-card rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
-              <div className="bg-gray-50 px-4 py-3 border-b border-gray-100 flex items-center justify-between">
+              <div className="bg-dark-card/50 px-4 py-3 border-b border-white/10 flex items-center justify-between">
                 <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t('common.verified')} Output</span>
                 <Tooltip content="Work output verified by our community consensus algorithm">
                   <span className="flex items-center text-green-600 text-xs font-bold gap-1 cursor-help">

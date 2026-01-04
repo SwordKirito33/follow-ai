@@ -31,14 +31,14 @@ const Home: React.FC = () => {
       
       {/* Category Showcase */}
       <section id="categories" className="relative py-16 px-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-white to-blue-50/10"></div>
+        <div className="absolute inset-0 bg-transparent"></div>
         <div className="container mx-auto max-w-5xl relative z-10">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">{t('categories.title')}</h2>
-              <p className="text-gray-600 text-sm font-medium mt-1">{t('categories.subtitle')}</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">{t('categories.title')}</h2>
+              <p className="text-gray-400 text-sm font-medium mt-1">{t('categories.subtitle')}</p>
             </div>
-            <Link to="/rankings" className="text-blue-600 text-sm font-semibold hover:text-blue-700">{t('categories.viewRankings')}</Link>
+            <Link to="/rankings" className="text-primary-cyan text-sm font-semibold hover:text-primary-blue transition-colors">{t('categories.viewRankings')}</Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
@@ -49,13 +49,13 @@ const Home: React.FC = () => {
               { icon: '🎵', title: 'Audio & Voice', stats: '67 tools • 640 reviews', badge: '' },
               { icon: '📊', title: 'Data & Analytics', stats: '72 tools • 810 reviews', badge: '' },
             ].map((cat, idx) => (
-              <Link key={cat.title} to="/rankings" className="block glass-card hover:bg-white/95 border border-white/30 rounded-xl p-5 transition-all transform hover:scale-105 hover:shadow-xl card-3d animate-slideUp" style={{ animationDelay: `${idx * 0.05}s` }}>
+              <Link key={cat.title} to="/rankings" className="block glass-card rounded-xl p-5 transition-all transform hover:scale-105 card-3d animate-slideUp" style={{ animationDelay: `${idx * 0.05}s` }}>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-3xl transform hover:scale-110 transition-transform">{cat.icon}</span>
-                  {cat.badge && <span className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 font-semibold border border-amber-200 animate-pulse">{cat.badge}</span>}
+                  {cat.badge && <span className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-accent-gold/20 to-accent-gold/30 text-accent-gold font-semibold border border-accent-gold/50 animate-pulse">{cat.badge}</span>}
                 </div>
-                <h3 className="text-lg font-black text-gray-900 mb-1 tracking-tight">{cat.title}</h3>
-                <p className="text-sm font-medium text-gray-600">{cat.stats}</p>
+                <h3 className="text-lg font-black text-white mb-1 tracking-tight">{cat.title}</h3>
+                <p className="text-sm font-medium text-gray-400">{cat.stats}</p>
               </Link>
             ))}
           </div>
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
 
       {/* Why Different Section */}
       <section className="relative py-16 px-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/20 to-white"></div>
+        <div className="absolute inset-0 bg-transparent"></div>
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="text-center mb-12 animate-slideDown">
             <h2 className="text-3xl sm:text-4xl font-black gradient-text tracking-tight">{t('whyDifferent.title')}</h2>
@@ -74,26 +74,26 @@ const Home: React.FC = () => {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr>
-                  <th className="p-4 border-b-2 border-gray-100 text-gray-500 font-medium">{t('home.feature')}</th>
-                  <th className="p-4 border-b-2 border-gray-100 text-gray-400 font-medium">{t('home.productHunt')}</th>
-                  <th className="p-4 border-b-2 border-blue-100 bg-blue-50 text-blue-800 font-bold rounded-t-lg">{t('home.followAi')}</th>
+                  <th className="p-4 border-b-2 border-white/10 text-gray-400 font-medium">{t('home.feature')}</th>
+                  <th className="p-4 border-b-2 border-white/10 text-gray-500 font-medium">{t('home.productHunt')}</th>
+                  <th className="p-4 border-b-2 border-primary-cyan/30 bg-primary-cyan/10 text-primary-cyan font-bold rounded-t-lg">{t('home.followAi')}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="p-4 border-b border-gray-100 font-medium">{t('whyDifferent.proofRequired')}</td>
-                  <td className="p-4 border-b border-gray-100 text-red-500">❌ {t('whyDifferent.no')}</td>
-                  <td className="p-4 border-b border-blue-100 bg-blue-50/50 text-green-600 font-bold">✅ {t('whyDifferent.yes')} {t('whyDifferent.mandatory')}</td>
+                  <td className="p-4 border-b border-white/10 font-medium text-white">{t('whyDifferent.proofRequired')}</td>
+                  <td className="p-4 border-b border-white/10 text-red-400">❌ {t('whyDifferent.no')}</td>
+                  <td className="p-4 border-b border-primary-cyan/20 bg-primary-cyan/5 text-accent-green font-bold">✅ {t('whyDifferent.yes')} {t('whyDifferent.mandatory')}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 border-b border-gray-100 font-medium">{t('whyDifferent.realOutputs')}</td>
-                  <td className="p-4 border-b border-gray-100 text-red-500">❌ {t('whyDifferent.no')}</td>
-                  <td className="p-4 border-b border-blue-100 bg-blue-50/50 text-green-600 font-bold">✅ {t('whyDifferent.everyReview')}</td>
+                  <td className="p-4 border-b border-white/10 font-medium text-white">{t('whyDifferent.realOutputs')}</td>
+                  <td className="p-4 border-b border-white/10 text-red-400">❌ {t('whyDifferent.no')}</td>
+                  <td className="p-4 border-b border-primary-cyan/20 bg-primary-cyan/5 text-accent-green font-bold">✅ {t('whyDifferent.everyReview')}</td>
                 </tr>
                 <tr>
-                  <td className="p-4 border-b border-gray-100 font-medium">{t('whyDifferent.earnMoney')}</td>
-                  <td className="p-4 border-b border-gray-100 text-red-500">❌ {t('whyDifferent.no')}</td>
-                  <td className="p-4 border-b border-blue-100 bg-blue-50/50 text-green-600 font-bold">✅ $20-200/review</td>
+                  <td className="p-4 border-b border-white/10 font-medium text-white">{t('whyDifferent.earnMoney')}</td>
+                  <td className="p-4 border-b border-white/10 text-red-400">❌ {t('whyDifferent.no')}</td>
+                  <td className="p-4 border-b border-primary-cyan/20 bg-primary-cyan/5 text-accent-green font-bold">✅ $20-200/review</td>
                 </tr>
               </tbody>
             </table>
