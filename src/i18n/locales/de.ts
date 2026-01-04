@@ -124,6 +124,26 @@ export const de = {
   
   // Tasks
   tasks: {
+    startTask: 'Aufgabe starten',
+
+    timeLeft: 'übrig',
+
+    spotsRemaining: 'Plätze übrig',
+
+    reward: 'Belohnung',
+
+    requiredForPayout: 'erforderlich für Auszahlung',
+
+    manualVerification: 'Manuelle Überprüfung',
+
+    completeProfile: 'Profil vervollständigen',
+
+    findXpChallenges: 'XP-Herausforderungen finden',
+
+    unlockMessage: 'Schalten Sie bezahlte Aufgaben frei, indem Sie Level 2 erreichen und Ihr Profil vervollständigen. Ihnen fehlen {xp} XP.',
+
+    profileRequired: 'Profilvervollständigung erforderlich',
+
     title: 'Geld Verdienen mit KI-Tests',
     subtitle: 'Schließe verifizierte Aufgaben ab für garantierte Belohnungen.',
     preCheck: 'KI-Vorprüfung',
@@ -397,5 +417,43 @@ export const de = {
     perInvite: "Pro erfolgreicher Einladung",
     totalEarned: "Gesamteinnahmen aus Einladungen",
     pendingRewards: "Ausstehende Belohnungen",
+  },
+
+  // Whydifferent
+  whyDifferent: {
+    title: 'Warum wir anders sind',
+    proofRequired: 'Nachweis erforderlich',
+    realOutputs: 'Echte Ausgaben',
+    earnMoney: 'Geld verdienen',
+    yes: 'Ja',
+    no: 'Nein',
+    mandatory: '(Pflicht)',
+    everyReview: 'Jede Bewertung',
+  },
+
+  // Reviews
+  reviews: {
+    title: 'Aktuelle verifizierte Bewertungen',
+    all: 'Alle',
+    coding: 'Programmierung',
+    design: 'Design',
+  },
+
+  // Home
+  home: {
+    viewTasks: 'Aufgaben ansehen',
+    weeklyDigest: '📬 Wöchentlicher KI-Tools Digest',
+    weeklyDigestDesc: 'Erhalten Sie jeden Montag die Top 10 KI-Tools. Kein Spam, jederzeit abmelden.',
+    subscribe: 'Abonnieren',
+    subscribers: 'Schließen Sie sich {count} Abonnenten an.',
+    comingSoon: '🔮 Demnächst',
+    comingSoonDesc: 'Seien Sie der Erste, der neue KI-Tools bewertet.',
+    notifyMe: 'Benachrichtigen →',
+    notify: '🔔 Benachrichtigen',
+    preview: 'Vorschau',
+    peopleInterested: 'Personen interessiert',
+    feature: 'Funktion',
+    productHunt: 'Product Hunt',
+    followAi: 'Follow-ai',
   },
 };

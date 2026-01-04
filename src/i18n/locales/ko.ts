@@ -124,6 +124,26 @@ export const ko = {
   
   // Tasks
   tasks: {
+    startTask: '작업 시작',
+
+    timeLeft: '남은 시간',
+
+    spotsRemaining: '남은 자리',
+
+    reward: '보상',
+
+    requiredForPayout: '지급에 필요',
+
+    manualVerification: '수동 검증',
+
+    completeProfile: '프로필 완성',
+
+    findXpChallenges: 'XP 챌린지 찾기',
+
+    unlockMessage: '레벨 2에 도달하고 프로필을 완성하면 유료 작업이 잠금 해제됩니다. {xp} XP가 더 필요합니다.',
+
+    profileRequired: '프로필 완성 필요',
+
     title: 'AI 테스트로 수익 창출',
     subtitle: '검증된 작업을 완료하고 보장된 보상을 받으세요.',
     preCheck: 'AI 사전 검사',
@@ -397,5 +417,43 @@ export const ko = {
     perInvite: "성공적인 초대당",
     totalEarned: "초대로 얻은 총 수익",
     pendingRewards: "대기 중인 보상",
+  },
+
+  // Whydifferent
+  whyDifferent: {
+    title: '왜 우리가 다른가',
+    proofRequired: '증명 필요',
+    realOutputs: '실제 출력',
+    earnMoney: '수익 창출',
+    yes: '예',
+    no: '아니오',
+    mandatory: '(필수)',
+    everyReview: '모든 리뷰',
+  },
+
+  // Reviews
+  reviews: {
+    title: '최근 검증된 리뷰',
+    all: '전체',
+    coding: '코딩',
+    design: '디자인',
+  },
+
+  // Home
+  home: {
+    viewTasks: '작업 보기',
+    weeklyDigest: '📬 주간 AI 도구 다이제스트',
+    weeklyDigestDesc: '매주 월요일 상위 10개 AI 도구를 받아보세요. 스팸 없음, 언제든 구독 취소 가능.',
+    subscribe: '구독',
+    subscribers: '{count}명의 구독자와 함께하세요.',
+    comingSoon: '🔮 곧 출시',
+    comingSoonDesc: '새로운 AI 도구를 가장 먼저 리뷰하세요.',
+    notifyMe: '알림 받기 →',
+    notify: '🔔 알림',
+    preview: '미리보기',
+    peopleInterested: '명이 관심을 가지고 있습니다',
+    feature: '기능',
+    productHunt: 'Product Hunt',
+    followAi: 'Follow-ai',
   },
 };

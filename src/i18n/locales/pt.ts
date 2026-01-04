@@ -49,6 +49,24 @@ export default {
 
   // Home Page
   home: {
+    followAi: 'Follow-ai',
+
+    productHunt: 'Product Hunt',
+
+    feature: 'Recurso',
+
+    peopleInterested: 'pessoas interessadas',
+
+    preview: 'Prévia',
+
+    notify: '🔔 Notificar',
+
+    notifyMe: 'Notifique-me →',
+
+    comingSoonDesc: 'Seja o primeiro a avaliar novas ferramentas IA.',
+
+    comingSoon: '🔮 Em breve',
+
     heroTitle: 'Onde ferramentas de IA provam seu valor',
     heroSubtitle: 'com trabalho real',
     heroDescription: 'Follow-ai é a plataforma de benchmark para ferramentas de IA. Usuários enviam prompts e resultados reais, verificamos e pontuamos, e você ganha dinheiro por resultados de alta qualidade.',
@@ -127,6 +145,40 @@ export default {
 
   // Tasks
   tasks: {
+    startTask: 'Iniciar tarefa',
+
+    timeLeft: 'restante',
+
+    spotsRemaining: 'vagas restantes',
+
+    reward: 'Recompensa',
+
+    requiredForPayout: 'necessário para pagamento',
+
+    manualVerification: 'Verificação manual',
+
+    completeProfile: 'Completar perfil',
+
+    findXpChallenges: 'Encontrar desafios XP',
+
+    unlockMessage: 'Desbloqueie tarefas pagas atingindo o Nível 2 e completando seu perfil. Você precisa de mais {xp} XP.',
+
+    profileRequired: 'Conclusão do perfil necessária',
+
+    levelRequired: 'Nível {level}+ necessário',
+
+    allTypes: 'Todos os tipos',
+
+    filterByType: 'Filtrar por tipo',
+
+    hire: 'Tarefa de contratação',
+
+    bounty: 'Recompensa',
+
+    xpChallenge: 'Desafio XP',
+
+    preCheck: 'Pré-verificação IA',
+
     title: 'Tarefas Disponíveis',
     subtitle: 'Complete tarefas para ganhar XP e melhorar sua classificação',
     allTasks: 'Todas as Tarefas',
@@ -436,5 +488,25 @@ export default {
     perInvite: "Por convite bem-sucedido",
     totalEarned: "Total ganho com convites",
     pendingRewards: "Recompensas pendentes",
+  },
+
+  // Whydifferent
+  whyDifferent: {
+    title: 'Por que somos diferentes',
+    proofRequired: 'Prova necessária',
+    realOutputs: 'Saídas reais',
+    earnMoney: 'Ganhar dinheiro',
+    yes: 'Sim',
+    no: 'Não',
+    mandatory: '(Obrigatório)',
+    everyReview: 'Cada avaliação',
+  },
+
+  // Reviews
+  reviews: {
+    title: 'Avaliações verificadas recentes',
+    all: 'Todos',
+    coding: 'Programação',
+    design: 'Design',
   },
 };

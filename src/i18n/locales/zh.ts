@@ -74,6 +74,26 @@ export const zh = {
   
   // Tasks (merged - includes both task list and task types)
   tasks: {
+    startTask: '开始任务',
+
+    timeLeft: '剩余时间',
+
+    spotsRemaining: '剩余名额',
+
+    reward: '奖励',
+
+    requiredForPayout: '支付所需',
+
+    manualVerification: '人工验证',
+
+    completeProfile: '完善个人资料',
+
+    findXpChallenges: '寻找XP挑战',
+
+    unlockMessage: '达到2级并完善个人资料即可解锁付费任务。您还需要 {xp} XP。',
+
+    profileRequired: '需要完善个人资料',
+
     // Task list page fields
     title: '测试AI赚取收益',
     subtitle: '完成验证任务，获得保证奖励。',
@@ -216,6 +236,24 @@ export const zh = {
   
   // Home Additional
   home: {
+    followAi: 'Follow-ai',
+
+    productHunt: 'Product Hunt',
+
+    feature: '功能',
+
+    peopleInterested: '人感兴趣',
+
+    preview: '预览',
+
+    notify: '🔔 通知',
+
+    notifyMe: '通知我 →',
+
+    comingSoonDesc: '成为第一个评测新AI工具的人。',
+
+    comingSoon: '🔮 即将推出',
+
     viewTasks: '查看任务',
     weeklyDigest: '📬 每周AI工具摘要',
     weeklyDigestDesc: '每周一获取前10名AI工具。无垃圾邮件，随时取消订阅。',

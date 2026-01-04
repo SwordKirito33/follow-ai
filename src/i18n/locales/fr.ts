@@ -124,6 +124,26 @@ export const fr = {
   
   // Tasks
   tasks: {
+    startTask: 'Démarrer la tâche',
+
+    timeLeft: 'restant',
+
+    spotsRemaining: 'places restantes',
+
+    reward: 'Récompense',
+
+    requiredForPayout: 'requis pour le paiement',
+
+    manualVerification: 'Vérification manuelle',
+
+    completeProfile: 'Compléter le profil',
+
+    findXpChallenges: 'Trouver des défis XP',
+
+    unlockMessage: 'Débloquez les tâches payantes en atteignant le niveau 2 et en complétant votre profil. Il vous manque {xp} XP.',
+
+    profileRequired: 'Profil complet requis',
+
     title: 'Gagnez de l\'Argent en Testant l\'IA',
     subtitle: 'Complétez des tâches vérifiées pour gagner des récompenses garanties.',
     preCheck: 'Pré-vérification IA',
@@ -397,5 +417,43 @@ export const fr = {
     perInvite: "Par invitation réussie",
     totalEarned: "Total gagné grâce aux invitations",
     pendingRewards: "Récompenses en attente",
+  },
+
+  // Whydifferent
+  whyDifferent: {
+    title: 'Pourquoi nous sommes différents',
+    proofRequired: 'Preuve requise',
+    realOutputs: 'Sorties réelles',
+    earnMoney: 'Gagner de l\'argent',
+    yes: 'Oui',
+    no: 'Non',
+    mandatory: '(Obligatoire)',
+    everyReview: 'Chaque avis',
+  },
+
+  // Reviews
+  reviews: {
+    title: 'Avis vérifiés récents',
+    all: 'Tous',
+    coding: 'Programmation',
+    design: 'Design',
+  },
+
+  // Home
+  home: {
+    viewTasks: 'Voir les tâches',
+    weeklyDigest: '📬 Digest hebdomadaire des outils IA',
+    weeklyDigestDesc: 'Recevez les 10 meilleurs outils IA chaque lundi. Pas de spam, désabonnement à tout moment.',
+    subscribe: 'S\'abonner',
+    subscribers: 'Rejoignez {count} abonnés.',
+    comingSoon: '🔮 Bientôt disponible',
+    comingSoonDesc: 'Soyez le premier à évaluer les nouveaux outils IA.',
+    notifyMe: 'Me notifier →',
+    notify: '🔔 Notifier',
+    preview: 'Aperçu',
+    peopleInterested: 'personnes intéressées',
+    feature: 'Fonctionnalité',
+    productHunt: 'Product Hunt',
+    followAi: 'Follow-ai',
   },
 };

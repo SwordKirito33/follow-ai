@@ -124,6 +124,26 @@ export const ja = {
   
   // Tasks
   tasks: {
+    startTask: 'タスクを開始',
+
+    timeLeft: '残り時間',
+
+    spotsRemaining: '残り枠',
+
+    reward: '報酬',
+
+    requiredForPayout: '支払いに必要',
+
+    manualVerification: '手動検証',
+
+    completeProfile: 'プロフィールを完成させる',
+
+    findXpChallenges: 'XPチャレンジを探す',
+
+    unlockMessage: 'レベル2に達してプロフィールを完成させると有料タスクがアンロックされます。あと{xp} XP必要です。',
+
+    profileRequired: 'プロフィールの完成が必要',
+
     title: 'AIテストで報酬を獲得',
     subtitle: '検証済みタスクを完了して確実な報酬を獲得。',
     preCheck: 'AI事前チェック',
@@ -397,5 +417,43 @@ export const ja = {
     perInvite: "招待成功ごとに",
     totalEarned: "招待からの総収益",
     pendingRewards: "保留中の報酬",
+  },
+
+  // Whydifferent
+  whyDifferent: {
+    title: 'なぜ私たちは違うのか',
+    proofRequired: '証明が必要',
+    realOutputs: '実際の出力',
+    earnMoney: 'お金を稼ぐ',
+    yes: 'はい',
+    no: 'いいえ',
+    mandatory: '(必須)',
+    everyReview: 'すべてのレビュー',
+  },
+
+  // Reviews
+  reviews: {
+    title: '最新の検証済みレビュー',
+    all: 'すべて',
+    coding: 'コーディング',
+    design: 'デザイン',
+  },
+
+  // Home
+  home: {
+    viewTasks: 'タスクを見る',
+    weeklyDigest: '📬 週刊AIツールダイジェスト',
+    weeklyDigestDesc: '毎週月曜日にトップ10のAIツールを入手。スパムなし、いつでも解除可能。',
+    subscribe: '購読する',
+    subscribers: '{count}人の購読者に参加。',
+    comingSoon: '🔮 近日公開',
+    comingSoonDesc: '新しいAIツールを最初にレビューしましょう。',
+    notifyMe: '通知する →',
+    notify: '🔔 通知',
+    preview: 'プレビュー',
+    peopleInterested: '人が興味を持っています',
+    feature: '機能',
+    productHunt: 'Product Hunt',
+    followAi: 'Follow-ai',
   },
 };

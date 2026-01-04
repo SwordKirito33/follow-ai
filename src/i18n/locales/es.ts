@@ -124,6 +124,26 @@ export const es = {
   
   // Tasks
   tasks: {
+    startTask: 'Iniciar tarea',
+
+    timeLeft: 'restante',
+
+    spotsRemaining: 'plazas restantes',
+
+    reward: 'Recompensa',
+
+    requiredForPayout: 'requerido para el pago',
+
+    manualVerification: 'Verificación manual',
+
+    completeProfile: 'Completar perfil',
+
+    findXpChallenges: 'Buscar desafíos XP',
+
+    unlockMessage: 'Desbloquea tareas pagadas alcanzando el Nivel 2 y completando tu perfil. Te faltan {xp} XP.',
+
+    profileRequired: 'Se requiere completar el perfil',
+
     title: 'Gana Dinero Probando IA',
     subtitle: 'Completa tareas verificadas para ganar recompensas garantizadas.',
     preCheck: 'Pre-verificación IA',
@@ -397,5 +417,43 @@ export const es = {
     perInvite: "Por cada invitación exitosa",
     totalEarned: "Total ganado por invitaciones",
     pendingRewards: "Recompensas pendientes",
+  },
+
+  // Whydifferent
+  whyDifferent: {
+    title: 'Por qué somos diferentes',
+    proofRequired: 'Prueba requerida',
+    realOutputs: 'Salidas reales',
+    earnMoney: 'Ganar dinero',
+    yes: 'Sí',
+    no: 'No',
+    mandatory: '(Obligatorio)',
+    everyReview: 'Cada reseña',
+  },
+
+  // Reviews
+  reviews: {
+    title: 'Reseñas verificadas recientes',
+    all: 'Todos',
+    coding: 'Programación',
+    design: 'Diseño',
+  },
+
+  // Home
+  home: {
+    viewTasks: 'Ver tareas',
+    weeklyDigest: '📬 Resumen semanal de herramientas IA',
+    weeklyDigestDesc: 'Recibe las 10 mejores herramientas IA cada lunes. Sin spam, cancela cuando quieras.',
+    subscribe: 'Suscribirse',
+    subscribers: 'Únete a {count} suscriptores.',
+    comingSoon: '🔮 Próximamente',
+    comingSoonDesc: 'Sé el primero en revisar nuevas herramientas IA.',
+    notifyMe: 'Notificarme →',
+    notify: '🔔 Notificar',
+    preview: 'Vista previa',
+    peopleInterested: 'personas interesadas',
+    feature: 'Característica',
+    productHunt: 'Product Hunt',
+    followAi: 'Follow-ai',
   },
 };
