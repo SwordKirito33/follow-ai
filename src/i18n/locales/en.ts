@@ -428,6 +428,34 @@ export const en = {
     resultsCount: '{count} results found',
   },
   
+  // Transaction History
+  transactionHistory: {
+    title: 'Transaction History',
+    loading: 'Loading transactions...',
+    error: 'Error',
+    noTransactions: 'No transactions yet',
+    noTransactionsDesc: 'Purchase XP packages to see your transaction history here.',
+    date: 'Date',
+    type: 'Type',
+    amount: 'Amount',
+    xp: 'XP',
+    status: 'Status',
+    xpPurchase: 'XP Purchase',
+    completed: 'Completed',
+    pending: 'Pending',
+    failed: 'Failed',
+  },
+
+  // Developer Wallet Page
+  developerWalletPage: {
+    title: 'Developer Wallet',
+    subtitle: 'Manage your XP balance and purchase packages',
+    loading: 'Loading wallet...',
+    pleaseLogin: 'Please Log In',
+    loginRequired: 'You need to be logged in to view your wallet.',
+    error: 'Error',
+  },
+
   // Settings Page
   settingsPage: {
     title: 'Settings',

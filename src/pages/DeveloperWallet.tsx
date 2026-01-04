@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/lib/supabase';
 import type { Database } from '@/types/database';
 import WalletBalance from '@/components/WalletBalance';
@@ -10,6 +11,7 @@ import { useToast } from '@/components/ui/toast';
 type Wallet = Database['public']['Tables']['wallets']['Row'];
 
 const DeveloperWallet: React.FC = () => {
+  const { t } = useLanguage();
   const { user, isLoading: authLoading } = useAuth();
   const { toast } = useToast();
   const [wallet, setWallet] = useState<Wallet | null>(null);
@@ -60,7 +62,7 @@ const DeveloperWallet: React.FC = () => {
     } catch (err: any) {
       console.error('Failed to load wallet:', err);
       setError(err.message || 'Failed to load wallet');
-      toast.error('Failed to load wallet', err.message);
+      toast.error(t('developerWalletPage.error'), err.message);
     } finally {
       setLoading(false);
     }
@@ -78,7 +80,7 @@ const DeveloperWallet: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading wallet...</p>
+          <p className="text-gray-400">{t('developerWalletPage.loading')}</p>
         </div>
       </div>
     );
@@ -88,9 +90,9 @@ const DeveloperWallet: React.FC = () => {
     return (
       <div className="min-h-screen py-12 px-4 flex items-center justify-center">
         <div className="text-center max-w-md">
-          <h2 className="text-2xl font-bold text-white mb-4">Please Log In</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">{t('developerWalletPage.pleaseLogin')}</h2>
           <p className="text-gray-400 mb-6">
-            You need to be logged in to view your wallet.
+            {t('developerWalletPage.loginRequired')}
           </p>
         </div>
       </div>
@@ -101,7 +103,7 @@ const DeveloperWallet: React.FC = () => {
     return (
       <div className="min-h-screen py-12 px-4 flex items-center justify-center">
         <div className="text-center max-w-md">
-          <h2 className="text-2xl font-bold text-red-600 mb-4">Error</h2>
+          <h2 className="text-2xl font-bold text-red-400 mb-4">{t('developerWalletPage.error')}</h2>
           <p className="text-gray-400 mb-6">{error}</p>
         </div>
       </div>
@@ -115,10 +117,10 @@ const DeveloperWallet: React.FC = () => {
         {/* Header */}
         <div className="mb-8 animate-slideDown">
           <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 tracking-tight">
-            Developer Wallet
+            {t('developerWalletPage.title')}
           </h1>
           <p className="text-xl text-gray-400 font-medium">
-            Manage your XP balance and purchase packages
+            {t('developerWalletPage.subtitle')}
           </p>
         </div>
 
@@ -146,4 +148,3 @@ const DeveloperWallet: React.FC = () => {
 };
 
 export default DeveloperWallet;
-

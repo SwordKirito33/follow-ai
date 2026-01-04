@@ -427,6 +427,34 @@ export const zh = {
     resultsCount: '找到 {count} 个结果',
   },
   
+  // Transaction History
+  transactionHistory: {
+    title: '交易记录',
+    loading: '加载交易记录中...',
+    error: '错误',
+    noTransactions: '暂无交易记录',
+    noTransactionsDesc: '购买经验值套餐后可在此查看交易记录。',
+    date: '日期',
+    type: '类型',
+    amount: '金额',
+    xp: '经验值',
+    status: '状态',
+    xpPurchase: '经验值购买',
+    completed: '已完成',
+    pending: '处理中',
+    failed: '失败',
+  },
+
+  // Developer Wallet Page
+  developerWalletPage: {
+    title: '开发者钱包',
+    subtitle: '管理你的经验值余额和购买套餐',
+    loading: '加载钱包中...',
+    pleaseLogin: '请登录',
+    loginRequired: '您需要登录才能查看钱包。',
+    error: '错误',
+  },
+
   // Settings Page
   settingsPage: {
     title: '设置',
