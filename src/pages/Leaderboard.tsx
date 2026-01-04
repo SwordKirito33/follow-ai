@@ -7,7 +7,7 @@ import LazyImage from '@/components/LazyImage';
 
 const Leaderboard: React.FC = () => {
   const { t } = useLanguage();
-  const [activeTab, setActiveTab] = useState<'contributors-all' | 'tools-week'>('contributors-all');
+  const [activeTab, setActiveTab] = useState<'contributors-all' | 'contributors-week' | 'tools-week'>('contributors-all');
   const [leaderboard, setLeaderboard] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -48,16 +48,16 @@ const Leaderboard: React.FC = () => {
   ];
   
   const tabs = [
-    { id: 'contributors-all', label: 'All-Time Top Contributors', icon: Medal },
-    { id: 'contributors-week', label: 'Top Contributors (Week)', icon: Trophy },
-    { id: 'tools-week', label: 'Top Tools (Week)', icon: TrendingUp },
+    { id: 'contributors-all', label: t('leaderboardPage.allTimeContributors'), icon: Medal },
+    { id: 'contributors-week', label: t('leaderboardPage.weeklyContributors'), icon: Trophy },
+    { id: 'tools-week', label: t('leaderboardPage.weeklyTools'), icon: TrendingUp },
   ];
   
   const getRankBadge = (rank: number) => {
     if (rank === 1) return <Trophy className="w-6 h-6 text-yellow-500" />;
     if (rank === 2) return <Medal className="w-6 h-6 text-gray-400" />;
     if (rank === 3) return <Award className="w-6 h-6 text-orange-500" />;
-    return <span className="w-8 h-8 rounded-full bg-white/10 dark:bg-gray-800 flex items-center justify-center text-sm font-bold text-gray-400 dark:text-gray-400">{rank}</span>;
+    return <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm font-bold text-gray-400">{rank}</span>;
   };
   
   return (
@@ -67,10 +67,10 @@ const Leaderboard: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl sm:text-6xl font-black text-white mb-4 tracking-tight">
-            Leaderboard
+            {t('leaderboardPage.title')}
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-medium">
-            See who's leading the AI tool benchmark and earning the most rewards
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto font-medium">
+            {t('leaderboardPage.subtitle')}
           </p>
         </div>
         
@@ -85,7 +85,7 @@ const Leaderboard: React.FC = () => {
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
                   activeTab === tab.id
                     ? 'bg-gradient-to-r from-primary-blue to-primary-purple text-white shadow-lg'
-                    : 'bg-white dark:bg-gray-800 text-gray-300 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-700'
+                    : 'glass-card text-gray-300 hover:bg-white/10'
                 }`}
               >
                 <Icon size={20} />
@@ -102,21 +102,21 @@ const Leaderboard: React.FC = () => {
               {loading ? (
                 <div className="text-center py-12">
                   <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                  <p className="text-gray-400">Loading leaderboard...</p>
+                  <p className="text-gray-300">{t('leaderboardPage.loading')}</p>
                 </div>
               ) : error ? (
                 <div className="text-center py-12">
-                  <p className="text-red-600">Error: {error}</p>
+                  <p className="text-red-400">{t('leaderboardPage.error')}: {error}</p>
                 </div>
               ) : leaderboard.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-gray-400">No users found</p>
+                  <p className="text-gray-300">{t('leaderboardPage.noUsers')}</p>
                 </div>
               ) : (
                 leaderboard.map((contributor, index) => (
                   <div
                     key={contributor.id}
-                    className="flex items-center gap-6 p-6 rounded-xl hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors"
+                    className="flex items-center gap-6 p-6 rounded-xl hover:bg-white/5 transition-colors"
                   >
                     <div className="flex-shrink-0">
                       {getRankBadge(index + 1)}
@@ -125,17 +125,18 @@ const Leaderboard: React.FC = () => {
                       src={contributor.avatar_url || `https://api.dicebear.com/7.x/avataaars/svg?seed=${contributor.id}`}
                       alt={contributor.full_name || contributor.username}
                       className="w-12 h-12 rounded-full"
+                      loading="lazy"
                     />
                     <div className="flex-1">
-                      <h3 className="text-lg font-black text-white dark:text-white mb-1">
+                      <h3 className="text-lg font-black text-white mb-1">
                         {contributor.full_name || contributor.username || 'User'}
                       </h3>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-black text-primary-cyan dark:text-blue-400 mb-1">
+                      <div className="text-2xl font-black text-primary-cyan mb-1">
                         {(contributor.total_xp || 0).toLocaleString()} XP
                       </div>
-                      <div className="text-sm text-gray-400 dark:text-gray-400">Total XP</div>
+                      <div className="text-sm text-gray-400">{t('leaderboardPage.totalXp')}</div>
                     </div>
                   </div>
                 ))
@@ -148,7 +149,7 @@ const Leaderboard: React.FC = () => {
               {topContributorsWeek.map((contributor) => (
                 <div
                   key={contributor.rank}
-                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors"
+                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-white/5 transition-colors"
                 >
                   <div className="flex-shrink-0">
                     {getRankBadge(contributor.rank)}
@@ -157,38 +158,37 @@ const Leaderboard: React.FC = () => {
                     src={contributor.avatar}
                     alt={contributor.name}
                     className="w-12 h-12 rounded-full"
+                    loading="lazy"
                   />
                   <div className="flex-1">
-                    <h3 className="text-lg font-black text-white dark:text-white mb-1">
+                    <h3 className="text-lg font-black text-white mb-1">
                       {contributor.name}
                     </h3>
-                    <div className="flex items-center gap-4 text-sm text-gray-400 dark:text-gray-400">
+                    <div className="flex items-center gap-4 text-sm text-gray-400">
                       <span className="flex items-center gap-1">
                         <Star size={14} className="text-amber-500" />
-                        {contributor.score}/10 avg score
+                        {contributor.score}/10 {t('leaderboardPage.avgScore')}
                       </span>
-                      <span>{contributor.outputs} verified outputs</span>
+                      <span>{contributor.outputs} {t('leaderboardPage.verifiedOutputs')}</span>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-black text-accent-green dark:text-green-400 mb-1">
+                    <div className="text-2xl font-black text-accent-green mb-1">
                       ${contributor.rewards.toLocaleString()}
                     </div>
-                    <div className="text-sm text-gray-400 dark:text-gray-400">Total rewards</div>
+                    <div className="text-sm text-gray-400">{t('leaderboardPage.totalRewards')}</div>
                   </div>
                 </div>
               ))}
             </div>
           )}
           
-          {/* Removed duplicate contributors-all section - using real data from leaderboard state above */}
-          
           {activeTab === 'tools-week' && (
             <div className="space-y-4">
               {topToolsWeek.map((tool) => (
                 <div
                   key={tool.rank}
-                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-white/5 dark:hover:bg-gray-800/50 transition-colors"
+                  className="flex items-center gap-6 p-6 rounded-xl hover:bg-white/5 transition-colors"
                 >
                   <div className="flex-shrink-0">
                     {getRankBadge(tool.rank)}
@@ -199,15 +199,15 @@ const Leaderboard: React.FC = () => {
                     className="w-16 h-16 rounded-xl object-cover"
                   />
                   <div className="flex-1">
-                    <h3 className="text-lg font-black text-white dark:text-white mb-1">
+                    <h3 className="text-lg font-black text-white mb-1">
                       {tool.name}
                     </h3>
-                    <div className="flex items-center gap-4 text-sm text-gray-400 dark:text-gray-400">
+                    <div className="flex items-center gap-4 text-sm text-gray-400">
                       <span className="flex items-center gap-1">
                         <Star size={14} className="text-amber-500 fill-current" />
                         {tool.score}
                       </span>
-                      <span>{tool.outputs} verified outputs this week</span>
+                      <span>{tool.outputs} {t('leaderboardPage.verifiedOutputsWeek')}</span>
                     </div>
                   </div>
                   <div className="text-right">
@@ -226,4 +226,3 @@ const Leaderboard: React.FC = () => {
 };
 
 export default Leaderboard;
-

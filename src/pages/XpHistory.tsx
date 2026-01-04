@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { listXpEvents, type XpEvent } from '@/lib/xp-service';
 import { getGamificationConfig, getSourceMeta } from '@/lib/gamification';
 import { Calendar, TrendingUp, Award } from 'lucide-react';
 
 const XpHistory: React.FC = () => {
+  const { t, language } = useLanguage();
   const { user, isAuthenticated, isLoading: authLoading } = useAuth();
   const [events, setEvents] = useState<XpEvent[]>([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +18,7 @@ const XpHistory: React.FC = () => {
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
-      setError('Please log in to view your XP history');
+      setError(t('xpHistoryPage.loginRequired'));
       setLoading(false);
       return;
     }
@@ -62,7 +64,8 @@ const XpHistory: React.FC = () => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-US', {
+    const locale = language === 'zh' ? 'zh-CN' : language === 'ja' ? 'ja-JP' : language === 'ko' ? 'ko-KR' : 'en-US';
+    return new Intl.DateTimeFormat(locale, {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
@@ -76,7 +79,7 @@ const XpHistory: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading...</p>
+          <p className="text-gray-400">{t('common.loading')}</p>
         </div>
       </div>
     );
@@ -86,17 +89,17 @@ const XpHistory: React.FC = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-transparent">
         <div className="text-center max-w-md mx-auto p-8">
-          <h2 className="text-3xl font-black gradient-text mb-4">Please Log In</h2>
+          <h2 className="text-3xl font-black gradient-text mb-4">{t('xpHistoryPage.pleaseLogin')}</h2>
           <p className="text-gray-400 mb-6">
-            You need to be logged in to view your XP history.
+            {t('xpHistoryPage.loginRequired')}
           </p>
         </div>
       </div>
     );
   }
 
-  const totalXp = (user.profile as any)?.total_xp ?? 0;      // Cumulative total
-  const currentXp = (user.profile as any)?.xp ?? 0;          // Progress in current level
+  const totalXp = (user.profile as any)?.total_xp ?? 0;
+  const currentXp = (user.profile as any)?.xp ?? 0;
 
   return (
     <div className="min-h-screen py-12 px-4 relative">
@@ -105,10 +108,10 @@ const XpHistory: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-slideDown">
           <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-4 tracking-tight">
-            XP History
+            {t('xpHistoryPage.title')}
           </h1>
           <p className="text-xl text-gray-400 font-medium mb-6">
-            Track all your XP gains and achievements
+            {t('xpHistoryPage.subtitle')}
           </p>
 
           {/* Stats */}
@@ -116,21 +119,21 @@ const XpHistory: React.FC = () => {
             <div className="glass-card rounded-xl p-4">
               <div className="flex items-center gap-2 mb-2">
                 <TrendingUp size={20} className="text-primary-cyan" />
-                <span className="text-sm text-gray-400">Total XP</span>
+                <span className="text-sm text-gray-400">{t('xpHistoryPage.totalXp')}</span>
               </div>
               <div className="text-2xl font-bold text-white">{totalXp.toLocaleString()}</div>
             </div>
             <div className="glass-card rounded-xl p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Award size={20} className="text-primary-purple" />
-                <span className="text-sm text-gray-400">Current Level XP</span>
+                <span className="text-sm text-gray-400">{t('xpHistoryPage.currentLevelXp')}</span>
               </div>
               <div className="text-2xl font-bold text-white">{currentXp.toLocaleString()}</div>
             </div>
             <div className="glass-card rounded-xl p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Calendar size={20} className="text-accent-green" />
-                <span className="text-sm text-gray-400">Total Events</span>
+                <span className="text-sm text-gray-400">{t('xpHistoryPage.totalEvents')}</span>
               </div>
               <div className="text-2xl font-bold text-white">{events.length}</div>
             </div>
@@ -139,8 +142,8 @@ const XpHistory: React.FC = () => {
 
         {/* Error Message */}
         {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-            <p className="text-red-600">Error: {error}</p>
+          <div className="mb-6 p-4 bg-red-900/30 border border-red-500/50 rounded-lg">
+            <p className="text-red-400">{t('xpHistoryPage.error')}: {error}</p>
           </div>
         )}
 
@@ -149,15 +152,15 @@ const XpHistory: React.FC = () => {
           <div className="flex items-center justify-center py-20">
             <div className="text-center">
               <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-              <p className="text-gray-400">Loading XP history...</p>
+              <p className="text-gray-400">{t('xpHistoryPage.loading')}</p>
             </div>
           </div>
         ) : events.length === 0 ? (
           <div className="glass-card rounded-xl p-12 text-center">
             <Award size={48} className="mx-auto mb-4 text-gray-400" />
-            <p className="text-lg text-gray-400 mb-2">No XP events yet</p>
+            <p className="text-lg text-gray-400 mb-2">{t('xpHistoryPage.noEvents')}</p>
             <p className="text-sm text-gray-400">
-              Complete tasks and activities to start earning XP!
+              {t('xpHistoryPage.noEventsDesc')}
             </p>
           </div>
         ) : (
@@ -174,7 +177,7 @@ const XpHistory: React.FC = () => {
                   >
                     <div className="flex items-center gap-4 flex-1">
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center text-2xl ${
-                        isPositive ? 'bg-accent-green/20 text-accent-green' : 'bg-red-100 text-red-600'
+                        isPositive ? 'bg-accent-green/20 text-accent-green' : 'bg-red-900/30 text-red-400'
                       }`}>
                         {sourceMeta.emoji || (isPositive ? '➕' : '➖')}
                       </div>
@@ -206,9 +209,9 @@ const XpHistory: React.FC = () => {
                 <button
                   onClick={() => setPage(prev => prev + 1)}
                   disabled={loading}
-                  className="px-6 py-3 bg-gradient-to-r from-primary-cyan to-primary-blue text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-gradient-to-r from-primary-cyan to-primary-blue text-white rounded-xl font-semibold hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {loading ? 'Loading...' : 'Load More'}
+                  {loading ? t('common.loading') : t('xpHistoryPage.loadMore')}
                 </button>
               </div>
             )}
@@ -220,4 +223,3 @@ const XpHistory: React.FC = () => {
 };
 
 export default XpHistory;
-
