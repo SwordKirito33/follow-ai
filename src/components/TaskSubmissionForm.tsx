@@ -164,7 +164,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
         initial={{ scale: 0.95, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.95, y: 20 }}
-        className="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+        className="w-full max-w-2xl bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
       >
         {/* Header */}
         <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-6 text-white">
@@ -237,7 +237,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
               onChange={(e) => setFeedback(e.target.value)}
               placeholder="Share your experience with this AI tool. What did you like? What could be improved?"
               rows={5}
-              className={`w-full px-4 py-3 rounded-xl border-2 bg-white dark:bg-gray-800 text-white dark:text-white focus:outline-none resize-none transition-colors ${
+              className={`w-full px-4 py-3 rounded-xl border-2 bg-gray-800/90 backdrop-blur-sm text-white dark:text-white focus:outline-none resize-none transition-colors ${
                 errors.feedback
                   ? 'border-red-500 focus:border-red-500'
                   : 'border-white/10 dark:border-gray-700 focus:border-blue-500'
@@ -276,7 +276,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="https://example.com"
-                className={`w-full px-4 py-3 rounded-xl border-2 bg-white dark:bg-gray-800 text-white dark:text-white focus:outline-none transition-colors ${
+                className={`w-full px-4 py-3 rounded-xl border-2 bg-gray-800/90 backdrop-blur-sm text-white dark:text-white focus:outline-none transition-colors ${
                   errors.url
                     ? 'border-red-500 focus:border-red-500'
                     : 'border-white/10 dark:border-gray-700 focus:border-blue-500'

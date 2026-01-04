@@ -158,7 +158,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
           {/* Main content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Description */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+            <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
               <h2 className="text-xl font-bold text-white dark:text-white mb-4">
                 About This Task
               </h2>
@@ -177,7 +177,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
             </div>
 
             {/* Requirements */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
               <button
                 onClick={() => toggleSection('requirements')}
                 className="w-full p-6 flex items-center justify-between text-left"
@@ -210,7 +210,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
             </div>
 
             {/* Steps */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
               <button
                 onClick={() => toggleSection('steps')}
                 className="w-full p-6 flex items-center justify-between text-left"
@@ -291,7 +291,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Start task card */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg sticky top-6">
+            <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg sticky top-6">
               {hasCompleted ? (
                 <div className="text-center">
                   <div className="w-16 h-16 mx-auto mb-4 bg-accent-green/20 dark:bg-green-900/30 rounded-full flex items-center justify-center">
@@ -330,7 +330,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
 
             {/* Related tasks */}
             {task.relatedTasks.length > 0 && (
-              <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+              <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
                 <h3 className="font-bold text-white dark:text-white mb-4">
                   Related Tasks
                 </h3>

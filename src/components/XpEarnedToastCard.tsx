@@ -22,7 +22,7 @@ const XpEarnedToastCard: React.FC<XpEarnedToastCardProps> = ({
       initial={{ opacity: 0, y: 20, scale: 0.9 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -20, scale: 0.9 }}
-      className="bg-white rounded-xl shadow-2xl border border-white/10 p-4 min-w-[280px] max-w-sm"
+      className="bg-gray-900/95 backdrop-blur-sm rounded-xl shadow-2xl border border-white/10 p-4 min-w-[280px] max-w-sm"
     >
       <div className="flex items-start justify-between mb-3">
         <div>

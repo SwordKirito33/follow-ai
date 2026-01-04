@@ -148,7 +148,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden"
+              className="relative w-full max-w-md bg-gray-900/90 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden"
             >
               {/* Header */}
               <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-6 text-white">
@@ -291,7 +291,7 @@ const DailyCheckIn: React.FC<DailyCheckInProps> = ({
               initial={{ opacity: 0, scale: 0.5, y: 50 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.5, y: 50 }}
-              className="relative bg-white dark:bg-gray-900 rounded-3xl p-8 text-center shadow-2xl"
+              className="relative bg-gray-900/90 backdrop-blur-sm rounded-3xl p-8 text-center shadow-2xl"
             >
               <motion.div
                 initial={{ scale: 0 }}

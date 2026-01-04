@@ -88,7 +88,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700"
+            className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700"
           >
             <div className="flex items-start justify-between">
               <div>
@@ -134,7 +134,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* XP Chart */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700">
+        <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700">
           <h3 className="text-lg font-bold text-white dark:text-white mb-4 flex items-center gap-2">
             <Zap className="w-5 h-5 text-yellow-500" />
             XP Earned Over Time
@@ -143,7 +143,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
         </div>
 
         {/* Tasks Chart */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700">
+        <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700">
           <h3 className="text-lg font-bold text-white dark:text-white mb-4 flex items-center gap-2">
             <Target className="w-5 h-5 text-blue-500" />
             Tasks Completed
@@ -153,7 +153,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
       </div>
 
       {/* Activity feed */}
-      <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700">
+      <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/10 dark:border-gray-700">
         <h3 className="text-lg font-bold text-white dark:text-white mb-4 flex items-center gap-2">
           <Activity className="w-5 h-5 text-purple-500" />
           Recent Activity

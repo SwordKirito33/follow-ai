@@ -113,7 +113,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
                   value={replyContent}
                   onChange={(e) => setReplyContent(e.target.value)}
                   placeholder="Write a reply..."
-                  className="w-full px-3 py-2 text-sm border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white dark:bg-gray-800 text-white dark:text-white"
+                  className="w-full px-3 py-2 text-sm border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-gray-800/90 backdrop-blur-sm text-white dark:text-white"
                   rows={2}
                 />
                 <div className="flex gap-2">
@@ -191,7 +191,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({
             <div className="flex-1">
               <textarea
                 placeholder="Add a comment..."
-                className="w-full px-3 py-2 text-sm border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white dark:bg-gray-800 text-white dark:text-white resize-none"
+                className="w-full px-3 py-2 text-sm border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-gray-800/90 backdrop-blur-sm text-white dark:text-white resize-none"
                 rows={3}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {

@@ -88,7 +88,7 @@ const InviteSystem: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 overflow-hidden">
+    <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-6 text-white">
         <div className="flex items-center gap-3 mb-4">

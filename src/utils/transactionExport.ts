@@ -161,7 +161,7 @@ export const generatePDFReport = (
       </table>
 
       <div class="footer">
-        <p>Follow.ai - Transaction Report</p>
+        <p>Follow-ai - Transaction Report</p>
         <p>This report was automatically generated. For questions, contact support@follow.ai</p>
       </div>
     </body>

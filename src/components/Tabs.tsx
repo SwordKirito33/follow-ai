@@ -76,7 +76,7 @@ const Tabs: React.FC<TabsProps> = ({
     default: {
       container: 'bg-white/10 dark:bg-gray-800 p-1 rounded-xl',
       tab: 'rounded-lg',
-      activeTab: 'bg-white dark:bg-gray-900 shadow-sm',
+      activeTab: 'bg-gray-900/90 backdrop-blur-sm shadow-sm',
       inactiveTab: 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white',
     },
     pills: {

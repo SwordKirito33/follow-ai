@@ -153,7 +153,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           style={getTooltipPosition()}
-          className="absolute w-[400px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden"
+          className="absolute w-[400px] bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden"
         >
           {/* Header */}
           <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-4 text-white">

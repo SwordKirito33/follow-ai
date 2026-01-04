@@ -102,7 +102,7 @@ const Tasks: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading...</p>
+          <p className="text-gray-400">{t('common.loading')}</p>
         </div>
       </div>
     );
@@ -113,9 +113,9 @@ const Tasks: React.FC = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center max-w-md mx-auto p-8">
-          <h2 className="text-3xl font-black gradient-text mb-4">Please Log In</h2>
+          <h2 className="text-3xl font-black gradient-text mb-4">{t('tasksPage.pleaseLogin')}</h2>
           <p className="text-gray-400 mb-6">
-            You need to be logged in to view and complete tasks.
+            {t('tasksPage.loginRequired')}
           </p>
           <FollowButton
             to="/"
@@ -123,7 +123,7 @@ const Tasks: React.FC = () => {
             variant="primary"
             size="lg"
           >
-            Go to Home / Log In
+            {t('tasksPage.goHome')}
           </FollowButton>
         </div>
       </div>
@@ -137,10 +137,10 @@ const Tasks: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-slideDown">
           <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-4 tracking-tight">
-            Available Tasks
+            {t('tasksPage.title')}
           </h1>
           <p className="text-xl text-gray-300 font-medium mb-4">
-            Complete tasks to earn XP and improve your ranking
+            {t('tasksPage.subtitle')}
           </p>
           
           {/* User Progress Banner */}
@@ -148,14 +148,14 @@ const Tasks: React.FC = () => {
             <div className="glass-card rounded-xl p-4 mb-4 inline-block">
               <div className="flex items-center gap-4">
                 <div>
-                  <div className="text-sm text-gray-400 mb-1">Level {levelInfo.level}</div>
+                  <div className="text-sm text-gray-400 mb-1">{t('xp.level')} {levelInfo.level}</div>
                   <div className="w-48 h-2 bg-white/10 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-primary-blue to-primary-purple transition-all duration-700 ease-out"
                       style={{ width: `${Math.min(levelInfo.progress * 100, 100)}%` }}
                     />
                   </div>
-                  <div className="text-xs text-gray-400 mt-1">{levelInfo.xpToNext} XP to next level</div>
+                  <div className="text-xs text-gray-400 mt-1">{levelInfo.xpToNext} {t('tasksPage.xpToNextLevel')}</div>
                 </div>
                 <div className="text-right">
                   <div className="text-sm text-gray-400">XP</div>
@@ -169,10 +169,10 @@ const Tasks: React.FC = () => {
         {/* Filter Tabs */}
         <div className="flex items-center gap-2 mb-8 overflow-x-auto">
           {[
-            { id: 'all', label: 'All Tasks' },
-            { id: 'beginner', label: 'Beginner' },
-            { id: 'intermediate', label: 'Intermediate' },
-            { id: 'advanced', label: 'Advanced' },
+            { id: 'all', labelKey: 'tasksPage.allTasks' },
+            { id: 'beginner', labelKey: 'tasksPage.beginner' },
+            { id: 'intermediate', labelKey: 'tasksPage.intermediate' },
+            { id: 'advanced', labelKey: 'tasksPage.advanced' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -184,7 +184,7 @@ const Tasks: React.FC = () => {
               }`}
             >
               <Filter size={18} />
-              {tab.label}
+              {t(tab.labelKey)}
             </button>
           ))}
         </div>
@@ -192,7 +192,7 @@ const Tasks: React.FC = () => {
         {/* Error Message */}
         {error && (
           <div className="mb-6 p-4 glass-card border-red-400/50 rounded-lg">
-            <p className="text-red-400">Error: {error}</p>
+            <p className="text-red-400">{t('common.error')}: {error}</p>
           </div>
         )}
 
@@ -202,17 +202,17 @@ const Tasks: React.FC = () => {
             <div className="flex items-center justify-center py-20">
               <div className="text-center">
                 <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-gray-400">Loading tasks...</p>
+                <p className="text-gray-400">{t('tasksPage.loadingTasks')}</p>
               </div>
             </div>
           ) : filteredTasks.length === 0 ? (
             <div className="glass-card rounded-xl p-12 text-center">
               <Briefcase size={48} className="mx-auto mb-4 text-gray-400" />
-              <p className="text-lg text-gray-300 mb-2">No tasks found</p>
+              <p className="text-lg text-gray-300 mb-2">{t('tasksPage.noTasks')}</p>
               <p className="text-sm text-gray-400">
                 {selectedDifficulty === 'all' 
-                  ? 'No tasks available at the moment. Check back soon!'
-                  : 'Try selecting a different difficulty'}
+                  ? t('tasksPage.noTasksAvailable')
+                  : t('tasksPage.tryDifferentDifficulty')}
               </p>
             </div>
           ) : (
@@ -232,7 +232,7 @@ const Tasks: React.FC = () => {
                         } 
                         size="sm"
                       >
-                        {task.difficulty.toUpperCase()}
+                        {t(`tasksPage.${task.difficulty}`).toUpperCase()}
                       </Badge>
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2">{task.title}</h3>
@@ -247,7 +247,7 @@ const Tasks: React.FC = () => {
 
                   <div className="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
                     <div className="text-right">
-                      <p className="text-sm text-gray-400">Reward</p>
+                      <p className="text-sm text-gray-400">{t('tasksPage.reward')}</p>
                       <p className="text-2xl font-bold text-primary-cyan">+{task.xp_reward} XP</p>
                     </div>
                     <FollowButton
@@ -257,7 +257,7 @@ const Tasks: React.FC = () => {
                       icon={ArrowRight}
                       iconPosition="right"
                     >
-                      Start
+                      {t('tasksPage.start')}
                     </FollowButton>
                   </div>
                 </div>

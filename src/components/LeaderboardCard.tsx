@@ -50,7 +50,7 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
       case 3:
         return 'bg-gradient-to-r from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20 border-amber-200 dark:border-amber-700';
       default:
-        return 'bg-white dark:bg-gray-900 border-white/10 dark:border-gray-700';
+        return 'bg-gray-900/90 backdrop-blur-sm border-white/10 dark:border-gray-700';
     }
   };
 
@@ -73,7 +73,7 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
   };
 
   return (
-    <div className={`bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 overflow-hidden ${className}`}>
+    <div className={`bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/10 dark:border-gray-700 overflow-hidden ${className}`}>
       <div className="p-6 border-b border-white/10 dark:border-gray-700">
         <h2 className="text-xl font-bold text-white dark:text-white flex items-center gap-2">
           <Trophy className="w-5 h-5 text-yellow-500" />

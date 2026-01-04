@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReviewCardSkeleton: React.FC = () => {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-white/10 overflow-hidden animate-pulse">
+    <div className="bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-sm border border-white/10 overflow-hidden animate-pulse">
       {/* Header */}
       <div className="p-4 flex items-center gap-3">
         <div className="w-10 h-10 rounded-full bg-white/10"></div>

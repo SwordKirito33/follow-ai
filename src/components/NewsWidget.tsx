@@ -17,7 +17,7 @@ const NewsWidget: React.FC = () => {
   };
 
   return (
-    <div id="news" className="bg-white rounded-xl shadow-sm border border-white/10 p-5 sticky top-24">
+    <div id="news" className="bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-sm border border-white/10 p-5 sticky top-24">
       <div className="flex items-center justify-between mb-6">
         <h3 className="font-bold text-white flex items-center gap-2">
           {t('news.latestNews')}

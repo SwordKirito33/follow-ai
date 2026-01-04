@@ -129,9 +129,9 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-      <div className="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-white/10 p-6 flex items-center justify-between">
+        <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm border-b border-white/10 p-6 flex items-center justify-between">
           <h2 className="text-2xl font-black text-white tracking-tight">Task Details</h2>
           <button
             onClick={onClose}

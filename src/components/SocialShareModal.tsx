@@ -29,7 +29,7 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
-      <div className="relative bg-white rounded-2xl w-full max-w-2xl shadow-2xl animate-scale-in overflow-hidden">
+      <div className="relative bg-gray-900/95 backdrop-blur-sm rounded-2xl w-full max-w-2xl shadow-2xl animate-scale-in overflow-hidden">
         {/* Header */}
         <div className="bg-green-50 p-6 border-b border-green-100">
           <div className="flex justify-between items-start">

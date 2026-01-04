@@ -222,7 +222,7 @@ export const zh = {
     peopleInterested: '人感兴趣',
     feature: '功能',
     productHunt: 'Product Hunt',
-    followAi: 'Follow.ai',
+    followAi: 'Follow-ai',
   },
   
   // Rankings Page
@@ -268,9 +268,9 @@ export const zh = {
   
   // About
   about: {
-    title: '关于 Follow.ai',
+    title: '关于 Follow-ai',
     subtitle: 'AI工具展示真实作品',
-    intro: 'Follow.ai 是首个强制要求真实作品验证的AI工具评测平台：**"没有作品，没有评测。"** 每条评测必须包含使用工具创作的真实作品——代码、设计、视频、文档——让虚假评测变得不可能。',
+    intro: 'Follow-ai 是首个强制要求真实作品验证的AI工具评测平台：**"没有作品，没有评测。"** 每条评测必须包含使用工具创作的真实作品——代码、设计、视频、文档——让虚假评测变得不可能。',
     whyWeExist: '我们为何存在',
     whyWeExistText: 'AI工具每天都在发布新产品，但互联网充斥着无法验证的炒作。我们通过要求作品证明、分析质量、奖励真实测试者来修复信任。',
     whyWeExistList1: '没有虚假评测或刷票——证据是必需的。',
@@ -286,7 +286,7 @@ export const zh = {
     forCommunity: '对于社区',
     forCommunityText: '透明、基于证据的评测，提高AI工具发现的标准。',
     mission: '我们的使命',
-    missionText1: '在AI工具每天发布新产品的时代，数字世界充斥着炒作和未经证实的声明。Follow.ai 基于一个简单而激进的原则成立：**"没有作品，没有评测。"** 我们相信真正的验证来自真实的作品，而不仅仅是文字。我们的使命是构建最值得信赖的AI工具发现平台，每条评测都有切实的作品证明。',
+    missionText1: '在AI工具每天发布新产品的时代，数字世界充斥着炒作和未经证实的声明。Follow-ai 基于一个简单而激进的原则成立：**"没有作品，没有评测。"** 我们相信真正的验证来自真实的作品，而不仅仅是文字。我们的使命是构建最值得信赖的AI工具发现平台，每条评测都有切实的作品证明。',
     missionText2: '我们帮助用户通过测试和评测AI工具赚钱，帮助开发者获得真实作品的真实反馈，为投资者提供关于工具吸引力和质量的独特数据。',
     howItWorks: '工作原理',
     submitRealWork: '提交真实作品',
@@ -296,7 +296,7 @@ export const zh = {
     earnAndBuild: '赚取和建立',
     earnAndBuildDesc: '为你的宝贵见解获得报酬，建立你的AI作品集。',
     ourTeam: '我们的团队',
-    ourTeamText: 'Follow.ai 由一群充满热情的AI爱好者和开发者创立，致力于将透明度和信任带回AI工具生态系统。我们位于澳大利亚墨尔本，致力于建立一个真实作品比炒作更有说服力的社区。',
+    ourTeamText: 'Follow-ai 由一群充满热情的AI爱好者和开发者创立，致力于将透明度和信任带回AI工具生态系统。我们位于澳大利亚墨尔本，致力于建立一个真实作品比炒作更有说服力的社区。',
     founder: '创始人兼CEO',
   },
   
@@ -311,7 +311,7 @@ export const zh = {
     acceptableUse: '3. 可接受使用。',
     acceptableUseText: '禁止骚扰、垃圾邮件或非法内容。未经授权不得上传机密或敏感数据。',
     intellectualProperty: '4. 知识产权。',
-    intellectualPropertyText: '你保留对你作品的所有权。你授予Follow.ai许可，用于评测验证和社区价值展示。',
+    intellectualPropertyText: '你保留对你作品的所有权。你授予Follow-ai许可，用于评测验证和社区价值展示。',
     liability: '5. 责任。',
     liabilityText: '平台按"现状"提供。我们不对间接、偶然或后果性损害承担责任。',
     privacy: '6. 隐私。',
@@ -456,7 +456,7 @@ export const zh = {
     loading: '加载中...',
   },
 
-  // Follow.ai 2.0 - XP & 进度系统
+  // Follow-ai 2.0 - XP & 进度系统
   xp: {
     level: '等级',
     xp: '经验值',
@@ -600,7 +600,7 @@ export const zh = {
 
   // 引导流程
   onboarding: {
-    welcome: '欢迎来到 Follow.ai！',
+    welcome: '欢迎来到 Follow-ai！',
     complete: '完成',
     getStarted: '开始',
     update: '更新',
@@ -619,6 +619,60 @@ export const zh = {
     skipConfirm: '跳过引导？您稍后可以从个人资料中完成。',
   },
 
+  // 任务页面
+  tasksPage: {
+    title: '可用任务',
+    subtitle: '完成任务赚取 XP 并提升排名',
+    pleaseLogin: '请登录',
+    loginRequired: '您需要登录才能查看和完成任务。',
+    goHome: '返回首页 / 登录',
+    xpToNextLevel: 'XP 到下一级',
+    allTasks: '所有任务',
+    beginner: '初级',
+    intermediate: '中级',
+    advanced: '高级',
+    loadingTasks: '加载任务中...',
+    noTasks: '未找到任务',
+    noTasksAvailable: '目前没有可用任务。请稍后再来！',
+    tryDifferentDifficulty: '尝试选择不同的难度',
+    reward: '奖励',
+    start: '开始',
+  },
+  // 仪表盘页面
+  dashboardPage: {
+    title: '仪表盘',
+    welcomeBack: '欢迎回来',
+    loading: '加载中...',
+    pleaseLogin: '请登录以查看您的仪表盘',
+    goHome: '返回首页',
+    xpProgress: 'XP 进度',
+    toNext: '到下一级',
+    totalEarnings: '总收入',
+    profileCompletion: '资料完成度',
+    unlockedFeatures: '已解锁功能',
+    reachLevel2: '达到等级 2',
+    reachLevel2Desc: '还差 {xp} XP 就能解锁付费任务',
+    completeXpChallenges: '完成 XP 挑战',
+    completeProfile: '完善个人资料',
+    completeProfileDesc: '您的资料已完成 {percent}%。达到 60% 解锁付费任务。',
+    startEarning: '开始赚钱',
+    startEarningDesc: '您现在可以访问付费任务。提交您的第一个作品！',
+    browseBounties: '浏览任务',
+    keepGoing: '继续加油！',
+    keepGoingDesc: '您做得很棒。继续提交高质量作品。',
+    submitOutput: '提交作品',
+    submitOutputCard: '提交作品',
+    submitOutputDesc: '提交新的 AI 工具作品进行验证',
+    browseTasks: '浏览任务',
+    browseTasksDescUnlocked: '查看 XP 挑战和付费任务',
+    browseTasksDescLocked: '完成 XP 挑战以解锁付费任务',
+    hireMarketplace: '雇佣市场',
+    hireDescUnlocked: '查找定制项目和长期工作',
+    hireDescLocked: '达到等级 3 解锁',
+    recentActivity: '最近活动',
+    noActivity: '暂无活动',
+    startSubmitting: '开始提交您的第一个作品！',
+  },
   // 资料增强 - 已合并到上面的profile (line 317)
   // 任务（更新为3种类型）- 已合并到上面的tasks (line 66)
 };

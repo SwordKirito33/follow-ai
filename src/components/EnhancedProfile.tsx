@@ -124,7 +124,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                 className="w-32 h-32 md:w-40 md:h-40 rounded-2xl border-4 border-white dark:border-gray-900 shadow-xl object-cover"
               />
               {isOwnProfile && (
-                <button className="absolute bottom-2 right-2 p-2 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:bg-white/10 dark:hover:bg-gray-700 transition-colors">
+                <button className="absolute bottom-2 right-2 p-2 bg-gray-800/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white/10 dark:hover:bg-gray-700 transition-colors">
                   <Camera className="w-4 h-4 text-gray-400 dark:text-gray-400" />
                 </button>
               )}
@@ -148,12 +148,12 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                     <>
                       <button
                         onClick={onEditProfile}
-                        className="px-4 py-2 bg-white dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl font-medium flex items-center gap-2 hover:bg-white/5 dark:hover:bg-gray-700 transition-colors"
+                        className="px-4 py-2 bg-gray-800/90 backdrop-blur-sm border border-white/10 dark:border-gray-700 rounded-xl font-medium flex items-center gap-2 hover:bg-white/5 dark:hover:bg-gray-700 transition-colors"
                       >
                         <Edit2 className="w-4 h-4" />
                         Edit Profile
                       </button>
-                      <button className="p-2 bg-white dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl hover:bg-white/5 dark:hover:bg-gray-700 transition-colors">
+                      <button className="p-2 bg-gray-800/90 backdrop-blur-sm border border-white/10 dark:border-gray-700 rounded-xl hover:bg-white/5 dark:hover:bg-gray-700 transition-colors">
                         <Settings className="w-5 h-5" />
                       </button>
                     </>
@@ -171,7 +171,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                   )}
                   <button
                     onClick={onShareProfile}
-                    className="p-2 bg-white dark:bg-gray-800 border border-white/10 dark:border-gray-700 rounded-xl hover:bg-white/5 dark:hover:bg-gray-700 transition-colors"
+                    className="p-2 bg-gray-800/90 backdrop-blur-sm border border-white/10 dark:border-gray-700 rounded-xl hover:bg-white/5 dark:hover:bg-gray-700 transition-colors"
                   >
                     <Share2 className="w-5 h-5" />
                   </button>
@@ -188,7 +188,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Bio card */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+            <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
               {profile.bio && (
                 <p className="text-gray-400 dark:text-gray-400 mb-4">{profile.bio}</p>
               )}
@@ -254,7 +254,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
             </div>
 
             {/* Level progress */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+            <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
               <h3 className="font-bold text-white dark:text-white mb-4 flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-primary-cyan" />
                 Level Progress
@@ -276,7 +276,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
             </div>
 
             {/* Quick stats */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+            <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
               <h3 className="font-bold text-white dark:text-white mb-4">Quick Stats</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-3 bg-white/5 dark:bg-gray-800 rounded-xl">
@@ -302,7 +302,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
           {/* Main content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Tabs */}
-            <div className="flex gap-2 bg-white dark:bg-gray-900 rounded-xl p-1 shadow-lg">
+            <div className="flex gap-2 bg-gray-900/90 backdrop-blur-sm rounded-xl p-1 shadow-lg">
               {(['overview', 'badges', 'activity'] as const).map((tab) => (
                 <button
                   key={tab}
@@ -329,28 +329,28 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                 >
                   {/* Stats cards */}
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg">
+                    <div className="bg-gray-900/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
                       <Star className="w-8 h-8 text-yellow-500 mb-2" />
                       <p className="text-2xl font-bold text-white dark:text-white">
                         {profile.stats.avgRating.toFixed(1)}
                       </p>
                       <p className="text-sm text-gray-400">Avg Rating</p>
                     </div>
-                    <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg">
+                    <div className="bg-gray-900/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
                       <Target className="w-8 h-8 text-blue-500 mb-2" />
                       <p className="text-2xl font-bold text-white dark:text-white">
                         {profile.stats.toolsTested}
                       </p>
                       <p className="text-sm text-gray-400">Tools Tested</p>
                     </div>
-                    <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg">
+                    <div className="bg-gray-900/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
                       <Clock className="w-8 h-8 text-green-500 mb-2" />
                       <p className="text-2xl font-bold text-white dark:text-white">
                         {profile.stats.avgCompletionTime}
                       </p>
                       <p className="text-sm text-gray-400">Avg Time</p>
                     </div>
-                    <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg">
+                    <div className="bg-gray-900/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
                       <Award className="w-8 h-8 text-purple-500 mb-2" />
                       <p className="text-2xl font-bold text-white dark:text-white">
                         {profile.badges.length}
@@ -360,7 +360,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                   </div>
 
                   {/* Featured badges */}
-                  <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+                  <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
                     <h3 className="font-bold text-white dark:text-white mb-4 flex items-center gap-2">
                       <Trophy className="w-5 h-5 text-yellow-500" />
                       Featured Badges
@@ -393,7 +393,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg"
+                  className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg"
                 >
                   <h3 className="font-bold text-white dark:text-white mb-6">
                     All Badges ({profile.badges.length})
@@ -426,7 +426,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg"
+                  className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg"
                 >
                   <h3 className="font-bold text-white dark:text-white mb-6">
                     Recent Activity

@@ -134,7 +134,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="relative w-full max-w-4xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden flex"
+        className="relative w-full max-w-4xl bg-gray-900/90 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden flex"
       >
         {/* Left side - Branding */}
         <div className="hidden md:flex w-1/2 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 p-8 flex-col justify-between text-white">
@@ -233,7 +233,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                   <div className="w-full border-t border-white/10 dark:border-gray-700" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-white dark:bg-gray-900 text-gray-400">or continue with email</span>
+                  <span className="px-4 bg-gray-900/90 backdrop-blur-sm text-gray-400">or continue with email</span>
                 </div>
               </div>
             </>
@@ -280,7 +280,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="johndoe"
                     required
-                    className="w-full pl-12 pr-4 py-3 border border-white/10 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-12 pr-4 py-3 border border-white/10 dark:border-gray-700 rounded-xl bg-gray-800/90 backdrop-blur-sm text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -298,7 +298,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   required
-                  className="w-full pl-12 pr-4 py-3 border border-white/10 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-12 pr-4 py-3 border border-white/10 dark:border-gray-700 rounded-xl bg-gray-800/90 backdrop-blur-sm text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
@@ -317,7 +317,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                     placeholder="••••••••"
                     required
                     minLength={8}
-                    className="w-full pl-12 pr-12 py-3 border border-white/10 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-12 pr-12 py-3 border border-white/10 dark:border-gray-700 rounded-xl bg-gray-800/90 backdrop-blur-sm text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   <button
                     type="button"

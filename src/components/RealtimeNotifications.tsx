@@ -132,7 +132,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
               initial={{ opacity: 0, y: -10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              className="absolute right-0 mt-2 w-96 max-h-[80vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden z-50"
+              className="absolute right-0 mt-2 w-96 max-h-[80vh] bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden z-50"
             >
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-white/10 dark:border-gray-700">
@@ -274,7 +274,7 @@ export const NotificationToast: React.FC<{
       initial={{ opacity: 0, y: -50, scale: 0.9 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -50, scale: 0.9 }}
-      className="fixed top-4 right-4 z-[9999] max-w-sm bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden"
+      className="fixed top-4 right-4 z-[9999] max-w-sm bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden"
     >
       <div className="p-4 flex gap-3">
         <div className="flex-1">

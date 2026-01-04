@@ -217,7 +217,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
             onClick={() => setActiveTab(tab)}
             className={`flex-1 py-3 rounded-lg font-medium transition-all ${
               activeTab === tab
-                ? 'bg-white dark:bg-gray-700 text-primary-cyan shadow-sm'
+                ? 'bg-gray-700/80 backdrop-blur-sm text-primary-cyan shadow-sm'
                 : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white'
             }`}
           >
@@ -237,7 +237,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {/* Recent transactions */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+            <div className="bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-bold text-white dark:text-white">Recent Transactions</h3>
                 <button
@@ -266,7 +266,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
             </div>
 
             {/* Quick purchase */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+            <div className="bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
               <h3 className="font-bold text-white dark:text-white mb-4">Quick Purchase</h3>
               <div className="space-y-3">
                 {packages.slice(0, 3).map((pkg) => (
@@ -310,7 +310,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden"
+            className="bg-gray-900/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden"
           >
             {/* Filters */}
             <div className="p-4 border-b border-white/10 dark:border-gray-700 flex flex-wrap gap-3">
@@ -321,13 +321,13 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search transactions..."
-                  className="w-full pl-10 pr-4 py-2 border border-white/10 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-10 pr-4 py-2 border border-white/10 dark:border-gray-700 rounded-lg bg-gray-800/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
-                className="px-4 py-2 border border-white/10 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 border border-white/10 dark:border-gray-700 rounded-lg bg-gray-800/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="all">All Types</option>
                 <option value="purchase">Purchases</option>
@@ -339,7 +339,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
               <select
                 value={dateRange}
                 onChange={(e) => setDateRange(e.target.value as any)}
-                className="px-4 py-2 border border-white/10 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 border border-white/10 dark:border-gray-700 rounded-lg bg-gray-800/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="all">All Time</option>
                 <option value="week">This Week</option>

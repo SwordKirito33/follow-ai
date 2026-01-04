@@ -229,7 +229,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: -20 }}
           data-command-palette
-          className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden"
+          className="relative w-full max-w-2xl bg-slate-900/95 backdrop-blur-sm rounded-xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden"
         >
           {/* Search Input */}
           <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10 dark:border-gray-700">
@@ -285,11 +285,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
           <div className="px-4 py-2 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50 flex items-center justify-between text-xs text-gray-400">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1">
-                <kbd className="px-1.5 py-0.5 bg-white dark:bg-gray-700 rounded border border-white/20 dark:border-gray-600">↑↓</kbd>
+                <kbd className="px-1.5 py-0.5 bg-gray-700/90 backdrop-blur-sm rounded border border-white/20 dark:border-gray-600">↑↓</kbd>
                 Navigate
               </span>
               <span className="flex items-center gap-1">
-                <kbd className="px-1.5 py-0.5 bg-white dark:bg-gray-700 rounded border border-white/20 dark:border-gray-600">↵</kbd>
+                <kbd className="px-1.5 py-0.5 bg-gray-700/90 backdrop-blur-sm rounded border border-white/20 dark:border-gray-600">↵</kbd>
                 Select
               </span>
             </div>

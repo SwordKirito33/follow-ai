@@ -136,7 +136,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => setIsFocused(true)}
             placeholder={placeholder}
-            className="w-full pl-12 pr-24 py-4 bg-white dark:bg-gray-900 border-2 border-white/10 dark:border-gray-700 rounded-2xl focus:border-blue-500 focus:outline-none transition-colors text-lg"
+            className="w-full pl-12 pr-24 py-4 bg-gray-900/90 backdrop-blur-sm border-2 border-white/10 dark:border-gray-700 rounded-2xl focus:border-blue-500 focus:outline-none transition-colors text-lg"
           />
           
           {/* Keyboard shortcut hint */}
@@ -165,7 +165,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute z-50 w-full mt-2 bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden"
+            className="absolute z-50 w-full mt-2 bg-gray-900/90 backdrop-blur-sm border border-white/10 dark:border-gray-700 rounded-2xl shadow-2xl overflow-hidden"
           >
             {/* Recent searches */}
             {recentSearches.length > 0 && (

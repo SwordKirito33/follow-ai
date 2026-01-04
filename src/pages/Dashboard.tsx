@@ -18,7 +18,7 @@ const Dashboard: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading...</p>
+          <p className="text-gray-400">{t('dashboardPage.loading')}</p>
         </div>
       </div>
     );
@@ -29,9 +29,9 @@ const Dashboard: React.FC = () => {
     return (
       <div className="min-h-screen py-12 px-4 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-400 mb-4">Please log in to view your dashboard</p>
+          <p className="text-gray-400 mb-4">{t('dashboardPage.pleaseLogin')}</p>
           <FollowButton to="/" as="link" variant="primary">
-            Go to Home
+            {t('dashboardPage.goHome')}
           </FollowButton>
         </div>
       </div>
@@ -48,35 +48,35 @@ const Dashboard: React.FC = () => {
   const getNextBestAction = () => {
     if (levelInfo.level < 2) {
       return {
-        title: 'Reach Level 2',
-        description: `You're ${levelInfo.xpToNext} XP away from unlocking paid bounties`,
-        action: 'Complete XP challenges',
+        title: t('dashboardPage.reachLevel2'),
+        description: t('dashboardPage.reachLevel2Desc').replace('{xp}', String(levelInfo.xpToNext)),
+        action: t('dashboardPage.completeXpChallenges'),
         route: '/tasks?type=xp_challenge',
         icon: TrendingUp,
       };
     }
     if (profileCompletion < 60) {
       return {
-        title: 'Complete Your Profile',
-        description: `Your profile is ${profileCompletion}% complete. Reach 60% to unlock paid tasks.`,
-        action: 'Complete profile',
+        title: t('dashboardPage.completeProfile'),
+        description: t('dashboardPage.completeProfileDesc').replace('{percent}', String(profileCompletion)),
+        action: t('tasks.completeProfile'),
         route: '/profile',
         icon: CheckCircle,
       };
     }
     if ((user.earnings ?? 0) === 0) {
       return {
-        title: 'Start Earning',
-        description: 'You can now access paid bounties. Submit your first output!',
-        action: 'Browse bounties',
+        title: t('dashboardPage.startEarning'),
+        description: t('dashboardPage.startEarningDesc'),
+        action: t('dashboardPage.browseBounties'),
         route: '/tasks?type=bounty',
         icon: DollarSign,
       };
     }
     return {
-      title: 'Keep Going!',
-      description: 'You\'re doing great. Continue submitting high-quality outputs.',
-      action: 'Submit output',
+      title: t('dashboardPage.keepGoing'),
+      description: t('dashboardPage.keepGoingDesc'),
+      action: t('dashboardPage.submitOutput'),
       route: '/submit',
       icon: FileText,
     };
@@ -92,9 +92,9 @@ const Dashboard: React.FC = () => {
         {/* Header */}
         <div className="mb-8 animate-slideDown">
           <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 tracking-tight">
-            Dashboard
+            {t('dashboardPage.title')}
           </h1>
-          <p className="text-xl text-gray-300 font-medium">Welcome back, {user.displayName || user.name}!</p>
+          <p className="text-xl text-gray-300 font-medium">{t('dashboardPage.welcomeBack')}, {user.displayName || user.name}!</p>
         </div>
 
         {/* KPI Cards */}
@@ -106,13 +106,13 @@ const Dashboard: React.FC = () => {
                 <Award size={24} />
               </div>
               <Badge variant="primary" size="md">
-                Level {levelInfo.level}
+                {t('xp.level')} {levelInfo.level}
               </Badge>
             </div>
             <div className="mb-2">
               <div className="flex items-center justify-between text-sm text-gray-400 mb-1">
-                <span>XP Progress</span>
-                <span>{levelInfo.xpToNext} to next</span>
+                <span>{t('dashboardPage.xpProgress')}</span>
+                <span>{levelInfo.xpToNext} {t('dashboardPage.toNext')}</span>
               </div>
               <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
                 <div
@@ -131,7 +131,7 @@ const Dashboard: React.FC = () => {
                 <DollarSign size={24} />
               </div>
             </div>
-            <div className="text-sm text-gray-400 mb-1">Total Earnings</div>
+            <div className="text-sm text-gray-400 mb-1">{t('dashboardPage.totalEarnings')}</div>
             <div className="text-2xl font-bold gradient-text">${(user.earnings ?? 0).toLocaleString()}</div>
           </div>
 
@@ -142,7 +142,7 @@ const Dashboard: React.FC = () => {
                 <CheckCircle size={24} />
               </div>
             </div>
-            <div className="text-sm text-gray-400 mb-1">Profile Completion</div>
+            <div className="text-sm text-gray-400 mb-1">{t('dashboardPage.profileCompletion')}</div>
             <div className="text-2xl font-bold text-white">{profileCompletion}%</div>
             <div className="mt-2 w-full h-2 bg-white/10 rounded-full overflow-hidden">
               <div
@@ -159,7 +159,7 @@ const Dashboard: React.FC = () => {
                 <Zap size={24} />
               </div>
             </div>
-            <div className="text-sm text-gray-400 mb-1">Unlocked Features</div>
+            <div className="text-sm text-gray-400 mb-1">{t('dashboardPage.unlockedFeatures')}</div>
             <div className="text-2xl font-bold text-white">
               {user.progression?.unlockedFeatures?.length || 2}
             </div>
@@ -206,9 +206,9 @@ const Dashboard: React.FC = () => {
               <div className="bg-primary-blue/20 p-3 rounded-lg text-primary-cyan group-hover:scale-110 transition-transform">
                 <FileText size={24} />
               </div>
-              <h3 className="text-lg font-bold text-white">Submit Output</h3>
+              <h3 className="text-lg font-bold text-white">{t('dashboardPage.submitOutputCard')}</h3>
             </div>
-            <p className="text-gray-400 text-sm">Submit a new AI tool output for verification</p>
+            <p className="text-gray-400 text-sm">{t('dashboardPage.submitOutputDesc')}</p>
           </Link>
 
           <Link
@@ -219,10 +219,10 @@ const Dashboard: React.FC = () => {
               <div className="bg-accent-green/20 p-3 rounded-lg text-accent-green group-hover:scale-110 transition-transform">
                 <DollarSign size={24} />
               </div>
-              <h3 className="text-lg font-bold text-white">Browse Tasks</h3>
+              <h3 className="text-lg font-bold text-white">{t('dashboardPage.browseTasks')}</h3>
             </div>
             <p className="text-gray-400 text-sm">
-              {canAccessMoneyBounties ? 'View XP challenges and paid bounties' : 'Complete XP challenges to unlock paid tasks'}
+              {canAccessMoneyBounties ? t('dashboardPage.browseTasksDescUnlocked') : t('dashboardPage.browseTasksDescLocked')}
             </p>
           </Link>
 
@@ -234,21 +234,21 @@ const Dashboard: React.FC = () => {
               <div className="bg-primary-purple/20 p-3 rounded-lg text-primary-purple group-hover:scale-110 transition-transform">
                 <Briefcase size={24} />
               </div>
-              <h3 className="text-lg font-bold text-white">Hire Marketplace</h3>
+              <h3 className="text-lg font-bold text-white">{t('dashboardPage.hireMarketplace')}</h3>
             </div>
             <p className="text-gray-400 text-sm">
-              {canAccessHire ? 'Find custom projects and long-term work' : 'Reach Level 3 to access'}
+              {canAccessHire ? t('dashboardPage.hireDescUnlocked') : t('dashboardPage.hireDescLocked')}
             </p>
           </Link>
         </div>
 
         {/* Recent Activity (Placeholder) */}
         <div className="glass-card rounded-xl p-6">
-          <h2 className="text-xl font-bold text-white mb-4">Recent Activity</h2>
+          <h2 className="text-xl font-bold text-white mb-4">{t('dashboardPage.recentActivity')}</h2>
           <div className="text-center py-8 text-gray-400">
             <FileText size={48} className="mx-auto mb-4 opacity-50" />
-            <p>No recent activity</p>
-            <p className="text-sm mt-2">Start by submitting your first output!</p>
+            <p>{t('dashboardPage.noActivity')}</p>
+            <p className="text-sm mt-2">{t('dashboardPage.startSubmitting')}</p>
           </div>
         </div>
       </div>
@@ -257,4 +257,3 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
-

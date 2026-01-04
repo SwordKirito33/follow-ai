@@ -73,7 +73,7 @@ const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
       }}
     >
       <div 
-        className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-md transform transition-all animate-slideUp relative z-10 my-auto"
+        className="bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-2xl w-full max-w-md transform transition-all animate-slideUp relative z-10 my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -133,7 +133,7 @@ const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white dark:bg-gray-800 text-white dark:text-white"
+                  className="w-full pl-10 pr-4 py-3 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-gray-800/90 backdrop-blur-sm text-white dark:text-white"
                   placeholder={t('auth.emailPlaceholder')}
                   disabled={isSubmitting}
                   required

@@ -85,7 +85,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
       case 3:
         return 'bg-gradient-to-r from-amber-400/20 to-amber-500/20 border-amber-400/50';
       default:
-        return 'bg-white dark:bg-gray-900 border-white/10 dark:border-gray-700';
+        return 'bg-gray-900/90 backdrop-blur-sm border-white/10 dark:border-gray-700';
     }
   };
 
@@ -118,7 +118,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
               onClick={() => onTimeRangeChange(range.value as any)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 timeRange === range.value
-                  ? 'bg-white dark:bg-gray-700 text-primary-cyan shadow-sm'
+                  ? 'bg-gray-700/90 backdrop-blur-sm text-primary-cyan shadow-sm'
                   : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white'
               }`}
             >
@@ -136,7 +136,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search users..."
-          className="w-full pl-12 pr-4 py-3 bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full pl-12 pr-4 py-3 bg-gray-900/90 backdrop-blur-sm border border-white/10 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 

@@ -81,7 +81,7 @@ const Modal: React.FC<ModalProps> = ({
             transition={{ type: 'spring', duration: 0.3 }}
             className={`
               relative w-full ${sizeClasses[size]}
-              bg-white dark:bg-gray-900
+              bg-gray-900/90 backdrop-blur-sm
               rounded-2xl shadow-2xl
               max-h-[90vh] overflow-hidden
               flex flex-col

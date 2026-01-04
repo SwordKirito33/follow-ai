@@ -148,7 +148,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
               initial={{ opacity: 0, y: 100, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 100, scale: 0.95 }}
-              className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden"
+              className="relative w-full max-w-md bg-gray-900/90 backdrop-blur-sm rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden"
             >
               {/* Header */}
               <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-4 text-white">
@@ -269,7 +269,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                               : 'Type your message here...'
                           }
                           rows={4}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-white/10 dark:border-gray-700 bg-white dark:bg-gray-800 text-white dark:text-white focus:border-blue-500 focus:outline-none resize-none"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-white/10 dark:border-gray-700 bg-gray-800/90 backdrop-blur-sm text-white dark:text-white focus:border-blue-500 focus:outline-none resize-none"
                         />
                       </div>
 
@@ -307,7 +307,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="your@email.com"
-                          className="w-full px-4 py-3 rounded-xl border-2 border-white/10 dark:border-gray-700 bg-white dark:bg-gray-800 text-white dark:text-white focus:border-blue-500 focus:outline-none"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-white/10 dark:border-gray-700 bg-gray-800/90 backdrop-blur-sm text-white dark:text-white focus:border-blue-500 focus:outline-none"
                         />
                         <p className="text-xs text-gray-400 mt-1">
                           We'll only use this to follow up on your feedback

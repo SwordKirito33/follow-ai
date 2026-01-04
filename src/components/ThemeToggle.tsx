@@ -92,7 +92,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-white/10 dark:border-gray-700 py-1 z-50"
+            className="absolute right-0 mt-2 w-40 bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-xl border border-white/10 dark:border-gray-700 py-1 z-50"
             role="listbox"
           >
             {themes.map((t) => {

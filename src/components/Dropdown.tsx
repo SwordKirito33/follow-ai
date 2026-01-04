@@ -98,7 +98,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             transition={{ duration: 0.15 }}
             className={`
               absolute z-50 mt-2 ${getWidth()}
-              bg-white dark:bg-gray-900
+              bg-gray-900/90 backdrop-blur-sm
               border border-white/10 dark:border-gray-700
               rounded-xl shadow-xl overflow-hidden
               ${align === 'right' ? 'right-0' : 'left-0'}
@@ -174,7 +174,7 @@ export const DropdownButton: React.FC<{
   className = '',
 }) => {
   const variantClasses = {
-    default: 'bg-white dark:bg-gray-900 border border-white/20 dark:border-gray-700 hover:bg-white/5 dark:hover:bg-gray-800',
+    default: 'bg-gray-900/90 backdrop-blur-sm border border-white/20 dark:border-gray-700 hover:bg-white/5 dark:hover:bg-gray-800',
     outline: 'border-2 border-white/20 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600',
     ghost: 'hover:bg-white/10 dark:hover:bg-gray-800',
   };

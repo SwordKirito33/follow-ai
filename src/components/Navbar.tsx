@@ -222,7 +222,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-[70px] left-0 w-full bg-white border-b border-white/10 shadow-lg md:hidden flex flex-col p-4 gap-4">
+        <div className="absolute top-[70px] left-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-white/10 shadow-lg md:hidden flex flex-col p-4 gap-4">
           <Link to="/" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.browseTools')}</Link>
           <Link to="/tasks" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.earnMoney')}</Link>
           <Link to="/payments" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.payments')}</Link>

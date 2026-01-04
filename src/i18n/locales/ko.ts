@@ -1,14 +1,24 @@
 export const ko = {
   // Navigation
   nav: {
-    browseTools: '도구 둘러보기',
+    browseTools: '도구 찾아보기',
     earnMoney: '수익 창출',
     payments: '결제',
-    rankings: '랭킹',
+    rankings: '순위',
     aiNews: 'AI 뉴스',
     about: '소개',
     submitReview: '리뷰 제출',
     profile: '프로필',
+    leaderboard: '리더보드',
+    xpHistory: 'XP 기록',
+    wallet: '지갑',
+    hire: '채용',
+    dashboard: '대시보드',
+    submitOutput: '작품 제출',
+    login: '로그인',
+    signup: '회원가입',
+    logout: '로그아웃',
+    viewProfile: '프로필 보기',
   },
   
   // Hero Section
@@ -60,7 +70,7 @@ export const ko = {
     viewAll: '전체 보기',
     remove: '제거',
     verified: '인증됨',
-    verifiedBy: 'Follow.ai 인증',
+    verifiedBy: 'Follow-ai 인증',
     hoursAgo: '시간 전',
     earned: '획득',
     terms: '이용약관',

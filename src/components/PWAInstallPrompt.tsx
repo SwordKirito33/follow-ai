@@ -100,7 +100,7 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ className = '' }) =
             exit={{ y: 100, opacity: 0 }}
             className={`fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 z-50 ${className}`}
           >
-            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden">
+            <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/10 dark:border-gray-700 overflow-hidden">
               {/* Header */}
               <div className="bg-gradient-to-r from-primary-blue to-primary-purple p-4 text-white">
                 <div className="flex items-start justify-between">

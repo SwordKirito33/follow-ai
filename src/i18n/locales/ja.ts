@@ -2,13 +2,23 @@ export const ja = {
   // Navigation
   nav: {
     browseTools: 'ツール一覧',
-    earnMoney: '報酬を獲得',
+    earnMoney: '収益を得る',
     payments: '支払い',
     rankings: 'ランキング',
     aiNews: 'AIニュース',
     about: '概要',
     submitReview: 'レビュー投稿',
     profile: 'プロフィール',
+    leaderboard: 'リーダーボード',
+    xpHistory: 'XP履歴',
+    wallet: 'ウォレット',
+    hire: '採用',
+    dashboard: 'ダッシュボード',
+    submitOutput: '作品を提出',
+    login: 'ログイン',
+    signup: '新規登録',
+    logout: 'ログアウト',
+    viewProfile: 'プロフィールを見る',
   },
   
   // Hero Section
@@ -60,7 +70,7 @@ export const ja = {
     viewAll: 'すべて見る',
     remove: '削除',
     verified: '認証済み',
-    verifiedBy: 'Follow.aiで認証',
+    verifiedBy: 'Follow-aiで認証',
     hoursAgo: '時間前',
     earned: '獲得',
     terms: '利用規約',

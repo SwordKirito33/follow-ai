@@ -47,7 +47,7 @@ const SocialLogin: React.FC<SocialLoginProps> = ({ onSuccess, onError }) => {
           <div className="w-full border-t border-white/20 dark:border-gray-600"></div>
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-white dark:bg-gray-900 text-gray-400">Or continue with</span>
+          <span className="px-2 bg-gray-900/90 backdrop-blur-sm text-gray-400">Or continue with</span>
         </div>
       </div>
 

@@ -113,7 +113,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
       }}
     >
       <div 
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-md transform transition-all animate-slideUp relative z-10 my-auto"
+        className="bg-gray-900/95 backdrop-blur-sm rounded-2xl shadow-2xl w-full max-w-md transform transition-all animate-slideUp relative z-10 my-auto"
         onClick={(e) => e.stopPropagation()}
         style={{
           maxHeight: '90vh',

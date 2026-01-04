@@ -68,7 +68,7 @@ const LanguageSelector: React.FC = () => {
 
       {isOpen && (
         <div 
-          className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-white/10 dark:border-gray-700 py-2 z-50 animate-fadeIn"
+          className="absolute right-0 mt-2 w-56 bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-xl border border-white/10 dark:border-gray-700 py-2 z-50 animate-fadeIn"
           role="listbox"
           aria-label="Select language"
         >

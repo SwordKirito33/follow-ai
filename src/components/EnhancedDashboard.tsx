@@ -177,7 +177,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+            className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
           >
             <div className="flex items-start justify-between">
               <div className={`p-3 rounded-xl ${stat.bgColor}`}>
@@ -214,7 +214,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
       {/* Main content grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* XP Chart */}
-        <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+        <div className="lg:col-span-2 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-bold text-white dark:text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-primary-cyan" />
@@ -227,7 +227,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                   onClick={() => setSelectedPeriod(period)}
                   className={`px-3 py-1 rounded-md text-sm font-medium transition-all ${
                     selectedPeriod === period
-                      ? 'bg-white dark:bg-gray-700 text-primary-cyan shadow-sm'
+                      ? 'bg-gray-700/90 backdrop-blur-sm text-primary-cyan shadow-sm'
                       : 'text-gray-400 hover:text-gray-300'
                   }`}
                 >
@@ -260,7 +260,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
         </div>
 
         {/* Notifications */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+        <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-bold text-white dark:text-white flex items-center gap-2">
               <Bell className="w-5 h-5 text-primary-cyan" />
@@ -307,7 +307,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
       {/* Tasks section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent tasks */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+        <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-bold text-white dark:text-white flex items-center gap-2">
               <Clock className="w-5 h-5 text-accent-green" />
@@ -351,7 +351,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
         </div>
 
         {/* Upcoming tasks */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg">
+        <div className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-bold text-white dark:text-white flex items-center gap-2">
               <Calendar className="w-5 h-5 text-primary-purple" />

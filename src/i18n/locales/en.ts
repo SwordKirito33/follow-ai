@@ -9,6 +9,16 @@ export const en = {
     about: 'About',
     submitReview: 'Submit Review',
     profile: 'Profile',
+    leaderboard: 'Leaderboard',
+    xpHistory: 'XP History',
+    wallet: 'Wallet',
+    hire: 'Hire',
+    dashboard: 'Dashboard',
+    submitOutput: 'Submit Output',
+    login: 'Log in',
+    signup: 'Sign up',
+    logout: 'Log out',
+    viewProfile: 'View Profile',
   },
   
   // Hero Section
@@ -149,7 +159,7 @@ export const en = {
     viewAll: 'View All',
     remove: 'Remove',
     verified: 'Verified',
-    verifiedBy: 'Verified by Follow.ai',
+    verifiedBy: 'Verified by Follow-ai',
     hoursAgo: 'hours ago',
     earned: 'Earned',
     terms: 'Terms',
@@ -220,7 +230,7 @@ export const en = {
     peopleInterested: 'people interested',
     feature: 'Feature',
     productHunt: 'Product Hunt',
-    followAi: 'Follow.ai',
+    followAi: 'Follow-ai',
   },
   
   // Rankings Page
@@ -266,9 +276,9 @@ export const en = {
   
   // About
   about: {
-    title: 'About Follow.ai',
+    title: 'About Follow-ai',
     subtitle: 'Where AI Tools Show Their Real Work',
-    intro: 'Follow.ai is the first AI tool review platform that enforces one radical rule: **"No output, no review."** Every review must include real work created with the tool—code, designs, videos, documents—so fake reviews become impossible.',
+    intro: 'Follow-ai is the first AI tool review platform that enforces one radical rule: **"No output, no review."** Every review must include real work created with the tool—code, designs, videos, documents—so fake reviews become impossible.',
     whyWeExist: 'Why we exist',
     whyWeExistText: 'AI tools are launching daily, but the internet is flooded with unverifiable hype. We fix trust by requiring proof of work, analyzing quality, and rewarding real testers.',
     whyWeExistList1: 'No fake reviews or upvote farms—evidence is mandatory.',
@@ -284,7 +294,7 @@ export const en = {
     forCommunity: 'For the Community',
     forCommunityText: 'Transparent, evidence-based reviews that raise the bar for AI tool discovery.',
     mission: 'Our Mission',
-    missionText1: 'In an era where AI tools are launching daily, the digital landscape is flooded with hype and unverified claims. Follow.ai was founded on a simple, radical principle: **"No output, no review."** We believe that true validation comes from real work, not just words. Our mission is to build the most trustworthy platform for AI tool discovery, where every review is backed by tangible proof of work.',
+    missionText1: 'In an era where AI tools are launching daily, the digital landscape is flooded with hype and unverified claims. Follow-ai was founded on a simple, radical principle: **"No output, no review."** We believe that true validation comes from real work, not just words. Our mission is to build the most trustworthy platform for AI tool discovery, where every review is backed by tangible proof of work.',
     missionText2: 'We empower users to earn money by testing and reviewing AI tools, help developers get authentic feedback with real outputs, and provide investors with unparalleled data on tool traction and quality.',
     howItWorks: 'How It Works',
     submitRealWork: 'Submit Real Work',
@@ -294,7 +304,7 @@ export const en = {
     earnAndBuild: 'Earn & Build',
     earnAndBuildDesc: 'Get paid for your valuable insights and build your AI portfolio.',
     ourTeam: 'Our Team',
-    ourTeamText: 'Follow.ai was founded by a passionate team of AI enthusiasts and developers dedicated to bringing transparency and trust back to the AI tool ecosystem. We are based in Melbourne, Australia, and are committed to fostering a community where real work speaks louder than hype.',
+    ourTeamText: 'Follow-ai was founded by a passionate team of AI enthusiasts and developers dedicated to bringing transparency and trust back to the AI tool ecosystem. We are based in Melbourne, Australia, and are committed to fostering a community where real work speaks louder than hype.',
     founder: 'Founder & CEO',
   },
   
@@ -309,7 +319,7 @@ export const en = {
     acceptableUse: '3. Acceptable Use.',
     acceptableUseText: 'No harassment, spam, or illegal content. Do not upload confidential or sensitive data without authorization.',
     intellectualProperty: '4. Intellectual Property.',
-    intellectualPropertyText: 'You retain ownership of your outputs. You grant Follow.ai a license to display them for review verification and community value.',
+    intellectualPropertyText: 'You retain ownership of your outputs. You grant Follow-ai a license to display them for review verification and community value.',
     liability: '5. Liability.',
     liabilityText: 'The platform is provided "as is". We are not liable for indirect, incidental, or consequential damages.',
     privacy: '6. Privacy.',
@@ -454,7 +464,7 @@ export const en = {
     loading: 'Loading...',
   },
 
-  // Follow.ai 2.0 - XP & Progression
+  // Follow-ai 2.0 - XP & Progression
   xp: {
     level: 'Level',
     xp: 'XP',
@@ -555,7 +565,7 @@ export const en = {
 
   // Onboarding
   onboarding: {
-    welcome: 'Welcome to Follow.ai!',
+    welcome: 'Welcome to Follow-ai!',
     complete: 'Complete',
     getStarted: 'Get started',
     update: 'Update',
@@ -617,6 +627,60 @@ export const en = {
     locked: 'Locked',
   },
 
+  // Tasks Page
+  tasksPage: {
+    title: 'Available Tasks',
+    subtitle: 'Complete tasks to earn XP and improve your ranking',
+    pleaseLogin: 'Please Log In',
+    loginRequired: 'You need to be logged in to view and complete tasks.',
+    goHome: 'Go to Home / Log In',
+    xpToNextLevel: 'XP to next level',
+    allTasks: 'All Tasks',
+    beginner: 'Beginner',
+    intermediate: 'Intermediate',
+    advanced: 'Advanced',
+    loadingTasks: 'Loading tasks...',
+    noTasks: 'No tasks found',
+    noTasksAvailable: 'No tasks available at the moment. Check back soon!',
+    tryDifferentDifficulty: 'Try selecting a different difficulty',
+    reward: 'Reward',
+    start: 'Start',
+  },
+  // Dashboard Page
+  dashboardPage: {
+    title: 'Dashboard',
+    welcomeBack: 'Welcome back',
+    loading: 'Loading...',
+    pleaseLogin: 'Please log in to view your dashboard',
+    goHome: 'Go to Home',
+    xpProgress: 'XP Progress',
+    toNext: 'to next',
+    totalEarnings: 'Total Earnings',
+    profileCompletion: 'Profile Completion',
+    unlockedFeatures: 'Unlocked Features',
+    reachLevel2: 'Reach Level 2',
+    reachLevel2Desc: "You're {xp} XP away from unlocking paid bounties",
+    completeXpChallenges: 'Complete XP challenges',
+    completeProfile: 'Complete Your Profile',
+    completeProfileDesc: 'Your profile is {percent}% complete. Reach 60% to unlock paid tasks.',
+    startEarning: 'Start Earning',
+    startEarningDesc: 'You can now access paid bounties. Submit your first output!',
+    browseBounties: 'Browse bounties',
+    keepGoing: 'Keep Going!',
+    keepGoingDesc: "You're doing great. Continue submitting high-quality outputs.",
+    submitOutput: 'Submit output',
+    submitOutputCard: 'Submit Output',
+    submitOutputDesc: 'Submit a new AI tool output for verification',
+    browseTasks: 'Browse Tasks',
+    browseTasksDescUnlocked: 'View XP challenges and paid bounties',
+    browseTasksDescLocked: 'Complete XP challenges to unlock paid tasks',
+    hireMarketplace: 'Hire Marketplace',
+    hireDescUnlocked: 'Find custom projects and long-term work',
+    hireDescLocked: 'Reach Level 3 to access',
+    recentActivity: 'Recent Activity',
+    noActivity: 'No recent activity',
+    startSubmitting: 'Start by submitting your first output!',
+  },
   // Profile Enhancement - merged into profile above (line 337)
   // Tasks (Updated for 3 types) - merged into tasks above (line 66)
 };

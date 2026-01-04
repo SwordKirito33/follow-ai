@@ -83,7 +83,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
   const completionPercentage = Math.round((unlockedCount / achievements.length) * 100);
 
   return (
-    <div className={`bg-white dark:bg-gray-900 rounded-2xl shadow-lg ${className}`}>
+    <div className={`bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-lg ${className}`}>
       {/* Header */}
       <div className="p-6 border-b border-white/10 dark:border-gray-700">
         <div className="flex items-center justify-between mb-4">
@@ -250,7 +250,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-sm bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden"
+              className="relative w-full max-w-sm bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden"
             >
               {/* Header with gradient */}
               <div className={`

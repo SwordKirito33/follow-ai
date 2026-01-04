@@ -41,7 +41,7 @@ const StatCard: React.FC<StatCardProps> = ({
   };
 
   const variantClasses = {
-    default: 'bg-white dark:bg-gray-900 border border-white/10 dark:border-gray-700',
+    default: 'bg-gray-900/90 backdrop-blur-sm border border-white/10 dark:border-gray-700',
     gradient: 'bg-gradient-to-br from-blue-500 to-purple-600 text-white',
     outline: 'bg-transparent border-2 border-white/10 dark:border-gray-700',
   };

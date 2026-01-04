@@ -81,7 +81,7 @@ const LevelUpAnimation: React.FC<LevelUpAnimationProps> = ({
             className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-1 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-white dark:bg-gray-900 rounded-3xl p-8 text-center relative overflow-hidden">
+            <div className="bg-gray-900/90 backdrop-blur-sm rounded-3xl p-8 text-center relative overflow-hidden">
               {/* Animated background */}
               <div className="absolute inset-0 overflow-hidden">
                 <motion.div

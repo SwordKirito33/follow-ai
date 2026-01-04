@@ -141,7 +141,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
   if (checkingAdmin) {
     return (
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center">
-        <div className="bg-white rounded-xl p-8 text-center">
+        <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 text-center">
           <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-400">Checking permissions...</p>
         </div>
@@ -152,7 +152,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
   if (!isAdmin) {
     return (
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-xl p-8 max-w-md w-full text-center">
+        <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl p-8 max-w-md w-full text-center">
           <Shield size={48} className="mx-auto mb-4 text-red-600" />
           <h2 className="text-2xl font-bold text-white mb-4">Access Denied</h2>
           <p className="text-gray-400 mb-6">
@@ -168,9 +168,9 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-gray-900/95 backdrop-blur-sm rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-white/10 p-6 flex items-center justify-between">
+        <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm border-b border-white/10 p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Shield size={24} className="text-primary-cyan" />
             <h2 className="text-2xl font-bold text-white">Admin XP Panel</h2>

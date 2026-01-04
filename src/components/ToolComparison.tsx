@@ -32,7 +32,7 @@ const ToolComparison: React.FC<ToolComparisonProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden animate-slideUp">
+      <div className="bg-gray-900/95 backdrop-blur-sm rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden animate-slideUp">
         {/* Header */}
         <div className="relative p-6 border-b border-white/10 bg-gradient-to-r from-primary-blue to-primary-purple text-white">
           <button

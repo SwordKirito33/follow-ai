@@ -11,7 +11,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
   fullScreen = true,
 }) => {
   const containerClasses = fullScreen
-    ? 'fixed inset-0 z-[9999] bg-white dark:bg-gray-900'
+    ? 'fixed inset-0 z-[9999] bg-gray-900/90 backdrop-blur-sm'
     : 'w-full h-full min-h-[200px]';
 
   return (
@@ -109,7 +109,7 @@ export const ContentSkeleton: React.FC<{ lines?: number }> = ({ lines = 3 }) => 
 
 // Card skeleton
 export const CardSkeleton: React.FC = () => (
-  <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-white/10 dark:border-gray-700 animate-pulse">
+  <div className="bg-gray-900/90 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-white/10 dark:border-gray-700 animate-pulse">
     <div className="flex items-center gap-4 mb-4">
       <div className="w-12 h-12 bg-white/10 dark:bg-gray-700 rounded-full" />
       <div className="flex-1 space-y-2">
