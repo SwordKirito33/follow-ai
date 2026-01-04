@@ -81,7 +81,7 @@ const XPHistory: React.FC<XPHistoryProps> = ({ userId, limit = 50 }) => {
       <h2 className="text-2xl font-black text-white mb-6 tracking-tight">XP History</h2>
       {events.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-gray-500 mb-2">No XP events yet</p>
+          <p className="text-gray-400 mb-2">No XP events yet</p>
           <p className="text-sm text-gray-400">
             Complete tasks and activities to start earning XP!
           </p>
@@ -110,13 +110,13 @@ const XPHistory: React.FC<XPHistoryProps> = ({ userId, limit = 50 }) => {
                       <span className={`font-bold ${isPositive ? 'text-accent-green' : 'text-red-600'}`}>
                         {isPositive ? '+' : ''}{event.amount} XP
                       </span>
-                      <span className="text-sm text-gray-500">•</span>
+                      <span className="text-sm text-gray-400">•</span>
                       <span className="text-sm text-gray-400">{getSourceLabel(event.source)}</span>
                     </div>
                     {event.reason && (
                       <p className="text-sm text-gray-400 mb-1">{event.reason}</p>
                     )}
-                    <div className="flex items-center gap-2 text-xs text-gray-500">
+                    <div className="flex items-center gap-2 text-xs text-gray-400">
                       <Calendar size={12} />
                       <span>{formatDate(event.created_at)}</span>
                     </div>

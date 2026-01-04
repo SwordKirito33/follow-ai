@@ -253,7 +253,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                     {getTransactionIcon(tx.type)}
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-white dark:text-white truncate">{tx.title}</p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-gray-400">
                         {new Date(tx.timestamp).toLocaleDateString()}
                       </p>
                     </div>
@@ -367,7 +367,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
             {/* Transaction list */}
             <div className="divide-y divide-gray-200 dark:divide-gray-700">
               {filteredTransactions.length === 0 ? (
-                <div className="p-8 text-center text-gray-500">
+                <div className="p-8 text-center text-gray-400">
                   No transactions found
                 </div>
               ) : (
@@ -383,7 +383,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                           {getStatusBadge(tx.status)}
                         </div>
                         {tx.description && (
-                          <p className="text-sm text-gray-500 truncate">{tx.description}</p>
+                          <p className="text-sm text-gray-400 truncate">{tx.description}</p>
                         )}
                         <p className="text-xs text-gray-400 mt-1">
                           {new Date(tx.timestamp).toLocaleString()}
@@ -395,7 +395,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                           {tx.xp >= 0 ? '+' : ''}{tx.xp.toLocaleString()} XP
                         </p>
                         {tx.amount !== 0 && (
-                          <p className="text-sm text-gray-500">{formatCurrency(tx.amount)}</p>
+                          <p className="text-sm text-gray-400">{formatCurrency(tx.amount)}</p>
                         )}
                       </div>
                     </div>
@@ -452,7 +452,7 @@ const EnhancedWallet: React.FC<EnhancedWalletProps> = ({
                       <p className="text-3xl font-bold text-white dark:text-white">
                         {pkg.xp.toLocaleString()}
                       </p>
-                      <p className="text-gray-500 mb-4">XP</p>
+                      <p className="text-gray-400 mb-4">XP</p>
 
                       <div className="mb-4">
                         <p className="text-2xl font-bold text-primary-cyan">{formatCurrency(pkg.price)}</p>

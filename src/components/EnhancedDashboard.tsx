@@ -188,7 +188,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                   (stat.invertChange ? stat.change < 0 : stat.change > 0)
                     ? 'text-accent-green'
                     : stat.change === 0
-                    ? 'text-gray-500'
+                    ? 'text-gray-400'
                     : 'text-red-600'
                 }`}>
                   {(stat.invertChange ? stat.change < 0 : stat.change > 0) ? (
@@ -206,7 +206,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
             <p className="text-3xl font-bold text-white dark:text-white mt-4">
               {stat.value}
             </p>
-            <p className="text-sm text-gray-500 mt-1">{stat.title}</p>
+            <p className="text-sm text-gray-400 mt-1">{stat.title}</p>
           </motion.div>
         ))}
       </div>
@@ -228,7 +228,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                   className={`px-3 py-1 rounded-md text-sm font-medium transition-all ${
                     selectedPeriod === period
                       ? 'bg-white dark:bg-gray-700 text-primary-cyan shadow-sm'
-                      : 'text-gray-500 hover:text-gray-300'
+                      : 'text-gray-400 hover:text-gray-300'
                   }`}
                 >
                   {period.charAt(0).toUpperCase() + period.slice(1)}
@@ -295,7 +295,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                     <p className="font-medium text-white dark:text-white text-sm truncate">
                       {notification.title}
                     </p>
-                    <p className="text-xs text-gray-500 truncate">{notification.message}</p>
+                    <p className="text-xs text-gray-400 truncate">{notification.message}</p>
                   </div>
                 </div>
               </div>
@@ -332,7 +332,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-white dark:text-white truncate">{task.title}</p>
-                  <p className="text-sm text-gray-500">{task.tool}</p>
+                  <p className="text-sm text-gray-400">{task.tool}</p>
                 </div>
                 <div className="text-right">
                   <p className="font-semibold text-accent-green">+{task.xp} XP</p>
@@ -377,7 +377,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-white dark:text-white truncate">{task.title}</p>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="text-sm text-gray-500">{task.tool}</span>
+                    <span className="text-sm text-gray-400">{task.tool}</span>
                     <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${getDifficultyColor(task.difficulty)}`}>
                       {task.difficulty}
                     </span>
@@ -385,7 +385,7 @@ const EnhancedDashboard: React.FC<EnhancedDashboardProps> = ({
                 </div>
                 <div className="text-right">
                   <p className="font-semibold text-primary-purple">+{task.xp} XP</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-400">
                     Due {new Date(task.deadline).toLocaleDateString()}
                   </p>
                 </div>

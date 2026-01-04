@@ -126,7 +126,7 @@ function LevelProgress({ level, xp, xpToNextLevel }: { level: number; xp: number
     <div className="w-full">
       <div className="flex justify-between text-sm mb-1">
         <span className="font-medium text-primary-purple dark:text-purple-400">Lv.{level}</span>
-        <span className="text-gray-500 dark:text-gray-400">{xp.toLocaleString()} / {(xp + xpToNextLevel).toLocaleString()} XP</span>
+        <span className="text-gray-400 dark:text-gray-300">{xp.toLocaleString()} / {(xp + xpToNextLevel).toLocaleString()} XP</span>
       </div>
       <div className="h-2 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
         <div
@@ -143,7 +143,7 @@ function StatCard({ label, value, icon }: { label: string; value: number | strin
     <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-white/10 dark:border-gray-700 text-center">
       <div className="text-2xl mb-1">{icon}</div>
       <div className="text-2xl font-bold text-white dark:text-white">{typeof value === 'number' ? value.toLocaleString() : value}</div>
-      <div className="text-sm text-gray-500 dark:text-gray-400">{label}</div>
+      <div className="text-sm text-gray-400 dark:text-gray-300">{label}</div>
     </div>
   );
 }
@@ -161,8 +161,8 @@ function BadgeCard({ badge }: { badge: Badge }) {
     >
       <div className="text-3xl mb-2">{badge.icon}</div>
       <div className={cn('font-semibold', colors.text)}>{badge.name}</div>
-      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{badge.description}</div>
-      <div className="text-xs text-gray-400 dark:text-gray-500 mt-2">
+      <div className="text-xs text-gray-400 dark:text-gray-300 mt-1">{badge.description}</div>
+      <div className="text-xs text-gray-400 dark:text-gray-400 mt-2">
         {new Date(badge.earnedAt).toLocaleDateString()}
       </div>
     </div>
@@ -178,10 +178,10 @@ function ActivityItem({ activity }: { activity: Activity }) {
       <div className="flex-1 min-w-0">
         <div className="font-medium text-white dark:text-white">{activity.title}</div>
         {activity.description && (
-          <div className="text-sm text-gray-500 dark:text-gray-400 truncate">{activity.description}</div>
+          <div className="text-sm text-gray-400 dark:text-gray-300 truncate">{activity.description}</div>
         )}
         <div className="flex items-center gap-2 mt-1">
-          <span className="text-xs text-gray-400 dark:text-gray-500">
+          <span className="text-xs text-gray-400 dark:text-gray-400">
             {new Date(activity.timestamp).toLocaleDateString()}
           </span>
           {activity.xp && (
@@ -235,11 +235,11 @@ function ProfileHeader({
             <h1 className="text-2xl font-bold text-white dark:text-white">
               {profile.displayName || profile.username}
             </h1>
-            <p className="text-gray-500 dark:text-gray-400">@{profile.username}</p>
+            <p className="text-gray-400 dark:text-gray-300">@{profile.username}</p>
             {profile.bio && (
               <p className="mt-2 text-gray-400 dark:text-gray-300 max-w-md">{profile.bio}</p>
             )}
-            <div className="flex items-center gap-4 mt-3 text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex items-center gap-4 mt-3 text-sm text-gray-400 dark:text-gray-300">
               <span>📅 加入于 {new Date(profile.joinedAt).toLocaleDateString()}</span>
               <span>🏆 排名 #{profile.stats.rank}</span>
             </div>
@@ -354,7 +354,7 @@ export function ProfileSystem({
                 'py-4 border-b-2 font-medium transition-colors',
                 activeTab === tab
                   ? 'border-purple-600 text-primary-purple dark:text-purple-400'
-                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300'
+                  : 'border-transparent text-gray-400 dark:text-gray-300 hover:text-gray-300 dark:hover:text-gray-300'
               )}
             >
               {tab === 'overview' && '概览'}
@@ -434,8 +434,8 @@ export function ProfileSystem({
             ) : (
               <div className="text-center py-12">
                 <div className="text-4xl mb-4">🏆</div>
-                <p className="text-gray-500 dark:text-gray-400">还没有获得任何徽章</p>
-                <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">完成任务和活动来获得徽章</p>
+                <p className="text-gray-400 dark:text-gray-300">还没有获得任何徽章</p>
+                <p className="text-sm text-gray-400 dark:text-gray-400 mt-1">完成任务和活动来获得徽章</p>
               </div>
             )}
           </div>
@@ -453,7 +453,7 @@ export function ProfileSystem({
             ) : (
               <div className="text-center py-12">
                 <div className="text-4xl mb-4">📝</div>
-                <p className="text-gray-500 dark:text-gray-400">还没有任何动态</p>
+                <p className="text-gray-400 dark:text-gray-300">还没有任何动态</p>
               </div>
             )}
           </div>

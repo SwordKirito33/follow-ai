@@ -233,7 +233,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
                   </Badge>
                 ))
               ) : (
-                <p className="text-gray-500 text-sm">No skills added yet</p>
+                <p className="text-gray-400 text-sm">No skills added yet</p>
               )}
             </div>
             <div className="flex gap-2">
@@ -283,7 +283,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
                   </Badge>
                 ))
               ) : (
-                <p className="text-gray-500 text-sm">No AI tools added yet</p>
+                <p className="text-gray-400 text-sm">No AI tools added yet</p>
               )}
             </div>
             <div className="flex gap-2">
@@ -411,7 +411,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ user, onUpdate }) => {
               <div className="glass-card rounded-xl p-12 text-center">
                 <FileText size={48} className="mx-auto mb-4 text-gray-400" />
                 <p className="text-gray-400 mb-2">No portfolio items yet</p>
-                <p className="text-sm text-gray-500">Add your best work to showcase your skills</p>
+                <p className="text-sm text-gray-400">Add your best work to showcase your skills</p>
               </div>
             )}
           </div>

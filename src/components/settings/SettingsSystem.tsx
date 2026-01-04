@@ -126,7 +126,7 @@ export const ProfileSettings: React.FC<ProfileSettingsProps> = ({
       <div className="flex items-center gap-6">
         <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white text-3xl font-bold overflow-hidden">
           {profile.avatar ? (
-            <img src={profile.avatar} alt={profile.name} className="w-full h-full object-cover" />
+            <img loading="lazy" src={profile.avatar} alt={profile.name} className="w-full h-full object-cover" />
           ) : (
             profile.name.charAt(0)
           )}

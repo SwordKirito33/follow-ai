@@ -79,7 +79,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ steps, onSubmit, onCancel
                     ? 'text-primary-cyan dark:text-blue-400 font-semibold'
                     : index < currentStep
                     ? 'text-accent-green dark:text-green-400'
-                    : 'text-gray-500 dark:text-gray-500'
+                    : 'text-gray-400 dark:text-gray-400'
                 }`}>
                   {step.title}
                 </span>

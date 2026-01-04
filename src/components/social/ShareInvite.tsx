@@ -259,7 +259,7 @@ export const InviteSystem: React.FC<InviteSystemProps> = ({
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white font-bold">
                     {user.avatar ? (
-                      <img src={user.avatar} alt={user.name} className="w-full h-full rounded-full object-cover" />
+                      <img loading="lazy" src={user.avatar} alt={user.name} className="w-full h-full rounded-full object-cover" />
                     ) : (
                       user.name.charAt(0).toUpperCase()
                     )}

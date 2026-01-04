@@ -138,7 +138,7 @@ const TaskList: React.FC = () => {
         {filteredTasks.length === 0 ? (
           <div className="glass-card rounded-xl shadow-xl p-12 text-center">
             <p className="text-lg text-gray-400 mb-2">No tasks found</p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-400">
               {tasks.length === 0
                 ? 'No tasks available at the moment. Check back later!'
                 : 'Try adjusting your filters to see more tasks.'}

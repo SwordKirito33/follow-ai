@@ -398,7 +398,7 @@ const Dashboard: React.FC = () => {
           <div className="glass-card rounded-xl p-12 text-center">
             <Briefcase size={48} className="mx-auto mb-4 text-gray-400" />
             <p className="text-lg text-gray-400 mb-2">No tools found</p>
-            <p className="text-sm text-gray-500">Add tools to the database to get started</p>
+            <p className="text-sm text-gray-400">Add tools to the database to get started</p>
           </div>
         )}
       </div>

@@ -183,7 +183,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
             <p className="mt-4 font-semibold text-white dark:text-white truncate max-w-full">
               {top3[1].username}
             </p>
-            <p className="text-sm text-gray-500">{top3[1].totalXp.toLocaleString()} XP</p>
+            <p className="text-sm text-gray-400">{top3[1].totalXp.toLocaleString()} XP</p>
             <div className="h-24 w-full bg-white/10 dark:bg-gray-700 rounded-t-lg mt-4" />
           </motion.div>
         )}
@@ -235,7 +235,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
             <p className="mt-4 font-semibold text-white dark:text-white truncate max-w-full">
               {top3[2].username}
             </p>
-            <p className="text-sm text-gray-500">{top3[2].totalXp.toLocaleString()} XP</p>
+            <p className="text-sm text-gray-400">{top3[2].totalXp.toLocaleString()} XP</p>
             <div className="h-16 w-full bg-amber-500 rounded-t-lg mt-4" />
           </motion.div>
         )}
@@ -262,7 +262,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
               {/* Rank */}
               <div className="w-12 text-center">
                 {getRankIcon(user.rank) || (
-                  <span className="text-xl font-bold text-gray-500">
+                  <span className="text-xl font-bold text-gray-400">
                     {user.rank}
                   </span>
                 )}
@@ -306,7 +306,7 @@ const EnhancedLeaderboard: React.FC<EnhancedLeaderboardProps> = ({
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-3 text-sm text-gray-500">
+                <div className="flex items-center gap-3 text-sm text-gray-400">
                   <span>Level {user.level}</span>
                   <span>•</span>
                   <span>{user.tasksCompleted} tasks</span>

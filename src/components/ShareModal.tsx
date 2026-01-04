@@ -163,7 +163,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
                   <h3 className="font-semibold text-white dark:text-white truncate">
                     {content.title}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mt-1">
+                  <p className="text-sm text-gray-400 dark:text-gray-300 line-clamp-2 mt-1">
                     {content.description}
                   </p>
                 </div>
@@ -254,7 +254,7 @@ const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, content }) => 
                         alt="QR Code"
                         className="w-48 h-48"
                       />
-                      <p className="text-sm text-gray-500 mt-3">
+                      <p className="text-sm text-gray-400 mt-3">
                         Scan to open link
                       </p>
                       <button

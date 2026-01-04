@@ -231,7 +231,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
                         <div className="font-semibold text-white">
                           {result.full_name || result.username || 'User'}
                         </div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm text-gray-400">
                           Level {result.level || 1} • {result.total_xp || 0} XP
                         </div>
                       </div>
@@ -317,7 +317,7 @@ const AdminXpPanel: React.FC<AdminXpPanelProps> = ({ isOpen, onClose }) => {
                         <div className="text-gray-400 text-xs mt-1">{event.reason}</div>
                       )}
                     </div>
-                    <div className="text-gray-500 text-xs">
+                    <div className="text-gray-400 text-xs">
                       {new Date(event.created_at).toLocaleDateString()}
                     </div>
                   </div>

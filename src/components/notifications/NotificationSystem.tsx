@@ -217,7 +217,7 @@ function NotificationItem({ notification, onDismiss }: NotificationItemProps) {
           {notification.title}
         </p>
         {notification.message && (
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-1 text-sm text-gray-400 dark:text-gray-300">
             {notification.message}
           </p>
         )}
@@ -401,7 +401,7 @@ export function NotificationBell({ count = 0, onClick, className }: Notification
     <button
       onClick={onClick}
       className={cn(
-        'relative p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors',
+        'relative p-2 rounded-lg text-gray-400 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800 transition-colors',
         className
       )}
     >

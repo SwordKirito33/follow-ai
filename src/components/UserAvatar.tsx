@@ -111,7 +111,7 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
           {getInitials(name)}
         </div>
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-white/10 dark:bg-gray-700 text-gray-500 dark:text-gray-400">
+        <div className="w-full h-full flex items-center justify-center bg-white/10 dark:bg-gray-700 text-gray-400 dark:text-gray-300">
           <User className="w-1/2 h-1/2" />
         </div>
       )}

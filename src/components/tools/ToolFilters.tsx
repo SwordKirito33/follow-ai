@@ -94,7 +94,7 @@ function FilterSection({ title, children, collapsible = true, defaultExpanded = 
         {collapsible && (
           <svg
             className={cn(
-              'w-5 h-5 text-gray-500 transition-transform',
+              'w-5 h-5 text-gray-400 transition-transform',
               isExpanded && 'rotate-180'
             )}
             fill="none"
@@ -151,7 +151,7 @@ function CheckboxFilter({ options, selected, onChange, maxVisible = 5 }: Checkbo
             {option.label}
           </span>
           {option.count !== undefined && (
-            <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">
+            <span className="text-xs text-gray-400 dark:text-gray-400 ml-auto">
               {option.count}
             </span>
           )}
@@ -314,7 +314,7 @@ export function ToolFilters({
       {activeFilterCount > 0 && (
         <div className="mb-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-sm text-gray-400 dark:text-gray-300">
               已选 {activeFilterCount} 个筛选条件
             </span>
             <button
@@ -462,7 +462,7 @@ export function ToolFilters({
       >
         {totalResults !== undefined && (
           <div className="mb-4 pb-4 border-b border-white/10 dark:border-gray-700">
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-sm text-gray-400 dark:text-gray-300">
               找到 <strong className="text-white dark:text-white">{totalResults}</strong> 个工具
             </span>
           </div>
@@ -507,7 +507,7 @@ export function ToolFilters({
                 onClick={() => setIsMobileOpen(false)}
                 className="p-2 hover:bg-white/10 dark:hover:bg-gray-700 rounded-lg"
               >
-                <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>

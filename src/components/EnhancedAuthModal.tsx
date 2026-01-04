@@ -183,7 +183,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
               onClick={onClose}
               className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg transition-colors"
             >
-              <X className="w-5 h-5 text-gray-500" />
+              <X className="w-5 h-5 text-gray-400" />
             </button>
           </div>
 
@@ -233,7 +233,7 @@ const EnhancedAuthModal: React.FC<EnhancedAuthModalProps> = ({
                   <div className="w-full border-t border-white/10 dark:border-gray-700" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-white dark:bg-gray-900 text-gray-500">or continue with email</span>
+                  <span className="px-4 bg-white dark:bg-gray-900 text-gray-400">or continue with email</span>
                 </div>
               </div>
             </>

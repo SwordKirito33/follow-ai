@@ -154,7 +154,7 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
           <span className="text-4xl font-bold text-white dark:text-white">
             {currency}{monthlyEquivalent}
           </span>
-          <span className="text-gray-500 dark:text-gray-400">/月</span>
+          <span className="text-gray-400 dark:text-gray-300">/月</span>
         </div>
         {billing === 'yearly' && price > 0 && (
           <p className="text-sm text-accent-green dark:text-green-400 mt-1">
@@ -208,7 +208,7 @@ function PricingCard({ plan, billing, yearlyDiscount }: PricingCardProps) {
                   ? feature.highlight
                     ? 'text-white dark:text-white font-medium'
                     : 'text-gray-300 dark:text-gray-300'
-                  : 'text-gray-400 dark:text-gray-500'
+                  : 'text-gray-400 dark:text-gray-400'
               )}
             >
               {feature.text}
@@ -271,7 +271,7 @@ export function Pricing({
                   'text-sm font-medium transition-colors',
                   billing === 'monthly'
                     ? 'text-white dark:text-white'
-                    : 'text-gray-500 dark:text-gray-400'
+                    : 'text-gray-400 dark:text-gray-300'
                 )}
               >
                 月付
@@ -297,7 +297,7 @@ export function Pricing({
                   'text-sm font-medium transition-colors',
                   billing === 'yearly'
                     ? 'text-white dark:text-white'
-                    : 'text-gray-500 dark:text-gray-400'
+                    : 'text-gray-400 dark:text-gray-300'
                 )}
               >
                 年付

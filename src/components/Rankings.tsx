@@ -38,7 +38,7 @@ const Rankings: React.FC = () => {
               
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-start mb-4 pl-4">
-                  <img src={tool.logo} alt={tool.name} className="w-16 h-16 rounded-xl object-cover" />
+                  <img loading="lazy" src={tool.logo} alt={tool.name} className="w-16 h-16 rounded-xl object-cover" />
                   <div className="text-right">
                     <div className="flex items-center gap-1 text-amber-500 font-bold justify-end">
                       <Star size={16} fill="currentColor" /> {tool.rating}

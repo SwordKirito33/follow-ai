@@ -155,7 +155,7 @@ const AdminXpPanel: React.FC = () => {
             <div>
               <label htmlFor="xpAmount" className="block text-sm font-semibold text-gray-300 mb-2">
                 XP Amount <span className="text-red-500">*</span>
-                <span className="text-xs text-gray-500 font-normal ml-2">
+                <span className="text-xs text-gray-400 font-normal ml-2">
                   (positive to grant, negative to revoke)
                 </span>
               </label>

@@ -97,7 +97,7 @@ function SocialLoginButtons({ onSocialLogin, isLoading }: { onSocialLogin?: (pro
           <div className="w-full border-t border-white/10 dark:border-gray-700" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+          <span className="px-2 bg-white dark:bg-gray-800 text-gray-400 dark:text-gray-300">
             或使用以下方式
           </span>
         </div>
@@ -286,7 +286,7 @@ export function AuthSystem({
             {mode === 'forgot_password' && '忘记密码'}
             {mode === 'reset_password' && '重置密码'}
           </h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-2">
+          <p className="text-gray-400 dark:text-gray-300 mt-2">
             {mode === 'login' && '登录您的 Follow.ai 账户'}
             {mode === 'register' && '加入 Follow.ai 社区'}
             {mode === 'forgot_password' && '输入邮箱以重置密码'}

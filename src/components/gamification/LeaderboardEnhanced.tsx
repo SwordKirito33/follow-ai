@@ -156,7 +156,7 @@ export const LeaderboardEnhanced: React.FC<LeaderboardEnhancedProps> = ({
                 <div className="relative">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gray-300 to-gray-400 mx-auto flex items-center justify-center text-white text-xl font-bold overflow-hidden">
                     {top3[1].avatar ? (
-                      <img src={top3[1].avatar} alt={top3[1].name} className="w-full h-full object-cover" />
+                      <img loading="lazy" src={top3[1].avatar} alt={top3[1].name} className="w-full h-full object-cover" />
                     ) : (
                       top3[1].name.charAt(0)
                     )}
@@ -175,7 +175,7 @@ export const LeaderboardEnhanced: React.FC<LeaderboardEnhancedProps> = ({
                 <div className="relative">
                   <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 mx-auto flex items-center justify-center text-white text-2xl font-bold overflow-hidden ring-4 ring-yellow-400/30">
                     {top3[0].avatar ? (
-                      <img src={top3[0].avatar} alt={top3[0].name} className="w-full h-full object-cover" />
+                      <img loading="lazy" src={top3[0].avatar} alt={top3[0].name} className="w-full h-full object-cover" />
                     ) : (
                       top3[0].name.charAt(0)
                     )}
@@ -194,7 +194,7 @@ export const LeaderboardEnhanced: React.FC<LeaderboardEnhancedProps> = ({
                 <div className="relative">
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-orange-300 to-orange-500 mx-auto flex items-center justify-center text-white text-lg font-bold overflow-hidden">
                     {top3[2].avatar ? (
-                      <img src={top3[2].avatar} alt={top3[2].name} className="w-full h-full object-cover" />
+                      <img loading="lazy" src={top3[2].avatar} alt={top3[2].name} className="w-full h-full object-cover" />
                     ) : (
                       top3[2].name.charAt(0)
                     )}
@@ -256,7 +256,7 @@ export const LeaderboardEnhanced: React.FC<LeaderboardEnhancedProps> = ({
                   {/* 头像 */}
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white font-bold overflow-hidden">
                     {user.avatar ? (
-                      <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
+                      <img loading="lazy" src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
                     ) : (
                       user.name.charAt(0)
                     )}
@@ -341,7 +341,7 @@ export const MiniLeaderboard: React.FC<MiniLeaderboardProps> = ({
             </span>
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white text-sm font-bold overflow-hidden">
               {user.avatar ? (
-                <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
+                <img loading="lazy" src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
               ) : (
                 user.name.charAt(0)
               )}

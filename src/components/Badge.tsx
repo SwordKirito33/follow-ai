@@ -158,7 +158,7 @@ export const AchievementBadge: React.FC<{
       className={`relative p-4 rounded-xl border ${
         unlocked
           ? `bg-gradient-to-br ${rarityColors[rarity]} text-white shadow-lg ${rarityGlow[rarity]}`
-          : 'bg-white/10 dark:bg-gray-800 text-gray-400 dark:text-gray-500'
+          : 'bg-white/10 dark:bg-gray-800 text-gray-400 dark:text-gray-400'
       } ${className}`}
     >
       <div className="flex items-center gap-3">
@@ -172,7 +172,7 @@ export const AchievementBadge: React.FC<{
         <div className="flex-1 min-w-0">
           <h4 className="font-bold truncate">{name}</h4>
           {description && (
-            <p className={`text-sm ${unlocked ? 'text-white/80' : 'text-gray-500'} truncate`}>
+            <p className={`text-sm ${unlocked ? 'text-white/80' : 'text-gray-400'} truncate`}>
               {description}
             </p>
           )}
@@ -241,7 +241,7 @@ export const LevelBadge: React.FC<{
       {showLabel && (
         <div>
           <p className="font-semibold text-white dark:text-white">Level {level}</p>
-          <p className="text-xs text-gray-500 dark:text-gray-400">{tier.name}</p>
+          <p className="text-xs text-gray-400 dark:text-gray-300">{tier.name}</p>
         </div>
       )}
     </div>

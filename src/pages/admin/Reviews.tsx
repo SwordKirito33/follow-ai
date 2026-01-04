@@ -364,7 +364,7 @@ const Reviews: React.FC = () => {
                         <Badge variant="secondary" size="sm">
                           Level {submission.user_level ?? 1}
                         </Badge>
-                        <span className="text-sm text-gray-500">submitted</span>
+                        <span className="text-sm text-gray-400">submitted</span>
                       </div>
                       <div className="flex items-center gap-2 mb-1">
                         <span className="font-semibold text-gray-200">{submission.task_title}</span>
@@ -380,7 +380,7 @@ const Reviews: React.FC = () => {
                           <span className="text-sm text-gray-400">{submission.tool_name}</span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <div className="flex items-center gap-2 text-sm text-gray-400">
                         <Clock size={14} />
                         <span>{formatRelativeTime(submission.submitted_at)}</span>
                       </div>
@@ -503,7 +503,7 @@ const Reviews: React.FC = () => {
                       <div>
                         <label className="block text-sm font-semibold text-gray-300 mb-2">
                           Review Notes{' '}
-                          <span className="text-gray-500 font-normal">
+                          <span className="text-gray-400 font-normal">
                             (optional for approve, required for reject)
                           </span>
                         </label>
@@ -562,7 +562,7 @@ const Reviews: React.FC = () => {
                         </div>
                       )}
                       {submission.reviewed_at && (
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-gray-400">
                           Reviewed {formatRelativeTime(submission.reviewed_at)}
                         </p>
                       )}

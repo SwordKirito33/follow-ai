@@ -68,12 +68,12 @@ export default function PurchaseXP() {
                 <div className="text-5xl font-bold text-primary-purple mb-2">
                   {pkg.amount}
                 </div>
-                <div className="text-gray-500 text-sm mb-4">XP Points</div>
+                <div className="text-gray-400 text-sm mb-4">XP Points</div>
 
                 <div className="text-3xl font-bold text-white mb-1">
                   ${pkg.price}
                 </div>
-                <div className="text-gray-500 text-sm mb-6">{pkg.currency}</div>
+                <div className="text-gray-400 text-sm mb-6">{pkg.currency}</div>
 
                 <div className="flex items-center justify-center text-sm text-gray-400 mb-4">
                   <Check className="w-4 h-4 text-green-500 mr-2" />
@@ -161,7 +161,7 @@ export default function PurchaseXP() {
             )}
           </button>
 
-          <p className="text-gray-500 text-sm mt-4">
+          <p className="text-gray-400 text-sm mt-4">
             Secure payment powered by Stripe • No hidden fees
           </p>
         </div>

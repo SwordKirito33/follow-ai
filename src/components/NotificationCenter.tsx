@@ -145,7 +145,7 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
         {/* Notifications List */}
         <div className="flex-1 overflow-y-auto">
           {notifications.length === 0 ? (
-            <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+            <div className="text-center py-12 text-gray-400 dark:text-gray-300">
               <Bell size={48} className="mx-auto mb-3 opacity-50" />
               <p>No notifications</p>
             </div>
@@ -180,7 +180,7 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
                       <p className="text-sm text-gray-400 dark:text-gray-400 mb-2">
                         {notification.message}
                       </p>
-                      <span className="text-xs text-gray-500 dark:text-gray-500">
+                      <span className="text-xs text-gray-400 dark:text-gray-400">
                         {formatTimestamp(notification.timestamp)}
                       </span>
                     </div>

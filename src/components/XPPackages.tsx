@@ -15,10 +15,10 @@ export interface XPPackage {
 }
 
 const XP_PACKAGES: XPPackage[] = [
-  { id: 'xp_500', amount: 500, price: 10, currency: 'USD', label: '入门', popular: false },
-  { id: 'xp_1000', amount: 1000, price: 18, currency: 'USD', label: '标准', popular: true },
-  { id: 'xp_5000', amount: 5000, price: 80, currency: 'USD', label: '专业', popular: false },
-  { id: 'xp_10000', amount: 10000, price: 140, currency: 'USD', label: '企业', popular: false },
+  { id: 'xp_500', amount: 500, price: 10, currency: 'USD', label: 'Starter', popular: false },
+  { id: 'xp_1000', amount: 1000, price: 18, currency: 'USD', label: 'Standard', popular: true },
+  { id: 'xp_5000', amount: 5000, price: 80, currency: 'USD', label: 'Professional', popular: false },
+  { id: 'xp_10000', amount: 10000, price: 140, currency: 'USD', label: 'Enterprise', popular: false },
 ];
 
 interface XPPackagesProps {
@@ -71,8 +71,8 @@ const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) =
               key={pkg.id}
               className={`relative rounded-xl p-6 border-2 transition-all ${
                 pkg.popular
-                  ? 'bg-gradient-to-br from-purple-50 to-blue-50 border-purple-300 shadow-lg'
-                  : 'bg-white border-white/10 hover:border-white/20'
+                  ? 'bg-gradient-to-br from-purple-900/40 to-blue-900/40 border-purple-500/50 shadow-lg'
+                  : 'bg-white/5 border-white/10 hover:border-white/20'
               }`}
             >
               {pkg.popular && (
@@ -95,12 +95,12 @@ const XPPackages: React.FC<XPPackagesProps> = ({ userId, onPurchaseComplete }) =
                 <div className="text-3xl font-black text-white mb-2">
                   {pkg.amount.toLocaleString()} XP
                 </div>
-                <div className="text-sm text-gray-400 mb-1">{pkg.label}</div>
+                <div className="text-sm text-gray-300 mb-1">{pkg.label}</div>
                 <div className="text-2xl font-bold text-white mb-1">
                   {formatCurrencyWithUSD(pkg.price, userCurrency, false)}
                 </div>
                 {discount > 0 && (
-                  <div className="text-xs text-gray-500 line-through">
+                  <div className="text-xs text-gray-400 line-through">
                     {formatCurrencyWithUSD((pkg.price * 100) / (100 - discount), userCurrency, false)}
                   </div>
                 )}

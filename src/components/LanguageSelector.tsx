@@ -73,7 +73,7 @@ const LanguageSelector: React.FC = () => {
           aria-label="Select language"
         >
           <div className="px-3 py-2 border-b border-white/10 dark:border-gray-800">
-            <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <p className="text-xs font-semibold text-gray-400 dark:text-gray-300 uppercase tracking-wider">
               {t('language.selectLanguage')}
             </p>
           </div>
@@ -94,7 +94,7 @@ const LanguageSelector: React.FC = () => {
                     <span className="text-sm font-medium text-white dark:text-gray-100">
                       {lang.name}
                     </span>
-                    <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
+                    <span className="text-xs text-gray-400 dark:text-gray-300 ml-2">
                       {languageInfo[lang.code].name}
                     </span>
                   </div>

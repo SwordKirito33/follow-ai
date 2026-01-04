@@ -179,7 +179,7 @@ export const FollowList: React.FC<FollowListProps> = ({
             {/* User list */}
             <div className="max-h-96 overflow-y-auto">
               {users.length === 0 ? (
-                <div className="p-8 text-center text-gray-500">
+                <div className="p-8 text-center text-gray-400">
                   <Users className="w-12 h-12 mx-auto mb-3 opacity-50" />
                   <p>No {type} yet</p>
                 </div>
@@ -205,7 +205,7 @@ export const FollowList: React.FC<FollowListProps> = ({
                         <p className="font-semibold text-white dark:text-white">
                           {user.username}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-400">
                           Level {user.level} • {user.xp.toLocaleString()} XP
                         </p>
                       </div>
@@ -254,7 +254,7 @@ export const FollowStats: React.FC<FollowStatsProps> = ({
         <p className="text-2xl font-bold text-white dark:text-white">
           {followersCount.toLocaleString()}
         </p>
-        <p className="text-sm text-gray-500">Followers</p>
+        <p className="text-sm text-gray-400">Followers</p>
       </button>
       <div className="w-px h-10 bg-white/10 dark:bg-gray-700" />
       <button
@@ -264,7 +264,7 @@ export const FollowStats: React.FC<FollowStatsProps> = ({
         <p className="text-2xl font-bold text-white dark:text-white">
           {followingCount.toLocaleString()}
         </p>
-        <p className="text-sm text-gray-500">Following</p>
+        <p className="text-sm text-gray-400">Following</p>
       </button>
     </div>
   );

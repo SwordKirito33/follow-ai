@@ -255,7 +255,7 @@ interface InlineLoadingProps {
 
 export function InlineLoading({ message, size = 'sm' }: InlineLoadingProps) {
   return (
-    <div className="inline-flex items-center gap-2 text-gray-500">
+    <div className="inline-flex items-center gap-2 text-gray-400">
       <Spinner size={size} color="gray" />
       {message && <span className="text-sm">{message}</span>}
     </div>

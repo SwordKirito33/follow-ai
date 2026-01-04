@@ -75,7 +75,7 @@ const Home: React.FC = () => {
               <thead>
                 <tr>
                   <th className="p-4 border-b-2 border-white/10 text-gray-400 font-medium">{t('home.feature')}</th>
-                  <th className="p-4 border-b-2 border-white/10 text-gray-500 font-medium">{t('home.productHunt')}</th>
+                  <th className="p-4 border-b-2 border-white/10 text-gray-400 font-medium">{t('home.productHunt')}</th>
                   <th className="p-4 border-b-2 border-primary-cyan/30 bg-primary-cyan/10 text-primary-cyan font-bold rounded-t-lg">{t('home.followAi')}</th>
                 </tr>
               </thead>
@@ -179,7 +179,7 @@ const Home: React.FC = () => {
                 <div className="text-xs font-semibold text-amber-700 bg-gradient-to-r from-amber-100 to-orange-100 px-3 py-1 rounded-full inline-block mb-3 border border-amber-200">{item.date}</div>
                 <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
                 <p className="text-sm text-gray-400 mb-3">{item.teaser}</p>
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
+                <div className="flex items-center justify-between text-sm text-gray-400 mb-3">
                   <span>{item.interest} {t('home.peopleInterested')}</span>
                   <button className="text-primary-cyan font-semibold hover:text-primary-blue transition-all transform hover:scale-110">{t('home.notify')}</button>
                 </div>

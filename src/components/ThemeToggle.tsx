@@ -111,7 +111,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
                   aria-selected={theme === t.value}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon size={16} className="text-gray-500 dark:text-gray-400" />
+                    <Icon size={16} className="text-gray-400 dark:text-gray-300" />
                     <span className="text-sm font-medium text-white dark:text-gray-100">
                       {t.label}
                     </span>

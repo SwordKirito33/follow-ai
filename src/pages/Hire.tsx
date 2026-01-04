@@ -211,7 +211,7 @@ const Hire: React.FC = () => {
               <div className="glass-card rounded-xl p-12 text-center">
                 <Briefcase size={48} className="mx-auto mb-4 text-gray-400" />
                 <p className="text-lg text-gray-400 mb-2">No tasks found</p>
-                <p className="text-sm text-gray-500">Try adjusting your filters</p>
+                <p className="text-sm text-gray-400">Try adjusting your filters</p>
               </div>
             ) : (
               <div className="grid gap-6">
@@ -292,7 +292,7 @@ const Hire: React.FC = () => {
                       {/* Required Skills & Tools */}
                       <div className="mb-4 space-y-2">
                         <div>
-                          <span className="text-xs font-semibold text-gray-500">Required Skills:</span>
+                          <span className="text-xs font-semibold text-gray-400">Required Skills:</span>
                           <div className="flex flex-wrap gap-2 mt-1">
                             {task.requiredSkills.map((skill, idx) => (
                               <Badge key={idx} variant="info" size="sm">{skill}</Badge>
@@ -300,7 +300,7 @@ const Hire: React.FC = () => {
                           </div>
                         </div>
                         <div>
-                          <span className="text-xs font-semibold text-gray-500">AI Tools:</span>
+                          <span className="text-xs font-semibold text-gray-400">AI Tools:</span>
                           <div className="flex flex-wrap gap-2 mt-1">
                             {task.requiredAiTools.map((tool, idx) => (
                               <Badge key={idx} variant="secondary" size="sm">{tool}</Badge>
@@ -327,7 +327,7 @@ const Hire: React.FC = () => {
                             Apply
                           </FollowButton>
                         ) : (
-                          <div className="text-xs text-gray-500">
+                          <div className="text-xs text-gray-400">
                             {userLevel < (task.minLevel || 1) && (
                               <span>Requires Level {task.minLevel}</span>
                             )}

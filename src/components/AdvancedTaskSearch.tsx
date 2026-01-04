@@ -150,7 +150,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
                 <X className="w-4 h-4 text-gray-400" />
               </button>
             )}
-            <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-white/10 dark:bg-gray-800 rounded-lg text-xs text-gray-500">
+            <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-white/10 dark:bg-gray-800 rounded-lg text-xs text-gray-400">
               <span>⌘</span>
               <span>K</span>
             </kbd>
@@ -177,7 +177,7 @@ const AdvancedTaskSearch: React.FC<AdvancedTaskSearchProps> = ({
                   </h4>
                   <button
                     onClick={clearRecentSearches}
-                    className="text-xs text-gray-500 hover:text-red-500"
+                    className="text-xs text-gray-400 hover:text-red-500"
                   >
                     Clear
                   </button>

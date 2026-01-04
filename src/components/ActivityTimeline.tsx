@@ -109,7 +109,7 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
     return (
       <div className="text-center py-8">
         <Clock className="w-12 h-12 text-gray-300 dark:text-gray-400 mx-auto mb-3" />
-        <p className="text-gray-500 dark:text-gray-400">No recent activity</p>
+        <p className="text-gray-400 dark:text-gray-300">No recent activity</p>
       </div>
     );
   }
@@ -142,12 +142,12 @@ const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
                   {activity.title}
                 </p>
                 {activity.description && (
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                  <p className="text-sm text-gray-400 dark:text-gray-300 mt-0.5">
                     {activity.description}
                   </p>
                 )}
               </div>
-              <span className="text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">
+              <span className="text-xs text-gray-400 dark:text-gray-400 whitespace-nowrap">
                 {formatTimestamp(activity.timestamp)}
               </span>
             </div>

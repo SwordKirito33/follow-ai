@@ -141,7 +141,7 @@ export const CircularProgress: React.FC<{
             {Math.round(percentage)}%
           </span>
           {label && (
-            <span className="text-xs text-gray-500 dark:text-gray-400">{label}</span>
+            <span className="text-xs text-gray-400 dark:text-gray-300">{label}</span>
           )}
         </div>
       )}

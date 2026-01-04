@@ -338,15 +338,15 @@ const HireNew: React.FC = () => {
               <h2 className="text-2xl font-bold text-white">Review & Publish</h2>
               <div className="space-y-4">
                 <div>
-                  <span className="text-sm font-semibold text-gray-500">Title</span>
+                  <span className="text-sm font-semibold text-gray-400">Title</span>
                   <p className="text-white font-medium">{formData.title}</p>
                 </div>
                 <div>
-                  <span className="text-sm font-semibold text-gray-500">Category</span>
+                  <span className="text-sm font-semibold text-gray-400">Category</span>
                   <p className="text-white font-medium">{formData.category}</p>
                 </div>
                 <div>
-                  <span className="text-sm font-semibold text-gray-500">Reward</span>
+                  <span className="text-sm font-semibold text-gray-400">Reward</span>
                   <p className="text-white font-medium">
                     {formData.rewardType === 'money' && `$${formData.budgetMin} - $${formData.budgetMax}`}
                     {formData.rewardType === 'xp' && `+${formData.xpReward} XP`}
@@ -355,7 +355,7 @@ const HireNew: React.FC = () => {
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm font-semibold text-gray-500">Required Level</span>
+                  <span className="text-sm font-semibold text-gray-400">Required Level</span>
                   <p className="text-white font-medium">Level {formData.minLevel}+</p>
                 </div>
               </div>

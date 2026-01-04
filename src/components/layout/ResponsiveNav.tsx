@@ -293,7 +293,7 @@ export function BottomNav({ items, className }: BottomNavProps) {
                   'flex flex-col items-center justify-center flex-1 h-full px-2 transition-colors',
                   isActive
                     ? 'text-primary-cyan dark:text-blue-400'
-                    : 'text-gray-500 dark:text-gray-400'
+                    : 'text-gray-400 dark:text-gray-300'
                 )}
               >
                 {item.icon && (

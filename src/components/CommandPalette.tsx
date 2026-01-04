@@ -242,7 +242,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
               className="flex-1 bg-transparent border-0 outline-none text-white dark:text-white placeholder-gray-400"
               autoFocus
             />
-            <kbd className="px-2 py-1 text-xs font-semibold text-gray-500 bg-white/10 dark:bg-gray-800 rounded border border-white/20 dark:border-gray-600">
+            <kbd className="px-2 py-1 text-xs font-semibold text-gray-400 bg-white/10 dark:bg-gray-800 rounded border border-white/20 dark:border-gray-600">
               ESC
             </kbd>
           </div>
@@ -250,7 +250,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
           {/* Commands List */}
           <div className="max-h-[400px] overflow-y-auto">
             {filteredCommands.length === 0 ? (
-              <div className="px-4 py-8 text-center text-gray-500">
+              <div className="px-4 py-8 text-center text-gray-400">
                 No commands found
               </div>
             ) : (
@@ -282,7 +282,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Footer */}
-          <div className="px-4 py-2 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50 flex items-center justify-between text-xs text-gray-500">
+          <div className="px-4 py-2 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50 flex items-center justify-between text-xs text-gray-400">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1">
                 <kbd className="px-1.5 py-0.5 bg-white dark:bg-gray-700 rounded border border-white/20 dark:border-gray-600">↑↓</kbd>

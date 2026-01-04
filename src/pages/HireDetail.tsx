@@ -157,7 +157,7 @@ const HireDetail: React.FC = () => {
           {/* Requirements */}
           <div className="mb-6 space-y-4">
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 mb-2">Required Skills</h3>
+              <h3 className="text-sm font-semibold text-gray-400 mb-2">Required Skills</h3>
               <div className="flex flex-wrap gap-2">
                 {task.requiredSkills.map((skill, idx) => (
                   <Badge key={idx} variant="info" size="md">
@@ -167,7 +167,7 @@ const HireDetail: React.FC = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 mb-2">Required AI Tools</h3>
+              <h3 className="text-sm font-semibold text-gray-400 mb-2">Required AI Tools</h3>
               <div className="flex flex-wrap gap-2">
                 {task.requiredAiTools.map((tool, idx) => (
                   <Badge key={idx} variant="secondary" size="md">

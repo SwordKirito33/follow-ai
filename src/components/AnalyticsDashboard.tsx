@@ -92,7 +92,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+                <p className="text-sm text-gray-400 dark:text-gray-300 mb-1">
                   {stat.label}
                 </p>
                 <p className="text-2xl font-bold text-white dark:text-white">
@@ -117,13 +117,13 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                     ? 'text-accent-green'
                     : stat.changeType === 'decrease'
                     ? 'text-red-600'
-                    : 'text-gray-500'
+                    : 'text-gray-400'
                 }`}
               >
                 {stat.change > 0 ? '+' : ''}
                 {stat.change}%
               </span>
-              <span className="text-sm text-gray-500 dark:text-gray-400">
+              <span className="text-sm text-gray-400 dark:text-gray-300">
                 vs last period
               </span>
             </div>
@@ -242,7 +242,7 @@ const SimpleLineChart: React.FC<{ data: ChartData; height: number }> = ({
       </svg>
 
       {/* X-axis labels */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-gray-500 dark:text-gray-400">
+      <div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-gray-400 dark:text-gray-300">
         {data.labels.filter((_, i) => i % Math.ceil(data.labels.length / 5) === 0).map((label, index) => (
           <span key={index}>{label}</span>
         ))}
@@ -268,7 +268,7 @@ const SimpleBarChart: React.FC<{ data: ChartData; height: number }> = ({
             transition={{ delay: index * 0.05, duration: 0.5 }}
             className="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded-t-lg min-h-[4px]"
           />
-          <span className="text-xs text-gray-500 dark:text-gray-400 mt-2 truncate w-full text-center">
+          <span className="text-xs text-gray-400 dark:text-gray-300 mt-2 truncate w-full text-center">
             {data.labels[index]}
           </span>
         </div>
@@ -363,7 +363,7 @@ const ActivityFeed: React.FC = () => {
             <p className="text-white dark:text-white font-medium">
               {activity.message}
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-400 dark:text-gray-300">
               {activity.time}
             </p>
           </div>

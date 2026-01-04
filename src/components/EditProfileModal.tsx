@@ -90,7 +90,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose }) 
             <X size={24} />
           </button>
           <h2 className="text-2xl font-bold text-white">{t('profile.editProfile')}</h2>
-          <p className="text-sm text-gray-500 mt-1">{t('profile.editProfile')}</p>
+          <p className="text-sm text-gray-400 mt-1">{t('profile.editProfile')}</p>
         </div>
 
         {/* Form */}

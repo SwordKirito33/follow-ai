@@ -181,7 +181,7 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
                   <X className="w-4 h-4 text-gray-400" />
                 </button>
               )}
-              <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-white/10 dark:bg-gray-800 rounded text-xs text-gray-500">
+              <kbd className="hidden sm:flex items-center gap-1 px-2 py-1 bg-white/10 dark:bg-gray-800 rounded text-xs text-gray-400">
                 <Command className="w-3 h-3" />K
               </kbd>
             </div>
@@ -192,7 +192,7 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
               {!query && recentSearches.length > 0 && (
                 <div className="px-3 py-2">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    <span className="text-xs font-semibold text-gray-400 dark:text-gray-300 uppercase tracking-wider">
                       Recent Searches
                     </span>
                     <button
@@ -219,7 +219,7 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
               {results.length > 0 ? (
                 <div className="px-3">
                   {!query && (
-                    <span className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 px-3">
+                    <span className="block text-xs font-semibold text-gray-400 dark:text-gray-300 uppercase tracking-wider mb-2 px-3">
                       Quick Navigation
                     </span>
                   )}
@@ -240,7 +240,7 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
                       <div className="flex-1 text-left">
                         <p className="font-medium">{result.title}</p>
                         {result.description && (
-                          <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                          <p className="text-xs text-gray-400 dark:text-gray-300 truncate">
                             {result.description}
                           </p>
                         )}
@@ -254,14 +254,14 @@ const SearchCommand: React.FC<SearchCommandProps> = ({ isOpen, onClose }) => {
               ) : (
                 <div className="py-8 text-center">
                   <Search className="w-12 h-12 text-gray-300 dark:text-gray-400 mx-auto mb-3" />
-                  <p className="text-gray-500 dark:text-gray-400">No results found</p>
+                  <p className="text-gray-400 dark:text-gray-300">No results found</p>
                 </div>
               )}
             </div>
 
             {/* Footer */}
             <div className="px-4 py-3 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50">
-              <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+              <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-300">
                 <div className="flex items-center gap-4">
                   <span className="flex items-center gap-1">
                     <kbd className="px-1.5 py-0.5 bg-white/10 dark:bg-gray-700 rounded">↑</kbd>

@@ -44,7 +44,7 @@ const NewsWidget: React.FC = () => {
               <h4 className="text-sm font-semibold text-white group-hover:text-primary-cyan transition-colors leading-tight mb-1">
                 {item.title}
               </h4>
-              <p className="text-xs text-gray-500 line-clamp-2">{item.description}</p>
+              <p className="text-xs text-gray-400 line-clamp-2">{item.description}</p>
             </div>
           </div>
         ))}

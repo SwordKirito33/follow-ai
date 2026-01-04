@@ -178,7 +178,7 @@ const CookieConsent: React.FC = () => {
                         <p className="font-semibold text-white dark:text-white">
                           {type.label}
                           {type.required && (
-                            <span className="ml-2 text-xs text-gray-500">(Required)</span>
+                            <span className="ml-2 text-xs text-gray-400">(Required)</span>
                           )}
                         </p>
                         <p className="text-sm text-gray-400 dark:text-gray-400 mt-1">

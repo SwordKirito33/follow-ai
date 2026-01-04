@@ -100,7 +100,7 @@ export function Navbar({
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-500 hover:bg-white/10 dark:hover:bg-gray-800"
+            className="md:hidden p-2 rounded-lg text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {mobileMenuOpen ? (
@@ -304,7 +304,7 @@ function MobileNavItem({
                     'flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-colors',
                     child.href === currentPath
                       ? 'text-primary-purple dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
-                      : 'text-gray-500 dark:text-gray-500 hover:text-white dark:hover:text-white'
+                      : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white'
                   )}
                 >
                   {child.icon}
@@ -452,7 +452,7 @@ function SidebarItem({
                     'flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors',
                     child.href === currentPath
                       ? 'text-primary-purple dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
-                      : 'text-gray-500 dark:text-gray-500 hover:text-white dark:hover:text-white'
+                      : 'text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white'
                   )}
                 >
                   {child.icon}
@@ -510,7 +510,7 @@ export function Breadcrumb({
           {index > 0 && <span className="text-gray-400">{separator}</span>}
           {item.href ? (
             <Link href={item.href}>
-              <a className="text-gray-500 dark:text-gray-400 hover:text-white dark:hover:text-white transition-colors">
+              <a className="text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors">
                 {item.label}
               </a>
             </Link>
@@ -539,19 +539,19 @@ export function Tabs({
       container: 'bg-white/10 dark:bg-gray-800 p-1 rounded-lg',
       tab: 'px-4 py-2 rounded-md text-sm font-medium transition-all',
       active: 'bg-white dark:bg-gray-700 text-white dark:text-white shadow-sm',
-      inactive: 'text-gray-500 dark:text-gray-400 hover:text-white dark:hover:text-white',
+      inactive: 'text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white',
     },
     pills: {
       container: 'gap-2',
       tab: 'px-4 py-2 rounded-full text-sm font-medium transition-all',
       active: 'bg-purple-600 text-white',
-      inactive: 'text-gray-500 dark:text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800',
+      inactive: 'text-gray-400 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-gray-800',
     },
     underline: {
       container: 'border-b border-white/10 dark:border-gray-700',
       tab: 'px-4 py-3 text-sm font-medium transition-all border-b-2 -mb-px',
       active: 'border-purple-600 text-primary-purple dark:text-purple-400',
-      inactive: 'border-transparent text-gray-500 dark:text-gray-400 hover:text-white dark:hover:text-white hover:border-white/20',
+      inactive: 'border-transparent text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white hover:border-white/20',
     },
   };
 
@@ -639,7 +639,7 @@ export function Pagination({
         <button
           onClick={() => onPageChange(1)}
           disabled={currentPage === 1}
-          className="p-2 rounded-lg text-gray-500 hover:bg-white/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-2 rounded-lg text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="First page"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -651,7 +651,7 @@ export function Pagination({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-lg text-gray-500 hover:bg-white/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="p-2 rounded-lg text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Previous page"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -668,7 +668,7 @@ export function Pagination({
               'min-w-[40px] h-10 rounded-lg text-sm font-medium transition-colors',
               page === currentPage
                 ? 'bg-purple-600 text-white'
-                : 'text-gray-500 hover:bg-white/10 dark:hover:bg-gray-800'
+                : 'text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800'
             )}
             aria-current={page === currentPage ? 'page' : undefined}
           >
@@ -684,7 +684,7 @@ export function Pagination({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg text-gray-500 hover:bg-white/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="p-2 rounded-lg text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Next page"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -696,7 +696,7 @@ export function Pagination({
         <button
           onClick={() => onPageChange(totalPages)}
           disabled={currentPage === totalPages}
-          className="p-2 rounded-lg text-gray-500 hover:bg-white/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-2 rounded-lg text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Last page"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

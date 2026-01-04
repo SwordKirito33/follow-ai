@@ -95,7 +95,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
                   {onLabel}
                 </span>
                 <span
-                  className={`absolute right-1.5 top-1/2 -translate-y-1/2 ${config.labelText} font-medium text-gray-500 ${
+                  className={`absolute right-1.5 top-1/2 -translate-y-1/2 ${config.labelText} font-medium text-gray-400 ${
                     !checked ? 'opacity-100' : 'opacity-0'
                   } transition-opacity`}
                 >
@@ -128,7 +128,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
               </span>
             )}
             {description && (
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+              <p className="text-sm text-gray-400 dark:text-gray-300 mt-0.5">
                 {description}
               </p>
             )}

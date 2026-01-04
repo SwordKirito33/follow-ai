@@ -40,7 +40,7 @@ const SubmissionList: React.FC<SubmissionListProps> = ({ submissions, selectedId
       <h2 className="text-xl font-black text-white mb-4 tracking-tight">Submissions</h2>
       {submissions.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-gray-500">No submissions yet</p>
+          <p className="text-gray-400">No submissions yet</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -75,7 +75,7 @@ const SubmissionList: React.FC<SubmissionListProps> = ({ submissions, selectedId
                   </span>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-xs text-gray-500">
+              <div className="flex items-center gap-2 text-xs text-gray-400">
                 <Calendar size={12} />
                 <span>{new Date(submission.created_at).toLocaleDateString()}</span>
               </div>

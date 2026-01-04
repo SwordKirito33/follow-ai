@@ -253,7 +253,7 @@ export const TwoFactorSetup: React.FC<TwoFactorSetupProps> = ({
           </div>
 
           <div className="bg-white p-4 rounded-lg mb-6 mx-auto w-fit">
-            <img src={qrCodeUrl} alt="2FA QR Code" className="w-48 h-48" />
+            <img loading="lazy" src={qrCodeUrl} alt="2FA QR Code" className="w-48 h-48" />
           </div>
 
           <div className="mb-6">

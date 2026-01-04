@@ -47,7 +47,7 @@ const ActivityFeed: React.FC = () => {
                     <strong className="text-white font-semibold">{activity.user}</strong> {activity.action}{' '}
                     <span className={activity.color + ' font-bold'}>{activity.value}</span> {activity.detail}
                   </span>
-                  <span className="text-xs text-gray-500 ml-1">{activity.time}</span>
+                  <span className="text-xs text-gray-400 ml-1">{activity.time}</span>
                 </div>
               );
             })}

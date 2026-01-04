@@ -136,7 +136,7 @@ const Settings: React.FC = () => {
                     )}
                     <div>
                       <h3 className="font-semibold text-white dark:text-white">Profile Photo</h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                      <p className="text-sm text-gray-400 dark:text-gray-300">
                         Click on the avatar to upload a new photo
                       </p>
                     </div>
@@ -236,7 +236,7 @@ const Settings: React.FC = () => {
                           <p className="font-medium text-white dark:text-white">
                             {key.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase())}
                           </p>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">
+                          <p className="text-sm text-gray-400 dark:text-gray-300">
                             Receive notifications for {key.toLowerCase().replace(/([A-Z])/g, ' $1')}
                           </p>
                         </div>
@@ -306,7 +306,7 @@ const Settings: React.FC = () => {
                     <div className="flex items-center justify-between">
                       <div>
                         <h3 className="font-semibold text-white dark:text-white">Two-Factor Authentication</h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="text-sm text-gray-400 dark:text-gray-300">
                           Add an extra layer of security to your account
                         </p>
                       </div>
@@ -343,7 +343,7 @@ const Settings: React.FC = () => {
                     <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
                       <div>
                         <p className="font-medium text-white dark:text-white">Theme</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="text-sm text-gray-400 dark:text-gray-300">
                           Choose your preferred color scheme
                         </p>
                       </div>
@@ -354,7 +354,7 @@ const Settings: React.FC = () => {
                     <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
                       <div>
                         <p className="font-medium text-white dark:text-white">Language</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="text-sm text-gray-400 dark:text-gray-300">
                           Select your preferred language
                         </p>
                       </div>
@@ -365,7 +365,7 @@ const Settings: React.FC = () => {
                     <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
                       <div>
                         <p className="font-medium text-white dark:text-white">Font</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="text-sm text-gray-400 dark:text-gray-300">
                           Choose your preferred font family
                         </p>
                       </div>
@@ -382,7 +382,7 @@ const Settings: React.FC = () => {
 
                   <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
                     <h3 className="font-semibold text-white dark:text-white mb-4">Payment Methods</h3>
-                    <p className="text-gray-500 dark:text-gray-400 mb-4">
+                    <p className="text-gray-400 dark:text-gray-300 mb-4">
                       No payment methods added yet.
                     </p>
                     <button className="flex items-center gap-2 px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-300 font-semibold rounded-lg hover:bg-white/10 dark:hover:bg-gray-700 transition-colors">
@@ -393,7 +393,7 @@ const Settings: React.FC = () => {
 
                   <div className="p-4 bg-white/5 dark:bg-gray-800 rounded-xl">
                     <h3 className="font-semibold text-white dark:text-white mb-4">Billing History</h3>
-                    <p className="text-gray-500 dark:text-gray-400">
+                    <p className="text-gray-400 dark:text-gray-300">
                       No billing history available.
                     </p>
                   </div>

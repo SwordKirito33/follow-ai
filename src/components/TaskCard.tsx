@@ -71,7 +71,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, userLevel, onApply, onView })
         </div>
 
         {/* Date */}
-        <div className="flex items-center gap-2 text-xs text-gray-500">
+        <div className="flex items-center gap-2 text-xs text-gray-400">
           <Calendar size={12} />
           <span>{new Date(task.created_at).toLocaleDateString()}</span>
         </div>

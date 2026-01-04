@@ -126,7 +126,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                     ? 'text-red-500'
                     : success
                     ? 'text-green-500'
-                    : 'text-gray-500 dark:text-gray-400'
+                    : 'text-gray-400 dark:text-gray-300'
                 }`}
               >
                 {error || success || hint}
@@ -139,7 +139,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
               className={`text-sm ${
                 maxLength && charCount >= maxLength
                   ? 'text-red-500'
-                  : 'text-gray-400 dark:text-gray-500'
+                  : 'text-gray-400 dark:text-gray-400'
               }`}
             >
               {charCount}

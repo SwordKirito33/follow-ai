@@ -141,7 +141,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                   <h1 className="text-2xl md:text-3xl font-bold text-white dark:text-white">
                     {profile.displayName}
                   </h1>
-                  <p className="text-gray-500 dark:text-gray-400">@{profile.username}</p>
+                  <p className="text-gray-400 dark:text-gray-300">@{profile.username}</p>
                 </div>
                 <div className="flex gap-2">
                   {isOwnProfile ? (
@@ -194,7 +194,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
               )}
               <div className="space-y-3 text-sm">
                 {profile.location && (
-                  <div className="flex items-center gap-2 text-gray-500">
+                  <div className="flex items-center gap-2 text-gray-400">
                     <MapPin className="w-4 h-4" />
                     {profile.location}
                   </div>
@@ -210,7 +210,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                     {profile.website.replace(/^https?:\/\//, '')}
                   </a>
                 )}
-                <div className="flex items-center gap-2 text-gray-500">
+                <div className="flex items-center gap-2 text-gray-400">
                   <Calendar className="w-4 h-4" />
                   Joined {profile.joinedAt.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 </div>
@@ -260,8 +260,8 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                 Level Progress
               </h3>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-500">Level {profile.level}</span>
-                <span className="text-sm text-gray-500">Level {profile.level + 1}</span>
+                <span className="text-sm text-gray-400">Level {profile.level}</span>
+                <span className="text-sm text-gray-400">Level {profile.level + 1}</span>
               </div>
               <div className="h-3 bg-white/10 dark:bg-gray-700 rounded-full overflow-hidden">
                 <motion.div
@@ -270,7 +270,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                   className="h-full bg-gradient-to-r from-primary-blue to-primary-purple"
                 />
               </div>
-              <p className="text-sm text-gray-500 mt-2 text-center">
+              <p className="text-sm text-gray-400 mt-2 text-center">
                 {profile.currentLevelXp.toLocaleString()} / {(profile.currentLevelXp + profile.xpToNextLevel).toLocaleString()} XP
               </p>
             </div>
@@ -281,19 +281,19 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-3 bg-white/5 dark:bg-gray-800 rounded-xl">
                   <p className="text-2xl font-bold text-primary-cyan">{profile.totalXp.toLocaleString()}</p>
-                  <p className="text-xs text-gray-500">Total XP</p>
+                  <p className="text-xs text-gray-400">Total XP</p>
                 </div>
                 <div className="text-center p-3 bg-white/5 dark:bg-gray-800 rounded-xl">
                   <p className="text-2xl font-bold text-primary-purple">#{profile.rank}</p>
-                  <p className="text-xs text-gray-500">Global Rank</p>
+                  <p className="text-xs text-gray-400">Global Rank</p>
                 </div>
                 <div className="text-center p-3 bg-white/5 dark:bg-gray-800 rounded-xl">
                   <p className="text-2xl font-bold text-accent-green">{profile.tasksCompleted}</p>
-                  <p className="text-xs text-gray-500">Tasks Done</p>
+                  <p className="text-xs text-gray-400">Tasks Done</p>
                 </div>
                 <div className="text-center p-3 bg-white/5 dark:bg-gray-800 rounded-xl">
                   <p className="text-2xl font-bold text-orange-500">🔥 {profile.streak}</p>
-                  <p className="text-xs text-gray-500">Day Streak</p>
+                  <p className="text-xs text-gray-400">Day Streak</p>
                 </div>
               </div>
             </div>
@@ -334,28 +334,28 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                       <p className="text-2xl font-bold text-white dark:text-white">
                         {profile.stats.avgRating.toFixed(1)}
                       </p>
-                      <p className="text-sm text-gray-500">Avg Rating</p>
+                      <p className="text-sm text-gray-400">Avg Rating</p>
                     </div>
                     <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg">
                       <Target className="w-8 h-8 text-blue-500 mb-2" />
                       <p className="text-2xl font-bold text-white dark:text-white">
                         {profile.stats.toolsTested}
                       </p>
-                      <p className="text-sm text-gray-500">Tools Tested</p>
+                      <p className="text-sm text-gray-400">Tools Tested</p>
                     </div>
                     <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg">
                       <Clock className="w-8 h-8 text-green-500 mb-2" />
                       <p className="text-2xl font-bold text-white dark:text-white">
                         {profile.stats.avgCompletionTime}
                       </p>
-                      <p className="text-sm text-gray-500">Avg Time</p>
+                      <p className="text-sm text-gray-400">Avg Time</p>
                     </div>
                     <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg">
                       <Award className="w-8 h-8 text-purple-500 mb-2" />
                       <p className="text-2xl font-bold text-white dark:text-white">
                         {profile.badges.length}
                       </p>
-                      <p className="text-sm text-gray-500">Badges</p>
+                      <p className="text-sm text-gray-400">Badges</p>
                     </div>
                   </div>
 
@@ -410,7 +410,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                         <h4 className="font-semibold text-white dark:text-white">
                           {badge.name}
                         </h4>
-                        <p className="text-sm text-gray-500 mt-1">{badge.description}</p>
+                        <p className="text-sm text-gray-400 mt-1">{badge.description}</p>
                         <p className="text-xs text-gray-400 mt-2">
                           Earned {badge.earnedAt.toLocaleDateString()}
                         </p>
@@ -456,7 +456,7 @@ const EnhancedProfile: React.FC<EnhancedProfileProps> = ({
                             <p className="text-sm text-primary-cyan">+{activity.xp} XP</p>
                           )}
                         </div>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-400">
                           {activity.timestamp.toLocaleDateString()}
                         </p>
                       </div>

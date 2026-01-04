@@ -94,7 +94,7 @@ const TaskPreview: React.FC<TaskPreviewProps> = ({ formData, userLevel }) => {
           )}
 
           {/* Metadata */}
-          <div className="flex items-center gap-4 text-xs text-gray-500 pt-4 border-t border-white/10">
+          <div className="flex items-center gap-4 text-xs text-gray-400 pt-4 border-t border-white/10">
             <div className="flex items-center gap-1">
               <Calendar size={12} />
               <span>Posted now</span>

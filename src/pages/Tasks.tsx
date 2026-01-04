@@ -155,7 +155,7 @@ const Tasks: React.FC = () => {
                       style={{ width: `${Math.min(levelInfo.progress * 100, 100)}%` }}
                     />
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">{levelInfo.xpToNext} XP to next level</div>
+                  <div className="text-xs text-gray-400 mt-1">{levelInfo.xpToNext} XP to next level</div>
                 </div>
                 <div className="text-right">
                   <div className="text-sm text-gray-400">XP</div>
@@ -207,9 +207,9 @@ const Tasks: React.FC = () => {
             </div>
           ) : filteredTasks.length === 0 ? (
             <div className="glass-card rounded-xl p-12 text-center">
-              <Briefcase size={48} className="mx-auto mb-4 text-gray-500" />
+              <Briefcase size={48} className="mx-auto mb-4 text-gray-400" />
               <p className="text-lg text-gray-300 mb-2">No tasks found</p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-400">
                 {selectedDifficulty === 'all' 
                   ? 'No tasks available at the moment. Check back soon!'
                   : 'Try selecting a different difficulty'}
@@ -247,7 +247,7 @@ const Tasks: React.FC = () => {
 
                   <div className="flex items-center gap-6 w-full md:w-auto justify-between md:justify-end">
                     <div className="text-right">
-                      <p className="text-sm text-gray-500">Reward</p>
+                      <p className="text-sm text-gray-400">Reward</p>
                       <p className="text-2xl font-bold text-primary-cyan">+{task.xp_reward} XP</p>
                     </div>
                     <FollowButton

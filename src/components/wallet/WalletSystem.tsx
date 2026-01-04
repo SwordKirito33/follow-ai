@@ -170,7 +170,7 @@ function PackageCard({ pkg, onPurchase }: { pkg: XPPackage; onPurchase: () => vo
         <div className="text-3xl font-bold text-white dark:text-white">
           {formatXP(pkg.xp)} XP
         </div>
-        <div className="text-sm text-gray-500 dark:text-gray-400">{pkg.name}</div>
+        <div className="text-sm text-gray-400 dark:text-gray-300">{pkg.name}</div>
       </div>
 
       {/* Price */}
@@ -186,7 +186,7 @@ function PackageCard({ pkg, onPurchase }: { pkg: XPPackage; onPurchase: () => vo
       </div>
 
       {/* Per XP Price */}
-      <div className="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <div className="text-center text-sm text-gray-400 dark:text-gray-300 mb-4">
         {formatCurrency(pkg.price / pkg.xp, pkg.currency)} / XP
       </div>
 
@@ -241,7 +241,7 @@ function TransactionRow({ transaction }: { transaction: Transaction }) {
             {status.label}
           </span>
         </div>
-        <div className="text-sm text-gray-500 dark:text-gray-400">
+        <div className="text-sm text-gray-400 dark:text-gray-300">
           {new Date(transaction.createdAt).toLocaleString()}
         </div>
       </div>
@@ -249,7 +249,7 @@ function TransactionRow({ transaction }: { transaction: Transaction }) {
       {/* Amount */}
       <div className="text-right">
         {transaction.amount > 0 && (
-          <div className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="text-sm text-gray-400 dark:text-gray-300">
             {formatCurrency(transaction.amount, transaction.currency)}
           </div>
         )}
@@ -312,7 +312,7 @@ export function WalletSystem({
             'py-3 px-1 border-b-2 font-medium transition-colors',
             activeTab === 'packages'
               ? 'border-purple-600 text-primary-purple dark:text-purple-400'
-              : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300'
+              : 'border-transparent text-gray-400 dark:text-gray-300 hover:text-gray-300 dark:hover:text-gray-300'
           )}
         >
           购买 XP
@@ -323,7 +323,7 @@ export function WalletSystem({
             'py-3 px-1 border-b-2 font-medium transition-colors',
             activeTab === 'history'
               ? 'border-purple-600 text-primary-purple dark:text-purple-400'
-              : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300'
+              : 'border-transparent text-gray-400 dark:text-gray-300 hover:text-gray-300 dark:hover:text-gray-300'
           )}
         >
           交易记录 ({wallet.transactions.length})
@@ -337,7 +337,7 @@ export function WalletSystem({
             <h3 className="text-lg font-semibold text-white dark:text-white">
               选择 XP 套餐
             </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-400 dark:text-gray-300">
               支持多种支付方式
             </p>
           </div>
@@ -404,7 +404,7 @@ export function WalletSystem({
           ) : (
             <div className="text-center py-12 bg-white/5 dark:bg-gray-800/50 rounded-xl">
               <div className="text-4xl mb-4">📋</div>
-              <p className="text-gray-500 dark:text-gray-400">暂无交易记录</p>
+              <p className="text-gray-400 dark:text-gray-300">暂无交易记录</p>
             </div>
           )}
         </div>

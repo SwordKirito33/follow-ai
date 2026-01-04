@@ -192,7 +192,7 @@ const ResetPassword: React.FC = () => {
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
-            <p className="text-xs text-gray-500 mt-1">{t('auth.passwordHint')}</p>
+            <p className="text-xs text-gray-400 mt-1">{t('auth.passwordHint')}</p>
           </div>
 
           <div>

@@ -58,7 +58,7 @@ const SocialShareModal: React.FC<Props> = ({ isOpen, onClose, toolName, rating }
                 className={`px-4 py-2 rounded-t-lg font-medium text-sm transition-colors capitalize ${
                   activeTab === tab 
                   ? 'bg-white/10 text-white border-b-2 border-blue-600' 
-                  : 'text-gray-500 hover:bg-white/5'
+                  : 'text-gray-400 hover:bg-white/5'
                 }`}
               >
                 {tab}

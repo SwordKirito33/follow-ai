@@ -65,7 +65,7 @@ const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => 
             <div className="text-lg font-black text-accent-green dark:text-green-400">
               ${bounty.reward}
             </div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">Reward</div>
+            <div className="text-xs text-gray-400 dark:text-gray-300">Reward</div>
           </div>
         </div>
         
@@ -77,7 +77,7 @@ const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => 
             <div className="text-lg font-black text-white dark:text-white">
               {daysRemaining}d
             </div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">Remaining</div>
+            <div className="text-xs text-gray-400 dark:text-gray-300">Remaining</div>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ const BountyCard: React.FC<BountyCardProps> = ({ bounty, toolId, toolName }) => 
             <Users size={14} />
             {slotsRemaining} slots remaining
           </span>
-          <span className="text-gray-500 dark:text-gray-500">
+          <span className="text-gray-400 dark:text-gray-400">
             {bounty.slots.filled}/{bounty.slots.total} filled
           </span>
         </div>

@@ -172,7 +172,7 @@ export function LineChart({
 
       {/* Labels */}
       {showLabels && (
-        <div className="flex justify-between mt-2 text-xs text-gray-500 dark:text-gray-400">
+        <div className="flex justify-between mt-2 text-xs text-gray-400 dark:text-gray-300">
           {data.map((d, i) => (
             <span key={i} className="truncate px-1">{d.label}</span>
           ))}
@@ -239,7 +239,7 @@ export function BarChart({
         <div key={i} className="flex-1 flex flex-col items-center">
           <div className="w-full flex flex-col items-center" style={{ height: height - 40 }}>
             {showValues && (
-              <span className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+              <span className="text-xs text-gray-400 dark:text-gray-300 mb-1">
                 {d.value.toLocaleString()}
               </span>
             )}
@@ -252,7 +252,7 @@ export function BarChart({
             />
           </div>
           {showLabels && (
-            <span className="text-xs text-gray-500 dark:text-gray-400 mt-2 truncate max-w-full">
+            <span className="text-xs text-gray-400 dark:text-gray-300 mt-2 truncate max-w-full">
               {d.label}
             </span>
           )}
@@ -336,7 +336,7 @@ export function PieChart({
               <div className="text-2xl font-bold text-white dark:text-white">
                 {total.toLocaleString()}
               </div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">总计</div>
+              <div className="text-xs text-gray-400 dark:text-gray-300">总计</div>
             </div>
           </div>
         )}
@@ -415,7 +415,7 @@ export function ProgressRing({
             {Math.round(percentage)}%
           </span>
           {label && (
-            <span className="text-xs text-gray-500 dark:text-gray-400">{label}</span>
+            <span className="text-xs text-gray-400 dark:text-gray-300">{label}</span>
           )}
         </div>
       )}
@@ -452,7 +452,7 @@ export function StatCard({
     <div className={cn('bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-white/10 dark:border-gray-700', className)}>
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">{title}</p>
+          <p className="text-sm text-gray-400 dark:text-gray-300">{title}</p>
           <p className="text-2xl font-bold text-white dark:text-white mt-1">
             {typeof value === 'number' ? value.toLocaleString() : value}
           </p>

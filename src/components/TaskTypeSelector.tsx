@@ -40,7 +40,7 @@ const TaskTypeSelector: React.FC<TaskTypeSelectorProps> = ({
           <p className="text-sm text-gray-400 mb-2">
             Perfect for simple tasks like reviews, feedback, and testing.
           </p>
-          <div className="flex items-center gap-2 text-xs text-gray-500">
+          <div className="flex items-center gap-2 text-xs text-gray-400">
             <span>✓ No level requirement</span>
           </div>
         </button>
@@ -66,7 +66,7 @@ const TaskTypeSelector: React.FC<TaskTypeSelectorProps> = ({
           <p className="text-sm text-gray-400 mb-2">
             For complex tasks like development, design, and consulting.
           </p>
-          <div className="space-y-1 text-xs text-gray-500">
+          <div className="space-y-1 text-xs text-gray-400">
             <div>Level 5+: &lt;$50 tasks</div>
             <div>Level 10+: $50-$200 tasks</div>
             <div>Level 15+: $200+ tasks</div>

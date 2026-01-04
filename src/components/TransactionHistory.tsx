@@ -106,7 +106,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ userId, limit =
       <h2 className="text-2xl font-black text-white mb-6 tracking-tight">Transaction History</h2>
       {transactions.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-gray-500 mb-2">No transactions yet</p>
+          <p className="text-gray-400 mb-2">No transactions yet</p>
           <p className="text-sm text-gray-400">
             Purchase XP packages to see your transaction history here.
           </p>

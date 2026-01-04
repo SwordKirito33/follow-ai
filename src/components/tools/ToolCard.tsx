@@ -287,7 +287,7 @@ export function ToolCard({
           </div>
           <div className="flex items-center gap-2 mt-1">
             <StarRating rating={tool.rating} size="sm" />
-            <span className="text-xs text-gray-500 dark:text-gray-400">
+            <span className="text-xs text-gray-400 dark:text-gray-300">
               {tool.reviewCount.toLocaleString()}
             </span>
           </div>
@@ -376,7 +376,7 @@ export function ToolCard({
         <div className="flex items-center justify-between pt-4 border-t border-white/10 dark:border-gray-700">
           <div className="flex items-center gap-3">
             <StarRating rating={tool.rating} />
-            <span className="text-xs text-gray-500 dark:text-gray-400">
+            <span className="text-xs text-gray-400 dark:text-gray-300">
               ({tool.reviewCount.toLocaleString()})
             </span>
           </div>

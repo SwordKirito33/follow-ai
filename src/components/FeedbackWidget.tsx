@@ -196,7 +196,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                             <p className="font-semibold text-white dark:text-white">
                               {type.label}
                             </p>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                            <p className="text-sm text-gray-400 dark:text-gray-300">
                               {type.description}
                             </p>
                           </div>
@@ -309,7 +309,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                           placeholder="your@email.com"
                           className="w-full px-4 py-3 rounded-xl border-2 border-white/10 dark:border-gray-700 bg-white dark:bg-gray-800 text-white dark:text-white focus:border-blue-500 focus:outline-none"
                         />
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-xs text-gray-400 mt-1">
                           We'll only use this to follow up on your feedback
                         </p>
                       </div>

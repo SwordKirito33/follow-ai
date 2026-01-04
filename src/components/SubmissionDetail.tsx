@@ -68,7 +68,7 @@ const SubmissionDetail: React.FC<SubmissionDetailProps> = ({ submission }) => {
               <div className="text-gray-300 whitespace-pre-wrap">{submission.output_text}</div>
             </div>
           ) : (
-            <div className="bg-white/5 rounded-lg p-4 text-gray-500">
+            <div className="bg-white/5 rounded-lg p-4 text-gray-400">
               No submission content
             </div>
           )}

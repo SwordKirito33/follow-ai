@@ -204,7 +204,7 @@ const OnboardingTour: React.FC<OnboardingTourProps> = ({
           <div className="px-6 pb-6 flex items-center justify-between">
             <button
               onClick={onSkip}
-              className="text-gray-500 hover:text-gray-300 dark:hover:text-gray-300 text-sm font-medium"
+              className="text-gray-400 hover:text-gray-300 dark:hover:text-gray-300 text-sm font-medium"
             >
               Skip tour
             </button>

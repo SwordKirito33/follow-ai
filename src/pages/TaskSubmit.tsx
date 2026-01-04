@@ -253,7 +253,7 @@ export default function TaskSubmit() {
               accept="image/*,.pdf,.txt,.md"
               disabled={!canSubmit}
             />
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-sm text-gray-400 dark:text-gray-300 mt-1">
               Max 10MB. Images, PDFs, or text files only.
             </p>
           </div>
@@ -306,7 +306,7 @@ export default function TaskSubmit() {
                 <span className="text-red-600">{experienceError}</span>
               )}
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-xs text-gray-400 dark:text-gray-300 mt-1">
               ✅ Chinese, English, emoji, and mixed text are all supported.
               <br />
               ❌ Repetitive or meaningless text will be rejected.

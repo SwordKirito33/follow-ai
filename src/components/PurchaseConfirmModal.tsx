@@ -79,7 +79,7 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
               {/* Package Details */}
               <div className="bg-white/5 dark:bg-gray-800 rounded-xl p-4">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Package</span>
+                  <span className="text-sm text-gray-400 dark:text-gray-300">Package</span>
                   {package_.discount && (
                     <span className="px-2 py-0.5 bg-accent-green/20 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold rounded-full">
                       {package_.discount}% OFF
@@ -96,7 +96,7 @@ const PurchaseConfirmModal: React.FC<PurchaseConfirmModalProps> = ({
                         {package_.xp.toLocaleString()} XP
                       </p>
                       {package_.label && (
-                        <p className="text-xs text-gray-500 dark:text-gray-400">{package_.label}</p>
+                        <p className="text-xs text-gray-400 dark:text-gray-300">{package_.label}</p>
                       )}
                     </div>
                   </div>

@@ -138,7 +138,7 @@ Thank you for your purchase!
               <h2 className="text-xl font-bold text-white dark:text-white">
                 Transaction Details
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-sm text-gray-400 dark:text-gray-300 mt-1">
                 {transaction.type}
               </p>
             </div>
@@ -158,7 +158,7 @@ Thank you for your purchase!
                 <p className="text-4xl font-bold text-white dark:text-white">
                   +{transaction.xp.toLocaleString()} XP
                 </p>
-                <p className="text-lg text-gray-500 dark:text-gray-400 mt-1">
+                <p className="text-lg text-gray-400 dark:text-gray-300 mt-1">
                   {formatPrice(transaction.amount, transaction.currency)}
                 </p>
               </div>
@@ -166,7 +166,7 @@ Thank you for your purchase!
               {/* Details */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
-                  <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
+                  <div className="flex items-center gap-2 text-gray-400 dark:text-gray-300">
                     <Calendar size={18} />
                     <span>Date</span>
                   </div>
@@ -176,7 +176,7 @@ Thank you for your purchase!
                 </div>
 
                 <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
-                  <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
+                  <div className="flex items-center gap-2 text-gray-400 dark:text-gray-300">
                     <CreditCard size={18} />
                     <span>Payment Method</span>
                   </div>
@@ -186,7 +186,7 @@ Thank you for your purchase!
                 </div>
 
                 <div className="flex items-center justify-between py-3 border-b border-white/10 dark:border-gray-800">
-                  <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
+                  <div className="flex items-center gap-2 text-gray-400 dark:text-gray-300">
                     <Zap size={18} />
                     <span>XP Rate</span>
                   </div>
@@ -197,7 +197,7 @@ Thank you for your purchase!
 
                 {/* Transaction ID */}
                 <div className="py-3">
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Transaction ID</p>
+                  <p className="text-sm text-gray-400 dark:text-gray-300 mb-2">Transaction ID</p>
                   <div className="flex items-center gap-2">
                     <code className="flex-1 px-3 py-2 bg-white/10 dark:bg-gray-800 rounded-lg text-sm font-mono text-gray-300 dark:text-gray-300 truncate">
                       {transaction.id}

@@ -77,7 +77,7 @@ export function PageLayout({
                 </h1>
               )}
               {description && (
-                <p className="mt-1 text-gray-500 dark:text-gray-400">{description}</p>
+                <p className="mt-1 text-gray-400 dark:text-gray-300">{description}</p>
               )}
             </div>
             {actions && <div className="flex items-center gap-3">{actions}</div>}
@@ -120,7 +120,7 @@ export function Section({
               </h2>
             )}
             {description && (
-              <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
+              <p className="text-sm text-gray-400 dark:text-gray-300">{description}</p>
             )}
           </div>
           {actions && <div className="flex items-center gap-2">{actions}</div>}
@@ -175,7 +175,7 @@ export function Card({
               <h3 className="font-semibold text-white dark:text-white">{title}</h3>
             )}
             {description && (
-              <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
+              <p className="text-sm text-gray-400 dark:text-gray-300">{description}</p>
             )}
           </div>
           {actions && <div className="flex items-center gap-2">{actions}</div>}

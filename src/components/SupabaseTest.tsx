@@ -199,7 +199,7 @@ const SupabaseTest: React.FC = () => {
                         </p>
                         {result.details && (
                           <details className="mt-2">
-                            <summary className="text-xs text-gray-500 cursor-pointer hover:text-gray-300">
+                            <summary className="text-xs text-gray-400 cursor-pointer hover:text-gray-300">
                               View details
                             </summary>
                             <pre className="mt-2 p-2 bg-white/10 rounded text-xs overflow-auto max-h-40">

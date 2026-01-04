@@ -39,7 +39,7 @@ export function LevelBadge({ level, showTitle = false, size = 'md', className }:
         <span>Lv.{level}</span>
       </span>
       {showTitle && levelInfo.title && (
-        <span className="text-gray-500 dark:text-gray-400 text-sm">{levelInfo.title}</span>
+        <span className="text-gray-400 dark:text-gray-300 text-sm">{levelInfo.title}</span>
       )}
     </div>
   );
@@ -100,7 +100,7 @@ export function LevelCard({ totalXp, showDetails = true, className }: LevelCardP
             Level {levelInfo.level}
           </div>
           {levelInfo.title && (
-            <div className="text-gray-500 dark:text-gray-400">{levelInfo.title}</div>
+            <div className="text-gray-400 dark:text-gray-300">{levelInfo.title}</div>
           )}
         </div>
       </div>
@@ -117,7 +117,7 @@ export function LevelCard({ totalXp, showDetails = true, className }: LevelCardP
             style={{ width: `${levelInfo.progress}%` }}
           />
         </div>
-        <div className="flex justify-between items-center mt-1 text-xs text-gray-500 dark:text-gray-400">
+        <div className="flex justify-between items-center mt-1 text-xs text-gray-400 dark:text-gray-300">
           <span>{formatXp(levelInfo.xpInCurrentLevel)} XP</span>
           <span>{formatProgress(levelInfo.progress)}</span>
           <span>{formatXp(levelInfo.xpToNextLevel)} XP to next</span>
@@ -128,13 +128,13 @@ export function LevelCard({ totalXp, showDetails = true, className }: LevelCardP
         <div className="grid grid-cols-2 gap-4">
           <div className="text-center p-3 bg-white/5 dark:bg-gray-700/50 rounded-lg">
             <div className="text-xl font-bold text-primary-cyan">{formatXp(totalXp)}</div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">Total XP</div>
+            <div className="text-xs text-gray-400 dark:text-gray-300">Total XP</div>
           </div>
           <div className="text-center p-3 bg-white/5 dark:bg-gray-700/50 rounded-lg">
             <div className="text-xl font-bold text-primary-purple">
               {formatXp(levelInfo.xpToNextLevel - levelInfo.xpInCurrentLevel)}
             </div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">XP to Next Level</div>
+            <div className="text-xs text-gray-400 dark:text-gray-300">XP to Next Level</div>
           </div>
         </div>
       )}
@@ -190,7 +190,7 @@ export function LevelUpCelebration({ oldLevel, newLevel, onClose }: LevelUpCeleb
         <h2 className="text-3xl font-bold bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent mb-2">
           Level Up!
         </h2>
-        <p className="text-gray-500 dark:text-gray-400 mb-4">
+        <p className="text-gray-400 dark:text-gray-300 mb-4">
           {oldLevel} → {newLevel}
         </p>
         {levelInfo.title && (
@@ -259,7 +259,7 @@ export function LevelStatsGrid({
         >
           <div className="text-xl mb-1">{stat.icon}</div>
           <div className={cn('text-lg font-bold', stat.color)}>{stat.value}</div>
-          <div className="text-xs text-gray-500 dark:text-gray-400">{stat.label}</div>
+          <div className="text-xs text-gray-400 dark:text-gray-300">{stat.label}</div>
         </div>
       ))}
     </div>

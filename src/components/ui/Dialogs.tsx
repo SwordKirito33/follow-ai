@@ -182,7 +182,7 @@ export function Modal({
                 </h2>
               )}
               {description && (
-                <p id="modal-description" className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                <p id="modal-description" className="mt-1 text-sm text-gray-400 dark:text-gray-300">
                   {description}
                 </p>
               )}
@@ -260,7 +260,7 @@ export function ConfirmDialog({
         <h3 className="text-lg font-semibold text-white dark:text-white mb-2">
           {title}
         </h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+        <p className="text-sm text-gray-400 dark:text-gray-300 mb-6">
           {message}
         </p>
         <div className="flex gap-3">
@@ -355,7 +355,7 @@ export function AlertDialog({
         <h3 className="text-lg font-semibold text-white dark:text-white mb-2">
           {title}
         </h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+        <p className="text-sm text-gray-400 dark:text-gray-300 mb-6">
           {message}
         </p>
         <button

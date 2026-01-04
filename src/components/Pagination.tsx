@@ -165,7 +165,7 @@ export const PaginationInfo: React.FC<{
   const endItem = Math.min(currentPage * itemsPerPage, totalItems);
 
   return (
-    <p className="text-sm text-gray-500 dark:text-gray-400">
+    <p className="text-sm text-gray-400 dark:text-gray-300">
       Showing <span className="font-medium">{startItem}</span> to{' '}
       <span className="font-medium">{endItem}</span> of{' '}
       <span className="font-medium">{totalItems}</span> results

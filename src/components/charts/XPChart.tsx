@@ -91,7 +91,7 @@ const XPChart: React.FC<XPChartProps> = ({
         className="flex items-center justify-center bg-white/5 dark:bg-gray-800 rounded-xl"
         style={{ height }}
       >
-        <p className="text-gray-500 dark:text-gray-400">No data available</p>
+        <p className="text-gray-400 dark:text-gray-300">No data available</p>
       </div>
     );
   }
@@ -176,7 +176,7 @@ const XPChart: React.FC<XPChartProps> = ({
 
         {/* Labels */}
         {showLabels && (
-          <div className="absolute bottom-0 left-0 right-0 flex justify-between px-2 text-xs text-gray-500 dark:text-gray-400">
+          <div className="absolute bottom-0 left-0 right-0 flex justify-between px-2 text-xs text-gray-400 dark:text-gray-300">
             {chartData.points.filter((_, i) => i % Math.ceil(chartData.points.length / 5) === 0 || i === chartData.points.length - 1).map((point, i) => (
               <span key={i}>{point.label || point.date}</span>
             ))}
@@ -184,7 +184,7 @@ const XPChart: React.FC<XPChartProps> = ({
         )}
 
         {/* Y-axis labels */}
-        <div className="absolute top-10 left-0 bottom-10 flex flex-col justify-between text-xs text-gray-500 dark:text-gray-400">
+        <div className="absolute top-10 left-0 bottom-10 flex flex-col justify-between text-xs text-gray-400 dark:text-gray-300">
           <span>{chartData.maxValue.toLocaleString()}</span>
           <span>{Math.round((chartData.maxValue + chartData.minValue) / 2).toLocaleString()}</span>
           <span>{chartData.minValue.toLocaleString()}</span>

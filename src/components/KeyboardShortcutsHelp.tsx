@@ -76,7 +76,7 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
                   <h2 className="text-xl font-bold text-white dark:text-white">
                     Keyboard Shortcuts
                   </h2>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-gray-400 dark:text-gray-300">
                     Navigate faster with keyboard
                   </p>
                 </div>
@@ -94,7 +94,7 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
               <div className="space-y-6">
                 {Object.entries(groupedShortcuts).map(([category, categoryShortcuts]) => (
                   <div key={category}>
-                    <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+                    <h3 className="text-xs font-semibold text-gray-400 dark:text-gray-300 uppercase tracking-wider mb-3">
                       {category}
                     </h3>
                     <div className="space-y-2">
@@ -132,7 +132,7 @@ const KeyboardShortcutsHelp: React.FC<KeyboardShortcutsHelpProps> = ({
 
             {/* Footer */}
             <div className="p-4 border-t border-white/10 dark:border-gray-700 bg-white/5 dark:bg-gray-800/50">
-              <p className="text-xs text-center text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-center text-gray-400 dark:text-gray-300">
                 Press <kbd className="px-1.5 py-0.5 bg-white/10 dark:bg-gray-700 rounded text-xs">?</kbd> anytime to show this help
               </p>
             </div>

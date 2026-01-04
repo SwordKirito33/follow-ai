@@ -197,7 +197,7 @@ const ReviewSubmissions: React.FC = () => {
               </>
             ) : (
               <div className="glass-card rounded-xl shadow-xl p-12 text-center">
-                <p className="text-gray-500">Select a submission to review</p>
+                <p className="text-gray-400">Select a submission to review</p>
               </div>
             )}
           </div>

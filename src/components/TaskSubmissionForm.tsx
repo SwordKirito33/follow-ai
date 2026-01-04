@@ -256,7 +256,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
                 className={`text-sm ${
                   characterCount >= minCharacters
                     ? 'text-accent-green'
-                    : 'text-gray-500'
+                    : 'text-gray-400'
                 }`}
               >
                 {characterCount}/{minCharacters} characters
@@ -296,7 +296,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
             <label className="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
               <Image className="w-4 h-4 inline mr-1" />
               Screenshots {requiredFields.screenshots && <span className="text-red-500">*</span>}
-              <span className="text-gray-500 font-normal ml-1">(max 5)</span>
+              <span className="text-gray-400 font-normal ml-1">(max 5)</span>
             </label>
 
             {/* Drop zone */}
@@ -326,7 +326,7 @@ const TaskSubmissionForm: React.FC<TaskSubmissionFormProps> = ({
               <p className="text-gray-400 dark:text-gray-400">
                 Drag and drop images here, or click to select
               </p>
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="text-sm text-gray-400 mt-1">
                 PNG, JPG, GIF up to 10MB each
               </p>
             </div>

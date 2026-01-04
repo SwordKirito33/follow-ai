@@ -143,7 +143,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                   {unreadCount > 0 && (
                     <button
                       onClick={onMarkAllAsRead}
-                      className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg text-gray-500 hover:text-gray-300"
+                      className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg text-gray-400 hover:text-gray-300"
                       title="Mark all as read"
                     >
                       <CheckCheck className="w-4 h-4" />
@@ -152,7 +152,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
                   {notifications.length > 0 && (
                     <button
                       onClick={onClearAll}
-                      className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg text-gray-500 hover:text-red-500"
+                      className="p-2 hover:bg-white/10 dark:hover:bg-gray-800 rounded-lg text-gray-400 hover:text-red-500"
                       title="Clear all"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -164,7 +164,7 @@ const RealtimeNotifications: React.FC<RealtimeNotificationsProps> = ({
               {/* Notifications list */}
               <div className="max-h-96 overflow-y-auto">
                 {notifications.length === 0 ? (
-                  <div className="p-8 text-center text-gray-500">
+                  <div className="p-8 text-center text-gray-400">
                     <Bell className="w-12 h-12 mx-auto mb-3 opacity-50" />
                     <p>No notifications yet</p>
                   </div>

@@ -32,7 +32,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ formData, onChange, errors }) => {
         <div>
           <label htmlFor="title" className="block text-sm font-semibold text-gray-300 mb-2">
             Task Title <span className="text-red-500">*</span>
-            <span className="text-xs text-gray-500 font-normal ml-2">(max 100 characters)</span>
+            <span className="text-xs text-gray-400 font-normal ml-2">(max 100 characters)</span>
           </label>
           <input
             id="title"
@@ -43,7 +43,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ formData, onChange, errors }) => {
             placeholder="e.g., Review AI Tool X"
             className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
           />
-          <div className="text-xs text-gray-500 mt-1">
+          <div className="text-xs text-gray-400 mt-1">
             {formData.title.length}/100 characters
           </div>
         </div>
@@ -52,7 +52,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ formData, onChange, errors }) => {
         <div>
           <label htmlFor="description" className="block text-sm font-semibold text-gray-300 mb-2">
             Task Description <span className="text-red-500">*</span>
-            <span className="text-xs text-gray-500 font-normal ml-2">(Markdown supported)</span>
+            <span className="text-xs text-gray-400 font-normal ml-2">(Markdown supported)</span>
           </label>
           <textarea
             id="description"
@@ -68,7 +68,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ formData, onChange, errors }) => {
         <div>
           <label htmlFor="requirements" className="block text-sm font-semibold text-gray-300 mb-2">
             Requirements <span className="text-red-500">*</span>
-            <span className="text-xs text-gray-500 font-normal ml-2">(Markdown supported)</span>
+            <span className="text-xs text-gray-400 font-normal ml-2">(Markdown supported)</span>
           </label>
           <textarea
             id="requirements"
@@ -85,7 +85,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ formData, onChange, errors }) => {
           <div>
             <label htmlFor="xpReward" className="block text-sm font-semibold text-gray-300 mb-2">
               XP Reward <span className="text-red-500">*</span>
-              <span className="text-xs text-gray-500 font-normal ml-2">(10-1000 XP)</span>
+              <span className="text-xs text-gray-400 font-normal ml-2">(10-1000 XP)</span>
             </label>
             <input
               id="xpReward"
@@ -102,10 +102,10 @@ const TaskForm: React.FC<TaskFormProps> = ({ formData, onChange, errors }) => {
           <div>
             <label htmlFor="paymentAmount" className="block text-sm font-semibold text-gray-300 mb-2">
               Payment Amount (USD) <span className="text-red-500">*</span>
-              <span className="text-xs text-gray-500 font-normal ml-2">($10-$10,000)</span>
+              <span className="text-xs text-gray-400 font-normal ml-2">($10-$10,000)</span>
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">$</span>
               <input
                 id="paymentAmount"
                 type="number"

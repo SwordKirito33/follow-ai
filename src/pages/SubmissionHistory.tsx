@@ -183,7 +183,7 @@ export default function SubmissionHistory() {
 
               {submission.ai_tools_used && submission.ai_tools_used.length > 0 && (
                 <div className="mt-3">
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">AI Tools Used:</p>
+                  <p className="text-xs text-gray-400 dark:text-gray-300 mb-1">AI Tools Used:</p>
                   <div className="flex flex-wrap gap-2">
                     {submission.ai_tools_used.map((tool, idx) => (
                       <span

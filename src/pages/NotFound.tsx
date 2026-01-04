@@ -77,7 +77,7 @@ const NotFound: React.FC = () => {
           transition={{ delay: 0.6 }}
           className="mt-12 pt-8 border-t border-white/10 dark:border-gray-700"
         >
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+          <p className="text-sm text-gray-400 dark:text-gray-300 mb-4">
             Here are some helpful links:
           </p>
           <div className="flex flex-wrap justify-center gap-4">

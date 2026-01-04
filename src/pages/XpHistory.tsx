@@ -156,7 +156,7 @@ const XpHistory: React.FC = () => {
           <div className="glass-card rounded-xl p-12 text-center">
             <Award size={48} className="mx-auto mb-4 text-gray-400" />
             <p className="text-lg text-gray-400 mb-2">No XP events yet</p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-400">
               Complete tasks and activities to start earning XP!
             </p>
           </div>
@@ -183,13 +183,13 @@ const XpHistory: React.FC = () => {
                           <span className="font-bold text-white">
                             {isPositive ? '+' : ''}{event.amount} XP
                           </span>
-                          <span className="text-sm text-gray-500">•</span>
+                          <span className="text-sm text-gray-400">•</span>
                           <span className="text-sm text-gray-400">{sourceMeta.label}</span>
                         </div>
                         {event.reason && (
                           <p className="text-sm text-gray-400 mb-1">{event.reason}</p>
                         )}
-                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <div className="flex items-center gap-2 text-xs text-gray-400">
                           <Calendar size={14} />
                           <span>{formatDate(event.created_at)}</span>
                         </div>

@@ -95,7 +95,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
             <p className="text-2xl font-bold text-white dark:text-white">
               {unlockedCount}/{achievements.length}
             </p>
-            <p className="text-sm text-gray-500">Unlocked</p>
+            <p className="text-sm text-gray-400">Unlocked</p>
           </div>
         </div>
 
@@ -179,7 +179,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                   w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0
                   ${achievement.isUnlocked
                     ? `bg-gradient-to-br ${rarityColors[achievement.rarity]} text-white`
-                    : 'bg-gray-300 dark:bg-gray-600 text-gray-500'
+                    : 'bg-gray-300 dark:bg-gray-600 text-gray-400'
                   }
                 `}>
                   {achievement.isUnlocked ? (
@@ -194,11 +194,11 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                   <h4 className={`font-semibold truncate ${
                     achievement.isUnlocked
                       ? 'text-white dark:text-white'
-                      : 'text-gray-500 dark:text-gray-400'
+                      : 'text-gray-400 dark:text-gray-300'
                   }`}>
                     {achievement.name}
                   </h4>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mt-0.5">
+                  <p className="text-sm text-gray-400 dark:text-gray-300 line-clamp-2 mt-0.5">
                     {achievement.description}
                   </p>
 
@@ -206,7 +206,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                   {!achievement.isUnlocked && (
                     <div className="mt-2">
                       <div className="flex justify-between text-xs mb-1">
-                        <span className="text-gray-500">Progress</span>
+                        <span className="text-gray-400">Progress</span>
                         <span className="text-gray-400 dark:text-gray-400">
                           {achievement.progress}/{achievement.maxProgress}
                         </span>
@@ -223,7 +223,7 @@ const AchievementSystem: React.FC<AchievementSystemProps> = ({
                   {/* XP reward */}
                   <div className="mt-2 flex items-center gap-1 text-sm">
                     <Zap className="w-3 h-3 text-yellow-500" />
-                    <span className={achievement.isUnlocked ? 'text-accent-green' : 'text-gray-500'}>
+                    <span className={achievement.isUnlocked ? 'text-accent-green' : 'text-gray-400'}>
                       {achievement.isUnlocked ? 'Earned' : ''} +{achievement.xpReward} XP
                     </span>
                   </div>

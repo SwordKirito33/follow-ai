@@ -69,7 +69,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
           <li className="flex items-center">
             <Link
               to="/"
-              className="flex items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300 transition-colors"
+              className="flex items-center gap-1 text-gray-400 dark:text-gray-300 hover:text-gray-300 dark:hover:text-gray-300 transition-colors"
             >
               <Home className="w-4 h-4" />
               <span className="sr-only sm:not-sr-only">Home</span>
@@ -82,7 +82,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
 
           return (
             <li key={index} className="flex items-center">
-              <ChevronRight className="w-4 h-4 text-gray-400 dark:text-gray-500 mx-1" />
+              <ChevronRight className="w-4 h-4 text-gray-400 dark:text-gray-400 mx-1" />
               {isLast || !item.href ? (
                 <span className="flex items-center gap-1 text-white dark:text-white font-medium">
                   {item.icon}
@@ -91,7 +91,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               ) : (
                 <Link
                   to={item.href}
-                  className="flex items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300 transition-colors"
+                  className="flex items-center gap-1 text-gray-400 dark:text-gray-300 hover:text-gray-300 dark:hover:text-gray-300 transition-colors"
                 >
                   {item.icon}
                   {item.label}

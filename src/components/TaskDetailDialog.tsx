@@ -152,7 +152,7 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
             </div>
           ) : !task ? (
             <div className="text-center py-12">
-              <p className="text-gray-500">Task not found</p>
+              <p className="text-gray-400">Task not found</p>
             </div>
           ) : (
             <div className="space-y-6">
@@ -175,7 +175,7 @@ const TaskDetailDialog: React.FC<TaskDetailDialogProps> = ({
                   )}
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{task.title}</h3>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
+                <div className="flex items-center gap-2 text-sm text-gray-400">
                   <Calendar size={14} />
                   <span>Posted {new Date(task.created_at).toLocaleDateString()}</span>
                 </div>

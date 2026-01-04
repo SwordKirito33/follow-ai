@@ -143,7 +143,7 @@ export default function FileUpload({
             <div className="text-lg font-semibold text-gray-300 mb-2">
               Click to upload
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-400">
               Max file size: {maxSize}MB
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function FileUpload({
                 <div className="font-semibold text-white truncate">
                   {fileName}
                 </div>
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-gray-400">
                   {uploading ? `Uploading... ${progress}%` : 'Upload complete'}
                 </div>
               </div>
@@ -177,7 +177,7 @@ export default function FileUpload({
                 onClick={clearFile}
                 className="ml-4 p-2 hover:bg-white/10 rounded-lg transition-colors"
               >
-                <X className="w-5 h-5 text-gray-500" />
+                <X className="w-5 h-5 text-gray-400" />
               </button>
             )}
           </div>

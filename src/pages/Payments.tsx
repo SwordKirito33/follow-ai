@@ -24,7 +24,7 @@ const Payments: React.FC = () => {
               </div>
               <div>
                 <h2 className="text-xl font-bold text-white">{t('payments.receivePayments')}</h2>
-                <p className="text-sm text-gray-500">{t('payments.receivePaymentsDesc')}</p>
+                <p className="text-sm text-gray-400">{t('payments.receivePaymentsDesc')}</p>
               </div>
             </div>
             <p className="text-sm text-gray-400">
@@ -34,7 +34,7 @@ const Payments: React.FC = () => {
               onClick={() => paymentLink && window.open(paymentLink, '_blank')}
               disabled={!paymentLink}
               className={`w-full justify-center inline-flex items-center gap-2 px-4 py-3 rounded-lg font-semibold transition-colors ${
-                paymentLink ? 'bg-gradient-to-r from-primary-cyan to-primary-blue hover:bg-blue-700 text-white' : 'bg-white/10 text-gray-500 cursor-not-allowed'
+                paymentLink ? 'bg-gradient-to-r from-primary-cyan to-primary-blue hover:bg-blue-700 text-white' : 'bg-white/10 text-gray-400 cursor-not-allowed'
               }`}
             >
               {t('payments.openPaymentLink')} <ExternalLink size={16} />
@@ -53,7 +53,7 @@ const Payments: React.FC = () => {
               </div>
               <div>
                 <h2 className="text-xl font-bold text-white">{t('payments.payTesters')}</h2>
-                <p className="text-sm text-gray-500">{t('payments.payTestersDesc')}</p>
+                <p className="text-sm text-gray-400">{t('payments.payTestersDesc')}</p>
               </div>
             </div>
             <p className="text-sm text-gray-400">
@@ -63,7 +63,7 @@ const Payments: React.FC = () => {
               onClick={() => connectOnboardingLink && window.open(connectOnboardingLink, '_blank')}
               disabled={!connectOnboardingLink}
               className={`w-full justify-center inline-flex items-center gap-2 px-4 py-3 rounded-lg font-semibold transition-colors ${
-                connectOnboardingLink ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-white/10 text-gray-500 cursor-not-allowed'
+                connectOnboardingLink ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-white/10 text-gray-400 cursor-not-allowed'
               }`}
             >
               {t('payments.connectOnboarding')} <ExternalLink size={16} />

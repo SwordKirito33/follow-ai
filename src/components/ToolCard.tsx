@@ -66,7 +66,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
                 <Star size={14} className="fill-current" />
                 <span className="font-bold text-white dark:text-white">{tool.rating}</span>
               </div>
-              <span className="text-gray-500 dark:text-gray-400">
+              <span className="text-gray-400 dark:text-gray-300">
                 {tool.reviewCount} reviews
               </span>
               {tool.growth && (

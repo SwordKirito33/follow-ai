@@ -245,7 +245,7 @@ const Dashboard: React.FC = () => {
         {/* Recent Activity (Placeholder) */}
         <div className="glass-card rounded-xl p-6">
           <h2 className="text-xl font-bold text-white mb-4">Recent Activity</h2>
-          <div className="text-center py-8 text-gray-500">
+          <div className="text-center py-8 text-gray-400">
             <FileText size={48} className="mx-auto mb-4 opacity-50" />
             <p>No recent activity</p>
             <p className="text-sm mt-2">Start by submitting your first output!</p>

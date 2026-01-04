@@ -61,7 +61,7 @@ const NewsPage: React.FC = () => {
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
                   <p className="text-sm text-gray-400 mb-3">{item.description}</p>
-                  <div className="flex items-center gap-3 text-xs text-gray-500">
+                  <div className="flex items-center gap-3 text-xs text-gray-400">
                     <span>{item.meta2}</span>
                     <span>•</span>
                     <a className="text-primary-cyan hover:text-primary-blue font-semibold transition-all transform hover:scale-105" href="/#/submit">Review this</a>
@@ -70,7 +70,7 @@ const NewsPage: React.FC = () => {
               </article>
             ))}
             {filtered.length === 0 && (
-              <div className="glass-card border-2 border-dashed border-white/20 rounded-xl p-6 text-center text-gray-500">
+              <div className="glass-card border-2 border-dashed border-white/20 rounded-xl p-6 text-center text-gray-400">
                 No news in this category yet.
               </div>
             )}
@@ -94,11 +94,11 @@ const NewsPage: React.FC = () => {
                 <p className="text-3xl font-bold text-white mb-1 flex items-center gap-2">
                   <span>$45,820</span>
                 </p>
-                <p className="text-sm text-gray-500">{t('news.totalEarned')}</p>
+                <p className="text-sm text-gray-400">{t('news.totalEarned')}</p>
               </div>
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-100 hover:shadow-lg transition-all transform hover:scale-105">
                 <p className="text-3xl font-bold text-white mb-1">3,458</p>
-                <p className="text-sm text-gray-500">{t('news.realReviews')}</p>
+                <p className="text-sm text-gray-400">{t('news.realReviews')}</p>
               </div>
             </div>
           </div>

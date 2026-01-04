@@ -105,7 +105,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           <div className="font-semibold text-white dark:text-white">
             {testimonial.name}
           </div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="text-sm text-gray-400 dark:text-gray-300">
             {testimonial.role}
             {testimonial.company && ` @ ${testimonial.company}`}
           </div>

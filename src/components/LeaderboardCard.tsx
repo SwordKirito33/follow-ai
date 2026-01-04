@@ -98,7 +98,7 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
               {/* Rank */}
               <div className="w-12 flex items-center justify-center">
                 {getRankIcon(entry.rank) || (
-                  <span className="text-lg font-bold text-gray-500 dark:text-gray-400">
+                  <span className="text-lg font-bold text-gray-400 dark:text-gray-300">
                     #{entry.rank}
                   </span>
                 )}
@@ -124,7 +124,7 @@ const LeaderboardCard: React.FC<LeaderboardCardProps> = ({
                       </span>
                     )}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-gray-400 dark:text-gray-300">
                     {entry.tasksCompleted} tasks completed
                   </p>
                 </div>
@@ -198,7 +198,7 @@ export const LeaderboardPodium: React.FC<{
             <p className="font-bold text-white dark:text-white text-center">
               {entry.displayName}
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+            <p className="text-sm text-gray-400 dark:text-gray-300 mb-2">
               {entry.totalXp.toLocaleString()} XP
             </p>
             <div

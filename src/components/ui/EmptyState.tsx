@@ -153,7 +153,7 @@ export function EmptyState({
         {title}
       </h3>
       {description && (
-        <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 max-w-sm">{description}</p>
+        <p className="mt-2 text-sm text-gray-400 dark:text-gray-300 max-w-sm">{description}</p>
       )}
       {(action || secondaryAction) && (
         <div className="mt-6 flex items-center gap-4">
@@ -297,7 +297,7 @@ export function CompactEmpty({ message, className }: CompactEmptyProps) {
   return (
     <div
       className={cn(
-        'flex items-center justify-center py-8 text-sm text-gray-500 dark:text-gray-400',
+        'flex items-center justify-center py-8 text-sm text-gray-400 dark:text-gray-300',
         className
       )}
     >

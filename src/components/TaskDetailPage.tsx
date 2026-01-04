@@ -186,9 +186,9 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                   Requirements
                 </h2>
                 {expandedSection === 'requirements' ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500" />
+                  <ChevronUp className="w-5 h-5 text-gray-400" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                  <ChevronDown className="w-5 h-5 text-gray-400" />
                 )}
               </button>
               {expandedSection === 'requirements' && (
@@ -219,9 +219,9 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                   Steps to Complete
                 </h2>
                 {expandedSection === 'steps' ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500" />
+                  <ChevronUp className="w-5 h-5 text-gray-400" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                  <ChevronDown className="w-5 h-5 text-gray-400" />
                 )}
               </button>
               {expandedSection === 'steps' && (
@@ -313,7 +313,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                     <div className="text-4xl font-bold text-primary-cyan mb-1">
                       {task.xpReward} XP
                     </div>
-                    <p className="text-gray-500">Reward for completion</p>
+                    <p className="text-gray-400">Reward for completion</p>
                   </div>
                   <button
                     onClick={onStartTask}
@@ -321,7 +321,7 @@ const TaskDetailPage: React.FC<TaskDetailPageProps> = ({
                   >
                     Start Task
                   </button>
-                  <p className="text-center text-sm text-gray-500 mt-3">
+                  <p className="text-center text-sm text-gray-400 mt-3">
                     Estimated time: {task.estimatedTime}
                   </p>
                 </>

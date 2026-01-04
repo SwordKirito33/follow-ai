@@ -90,7 +90,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               </span>
             )}
             {description && (
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+              <p className="text-sm text-gray-400 dark:text-gray-300 mt-0.5">
                 {description}
               </p>
             )}
@@ -183,7 +183,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
               </span>
             )}
             {description && (
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+              <p className="text-sm text-gray-400 dark:text-gray-300 mt-0.5">
                 {description}
               </p>
             )}

@@ -157,7 +157,7 @@ const Select: React.FC<SelectProps> = ({
 
               <div className="max-h-60 overflow-y-auto">
                 {filteredOptions.length === 0 ? (
-                  <div className="px-4 py-3 text-sm text-gray-500 text-center">
+                  <div className="px-4 py-3 text-sm text-gray-400 text-center">
                     No options found
                   </div>
                 ) : (

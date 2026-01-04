@@ -62,7 +62,7 @@ export const UserCard: React.FC<UserCardProps> = ({
           onClick={() => onViewProfile?.(user.id)}
         >
           {user.avatar ? (
-            <img src={user.avatar} alt={user.name} className="w-full h-full rounded-full object-cover" />
+            <img loading="lazy" src={user.avatar} alt={user.name} className="w-full h-full rounded-full object-cover" />
           ) : (
             user.name.charAt(0).toUpperCase()
           )}
@@ -259,7 +259,7 @@ const FollowListItem: React.FC<{
       >
         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white font-bold">
           {user.avatar ? (
-            <img src={user.avatar} alt={user.name} className="w-full h-full rounded-full object-cover" />
+            <img loading="lazy" src={user.avatar} alt={user.name} className="w-full h-full rounded-full object-cover" />
           ) : (
             user.name.charAt(0).toUpperCase()
           )}
@@ -437,7 +437,7 @@ const CommentItem: React.FC<{
       <div className="flex gap-3">
         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white font-bold flex-shrink-0">
           {comment.user.avatar ? (
-            <img src={comment.user.avatar} alt={comment.user.name} className="w-full h-full rounded-full object-cover" />
+            <img loading="lazy" src={comment.user.avatar} alt={comment.user.name} className="w-full h-full rounded-full object-cover" />
           ) : (
             comment.user.name.charAt(0).toUpperCase()
           )}
@@ -570,7 +570,7 @@ export const MessageSystem: React.FC<MessageSystemProps> = ({
               <div className="relative">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white font-bold">
                   {conv.user.avatar ? (
-                    <img src={conv.user.avatar} alt={conv.user.name} className="w-full h-full rounded-full object-cover" />
+                    <img loading="lazy" src={conv.user.avatar} alt={conv.user.name} className="w-full h-full rounded-full object-cover" />
                   ) : (
                     conv.user.name.charAt(0).toUpperCase()
                   )}

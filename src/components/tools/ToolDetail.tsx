@@ -124,7 +124,7 @@ function RatingBreakdown({ reviews }: { reviews: Review[] }) {
                 style={{ width: `${percentage}%` }}
               />
             </div>
-            <span className="text-sm text-gray-500 dark:text-gray-400 w-12 text-right">
+            <span className="text-sm text-gray-400 dark:text-gray-300 w-12 text-right">
               {count}
             </span>
           </div>
@@ -157,7 +157,7 @@ function ReviewCard({ review }: { review: Review }) {
             <div className="font-medium text-white dark:text-white">
               {review.userName}
             </div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
+            <div className="text-sm text-gray-400 dark:text-gray-300">
               {new Date(review.createdAt).toLocaleDateString('zh-CN')}
             </div>
           </div>
@@ -225,7 +225,7 @@ function ReviewCard({ review }: { review: Review }) {
             'flex items-center gap-2 text-sm transition-colors',
             isHelpful
               ? 'text-primary-purple dark:text-purple-400'
-              : 'text-gray-500 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300'
+              : 'text-gray-400 dark:text-gray-300 hover:text-gray-300 dark:hover:text-gray-300'
           )}
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -233,7 +233,7 @@ function ReviewCard({ review }: { review: Review }) {
           </svg>
           有帮助 ({review.helpful + (isHelpful ? 1 : 0)})
         </button>
-        <button className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-300">
+        <button className="text-sm text-gray-400 dark:text-gray-300 hover:text-gray-300 dark:hover:text-gray-300">
           举报
         </button>
       </div>
@@ -362,7 +362,7 @@ export function ToolDetail({
               'px-4 py-3 font-medium transition-colors border-b-2 -mb-px',
               activeTab === tab.id
                 ? 'text-primary-purple dark:text-purple-400 border-purple-600 dark:border-purple-400'
-                : 'text-gray-500 dark:text-gray-400 border-transparent hover:text-gray-300 dark:hover:text-gray-300'
+                : 'text-gray-400 dark:text-gray-300 border-transparent hover:text-gray-300 dark:hover:text-gray-300'
             )}
           >
             {tab.label}
@@ -486,15 +486,15 @@ export function ToolDetail({
               </h3>
               <dl className="space-y-4">
                 <div>
-                  <dt className="text-sm text-gray-500 dark:text-gray-400">分类</dt>
+                  <dt className="text-sm text-gray-400 dark:text-gray-300">分类</dt>
                   <dd className="font-medium text-white dark:text-white">{tool.category}</dd>
                 </div>
                 <div>
-                  <dt className="text-sm text-gray-500 dark:text-gray-400">定价</dt>
+                  <dt className="text-sm text-gray-400 dark:text-gray-300">定价</dt>
                   <dd className="font-medium text-white dark:text-white">
                     {tool.pricing === 'free' ? '免费' : tool.pricing === 'freemium' ? '免费增值' : '付费'}
                     {tool.pricingDetails && (
-                      <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">
+                      <span className="text-sm text-gray-400 dark:text-gray-300 ml-2">
                         ({tool.pricingDetails})
                       </span>
                     )}
@@ -502,7 +502,7 @@ export function ToolDetail({
                 </div>
                 {tool.website && (
                   <div>
-                    <dt className="text-sm text-gray-500 dark:text-gray-400">网站</dt>
+                    <dt className="text-sm text-gray-400 dark:text-gray-300">网站</dt>
                     <dd>
                       <a
                         href={tool.website}
@@ -566,7 +566,7 @@ export function ToolDetail({
               <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
-              <p className="text-gray-500 dark:text-gray-400 mb-4">
+              <p className="text-gray-400 dark:text-gray-300 mb-4">
                 还没有评价，成为第一个评价者！
               </p>
               <button
@@ -582,7 +582,7 @@ export function ToolDetail({
 
       {activeTab === 'alternatives' && (
         <div className="text-center py-12 bg-white/5 dark:bg-gray-800 rounded-xl">
-          <p className="text-gray-500 dark:text-gray-400">
+          <p className="text-gray-400 dark:text-gray-300">
             替代品功能即将上线
           </p>
         </div>

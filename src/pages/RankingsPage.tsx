@@ -136,13 +136,13 @@ const RankingsPage: React.FC = () => {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-2xl font-bold gradient-text">{t('rankingsPage.dailyTop10')}</h2>
-              <p className="text-sm text-gray-500">{t('rankingsPage.updatedHourly')}</p>
+              <p className="text-sm text-gray-400">{t('rankingsPage.updatedHourly')}</p>
             </div>
             <span className="text-xs text-gray-400 glass-card px-3 py-1 rounded-full animate-pulse">{t('rankingsPage.live')}</span>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
-              <thead className="text-gray-500">
+              <thead className="text-gray-400">
                 <tr className="border-b">
                   <th className="py-2 pr-4">{t('rankingsPage.rank')}</th>
                   <th className="py-2 pr-4">{t('rankingsPage.tool')}</th>
@@ -156,7 +156,7 @@ const RankingsPage: React.FC = () => {
               <tbody>
                 {filteredTools.length === 0 ? (
                   <tr>
-                    <td colSpan={7} className="py-12 text-center text-gray-500">
+                    <td colSpan={7} className="py-12 text-center text-gray-400">
                       {t('search.noResults')}
                     </td>
                   </tr>
@@ -173,7 +173,7 @@ const RankingsPage: React.FC = () => {
                         <LazyImage src={tool.logo} alt={tool.name} className="w-8 h-8 rounded" />
                         <div>
                           <div className="font-semibold text-white">{tool.name}</div>
-                          <div className="text-xs text-gray-500">{t('rankingsPage.validated')}</div>
+                          <div className="text-xs text-gray-400">{t('rankingsPage.validated')}</div>
                           {tool.useCases && tool.useCases.length > 0 && (
                             <div className="flex flex-wrap gap-1 mt-1">
                               {tool.useCases.slice(0, 3).map((useCase, idx) => (

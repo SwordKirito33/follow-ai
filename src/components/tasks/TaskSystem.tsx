@@ -102,7 +102,7 @@ function ProgressBar({ current, target }: { current: number; target: number }) {
 
   return (
     <div className="w-full">
-      <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-1">
+      <div className="flex justify-between text-xs text-gray-400 dark:text-gray-300 mb-1">
         <span>进度</span>
         <span>{current}/{target}</span>
       </div>
@@ -191,10 +191,10 @@ function TaskCard({ task, onClaim, onStart, isLocked, lockReason }: TaskCardProp
       {isLocked && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-900/10 dark:bg-gray-900/30 rounded-xl">
           <div className="text-center">
-            <svg className="w-8 h-8 mx-auto text-gray-400 dark:text-gray-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-8 h-8 mx-auto text-gray-400 dark:text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{lockReason}</p>
+            <p className="text-sm text-gray-400 dark:text-gray-300">{lockReason}</p>
           </div>
         </div>
       )}
@@ -333,21 +333,21 @@ export function TaskSystem({
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-white/10 dark:border-gray-700">
           <div className="text-2xl font-bold text-white dark:text-white">{stats.available}</div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">可用任务</div>
+          <div className="text-sm text-gray-400 dark:text-gray-300">可用任务</div>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-white/10 dark:border-gray-700">
           <div className="text-2xl font-bold text-accent-green dark:text-green-400">{stats.completed}</div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">已完成</div>
+          <div className="text-sm text-gray-400 dark:text-gray-300">已完成</div>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-white/10 dark:border-gray-700">
           <div className="text-2xl font-bold text-primary-purple dark:text-purple-400">{stats.totalXp}</div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">获得 XP</div>
+          <div className="text-sm text-gray-400 dark:text-gray-300">获得 XP</div>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-white/10 dark:border-gray-700">
           <div className="text-2xl font-bold text-white dark:text-white">
             {Math.round((stats.completed / stats.total) * 100)}%
           </div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">完成率</div>
+          <div className="text-sm text-gray-400 dark:text-gray-300">完成率</div>
         </div>
       </div>
 
@@ -414,7 +414,7 @@ export function TaskSystem({
           <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
           </svg>
-          <p className="text-gray-500 dark:text-gray-400">
+          <p className="text-gray-400 dark:text-gray-300">
             {showCompleted ? '没有任务' : '没有可用任务，试试显示已完成的任务'}
           </p>
         </div>

@@ -185,7 +185,7 @@ const ToolDetail: React.FC = () => {
                 <div>
                   <h1 className="text-3xl font-bold text-white mb-2">{tool.name}</h1>
                   <p className="text-gray-400 mb-3">{tool.description}</p>
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
+                  <div className="flex items-center gap-4 text-sm text-gray-400">
                     <span className="bg-white/10 px-3 py-1 rounded-full font-medium">{tool.category}</span>
                     <span className="flex items-center gap-1">
                       <Star size={16} className="text-amber-500 fill-amber-500" /> {tool.rating}
@@ -197,7 +197,7 @@ const ToolDetail: React.FC = () => {
                 </div>
                 <div className="text-right flex flex-col items-end gap-2">
                   <div className="text-2xl font-black text-white mb-1">{tool.reviewCount}</div>
-                  <div className="text-sm text-gray-500">{t('toolDetail.verifiedReviews')}</div>
+                  <div className="text-sm text-gray-400">{t('toolDetail.verifiedReviews')}</div>
                   <button
                     onClick={() => setIsFavorite(!isFavorite)}
                     className={`p-2 rounded-lg transition-all ${
@@ -278,7 +278,7 @@ const ToolDetail: React.FC = () => {
               </div>
               <div>
                 <div className="text-2xl font-bold text-white">{tool.reviewCount}</div>
-                <div className="text-sm text-gray-500">{t('toolDetail.totalReviews')}</div>
+                <div className="text-sm text-gray-400">{t('toolDetail.totalReviews')}</div>
               </div>
             </div>
           </div>
@@ -289,7 +289,7 @@ const ToolDetail: React.FC = () => {
               </div>
               <div>
                 <div className="text-2xl font-bold text-white">{tool.rating}</div>
-                <div className="text-sm text-gray-500">{t('toolDetail.averageRating')}</div>
+                <div className="text-sm text-gray-400">{t('toolDetail.averageRating')}</div>
               </div>
             </div>
           </div>
@@ -300,7 +300,7 @@ const ToolDetail: React.FC = () => {
               </div>
               <div>
                 <div className="text-2xl font-bold text-white">{tool.growth}</div>
-                <div className="text-sm text-gray-500">{t('toolDetail.growth24h')}</div>
+                <div className="text-sm text-gray-400">{t('toolDetail.growth24h')}</div>
               </div>
             </div>
           </div>
@@ -379,7 +379,7 @@ const ToolDetail: React.FC = () => {
 
           {toolReviews.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-500 mb-4">{t('toolDetail.noReviewsYet')}</p>
+              <p className="text-gray-400 mb-4">{t('toolDetail.noReviewsYet')}</p>
               <Link
                 to="/submit"
                 className="inline-block bg-gradient-to-r from-primary-cyan to-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
@@ -391,7 +391,7 @@ const ToolDetail: React.FC = () => {
             <div className="space-y-6">
               {sortedReviews.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-gray-500">{t('search.noResults')}</p>
+                  <p className="text-gray-400">{t('search.noResults')}</p>
                 </div>
               ) : (
                 sortedReviews.map(review => (
@@ -417,7 +417,7 @@ const ToolDetail: React.FC = () => {
                           ))}
                         </div>
                         <span className="text-sm font-semibold text-gray-300">{review.rating}</span>
-                        <span className="text-xs text-gray-500">Quality: {review.qualityScore}/10</span>
+                        <span className="text-xs text-gray-400">Quality: {review.qualityScore}/10</span>
                       </div>
                       <p className="text-gray-300 mb-3">{review.text}</p>
                       {review.outputImage && (
@@ -427,7 +427,7 @@ const ToolDetail: React.FC = () => {
                           className="rounded-lg border border-white/10 max-w-full h-auto mb-3"
                         />
                       )}
-                      <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <div className="flex items-center gap-4 text-sm text-gray-400">
                         <button className="hover:text-primary-cyan transition-colors">👍 {review.likes} {t('toolDetail.likes')}</button>
                         <button className="hover:text-primary-cyan transition-colors">💬 {t('toolDetail.helpful')} ({review.helpful})</button>
                       </div>
@@ -520,15 +520,15 @@ const ToolDetail: React.FC = () => {
 
             <div className="grid md:grid-cols-3 gap-4 pt-6 border-t border-white/10 dark:border-gray-700">
               <div>
-                <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Pricing</p>
+                <p className="text-sm font-semibold text-gray-400 dark:text-gray-300 mb-1">Pricing</p>
                 <p className="text-white dark:text-white font-medium">{toolAbout.pricing}</p>
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Launch Date</p>
+                <p className="text-sm font-semibold text-gray-400 dark:text-gray-300 mb-1">Launch Date</p>
                 <p className="text-white dark:text-white font-medium">{toolAbout.launchDate}</p>
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Company</p>
+                <p className="text-sm font-semibold text-gray-400 dark:text-gray-300 mb-1">Company</p>
                 <p className="text-white dark:text-white font-medium">{toolAbout.company}</p>
               </div>
             </div>
@@ -549,9 +549,9 @@ const ToolDetail: React.FC = () => {
             
             {activeBounties.length === 0 ? (
               <div className="glass-card rounded-xl p-12 text-center">
-                <DollarSign size={48} className="mx-auto mb-4 text-gray-400 dark:text-gray-500" />
+                <DollarSign size={48} className="mx-auto mb-4 text-gray-400 dark:text-gray-400" />
                 <p className="text-lg text-gray-400 dark:text-gray-400 mb-2">No active bounties</p>
-                <p className="text-sm text-gray-500 dark:text-gray-500">Check back later for new opportunities</p>
+                <p className="text-sm text-gray-400 dark:text-gray-400">Check back later for new opportunities</p>
               </div>
             ) : (
               <div className="grid md:grid-cols-2 gap-6">
@@ -620,7 +620,7 @@ const ToolDetail: React.FC = () => {
                     <div className="text-xl font-black text-accent-green dark:text-green-400">
                       ${entry.rewards}
                     </div>
-                    <div className="text-xs text-gray-500 dark:text-gray-500">Total rewards</div>
+                    <div className="text-xs text-gray-400 dark:text-gray-400">Total rewards</div>
                   </div>
                 </div>
               ))}

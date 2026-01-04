@@ -43,7 +43,7 @@ const LevelProgress: React.FC<LevelProgressProps> = ({
             )}
           </div>
         </div>
-        <div className="flex items-center justify-between text-xs text-gray-500 mt-2">
+        <div className="flex items-center justify-between text-xs text-gray-400 mt-2">
           <span>{levelInfo.xpInCurrentLevel.toLocaleString()} XP in current level</span>
           <span>{levelInfo.xpToNext.toLocaleString()} XP to next level</span>
         </div>

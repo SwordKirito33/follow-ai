@@ -122,7 +122,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           </p>
         )}
         {hint && !error && (
-          <p id={`${inputId}-hint`} className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          <p id={`${inputId}-hint`} className="mt-1 text-sm text-gray-400 dark:text-gray-300">
             {hint}
           </p>
         )}
@@ -180,7 +180,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
               {error}
             </p>
           ) : hint ? (
-            <p id={`${textareaId}-hint`} className="text-sm text-gray-500 dark:text-gray-400">
+            <p id={`${textareaId}-hint`} className="text-sm text-gray-400 dark:text-gray-300">
               {hint}
             </p>
           ) : (
@@ -263,7 +263,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </p>
         )}
         {hint && !error && (
-          <p id={`${selectId}-hint`} className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          <p id={`${selectId}-hint`} className="mt-1 text-sm text-gray-400 dark:text-gray-300">
             {hint}
           </p>
         )}
@@ -311,7 +311,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               </label>
             )}
             {description && (
-              <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
+              <p className="text-sm text-gray-400 dark:text-gray-300">{description}</p>
             )}
           </div>
         )}
@@ -369,7 +369,7 @@ export function RadioGroup({
               {option.label}
             </span>
             {option.description && (
-              <p className="text-sm text-gray-500 dark:text-gray-400">{option.description}</p>
+              <p className="text-sm text-gray-400 dark:text-gray-300">{option.description}</p>
             )}
           </div>
         </label>
@@ -440,7 +440,7 @@ export function Switch({
             </label>
           )}
           {description && (
-            <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
+            <p className="text-sm text-gray-400 dark:text-gray-300">{description}</p>
           )}
         </div>
       )}
@@ -552,12 +552,12 @@ export function FileInput({
           {' '}或拖拽文件到此处
         </p>
         {accept && (
-          <p className="mt-1 text-xs text-gray-500 dark:text-gray-500">
+          <p className="mt-1 text-xs text-gray-400 dark:text-gray-400">
             支持的格式: {accept}
           </p>
         )}
         {maxSize && (
-          <p className="mt-1 text-xs text-gray-500 dark:text-gray-500">
+          <p className="mt-1 text-xs text-gray-400 dark:text-gray-400">
             最大文件大小: {(maxSize / 1024 / 1024).toFixed(1)} MB
           </p>
         )}
@@ -566,7 +566,7 @@ export function FileInput({
         <p className="mt-1 text-sm text-red-500">{error}</p>
       )}
       {hint && !error && (
-        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{hint}</p>
+        <p className="mt-1 text-sm text-gray-400 dark:text-gray-300">{hint}</p>
       )}
     </div>
   );

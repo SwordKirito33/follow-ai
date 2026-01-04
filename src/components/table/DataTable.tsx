@@ -147,7 +147,7 @@ export function DataTable<T extends Record<string, unknown>>({
                 <th
                   key={String(column.key)}
                   className={cn(
-                    'text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                    'text-left text-xs font-medium text-gray-400 dark:text-gray-300 uppercase tracking-wider',
                     compact ? 'px-3 py-2' : 'px-4 py-3',
                     column.sortable && 'cursor-pointer select-none hover:text-gray-300 dark:hover:text-gray-300',
                     column.align === 'center' && 'text-center',
@@ -215,7 +215,7 @@ export function DataTable<T extends Record<string, unknown>>({
               <tr>
                 <td
                   colSpan={columns.length + (selectable ? 1 : 0)}
-                  className="px-4 py-12 text-center text-gray-500 dark:text-gray-400"
+                  className="px-4 py-12 text-center text-gray-400 dark:text-gray-300"
                 >
                   {emptyMessage}
                 </td>
@@ -307,7 +307,7 @@ export function AvatarCell({ src, name, subtitle }: AvatarCellProps) {
   return (
     <div className="flex items-center gap-3">
       {src ? (
-        <img src={src} alt={name} className="w-8 h-8 rounded-full object-cover" />
+        <img loading="lazy" src={src} alt={name} className="w-8 h-8 rounded-full object-cover" />
       ) : (
         <div className="w-8 h-8 rounded-full bg-primary-purple/20 dark:bg-purple-900/30 flex items-center justify-center">
           <span className="text-sm font-medium text-primary-purple dark:text-purple-400">
@@ -317,7 +317,7 @@ export function AvatarCell({ src, name, subtitle }: AvatarCellProps) {
       )}
       <div>
         <div className="font-medium text-white dark:text-white">{name}</div>
-        {subtitle && <div className="text-xs text-gray-500 dark:text-gray-400">{subtitle}</div>}
+        {subtitle && <div className="text-xs text-gray-400 dark:text-gray-300">{subtitle}</div>}
       </div>
     </div>
   );
@@ -346,7 +346,7 @@ export function ActionsCell({ actions }: ActionsCellProps) {
             'p-1.5 rounded-lg transition-colors',
             action.variant === 'danger'
               ? 'text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20'
-              : 'text-gray-500 hover:bg-white/10 dark:hover:bg-gray-800'
+              : 'text-gray-400 hover:bg-white/10 dark:hover:bg-gray-800'
           )}
           title={action.label}
         >
@@ -375,7 +375,7 @@ export function ProgressCell({ value, max = 100, showLabel = true }: ProgressCel
         />
       </div>
       {showLabel && (
-        <span className="text-xs text-gray-500 dark:text-gray-400 min-w-[40px] text-right">
+        <span className="text-xs text-gray-400 dark:text-gray-300 min-w-[40px] text-right">
           {Math.round(percentage)}%
         </span>
       )}

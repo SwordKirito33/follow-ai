@@ -144,7 +144,7 @@ export const UserManagement: React.FC<UserManagementProps> = ({
 
   const getRoleBadge = (role: User['role']) => {
     const styles = {
-      user: 'bg-white/50/10 text-gray-500',
+      user: 'bg-white/50/10 text-gray-400',
       moderator: 'bg-blue-500/10 text-blue-500',
       admin: 'bg-purple-500/10 text-purple-500'
     };
@@ -218,7 +218,7 @@ export const UserManagement: React.FC<UserManagementProps> = ({
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white font-bold">
                       {user.avatar ? (
-                        <img src={user.avatar} alt={user.name} className="w-full h-full rounded-full object-cover" />
+                        <img loading="lazy" src={user.avatar} alt={user.name} className="w-full h-full rounded-full object-cover" />
                       ) : (
                         user.name.charAt(0)
                       )}
@@ -362,7 +362,7 @@ export const ToolManagement: React.FC<ToolManagementProps> = ({
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center text-white text-xl font-bold">
                   {tool.logo ? (
-                    <img src={tool.logo} alt={tool.name} className="w-full h-full rounded-xl object-cover" />
+                    <img loading="lazy" src={tool.logo} alt={tool.name} className="w-full h-full rounded-xl object-cover" />
                   ) : (
                     tool.name.charAt(0)
                   )}

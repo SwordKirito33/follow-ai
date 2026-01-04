@@ -103,7 +103,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.1 }}
-        className="w-24 h-24 bg-white/10 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 text-gray-400 dark:text-gray-500"
+        className="w-24 h-24 bg-white/10 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 text-gray-400 dark:text-gray-400"
       >
         {icon || content.icon}
       </motion.div>
@@ -121,7 +121,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="text-gray-500 dark:text-gray-400 max-w-sm mb-6"
+        className="text-gray-400 dark:text-gray-300 max-w-sm mb-6"
       >
         {description || content.description}
       </motion.p>

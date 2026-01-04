@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
             <div className="absolute -inset-2 bg-gradient-to-r from-primary-cyan via-primary-blue to-primary-purple rounded-2xl blur-xl opacity-30 animate-pulse"></div>
             <div className="relative glass-card rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
               <div className="bg-dark-card/50 px-4 py-3 border-b border-white/10 flex items-center justify-between">
-                <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t('common.verified')} Output</span>
+                <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{t('common.verified')} Output</span>
                 <Tooltip content="Work output verified by our community consensus algorithm">
                   <span className="flex items-center text-accent-green text-xs font-bold gap-1 cursor-help">
                     <CheckCircle size={14} /> {t('common.verifiedBy')}
@@ -79,12 +79,12 @@ const Hero: React.FC = () => {
               </div>
               <div className="p-6">
                  <div className="flex items-start gap-4 mb-4">
-                   <img src="https://picsum.photos/seed/user1/40/40" className="w-10 h-10 rounded-full" alt="User" />
+                   <img loading="lazy" src="https://picsum.photos/seed/user1/40/40" className="w-10 h-10 rounded-full" alt="User" />
                    <div>
                      <h3 className="font-bold text-sm">Alex's Review of Cursor</h3>
-                     <p className="text-xs text-gray-500">Coding • 2 {t('common.hoursAgo')}</p>
+                     <p className="text-xs text-gray-400">Coding • 2 {t('common.hoursAgo')}</p>
                    </div>
-                   <div className="ml-auto bg-green-50 text-green-700 px-2 py-1 rounded text-xs font-bold">
+                   <div className="ml-auto bg-green-900/50 text-green-400 px-2 py-1 rounded text-xs font-bold">
                      {t('common.earned')} $50
                    </div>
                  </div>
@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
                    "Here is the React component I built in 5 mins..."
                  </p>
                  <div className="rounded-lg overflow-hidden border border-white/10 bg-gray-900">
-                   <img src="https://picsum.photos/seed/hero-code/500/300" alt="Code snippet" className="w-full h-48 object-cover opacity-80" />
+                   <img loading="lazy" src="https://picsum.photos/seed/hero-code/500/300" alt="Code snippet" className="w-full h-48 object-cover opacity-80" />
                  </div>
               </div>
             </div>

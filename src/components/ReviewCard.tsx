@@ -31,7 +31,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
     <div className="glass-card rounded-xl overflow-hidden card-3d hover:shadow-2xl transition-all duration-300 group">
       {/* Header */}
       <div className="p-4 flex items-center gap-3">
-        <img src={review.user.avatar} alt={review.user.name} className="w-10 h-10 rounded-full" />
+        <img loading="lazy" src={review.user.avatar} alt={review.user.name} className="w-10 h-10 rounded-full" />
         <div>
           <div className="flex items-center gap-2">
             <h4 className="font-black text-white text-sm tracking-tight">{review.user.name}</h4>
@@ -41,7 +41,7 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
               </span>
             </Tooltip>
           </div>
-          <p className="text-xs text-gray-500">{review.timeAgo}</p>
+          <p className="text-xs text-gray-400">{review.timeAgo}</p>
         </div>
       </div>
 
@@ -92,14 +92,14 @@ const ReviewCard: React.FC<Props> = ({ review }) => {
         <div className="flex items-center gap-4">
           <button 
             onClick={handleLike}
-            className={`flex items-center gap-1.5 text-xs font-medium transition-colors ${isLiked ? 'text-primary-cyan' : 'text-gray-500 hover:text-white'}`}
+            className={`flex items-center gap-1.5 text-xs font-medium transition-colors ${isLiked ? 'text-primary-cyan' : 'text-gray-400 hover:text-white'}`}
             disabled={!isAuthenticated}
           >
             <ThumbsUp size={16} fill={isLiked ? "currentColor" : "none"} />
             {likes} {t('reviewCard.likes')}
           </button>
           <button 
-            className="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-white transition-colors"
+            className="flex items-center gap-1.5 text-xs font-medium text-gray-400 hover:text-white transition-colors"
             disabled={!isAuthenticated}
           >
             <MessageCircle size={16} />

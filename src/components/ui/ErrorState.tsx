@@ -143,7 +143,7 @@ export function ErrorState({
         {displayTitle}
       </h2>
       
-      <p className="text-gray-500 dark:text-gray-400 max-w-md mb-6">
+      <p className="text-gray-400 dark:text-gray-300 max-w-md mb-6">
         {displayMessage}
       </p>
 

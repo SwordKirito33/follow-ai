@@ -128,7 +128,7 @@ const SubmitReview: React.FC = () => {
             <span className="text-sm font-semibold text-gray-300 dark:text-gray-300">
               Submission Progress
             </span>
-            <span className="text-sm text-gray-500 dark:text-gray-500">
+            <span className="text-sm text-gray-400 dark:text-gray-400">
               {[
                 file ? 1 : 0,
                 analysisComplete ? 1 : 0,
@@ -169,7 +169,7 @@ const SubmitReview: React.FC = () => {
             <label className="block text-sm font-bold text-gray-300 mb-2">
               {t('submitReview.uploadWork')} <span className="text-red-500">{t('submitReview.mandatory')}</span>
             </label>
-            <p className="text-xs text-gray-500 mb-4">{t('submitReview.mandatoryNote')}</p>
+            <p className="text-xs text-gray-400 mb-4">{t('submitReview.mandatoryNote')}</p>
 
             <div 
               className={`border-2 border-dashed rounded-xl p-8 text-center transition-colors relative overflow-hidden ${
@@ -284,7 +284,7 @@ const SubmitReview: React.FC = () => {
             <label className="block text-sm font-bold text-gray-300 dark:text-gray-300 mb-2">
               {t('submitReview.yourExperience')} <span className="text-red-500">*</span>
             </label>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+            <p className="text-xs text-gray-400 dark:text-gray-300 mb-3">
               Describe your experience using the tool. Include the prompt you used, what you expected, 
               and what you actually got. Be specific and honest.
             </p>
@@ -296,7 +296,7 @@ const SubmitReview: React.FC = () => {
               required
             ></textarea>
             <div className="flex justify-between mt-2 text-xs">
-              <span className="text-gray-500 dark:text-gray-400">
+              <span className="text-gray-400 dark:text-gray-300">
                 {t('submitReview.minimumWords').replace('{count}', MIN_CHARACTERS.toString())}
               </span>
               <span className={characterCount < MIN_CHARACTERS ? "text-red-500 font-semibold" : "text-accent-green font-semibold"}>

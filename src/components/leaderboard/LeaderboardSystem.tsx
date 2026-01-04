@@ -89,7 +89,7 @@ function RankBadge({ rank }: { rank: number }) {
 
 function RankChange({ current, previous }: { current: number; previous?: number }) {
   if (!previous || current === previous) {
-    return <span className="text-gray-400 dark:text-gray-500">—</span>;
+    return <span className="text-gray-400 dark:text-gray-400">—</span>;
   }
 
   const change = previous - current;
@@ -185,7 +185,7 @@ function Podium({ users, type, onUserClick }: { users: LeaderboardUser[]; type: 
           <div className="font-semibold text-white dark:text-white truncate max-w-[100px]">
             {user.displayName || user.username}
           </div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="text-sm text-gray-400 dark:text-gray-300">
             Lv.{user.level}
           </div>
         </div>
@@ -260,7 +260,7 @@ function LeaderboardRow({ user, type, onClick }: LeaderboardRowProps) {
               </span>
             )}
           </div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="text-sm text-gray-400 dark:text-gray-300">
             Lv.{user.level}
           </div>
         </div>
@@ -282,7 +282,7 @@ function LeaderboardRow({ user, type, onClick }: LeaderboardRowProps) {
         <div className="font-bold text-white dark:text-white">
           {value?.toLocaleString()}
         </div>
-        <div className="text-xs text-gray-500 dark:text-gray-400">
+        <div className="text-xs text-gray-400 dark:text-gray-300">
           {config.suffix}
         </div>
       </div>
@@ -411,7 +411,7 @@ export function LeaderboardSystem({
           <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
-          <p className="text-gray-500 dark:text-gray-400">暂无排行数据</p>
+          <p className="text-gray-400 dark:text-gray-300">暂无排行数据</p>
         </div>
       )}
     </div>

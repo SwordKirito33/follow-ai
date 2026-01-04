@@ -49,7 +49,7 @@ const StatCard: React.FC<StatCardProps> = ({
   const trendColors = {
     up: 'text-green-500',
     down: 'text-red-500',
-    neutral: 'text-gray-500',
+    neutral: 'text-gray-400',
   };
 
   const TrendIcon = trend === 'up' ? TrendingUp : trend === 'down' ? TrendingDown : Minus;
@@ -64,7 +64,7 @@ const StatCard: React.FC<StatCardProps> = ({
       <div className="flex items-start justify-between mb-4">
         <p
           className={`text-sm font-medium ${
-            variant === 'gradient' ? 'text-white/80' : 'text-gray-500 dark:text-gray-400'
+            variant === 'gradient' ? 'text-white/80' : 'text-gray-400 dark:text-gray-300'
           }`}
         >
           {title}
@@ -95,7 +95,7 @@ const StatCard: React.FC<StatCardProps> = ({
           {description && (
             <p
               className={`text-sm mt-1 ${
-                variant === 'gradient' ? 'text-white/70' : 'text-gray-500 dark:text-gray-400'
+                variant === 'gradient' ? 'text-white/70' : 'text-gray-400 dark:text-gray-300'
               }`}
             >
               {description}
@@ -106,7 +106,7 @@ const StatCard: React.FC<StatCardProps> = ({
         {change && (
           <div
             className={`flex items-center gap-1 text-sm font-medium ${
-              trend ? trendColors[trend] : 'text-gray-500'
+              trend ? trendColors[trend] : 'text-gray-400'
             }`}
           >
             <TrendIcon size={16} />
@@ -117,7 +117,7 @@ const StatCard: React.FC<StatCardProps> = ({
             {change.label && (
               <span
                 className={`${
-                  variant === 'gradient' ? 'text-white/60' : 'text-gray-400 dark:text-gray-500'
+                  variant === 'gradient' ? 'text-white/60' : 'text-gray-400 dark:text-gray-400'
                 }`}
               >
                 {change.label}

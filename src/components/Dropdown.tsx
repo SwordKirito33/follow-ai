@@ -134,7 +134,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                     <div className="flex-1 min-w-0">
                       <p className="font-medium truncate">{item.label}</p>
                       {item.description && (
-                        <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                        <p className="text-xs text-gray-400 dark:text-gray-300 truncate">
                           {item.description}
                         </p>
                       )}
