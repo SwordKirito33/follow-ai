@@ -2,12 +2,12 @@ import { useState, useRef } from 'react';
 import { Upload, X, FileIcon, Image, Video, File } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { validateFile, generateSafeFileName, uploadFile as uploadFileUtil, UploadBucket } from '@/lib/upload';
 
 interface FileUploadProps {
-  bucket: 'review-outputs' | 'user-avatars' | 'portfolio-images';
+  bucket: UploadBucket;
   path?: string;
   accept?: string;
-  maxSize?: number; // in MB
   onUploadComplete?: (url: string, path: string) => void;
   onUploadError?: (error: Error) => void;
 }
@@ -16,7 +16,6 @@ export default function FileUpload({
   bucket,
   path = '',
   accept = '*/*',
-  maxSize = 10,
   onUploadComplete,
   onUploadError,
 }: FileUploadProps) {
@@ -37,9 +36,10 @@ export default function FileUpload({
     const file = event.target.files?.[0];
     if (!file) return;
 
-    // Validate file size
-    if (file.size > maxSize * 1024 * 1024) {
-      const error = new Error(`File size must be less than ${maxSize}MB`);
+    // Validate file
+    const validation = validateFile(file, bucket);
+    if (!validation.valid) {
+      const error = new Error(validation.error);
       onUploadError?.(error);
       alert(error.message);
       return;
@@ -65,37 +65,11 @@ export default function FileUpload({
     setProgress(0);
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        throw new Error('User not authenticated');
-      }
-
-      // Generate unique file path
-      const fileExt = file.name.split('.').pop();
-      const timestamp = Date.now();
-      const filePath = path
-        ? `${path}/${user.id}/${timestamp}.${fileExt}`
-        : `${user.id}/${timestamp}.${fileExt}`;
-
-      // Upload to Supabase Storage
-      const { data, error } = await supabase.storage
-        .from(bucket)
-        .upload(filePath, file, {
-          cacheControl: '3600',
-          upsert: false,
-        });
-
-      if (error) {
-        throw error;
-      }
-
-      // Get public URL
-      const { data: { publicUrl } } = supabase.storage
-        .from(bucket)
-        .getPublicUrl(data.path);
+      const uploadPath = path || 'uploads';
+      const { url, path: filePath } = await uploadFileUtil(file, bucket, uploadPath);
 
       setProgress(100);
-      onUploadComplete?.(publicUrl, data.path);
+      onUploadComplete?.(url, filePath);
 
       // Log upload
       await supabase.from('upload_logs').insert({
