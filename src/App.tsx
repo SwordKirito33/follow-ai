@@ -1,6 +1,7 @@
 import React, { useEffect, lazy, Suspense, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { lazy, Suspense, useState, useEffect } from 'react';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { LanguageProvider } from '@/contexts/LanguageContext';
@@ -14,39 +15,134 @@ import IntroAnimation from '@/components/IntroAnimation/IntroAnimation';
 import CommandPalette from '@/components/CommandPalette';
 import Footer from '@/components/Footer';
 import { hasSeenIntro } from '@/components/IntroAnimation/utils';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import { useGlobalErrorHandler } from '@/hooks/useGlobalErrorHandler';
 
 // Lazy load pages for code splitting
-const Home = lazy(() => import('@/pages/Home'));
-const SubmitReview = lazy(() => import('@/pages/SubmitReview'));
-const TaskSubmit = lazy(() => import('@/pages/TaskSubmit'));
-const SubmissionHistory = lazy(() => import('@/pages/SubmissionHistory'));
-const Profile = lazy(() => import('@/pages/Profile'));
-const Tasks = lazy(() => import('@/pages/Tasks'));
-const Payments = lazy(() => import('@/pages/Payments'));
-const RankingsPage = lazy(() => import('@/pages/RankingsPage'));
-const NewsPage = lazy(() => import('@/pages/NewsPage'));
-const About = lazy(() => import('@/pages/About'));
-const Terms = lazy(() => import('@/pages/Terms'));
-const ToolDetail = lazy(() => import('@/pages/ToolDetail'));
-const Leaderboard = lazy(() => import('@/pages/Leaderboard'));
-const Help = lazy(() => import('@/pages/Help'));
-const Privacy = lazy(() => import('@/pages/Privacy'));
-const CookiePolicy = lazy(() => import('@/pages/CookiePolicy'));
-const Hire = lazy(() => import('@/pages/Hire'));
-const Onboarding = lazy(() => import('@/pages/Onboarding'));
-const HireNew = lazy(() => import('@/pages/HireNew'));
-const HireDetail = lazy(() => import('@/pages/HireDetail'));
-const Dashboard = lazy(() => import('@/pages/Dashboard'));
-const XpHistory = lazy(() => import('@/pages/XpHistory'));
-const AdminXpPanelPage = lazy(() => import('@/pages/AdminXpPanelPage'));
-const AdminDashboard = lazy(() => import('@/pages/admin/Dashboard'));
-const AdminReviews = lazy(() => import('@/pages/admin/Reviews'));
-const DeveloperWallet = lazy(() => import('@/pages/DeveloperWallet'));
-const CreateTask = lazy(() => import('@/pages/CreateTask'));
-const TaskList = lazy(() => import('@/pages/TaskList'));
-const ReviewSubmissions = lazy(() => import('@/pages/ReviewSubmissions'));
-const ResetPassword = lazy(() => import('@/pages/ResetPassword'));
-const SupabaseTest = lazy(() => import('@/components/SupabaseTest'));
+const Home = lazy(() => import('@/pages/Home').catch(err => {
+  console.error('Failed to load Home:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const SubmitReview = lazy(() => import('@/pages/SubmitReview').catch(err => {
+  console.error('Failed to load SubmitReview:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const TaskSubmit = lazy(() => import('@/pages/TaskSubmit').catch(err => {
+  console.error('Failed to load TaskSubmit:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const SubmissionHistory = lazy(() => import('@/pages/SubmissionHistory').catch(err => {
+  console.error('Failed to load SubmissionHistory:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const Profile = lazy(() => import('@/pages/Profile').catch(err => {
+  console.error('Failed to load Profile:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const Tasks = lazy(() => import('@/pages/Tasks').catch(err => {
+  console.error('Failed to load Tasks:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const Payments = lazy(() => import('@/pages/Payments').catch(err => {
+  console.error('Failed to load Payments:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const RankingsPage = lazy(() => import('@/pages/RankingsPage').catch(err => {
+  console.error('Failed to load RankingsPage:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const NewsPage = lazy(() => import('@/pages/NewsPage').catch(err => {
+  console.error('Failed to load NewsPage:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const About = lazy(() => import('@/pages/About').catch(err => {
+  console.error('Failed to load About:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const Terms = lazy(() => import('@/pages/Terms').catch(err => {
+  console.error('Failed to load Terms:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const ToolDetail = lazy(() => import('@/pages/ToolDetail').catch(err => {
+  console.error('Failed to load ToolDetail:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const Leaderboard = lazy(() => import('@/pages/Leaderboard').catch(err => {
+  console.error('Failed to load Leaderboard:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const Help = lazy(() => import('@/pages/Help').catch(err => {
+  console.error('Failed to load Help:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const Privacy = lazy(() => import('@/pages/Privacy').catch(err => {
+  console.error('Failed to load Privacy:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const CookiePolicy = lazy(() => import('@/pages/CookiePolicy').catch(err => {
+  console.error('Failed to load CookiePolicy:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const Hire = lazy(() => import('@/pages/Hire').catch(err => {
+  console.error('Failed to load Hire:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const Onboarding = lazy(() => import('@/pages/Onboarding').catch(err => {
+  console.error('Failed to load Onboarding:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const HireNew = lazy(() => import('@/pages/HireNew').catch(err => {
+  console.error('Failed to load HireNew:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const HireDetail = lazy(() => import('@/pages/HireDetail').catch(err => {
+  console.error('Failed to load HireDetail:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const Dashboard = lazy(() => import('@/pages/Dashboard').catch(err => {
+  console.error('Failed to load Dashboard:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const XpHistory = lazy(() => import('@/pages/XpHistory').catch(err => {
+  console.error('Failed to load XpHistory:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const AdminXpPanelPage = lazy(() => import('@/pages/AdminXpPanelPage').catch(err => {
+  console.error('Failed to load AdminXpPanelPage:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const AdminDashboard = lazy(() => import('@/pages/admin/Dashboard').catch(err => {
+  console.error('Failed to load AdminDashboard:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const AdminReviews = lazy(() => import('@/pages/admin/Reviews').catch(err => {
+  console.error('Failed to load AdminReviews:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const DeveloperWallet = lazy(() => import('@/pages/DeveloperWallet').catch(err => {
+  console.error('Failed to load DeveloperWallet:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const CreateTask = lazy(() => import('@/pages/CreateTask').catch(err => {
+  console.error('Failed to load CreateTask:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const TaskList = lazy(() => import('@/pages/TaskList').catch(err => {
+  console.error('Failed to load TaskList:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const ReviewSubmissions = lazy(() => import('@/pages/ReviewSubmissions').catch(err => {
+  console.error('Failed to load ReviewSubmissions:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const ResetPassword = lazy(() => import('@/pages/ResetPassword').catch(err => {
+  console.error('Failed to load ResetPassword:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const SupabaseTest = lazy(() => import('@/components/SupabaseTest').catch(err => {
+  console.error('Failed to load SupabaseTest:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
 
 // Loading fallback component
 const PageLoader = () => (
@@ -69,6 +165,9 @@ const ScrollToTop = () => {
 const AppContent: React.FC = () => {
   const { isLoading } = useAuth();
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  
+  // Initialize global error handler
+  useGlobalErrorHandler();
 
   // Command palette keyboard shortcut
   useEffect(() => {
@@ -160,18 +259,20 @@ const AppContent: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <AuthProvider>
-          <ToastProvider>
-            <Router>
-              <AppContent />
-            </Router>
-          </ToastProvider>
-        </AuthProvider>
-      </LanguageProvider>
-      {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <LanguageProvider>
+          <AuthProvider>
+            <ToastProvider>
+              <Router>
+                <AppContent />
+              </Router>
+            </ToastProvider>
+          </AuthProvider>
+        </LanguageProvider>
+        {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 };
 
