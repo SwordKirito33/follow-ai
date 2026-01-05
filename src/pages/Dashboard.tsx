@@ -90,15 +90,15 @@ const Dashboard: React.FC = () => {
   const NextActionIcon = nextAction.icon;
 
   return (
-    <div className="min-h-screen py-12 px-4 relative">
+    <div className="min-h-screen py-12 px-4 relative" data-testid="dashboard-container">
       <div className="absolute inset-0 bg-transparent"></div>
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <div className="mb-8 animate-slideDown">
-          <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 tracking-tight" data-testid="dashboard-title">
             {t('dashboardPage.title')}
           </h1>
-          <p className="text-xl text-gray-300 font-medium">{t('dashboardPage.welcomeBack')}, {user.displayName || user.name}!</p>
+          <p className="text-xl text-gray-300 font-medium" data-testid="welcome-message">{t('dashboardPage.welcomeBack')}, {user.displayName || user.name}!</p>
         </div>
 
         {/* KPI Cards */}
@@ -109,7 +109,7 @@ const Dashboard: React.FC = () => {
               <div className="bg-primary-purple/20 p-3 rounded-lg text-primary-purple">
                 <Award size={24} />
               </div>
-              <Badge variant="primary" size="md">
+              <Badge variant="primary" size="md" data-testid="user-level">
                 {t('xp.level')} {levelInfo.level}
               </Badge>
             </div>
@@ -125,7 +125,7 @@ const Dashboard: React.FC = () => {
                 />
               </div>
             </div>
-            <div className="text-2xl font-bold text-white">{userXp.toLocaleString()} XP</div>
+            <div className="text-2xl font-bold text-white" data-testid="user-xp">{userXp.toLocaleString()} XP</div>
           </div>
 
           {/* Total Earnings */}
@@ -136,7 +136,7 @@ const Dashboard: React.FC = () => {
               </div>
             </div>
             <div className="text-sm text-gray-400 mb-1">{t('dashboardPage.totalEarnings')}</div>
-            <div className="text-2xl font-bold gradient-text">${(user.earnings ?? 0).toLocaleString()}</div>
+            <div className="text-2xl font-bold gradient-text" data-testid="user-balance">${(user.earnings ?? 0).toLocaleString()}</div>
           </div>
 
           {/* Profile Completion */}
@@ -147,7 +147,7 @@ const Dashboard: React.FC = () => {
               </div>
             </div>
             <div className="text-sm text-gray-400 mb-1">{t('dashboardPage.profileCompletion')}</div>
-            <div className="text-2xl font-bold text-white">{profileCompletion}%</div>
+            <div className="text-2xl font-bold text-white" data-testid="profile-completion">{profileCompletion}%</div>
             <div className="mt-2 w-full h-2 bg-gray-800/10 rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-primary-blue to-accent-green transition-all duration-700 ease-out"

@@ -131,10 +131,11 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
           <button
             onClick={onClose}
             className="absolute top-4 right-4 text-gray-400 hover:text-gray-400 transition-colors"
+            data-testid="close-auth-modal"
           >
             <X size={24} />
           </button>
-          <h2 className="text-3xl font-black text-white tracking-tight">
+          <h2 className="text-3xl font-black text-white tracking-tight" data-testid="auth-modal-title">
             {mode === 'login' ? t('auth.login') : t('auth.signup')}
           </h2>
           <p className="text-sm text-gray-400 mt-2 font-medium">
@@ -145,7 +146,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm animate-shake">
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm animate-shake" data-testid="auth-error-message">
               {error}
             </div>
           )}
@@ -169,6 +170,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                     pattern="[a-zA-Z0-9_]+"
                     disabled={isSubmitting}
                     required
+                    data-testid="username-input"
                   />
                 </div>
                 <p className="text-xs text-gray-400 mt-1">
@@ -189,6 +191,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                     placeholder={t('auth.namePlaceholder')}
                     disabled={isSubmitting}
                     required
+                    data-testid="name-input"
                   />
                 </div>
               </div>
@@ -209,6 +212,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                 placeholder={t('auth.emailPlaceholder')}
                 disabled={isSubmitting}
                 required
+                data-testid="email-input"
               />
             </div>
           </div>
@@ -227,11 +231,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                 placeholder={t('auth.passwordPlaceholder')}
                 disabled={isSubmitting}
                 required
+                data-testid="password-input"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-400 transition-colors"
+                data-testid="toggle-password-visibility"
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
@@ -267,6 +273,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
             disabled={isSubmitting}
             isLoading={isSubmitting}
             className="w-full"
+            data-testid="auth-submit-button"
           >
             {mode === 'login' ? 'Log in' : 'Sign up'}
           </FollowButton>
@@ -286,6 +293,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                 <button
                   onClick={() => setMode('signup')}
                   className="text-primary-cyan hover:text-primary-blue font-semibold transition-colors"
+                  data-testid="auth-mode-toggle"
                 >
                   {t('auth.signup')}
                 </button>
@@ -296,6 +304,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                 <button
                   onClick={() => setMode('login')}
                   className="text-primary-cyan hover:text-primary-blue font-semibold transition-colors"
+                  data-testid="auth-mode-toggle"
                 >
                   {t('auth.login')}
                 </button>

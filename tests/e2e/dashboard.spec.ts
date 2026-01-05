@@ -1,7 +1,14 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { DashboardPage } from '../pages/DashboardPage';
-import { TEST_USERS, clearStorage } from '../utils/testHelpers';
+import { clearStorage } from '../utils/testHelpers';
+
+const TEST_USERS = {
+  user: {
+    email: 'test99@gmail.com',
+    password: 'test123456'
+  }
+};
 
 test.describe('Dashboard', () => {
   test.beforeEach(async ({ page }) => {
