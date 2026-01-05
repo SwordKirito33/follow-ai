@@ -1,0 +1,365 @@
+{
+  "config": {
+    "configFile": "/home/ubuntu/follow-ai-source/follow.ai/playwright.config.ts",
+    "rootDir": "/home/ubuntu/follow-ai-source/follow.ai/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results/junit.xml"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/ubuntu/follow-ai-source/follow.ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/ubuntu/follow-ai-source/follow.ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts",
+          "**/debug/**/*.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/ubuntu/follow-ai-source/follow.ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/home/ubuntu/follow-ai-source/follow.ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts",
+          "**/debug/**/*.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/ubuntu/follow-ai-source/follow.ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/home/ubuntu/follow-ai-source/follow.ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts",
+          "**/debug/**/*.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/ubuntu/follow-ai-source/follow.ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "/home/ubuntu/follow-ai-source/follow.ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts",
+          "**/debug/**/*.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/ubuntu/follow-ai-source/follow.ai/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "/home/ubuntu/follow-ai-source/follow.ai/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts",
+          "**/debug/**/*.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 4,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:5173",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "debug/check-login-flow.ts",
+      "file": "debug/check-login-flow.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Debug: Check login flow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20466,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "================================================================================\n"
+                    },
+                    {
+                      "text": "DEBUG: Checking login flow on follow-ai.com\n"
+                    },
+                    {
+                      "text": "================================================================================\n"
+                    },
+                    {
+                      "text": "\n1. Visiting homepage...\n"
+                    },
+                    {
+                      "text": "✅ Screenshot saved: debug-screenshots/01-homepage.png\n"
+                    },
+                    {
+                      "text": "\n2. Finding all buttons...\n"
+                    },
+                    {
+                      "text": "Total buttons found: 21\n"
+                    },
+                    {
+                      "text": "  Button 0: \"Inter\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 1: \"🇺🇸 English🇺🇸\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 2: \"Log in\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 3: \"Sign up\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 4: \"\" (visible: false, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 5: \"All\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 6: \"Coding\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 7: \"Design\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 8: \"24 Likes\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 9: \"Reply\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 10: \"18 Likes\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 11: \"Reply\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 12: \"42 Likes\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 13: \"Reply\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 14: \"Subscribe\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 15: \"🔔 Notify\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 16: \"Preview\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 17: \"🔔 Notify\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 18: \"Preview\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Button 19: \"🔔 Notify\" (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "\n3. Finding all links...\n"
+                    },
+                    {
+                      "text": "Total links found: 33\n"
+                    },
+                    {
+                      "text": "  Link 0: \"FFollow-ai\" -> #/ (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 1: \"Browse Tools\" -> #/rankings (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 2: \"Earn Money\" -> #/tasks (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 3: \"Leaderboard\" -> #/leaderboard (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 4: \"Hire\" -> #/hire (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 5: \"Start Earning\" -> #/submit (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 6: \"Browse Tools\" -> #/tasks (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 7: \"Start earning with your AI outputs\" -> #/submit (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 8: \"Review & Earn $50\" -> #/tool/cursor (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 9: \"Review & Earn $45\" -> #/tool/claude (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 10: \"Review & Earn $40\" -> #/tool/midjourney (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 11: \"View rankings →\" -> #/rankings (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 12: \"💻🔥 TrendingAI Coding127 tools • 1,240 reviews\" -> #/rankings (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 13: \"🎨📈 GrowingImage Generation89 tools • 980 reviews\" -> #/rankings (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 14: \"✍️AI Writing156 tools • 1,450 reviews\" -> #/rankings (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 15: \"🎬🚀 NewVideo Generation45 tools • 520 reviews\" -> #/rankings (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 16: \"🎵Audio & Voice67 tools • 640 reviews\" -> #/rankings (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 17: \"📊Data & Analytics72 tools • 810 reviews\" -> #/rankings (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 18: \"View All\" -> #/news (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "  Link 19: \"View Tasks\" -> #/tasks (visible: true, data-testid: none)\n"
+                    },
+                    {
+                      "text": "\n4. Trying to find login button...\n"
+                    },
+                    {
+                      "text": "\n5. Trying to open login modal...\n"
+                    },
+                    {
+                      "text": "\n7. Waiting 10 seconds for manual inspection...\n"
+                    },
+                    {
+                      "text": "\n================================================================================\n"
+                    },
+                    {
+                      "text": "DEBUG: Check complete\n"
+                    },
+                    {
+                      "text": "================================================================================\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-01-05T12:35:54.032Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f7ddd1df73e18b89af98-960482f473cff9e9d993",
+          "file": "debug/check-login-flow.ts",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-01-05T12:35:52.212Z",
+    "duration": 22492.764,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -17,12 +17,33 @@ export class DashboardPage {
 
   /**
    * Check if dashboard is loaded
+   * Uses multiple indicators to ensure dashboard is ready
    */
   async isDashboardLoaded(): Promise<boolean> {
     try {
+      // Wait for dashboard container
       await this.page.waitForSelector('[data-testid="dashboard-container"]', { timeout: 10000 });
+      
+      // Wait for at least one key element to be visible
+      await Promise.race([
+        this.page.waitForSelector('[data-testid="user-xp"]', { timeout: 5000 }),
+        this.page.waitForSelector('[data-testid="user-level"]', { timeout: 5000 }),
+        this.page.waitForSelector('[data-testid="welcome-message"]', { timeout: 5000 }),
+      ]);
+      
+      // Wait for network to settle
+      await this.page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {
+        console.log('[DashboardPage] Network did not settle, but dashboard is visible');
+      });
+      
+      console.log('[DashboardPage] ✅ Dashboard loaded');
       return true;
-    } catch {
+    } catch (error) {
+      console.log('[DashboardPage] ❌ Dashboard not loaded:', error);
+      
+      // Take screenshot for debugging
+      await this.page.screenshot({ path: 'debug-screenshots/dashboard-not-loaded.png', fullPage: true });
+      
       return false;
     }
   }

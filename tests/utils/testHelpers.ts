@@ -149,14 +149,28 @@ export async function waitForToast(page: Page, message: string, timeout = 5000) 
 }
 
 /**
- * Clear all storage
+ * Clear all storage (cookies, localStorage, sessionStorage)
+ * Uses context API to avoid SecurityError with CORS
  */
 export async function clearStorage(page: Page) {
-  await page.context().clearCookies();
-  await page.evaluate(() => {
-    localStorage.clear();
-    sessionStorage.clear();
-  });
+  try {
+    // Clear cookies using context API (recommended, not affected by CORS)
+    await page.context().clearCookies();
+    
+    // Try to clear storage, but don't fail if not accessible
+    await page.evaluate(() => {
+      try {
+        localStorage.clear();
+        sessionStorage.clear();
+      } catch (e) {
+        // Storage not accessible due to CORS, ignore
+        console.log('Storage not accessible:', e);
+      }
+    });
+  } catch (error) {
+    console.error('Failed to clear storage:', error);
+    // Don't throw error, just log it
+  }
 }
 
 /**

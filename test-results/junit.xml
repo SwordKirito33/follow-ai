@@ -1,0 +1,71 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="22.492763999999998">
+<testsuite name="debug/check-login-flow.ts" timestamp="2026-01-05T12:35:53.127Z" hostname="chromium" tests="1" failures="0" skipped="0" time="20.466" errors="0">
+<testcase name="Debug: Check login flow" classname="debug/check-login-flow.ts" time="20.466">
+<system-out>
+<![CDATA[================================================================================
+DEBUG: Checking login flow on follow-ai.com
+================================================================================
+
+1. Visiting homepage...
+✅ Screenshot saved: debug-screenshots/01-homepage.png
+
+2. Finding all buttons...
+Total buttons found: 21
+  Button 0: "Inter" (visible: true, data-testid: none)
+  Button 1: "🇺🇸 English🇺🇸" (visible: true, data-testid: none)
+  Button 2: "Log in" (visible: true, data-testid: none)
+  Button 3: "Sign up" (visible: true, data-testid: none)
+  Button 4: "" (visible: false, data-testid: none)
+  Button 5: "All" (visible: true, data-testid: none)
+  Button 6: "Coding" (visible: true, data-testid: none)
+  Button 7: "Design" (visible: true, data-testid: none)
+  Button 8: "24 Likes" (visible: true, data-testid: none)
+  Button 9: "Reply" (visible: true, data-testid: none)
+  Button 10: "18 Likes" (visible: true, data-testid: none)
+  Button 11: "Reply" (visible: true, data-testid: none)
+  Button 12: "42 Likes" (visible: true, data-testid: none)
+  Button 13: "Reply" (visible: true, data-testid: none)
+  Button 14: "Subscribe" (visible: true, data-testid: none)
+  Button 15: "🔔 Notify" (visible: true, data-testid: none)
+  Button 16: "Preview" (visible: true, data-testid: none)
+  Button 17: "🔔 Notify" (visible: true, data-testid: none)
+  Button 18: "Preview" (visible: true, data-testid: none)
+  Button 19: "🔔 Notify" (visible: true, data-testid: none)
+
+3. Finding all links...
+Total links found: 33
+  Link 0: "FFollow-ai" -> #/ (visible: true, data-testid: none)
+  Link 1: "Browse Tools" -> #/rankings (visible: true, data-testid: none)
+  Link 2: "Earn Money" -> #/tasks (visible: true, data-testid: none)
+  Link 3: "Leaderboard" -> #/leaderboard (visible: true, data-testid: none)
+  Link 4: "Hire" -> #/hire (visible: true, data-testid: none)
+  Link 5: "Start Earning" -> #/submit (visible: true, data-testid: none)
+  Link 6: "Browse Tools" -> #/tasks (visible: true, data-testid: none)
+  Link 7: "Start earning with your AI outputs" -> #/submit (visible: true, data-testid: none)
+  Link 8: "Review & Earn $50" -> #/tool/cursor (visible: true, data-testid: none)
+  Link 9: "Review & Earn $45" -> #/tool/claude (visible: true, data-testid: none)
+  Link 10: "Review & Earn $40" -> #/tool/midjourney (visible: true, data-testid: none)
+  Link 11: "View rankings →" -> #/rankings (visible: true, data-testid: none)
+  Link 12: "💻🔥 TrendingAI Coding127 tools • 1,240 reviews" -> #/rankings (visible: true, data-testid: none)
+  Link 13: "🎨📈 GrowingImage Generation89 tools • 980 reviews" -> #/rankings (visible: true, data-testid: none)
+  Link 14: "✍️AI Writing156 tools • 1,450 reviews" -> #/rankings (visible: true, data-testid: none)
+  Link 15: "🎬🚀 NewVideo Generation45 tools • 520 reviews" -> #/rankings (visible: true, data-testid: none)
+  Link 16: "🎵Audio & Voice67 tools • 640 reviews" -> #/rankings (visible: true, data-testid: none)
+  Link 17: "📊Data & Analytics72 tools • 810 reviews" -> #/rankings (visible: true, data-testid: none)
+  Link 18: "View All" -> #/news (visible: true, data-testid: none)
+  Link 19: "View Tasks" -> #/tasks (visible: true, data-testid: none)
+
+4. Trying to find login button...
+
+5. Trying to open login modal...
+
+7. Waiting 10 seconds for manual inspection...
+
+================================================================================
+DEBUG: Check complete
+================================================================================
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

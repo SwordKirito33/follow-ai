@@ -5,7 +5,8 @@ import { defineConfig, devices } from '@playwright/test';
  * Defines test settings, browsers, and execution parameters
  */
 export default defineConfig({
-  testDir: './tests/e2e',
+  testDir: './tests',
+  testMatch: ['**/*.spec.ts', '**/debug/**/*.ts'],
   
   // Test execution settings
   fullyParallel: true,
