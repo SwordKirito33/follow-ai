@@ -9,6 +9,7 @@ import AuthModal from '@/components/AuthModal';
 import ProfileTabs from '@/components/ProfileTabs';
 import FollowButton from '@/components/ui/follow-button';
 import { Award, DollarSign, Star, LogOut, Edit, Trophy } from 'lucide-react';
+import { toast } from '@/lib/toast';
 import LazyImage from '@/components/LazyImage';
 import { calculateProfileCompletion } from '@/lib/xp-system';
 import { getLevelFromXp } from '@/lib/xp-system';
@@ -65,10 +66,9 @@ const Profile: React.FC = () => {
   const displayReviews = userReviews.length > 0 ? userReviews : REVIEWS.slice(0, 1);
 
   const handleLogout = () => {
-    if (window.confirm(t('auth.logoutConfirm'))) {
-      logout();
-      navigate('/');
-    }
+    logout();
+    toast.success('Logged out successfully');
+    navigate('/');
   };
 
   // Calculate level info using the new level calculation

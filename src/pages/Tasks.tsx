@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Zap, ArrowRight, Filter, Briefcase, AlertCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
-import { useToast } from '@/components/ui/toast';
+import { toast } from '@/lib/toast';
 import FollowButton from '@/components/ui/follow-button';
 import Badge from '@/components/ui/Badge';
 import { supabase } from '@/lib/supabase';
@@ -24,11 +24,12 @@ const Tasks: React.FC = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
   const { user, isLoading: authLoading } = useAuth();
-  const toast = useToast();
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   // Fetch tasks from Supabase
   useEffect(() => {
@@ -69,9 +70,14 @@ const Tasks: React.FC = () => {
         
         console.log('Tasks loaded:', availableTasks);
         setTasks(availableTasks);
+        setCurrentPage(1);
       } catch (err) {
         console.error('Failed to load tasks:', err);
-        setError('Failed to load tasks');
+        const errorMsg = err instanceof Error ? err.message : 'Failed to load tasks';
+        setError(errorMsg);
+        toast.error('Failed to load tasks', {
+          description: errorMsg,
+        });
       } finally {
         setLoading(false);
       }
@@ -91,6 +97,11 @@ const Tasks: React.FC = () => {
     }
     return tasks.filter(task => task.difficulty === selectedDifficulty);
   }, [tasks, selectedDifficulty]);
+
+  // Pagination
+  const totalPages = Math.ceil(filteredTasks.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedTasks = filteredTasks.slice(startIndex, startIndex + itemsPerPage);
 
   const handleStartTask = (task: Task) => {
     navigate(`/task/${task.id}/submit`);
@@ -216,7 +227,7 @@ const Tasks: React.FC = () => {
               </p>
             </div>
           ) : (
-            filteredTasks.map((task, idx) => {
+            paginatedTasks.map((task, idx) => {
               return (
                 <div
                   key={task.id}
@@ -263,6 +274,43 @@ const Tasks: React.FC = () => {
                 </div>
               );
             })
+          )}
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-4 mt-8 pb-8">
+              <button
+                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                disabled={currentPage === 1}
+                className="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium transition-colors"
+              >
+                {t('common.previous') || 'Previous'}
+              </button>
+              
+              <div className="flex items-center gap-2">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`w-10 h-10 rounded-lg font-medium transition-all ${
+                      currentPage === page
+                        ? 'bg-gradient-to-r from-primary-cyan to-primary-blue text-white'
+                        : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium transition-colors"
+              >
+                {t('common.next') || 'Next'}
+              </button>
+            </div>
           )}
         </div>
       </div>

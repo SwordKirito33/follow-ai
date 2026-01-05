@@ -5,7 +5,7 @@ import { supabase } from '@/lib/supabase';
 import { validateExperienceText, countCharacters } from '@/lib/validation';
 import { MIN_EXPERIENCE_CHARS } from '@/lib/constants';
 import { useAuth } from '@/contexts/AuthContext';
-import { useToast } from '@/components/ui/toast';
+import { toast } from '@/lib/toast';
 import { grantXp } from '@/lib/xp-service';
 import FollowButton from '@/components/ui/follow-button';
 import { UploadCloud, AlertCircle, Loader2, CheckCircle } from 'lucide-react';
@@ -16,7 +16,6 @@ export default function TaskSubmit() {
   const { taskId } = useParams<{ taskId: string }>();
   const navigate = useNavigate();
   const { user, isAuthenticated, isLoading, refreshProfile, notifyXpAction } = useAuth();
-  const { toast } = useToast();
   
   const [loading, setLoading] = useState(false);
   const [task, setTask] = useState<any>(null);
@@ -50,20 +49,16 @@ export default function TaskSubmit() {
     
     // ✅ Only check user after loading is done
     if (!isAuthenticated || !user) {
-      toast({
-        title: 'Login Required',
+      toast.error('Login Required', {
         description: 'Please log in to submit a task.',
-        variant: 'destructive',
       });
       navigate('/#/');
       return;
     }
 
     if (!taskId) {
-      toast({
-        title: 'Invalid Task',
+      toast.error('Invalid Task', {
         description: 'Task ID is missing.',
-        variant: 'destructive',
       });
       navigate('/#/tasks');
       return;
@@ -191,12 +186,16 @@ export default function TaskSubmit() {
         notifyXpAction('task', finalXpReward, 'task_submission', submissionId, `Completed task: ${task.title}`);
         
         // Success!
-        alert(`🎉 Success! You earned +${finalXpReward} XP!\n\nYour submission is pending review.`);
+        toast.success(`Success! You earned +${finalXpReward} XP!`, {
+          description: 'Your submission is pending review.',
+        });
       } catch (xpError: any) {
         console.error('XP award failed:', xpError);
         // Don't throw - submission succeeded, XP is optional
         console.warn('Submission succeeded but XP award failed');
-        alert(`✅ Submission successful! XP award failed: ${xpError.message}`);
+        toast.warning('Submission successful but XP award failed', {
+          description: xpError.message,
+        });
       }
 
       // Navigate without page reload
@@ -204,7 +203,9 @@ export default function TaskSubmit() {
       
     } catch (error: any) {
       console.error('Submission failed:', error);
-      alert(`Submission failed:\n${error.message}\n\nCheck console for details.`);
+      toast.error('Submission failed', {
+        description: error.message || 'An unexpected error occurred. Check console for details.',
+      });
     } finally {
       setLoading(false);
     }
