@@ -10,7 +10,17 @@
     "type-check": "tsc --noEmit",
     "check-imports": "grep -r \"from ['\\\"]\\.\\.\" src/ pages/ || echo 'All imports use @ alias ✅'",
     "health-check": "npm run type-check && npm run check-imports",
-    "generate-tasks": "tsx scripts/generate-all-tasks.ts"
+    "generate-tasks": "tsx scripts/generate-all-tasks.ts",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:headed": "playwright test --headed",
+    "test:auth": "playwright test tests/e2e/auth.spec.ts",
+    "test:dashboard": "playwright test tests/e2e/dashboard.spec.ts",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
     "@sentry/react": "^10.32.1",
@@ -34,10 +44,12 @@
     "zustand": "^5.0.9"
   },
   "devDependencies": {
+    "@playwright/test": "^1.48.2",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "dotenv": "^16.4.5",
     "supabase": "^2.70.5",
-    "terser": "^5.44.1",
+    "terser": "^5.36.0",
     "tsx": "^4.7.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
