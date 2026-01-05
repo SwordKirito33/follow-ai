@@ -33,26 +33,13 @@ export function initSentry() {
     integrations: [
       new BrowserTracing({
         // Set sampling rate for performance monitoring
-        tracePropagationTargets: ['localhost', /^\//],
-        routingInstrumentation: Sentry.reactRouterV6Instrumentation(
-          window.history
-        ),
-      }),
-      new Sentry.Replay({
-        // Capture 10% of all sessions
-        maskAllText: true,
-        blockAllMedia: true,
+        tracePropagationTargets: ['localhost', /^\/$/],
       }),
     ],
 
     // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring
     // We recommend adjusting this value in production
     tracesSampleRate: isDev ? 1.0 : 0.1,
-
-    // Capture Replay for 10% of all sessions,
-    // plus 100% of sessions with an error
-    replaysSessionSampleRate: 0.1,
-    replaysOnErrorSampleRate: 1.0,
 
     // Additional configuration
     beforeSend(event, hint) {
@@ -171,11 +158,18 @@ export function addBreadcrumb(
 export function startTransaction(
   name: string,
   op: string = 'http.request'
-): Sentry.Transaction | null {
-  return Sentry.startTransaction({
-    name,
-    op,
-  });
+): any {
+  // Note: startTransaction API may not be available in newer Sentry versions
+  // Use captureMessage or other APIs instead
+  try {
+    return (Sentry as any).startTransaction?.({
+      name,
+      op,
+    }) || null;
+  } catch (error) {
+    console.warn('startTransaction not available:', error);
+    return null;
+  }
 }
 
 export default Sentry;
