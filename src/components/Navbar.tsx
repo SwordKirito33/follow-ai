@@ -200,6 +200,7 @@ const Navbar: React.FC = () => {
                 onClick={handleLoginClick}
                 variant="ghost"
                 size="md"
+                data-testid="login-button"
               >
                 {t('nav.login')}
               </FollowButton>
@@ -280,6 +281,7 @@ const Navbar: React.FC = () => {
                 variant="ghost"
                 size="md"
                 className="w-full"
+                data-testid="login-button"
               >
                 Log in
               </FollowButton>
