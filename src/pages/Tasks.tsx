@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Zap, ArrowRight, Filter, Briefcase, AlertCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -8,6 +8,7 @@ import FollowButton from '@/components/ui/follow-button';
 import Badge from '@/components/ui/Badge';
 import { supabase } from '@/lib/supabase';
 import { getLevelInfo } from '@/lib/level-calculation';
+import { useTasksList } from '@/hooks/useApiQuery';
 
 // Simple task interface matching our actual DB schema
 interface Task {
@@ -25,66 +26,22 @@ const Tasks: React.FC = () => {
   const navigate = useNavigate();
   const { user, isLoading: authLoading } = useAuth();
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  // Fetch tasks from Supabase
-  useEffect(() => {
-    async function loadTasks() {
-      try {
-        setLoading(true);
-        setError(null);
-        console.log('Fetching tasks from Supabase...');
+  // React Query hook
+  const { data: tasksData, isLoading, error } = useTasksList({
+    status: 'active',
+    limit: 100,
+  });
 
-        // 1. 获取所有激活任务
-        const { data: allTasks, error: fetchError } = await supabase
-          .from('tasks')
-          .select('*')
-          .eq('status', 'active')
-          .order('xp_reward', { ascending: true });
+  // Filter out completed tasks
+  const tasks = useMemo(() => {
+    if (!tasksData) return [];
+    return tasksData;
+  }, [tasksData]);
 
-        if (fetchError) {
-          console.error('Error fetching tasks:', fetchError);
-          setError(fetchError.message);
-          return;
-        }
 
-        // 2. 获取当前用户已完成的任务 ID
-        let completedIds = new Set<string>();
-        if (user) {
-          const { data: subs } = await supabase
-            .from('task_submissions')
-            .select('task_id')
-            .eq('user_id', user.id);
-          
-          if (subs) {
-            subs.forEach((s: { task_id: string }) => completedIds.add(s.task_id));
-          }
-        }
-
-        // 3. 过滤：只显示未完成的任务
-        const availableTasks = (allTasks || []).filter(t => !completedIds.has(t.id));
-        
-        console.log('Tasks loaded:', availableTasks);
-        setTasks(availableTasks);
-        setCurrentPage(1);
-      } catch (err) {
-        console.error('Failed to load tasks:', err);
-        const errorMsg = err instanceof Error ? err.message : 'Failed to load tasks';
-        setError(errorMsg);
-        toast.error('Failed to load tasks', {
-          description: errorMsg,
-        });
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadTasks();
-  }, [user]);
 
   // Calculate user stats using unified algorithm
   const userXp = user?.profile?.total_xp ?? 0;
@@ -93,27 +50,69 @@ const Tasks: React.FC = () => {
   // Filter tasks by difficulty
   const filteredTasks = useMemo(() => {
     if (selectedDifficulty === 'all') {
-      return tasks;
+      return tasks || [];
     }
-    return tasks.filter(task => task.difficulty === selectedDifficulty);
+    return (tasks || []).filter((task: any) => task.difficulty === selectedDifficulty);
   }, [tasks, selectedDifficulty]);
 
   // Pagination
   const totalPages = Math.ceil(filteredTasks.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedTasks = filteredTasks.slice(startIndex, startIndex + itemsPerPage);
+  const paginatedTasks = (filteredTasks || []).slice(startIndex, startIndex + itemsPerPage);
 
-  const handleStartTask = (task: Task) => {
+  // Show empty state if no tasks
+  if (filteredTasks.length === 0 && !isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center max-w-md mx-auto p-8">
+          <Briefcase className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+          <h2 className="text-3xl font-black text-white mb-4">No Tasks Available</h2>
+          <p className="text-gray-400 mb-6">Check back later for new tasks!</p>
+          <FollowButton
+            to="/"
+            as="link"
+            variant="primary"
+            size="lg"
+          >
+            {t('tasksPage.goHome')}
+          </FollowButton>
+        </div>
+      </div>
+    );
+  }
+
+  const handleStartTask = (task: any) => {
     navigate(`/task/${task.id}/submit`);
   };
 
-  // Show loading while auth is initializing
-  if (authLoading) {
+  // Show loading while auth or tasks are loading
+  if (authLoading || isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-400">{t('common.loading')}</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show error if tasks failed to load
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center max-w-md mx-auto p-8">
+          <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+          <h2 className="text-3xl font-black text-white mb-4">Error Loading Tasks</h2>
+          <p className="text-gray-400 mb-6">{error.message}</p>
+          <FollowButton
+            to="/"
+            as="link"
+            variant="primary"
+            size="lg"
+          >
+            {t('tasksPage.goHome')}
+          </FollowButton>
         </div>
       </div>
     );

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
+import { useUserProfile, useUserXpHistory, useUserAchievements } from '@/hooks/useApiQuery';
+import { useUpdateUserProfile } from '@/hooks/useApiMutation';
 import { REVIEWS } from '@/data';
 import ReviewCard from '@/components/ReviewCard';
 import EditProfileModal from '@/components/EditProfileModal';
@@ -26,8 +28,14 @@ const Profile: React.FC = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
 
+  // React Query hooks
+  const { data: profileData, isLoading: profileLoading } = useUserProfile(user?.id || '', !!user?.id);
+  const { data: xpHistory, isLoading: xpHistoryLoading } = useUserXpHistory(user?.id || '', !!user?.id);
+  const { data: achievements, isLoading: achievementsLoading } = useUserAchievements(user?.id || '', !!user?.id);
+  const { mutate: updateProfile } = useUpdateUserProfile();
+
   // 🔥 CRITICAL: Wait for loading first
-  if (isLoading) {
+  if (isLoading || profileLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -69,6 +77,14 @@ const Profile: React.FC = () => {
     logout();
     toast.success('Logged out successfully');
     navigate('/');
+  };
+
+  const handleProfileUpdate = async (updates: any) => {
+    updateProfile(updates, {
+      onSuccess: () => {
+        setShowEditModal(false);
+      },
+    });
   };
 
   // Calculate level info using the new level calculation
@@ -129,10 +145,10 @@ const Profile: React.FC = () => {
         />
 
         {/* Badges Grid */}
-        <BadgeGrid badges={badges} />
+        {achievements && <BadgeGrid badges={badges} />}
 
         {/* XP History */}
-        <XPHistory userId={user.id} limit={50} />
+        {xpHistory && <XPHistory userId={user.id} limit={50} />}
 
         {/* Profile Tabs (Optional - keep for backward compatibility) */}
         <div className="glass-card rounded-xl shadow-xl p-8 mb-8 mt-8">
@@ -161,9 +177,7 @@ const Profile: React.FC = () => {
                 badges: badges.filter(b => b.unlocked).map(b => b.id),
               },
             }}
-            onUpdate={async (updates) => {
-              await updateUser(updates);
-            }}
+            onUpdate={handleProfileUpdate}
           />
         </div>
       </div>
@@ -172,6 +186,7 @@ const Profile: React.FC = () => {
       <EditProfileModal
         isOpen={showEditModal}
         onClose={() => setShowEditModal(false)}
+        onSave={handleProfileUpdate}
       />
     </div>
   );

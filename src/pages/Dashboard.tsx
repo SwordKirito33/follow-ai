@@ -7,13 +7,17 @@ import FollowButton from '@/components/ui/follow-button';
 import Badge from '@/components/ui/Badge';
 import { getLevelInfo } from '@/lib/level-calculation';
 import { canAccessFeature } from '@/lib/xp-system';
+import { useUserStats } from '@/hooks/useApiQuery';
 
 const Dashboard: React.FC = () => {
   const { t } = useLanguage();
   const { user, isLoading } = useAuth();
 
+  // React Query hooks
+  const { data: stats, isLoading: statsLoading } = useUserStats(user?.id || '', !!user?.id);
+
   // 🔥 CRITICAL: Wait for loading first
-  if (isLoading) {
+  if (isLoading || statsLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
