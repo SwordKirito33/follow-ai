@@ -1,9 +1,12 @@
 import React, { useEffect, lazy, Suspense, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { AuthProvider, useAuth } from '@/contexts/AuthContext';
 import { ToastProvider } from '@/components/ui/toast';
+import { queryClient } from '@/lib/queryClient';
 import XpEventRenderer from '@/components/XpEventRenderer';
 import Navbar from '@/components/Navbar';
 import VisitTracker from '@/components/VisitTracker';
@@ -157,15 +160,18 @@ const AppContent: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <LanguageProvider>
-      <AuthProvider>
-        <ToastProvider>
-          <Router>
-            <AppContent />
-          </Router>
-        </ToastProvider>
-      </AuthProvider>
-    </LanguageProvider>
+    <QueryClientProvider client={queryClient}>
+      <LanguageProvider>
+        <AuthProvider>
+          <ToastProvider>
+            <Router>
+              <AppContent />
+            </Router>
+          </ToastProvider>
+        </AuthProvider>
+      </LanguageProvider>
+      {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}
+    </QueryClientProvider>
   );
 };
 
