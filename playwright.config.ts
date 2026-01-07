@@ -3,7 +3,16 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * Playwright Configuration
  * Defines test settings, browsers, and execution parameters
+ * 
+ * Usage:
+ * - Local dev server: npm test
+ * - Production: PLAYWRIGHT_TEST_BASE_URL=https://www.follow-ai.com npm test
  */
+
+// Check if we're testing against production
+const isProduction = !!process.env.PLAYWRIGHT_TEST_BASE_URL;
+const baseURL = process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:5173';
+
 export default defineConfig({
   testDir: './tests',
   testMatch: ['**/*.spec.ts', '**/debug/**/*.ts'],
@@ -14,10 +23,10 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : 4,
   
-  // Timeout settings
-  timeout: 30 * 1000, // 30 seconds per test
+  // Timeout settings - longer for production
+  timeout: isProduction ? 60 * 1000 : 30 * 1000, // 60s for production, 30s for local
   expect: {
-    timeout: 5 * 1000, // 5 seconds for assertions
+    timeout: isProduction ? 10 * 1000 : 5 * 1000, // 10s for production, 5s for local
   },
   
   // Reporter configuration
@@ -30,7 +39,7 @@ export default defineConfig({
   
   // Global test settings
   use: {
-    baseURL: 'http://localhost:5173',
+    baseURL,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -62,11 +71,14 @@ export default defineConfig({
     },
   ],
   
-  // Web server configuration
-  webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:5173',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
-  },
+  // Web server configuration - only for local development
+  // When PLAYWRIGHT_TEST_BASE_URL is set, skip local server
+  ...(isProduction ? {} : {
+    webServer: {
+      command: 'npm run dev',
+      url: 'http://localhost:5173',
+      reuseExistingServer: !process.env.CI,
+      timeout: 120 * 1000,
+    },
+  }),
 });

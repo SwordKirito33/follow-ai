@@ -1,0 +1,169 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "Follow-ai" [ref=e6] [cursor=pointer]:
+        - /url: "#/"
+        - generic [ref=e7]:
+          - img [ref=e8]:
+            - generic [ref=e11]: F
+          - generic [ref=e12]: Follow-ai
+      - generic [ref=e13]:
+        - link "Browse Tools" [ref=e14] [cursor=pointer]:
+          - /url: "#/rankings"
+        - link "Earn Money" [ref=e15] [cursor=pointer]:
+          - /url: "#/tasks"
+        - link "Leaderboard" [ref=e16] [cursor=pointer]:
+          - /url: "#/leaderboard"
+        - link "XP History" [ref=e17] [cursor=pointer]:
+          - /url: "#/xp-history"
+        - link "Wallet" [ref=e18] [cursor=pointer]:
+          - /url: "#/wallet"
+        - link "Hire" [ref=e19] [cursor=pointer]:
+          - /url: "#/hire"
+      - generic [ref=e20]:
+        - button "Font settings" [ref=e22] [cursor=pointer]:
+          - img [ref=e23]
+          - generic [ref=e25]: Inter
+          - img [ref=e26]
+        - button "Select Language" [ref=e29] [cursor=pointer]:
+          - img [ref=e30]
+          - generic [ref=e33]: 🇺🇸 English
+          - img [ref=e34]
+        - button "3" [ref=e36] [cursor=pointer]:
+          - img [ref=e37]
+          - generic [ref=e40]: "3"
+        - link "Submit Output" [ref=e41] [cursor=pointer]:
+          - /url: "#/submit"
+          - generic [ref=e42]: Submit Output
+        - link "Dashboard" [ref=e43] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e44]
+          - generic [ref=e47]: Dashboard
+        - link "Profile" [ref=e48] [cursor=pointer]:
+          - /url: "#/profile"
+          - img [ref=e49]
+          - generic [ref=e52]: Profile
+  - main [ref=e53]:
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - heading "Dashboard" [level=1] [ref=e58]
+        - paragraph [ref=e59]: Welcome back, test99!
+      - generic [ref=e60]:
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - img [ref=e64]
+            - generic [ref=e67]: Level 5
+          - generic [ref=e69]:
+            - generic [ref=e70]: XP Progress
+            - generic [ref=e71]: 2250 to next
+          - generic [ref=e74]: 1,350 XP
+        - generic [ref=e75]:
+          - img [ref=e78]
+          - generic [ref=e80]: Total Earnings
+          - generic [ref=e81]: $0
+        - generic [ref=e82]:
+          - img [ref=e85]
+          - generic [ref=e88]: Profile Completion
+          - generic [ref=e89]: 0%
+        - generic [ref=e91]:
+          - img [ref=e94]
+          - generic [ref=e96]: Unlocked Features
+          - generic [ref=e97]: "2"
+      - generic [ref=e99]:
+        - img [ref=e101]
+        - generic [ref=e104]:
+          - heading "Complete Your Profile" [level=3] [ref=e105]
+          - paragraph [ref=e106]: Your profile is 0% complete. Reach 60% to unlock paid tasks.
+          - link "Complete profile" [ref=e107] [cursor=pointer]:
+            - /url: "#/profile"
+            - generic [ref=e108]: Complete profile
+            - img [ref=e109]
+      - generic [ref=e111]:
+        - link "Submit Output Submit a new AI tool output for verification" [ref=e112] [cursor=pointer]:
+          - /url: "#/submit"
+          - generic [ref=e113]:
+            - img [ref=e115]
+            - heading "Submit Output" [level=3] [ref=e118]
+          - paragraph [ref=e119]: Submit a new AI tool output for verification
+        - link "Browse Tasks Complete XP challenges to unlock paid tasks" [ref=e120] [cursor=pointer]:
+          - /url: "#/tasks"
+          - generic [ref=e121]:
+            - img [ref=e123]
+            - heading "Browse Tasks" [level=3] [ref=e125]
+          - paragraph [ref=e126]: Complete XP challenges to unlock paid tasks
+        - link "Hire Marketplace Reach Level 3 to access" [ref=e127] [cursor=pointer]:
+          - /url: "#/hire"
+          - generic [ref=e128]:
+            - img [ref=e130]
+            - heading "Hire Marketplace" [level=3] [ref=e133]
+          - paragraph [ref=e134]: Reach Level 3 to access
+      - generic [ref=e135]:
+        - heading "Recent Activity" [level=2] [ref=e136]
+        - generic [ref=e137]:
+          - img [ref=e138]
+          - paragraph [ref=e141]: No recent activity
+          - paragraph [ref=e142]: Start by submitting your first output!
+  - contentinfo [ref=e143]:
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - generic [ref=e147]:
+            - img [ref=e148]:
+              - generic [ref=e151]: F
+            - generic [ref=e152]: Follow-ai
+          - paragraph [ref=e153]: The first AI tool review platform with mandatory real work verification.
+          - generic [ref=e154]:
+            - link "Twitter" [ref=e155] [cursor=pointer]:
+              - /url: https://twitter.com/followai
+              - generic [ref=e156]: Twitter
+              - img [ref=e157]
+            - link "LinkedIn" [ref=e159] [cursor=pointer]:
+              - /url: https://linkedin.com/company/followai
+              - generic [ref=e160]: LinkedIn
+              - img [ref=e161]
+        - generic [ref=e163]:
+          - heading "Product" [level=3] [ref=e164]
+          - list [ref=e165]:
+            - listitem [ref=e166]:
+              - link "Browse Tools" [ref=e167] [cursor=pointer]:
+                - /url: "#/rankings"
+            - listitem [ref=e168]:
+              - link "Earn Money" [ref=e169] [cursor=pointer]:
+                - /url: "#/tasks"
+            - listitem [ref=e170]:
+              - link "Leaderboard" [ref=e171] [cursor=pointer]:
+                - /url: "#/rankings"
+            - listitem [ref=e172]:
+              - link "Submit Output" [ref=e173] [cursor=pointer]:
+                - /url: "#/submit"
+        - generic [ref=e174]:
+          - heading "Company" [level=3] [ref=e175]
+          - list [ref=e176]:
+            - listitem [ref=e177]:
+              - link "About" [ref=e178] [cursor=pointer]:
+                - /url: "#/about"
+            - listitem [ref=e179]:
+              - link "Blog" [ref=e180] [cursor=pointer]:
+                - /url: "#/news"
+            - listitem [ref=e181]:
+              - link "Contact" [ref=e182] [cursor=pointer]:
+                - /url: mailto:hello@follow.ai
+        - generic [ref=e183]:
+          - heading "Legal" [level=3] [ref=e184]
+          - list [ref=e185]:
+            - listitem [ref=e186]:
+              - link "Terms of Service" [ref=e187] [cursor=pointer]:
+                - /url: "#/terms"
+            - listitem [ref=e188]:
+              - link "Privacy Policy" [ref=e189] [cursor=pointer]:
+                - /url: "#/privacy"
+            - listitem [ref=e190]:
+              - link "Cookie Policy" [ref=e191] [cursor=pointer]:
+                - /url: "#/cookie-policy"
+      - generic [ref=e192]:
+        - paragraph [ref=e193]: © 2025 Follow-ai. All rights reserved.
+        - generic [ref=e195]: Made with ❤️ for the AI community
+```
