@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Zap, LogOut, User, Bell, Shield } from 'lucide-react';
+import { Menu, X, Zap, LogOut, User, Bell, Shield, Settings } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase';
@@ -11,6 +11,7 @@ import FollowLogo from './FollowLogo';
 import FollowButton from './ui/follow-button';
 import NotificationCenter from './NotificationCenter';
 import Badge from './ui/Badge';
+import UserAvatar from './UserAvatar';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -184,7 +185,11 @@ const Navbar: React.FC = () => {
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-800 transition-colors"
                 data-testid="user-menu"
               >
-                <User size={18} />
+                <UserAvatar 
+                  src={user?.avatarUrl} 
+                  name={user?.displayName || user?.name} 
+                  size="xs" 
+                />
                 <span className="hidden lg:inline">{t('nav.profile')}</span>
               </Link>
               <Link 
@@ -192,8 +197,17 @@ const Navbar: React.FC = () => {
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-800 transition-colors"
                 data-testid="settings-link"
               >
+                <Settings size={18} />
                 <span className="hidden lg:inline">Settings</span>
               </Link>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-red-400 hover:bg-red-500/10 transition-colors"
+                data-testid="logout-button"
+              >
+                <LogOut size={18} />
+                <span className="hidden lg:inline">Logout</span>
+              </button>
               {isAdmin && (
                 <Link 
                   to="/admin/xp" 

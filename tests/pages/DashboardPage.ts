@@ -156,7 +156,7 @@ export class DashboardPage {
    * Click view all tasks
    */
   async clickViewAllTasks() {
-    await this.page.click('a:has-text("View All Tasks"), button:has-text("View All Tasks")');
+    await this.page.click('[data-testid="view-all-tasks"], a:has-text("View All Tasks"), button:has-text("View All Tasks"), a:has-text("Browse Tasks")');
     await this.page.waitForLoadState('networkidle');
   }
 
@@ -189,8 +189,15 @@ export class DashboardPage {
    * Logout
    */
   async logout() {
-    await this.clickUserMenu();
-    await this.page.click('text=Logout, text=Log out');
+    // Try direct logout button first (desktop)
+    const logoutButton = await this.page.$('[data-testid="logout-button"]');
+    if (logoutButton) {
+      await logoutButton.click();
+    } else {
+      // Fallback to user menu
+      await this.clickUserMenu();
+      await this.page.click('[data-testid="logout-button"], text=Logout, text=Log out');
+    }
     await this.page.waitForLoadState('networkidle');
   }
 

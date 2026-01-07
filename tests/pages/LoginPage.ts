@@ -148,8 +148,9 @@ export class LoginPage {
    */
   async isErrorMessageVisible(): Promise<boolean> {
     try {
-      await this.page.waitForSelector('[data-testid="auth-error-message"]', { timeout: 5000 });
-      return await this.page.isVisible('[data-testid="auth-error-message"]');
+      // Try both old and new data-testid
+      await this.page.waitForSelector('[data-testid="error-message"], [data-testid="auth-error-message"]', { timeout: 5000 });
+      return await this.page.isVisible('[data-testid="error-message"], [data-testid="auth-error-message"]');
     } catch {
       return false;
     }
@@ -226,7 +227,7 @@ export class LoginPage {
         }),
         
         // Failure: Error message appears
-        this.page.waitForSelector('[data-testid="auth-error-message"]', { timeout: 10000 }).then(() => {
+        this.page.waitForSelector('[data-testid="error-message"], [data-testid="auth-error-message"]', { timeout: 10000 }).then(() => {
           console.log('[LoginPage] ⚠️ Error message appeared');
         }),
       ]);
@@ -332,7 +333,8 @@ export class LoginPage {
    */
   async getErrorMessage(): Promise<string | null> {
     try {
-      const errorElement = this.page.locator('[data-testid="auth-error-message"]');
+      // Try both old and new data-testid
+      const errorElement = this.page.locator('[data-testid="error-message"], [data-testid="auth-error-message"]');
       await errorElement.waitFor({ timeout: 5000 });
       return await errorElement.textContent();
     } catch {

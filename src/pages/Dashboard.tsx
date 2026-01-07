@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, DollarSign, FileText, Briefcase, Zap, Award, ArrowRight, CheckCircle } from 'lucide-react';
+import { TrendingUp, DollarSign, FileText, Briefcase, Zap, Award, ArrowRight, CheckCircle, RefreshCw, ListTodo, CheckSquare } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import FollowButton from '@/components/ui/follow-button';
@@ -95,10 +95,62 @@ const Dashboard: React.FC = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <div className="mb-8 animate-slideDown">
-          <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 tracking-tight" data-testid="dashboard-title">
-            {t('dashboardPage.title')}
-          </h1>
-          <p className="text-xl text-gray-300 font-medium" data-testid="welcome-message">{t('dashboardPage.welcomeBack')}, {user.displayName || user.name}!</p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-4xl sm:text-5xl font-black gradient-text mb-2 tracking-tight" data-testid="dashboard-title">
+                {t('dashboardPage.title')}
+              </h1>
+              <p className="text-xl text-gray-300 font-medium" data-testid="welcome-message">{t('dashboardPage.welcomeBack')}, {user.displayName || user.name}!</p>
+            </div>
+            <button
+              onClick={() => window.location.reload()}
+              className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg text-gray-300 hover:text-white transition-colors"
+              data-testid="refresh-dashboard"
+            >
+              <RefreshCw size={18} />
+              <span className="hidden sm:inline">Refresh</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Task Statistics */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div className="glass-card rounded-xl p-4 text-center">
+            <div className="bg-primary-cyan/20 p-2 rounded-lg text-primary-cyan w-fit mx-auto mb-2">
+              <ListTodo size={20} />
+            </div>
+            <div className="text-2xl font-bold text-white" data-testid="active-tasks-count">
+              {stats?.activeTasks ?? 0}
+            </div>
+            <div className="text-xs text-gray-400">Active Tasks</div>
+          </div>
+          <div className="glass-card rounded-xl p-4 text-center">
+            <div className="bg-accent-green/20 p-2 rounded-lg text-accent-green w-fit mx-auto mb-2">
+              <CheckSquare size={20} />
+            </div>
+            <div className="text-2xl font-bold text-white" data-testid="completed-tasks-count">
+              {stats?.completedTasks ?? 0}
+            </div>
+            <div className="text-xs text-gray-400">Completed</div>
+          </div>
+          <div className="glass-card rounded-xl p-4 text-center">
+            <div className="bg-primary-purple/20 p-2 rounded-lg text-primary-purple w-fit mx-auto mb-2">
+              <TrendingUp size={20} />
+            </div>
+            <div className="text-2xl font-bold text-white" data-testid="pending-tasks-count">
+              {stats?.pendingTasks ?? 0}
+            </div>
+            <div className="text-xs text-gray-400">Pending</div>
+          </div>
+          <div className="glass-card rounded-xl p-4 text-center">
+            <div className="bg-accent-gold/20 p-2 rounded-lg text-accent-gold w-fit mx-auto mb-2">
+              <Award size={20} />
+            </div>
+            <div className="text-2xl font-bold text-white" data-testid="total-tasks-count">
+              {(stats?.activeTasks ?? 0) + (stats?.completedTasks ?? 0) + (stats?.pendingTasks ?? 0)}
+            </div>
+            <div className="text-xs text-gray-400">Total Tasks</div>
+          </div>
         </div>
 
         {/* KPI Cards */}
