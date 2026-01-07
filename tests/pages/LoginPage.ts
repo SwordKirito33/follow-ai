@@ -12,6 +12,38 @@ export class LoginPage {
    */
   async goto() {
     await this.page.goto('/');
+    
+    // Wait for page to start loading
+    await this.page.waitForLoadState('domcontentloaded');
+    
+    // Wait for intro animation to complete or skip it
+    // The app has an intro animation that shows a blank screen initially
+    try {
+      // Try to find and click "Skip Intro" button if it exists
+      const skipButton = this.page.locator('button:has-text("Skip Intro"), button:has-text("Skip"), [data-testid="skip-intro"]');
+      if (await skipButton.isVisible({ timeout: 2000 })) {
+        console.log('[LoginPage] Found Skip Intro button, clicking...');
+        await skipButton.click();
+      }
+    } catch (e) {
+      // No skip button, wait for animation to complete
+      console.log('[LoginPage] No Skip Intro button found, waiting for animation...');
+    }
+    
+    // Wait longer for the page to fully render after animation
+    // The app shows a blank blue screen during intro animation
+    await this.page.waitForTimeout(5000);
+    
+    // Wait for any visible element to confirm page is loaded
+    try {
+      await this.page.waitForSelector('nav, header, [data-testid="login-button"], button:has-text("Log in")', { timeout: 10000 });
+      console.log('[LoginPage] ✅ Page content loaded');
+    } catch (e) {
+      console.log('[LoginPage] ⚠️ Page content not found after waiting');
+      await this.page.screenshot({ path: 'debug-screenshots/page-not-loaded.png', fullPage: true });
+    }
+    
+    // Additional wait for network to settle
     await this.page.waitForLoadState('networkidle');
     
     // Try multiple selectors to find login button
