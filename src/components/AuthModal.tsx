@@ -52,6 +52,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
           setIsSubmitting(false);
           return;
         }
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          setError(t('auth.invalidEmail') || 'Please enter a valid email address');
+          setIsSubmitting(false);
+          return;
+        }
         await login(email, password);
         // Wait a bit for auth state to update before closing
         setTimeout(() => {

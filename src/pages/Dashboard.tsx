@@ -102,7 +102,7 @@ const Dashboard: React.FC = () => {
         </div>
 
         {/* KPI Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" data-testid="user-stats">
           {/* Level & XP */}
           <div className="glass-card rounded-xl p-6 transition-all">
             <div className="flex items-center justify-between mb-4">
@@ -205,6 +205,7 @@ const Dashboard: React.FC = () => {
           <Link
             to="/submit"
             className="glass-card rounded-xl p-6 hover:shadow-xl transition-all group"
+            data-testid="create-task-button"
           >
             <div className="flex items-center gap-4 mb-3">
               <div className="bg-primary-blue/20 p-3 rounded-lg text-primary-cyan group-hover:scale-110 transition-transform">
@@ -218,6 +219,7 @@ const Dashboard: React.FC = () => {
           <Link
             to="/tasks"
             className="glass-card rounded-xl p-6 hover:shadow-xl transition-all group"
+            data-testid="view-all-tasks"
           >
             <div className="flex items-center gap-4 mb-3">
               <div className="bg-accent-green/20 p-3 rounded-lg text-accent-green group-hover:scale-110 transition-transform">
@@ -247,7 +249,7 @@ const Dashboard: React.FC = () => {
         </div>
 
         {/* Recent Activity (Placeholder) */}
-        <div className="glass-card rounded-xl p-6">
+        <div className="glass-card rounded-xl p-6" data-testid="recent-activity">
           <h2 className="text-xl font-bold text-white mb-4">{t('dashboardPage.recentActivity')}</h2>
           <div className="text-center py-8 text-gray-400">
             <FileText size={48} className="mx-auto mb-4 opacity-50" />

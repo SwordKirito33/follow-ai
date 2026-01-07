@@ -83,9 +83,9 @@ const Settings: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-8" data-testid="settings-page">
       <div className="container max-w-6xl">
-        <h1 className="text-3xl font-bold text-white dark:text-white mb-8">Settings</h1>
+        <h1 className="text-3xl font-bold text-white dark:text-white mb-8" data-testid="settings-title">Settings</h1>
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar */}

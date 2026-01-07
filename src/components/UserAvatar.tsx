@@ -95,12 +95,14 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
       whileHover={onClick ? { scale: 1.05 } : undefined}
       whileTap={onClick ? { scale: 0.95 } : undefined}
       className={`relative inline-flex items-center justify-center rounded-full overflow-hidden ${sizeClasses[size]} ${className}`}
+      data-testid="user-avatar"
     >
       {src ? (
         <img
           src={src}
           alt={alt}
           className="w-full h-full object-cover"
+          data-testid="user-avatar-image"
           onError={(e) => {
             // Hide broken image and show fallback
             (e.target as HTMLImageElement).style.display = 'none';

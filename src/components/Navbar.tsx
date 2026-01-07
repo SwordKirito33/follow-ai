@@ -152,6 +152,7 @@ const Navbar: React.FC = () => {
                 onClick={() => setShowNotifications(!showNotifications)}
                 className="relative p-2 rounded-lg text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-800 transition-colors"
                 title="Notifications"
+                data-testid="notifications-button"
               >
                 <Bell size={20} />
                 <Badge
@@ -173,6 +174,7 @@ const Navbar: React.FC = () => {
               <Link 
                 to="/dashboard" 
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-800 transition-colors"
+                data-testid="dashboard-link"
               >
                 <User size={18} />
                 <span className="hidden lg:inline">{t('nav.dashboard')}</span>
@@ -180,9 +182,17 @@ const Navbar: React.FC = () => {
               <Link 
                 to="/profile" 
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-800 transition-colors"
+                data-testid="user-menu"
               >
                 <User size={18} />
                 <span className="hidden lg:inline">{t('nav.profile')}</span>
+              </Link>
+              <Link 
+                to="/settings" 
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-300 dark:text-gray-300 hover:bg-gray-800/10 dark:hover:bg-gray-800 transition-colors"
+                data-testid="settings-link"
+              >
+                <span className="hidden lg:inline">Settings</span>
               </Link>
               {isAdmin && (
                 <Link 
@@ -267,6 +277,7 @@ const Navbar: React.FC = () => {
                 size="md"
                 icon={LogOut}
                 className="w-full"
+                data-testid="logout-button"
               >
                 Log out
               </FollowButton>
