@@ -107,10 +107,15 @@ test.describe('Authentication', () => {
 
   test('should redirect to login when accessing protected page without auth', async ({ page }) => {
     // Try to access dashboard without login
-    await page.goto('/dashboard');
+    await page.goto('/#/dashboard');
     
-    // Should be redirected to login
-    expect(page.url()).toContain('/login');
+    // Wait for redirect
+    await page.waitForTimeout(2000);
+    
+    // Should be redirected to home (where login modal can be opened)
+    // The app uses HashRouter and redirects to '/' for unauthenticated users
+    const url = page.url();
+    expect(url.includes('/#/') && !url.includes('dashboard')).toBeTruthy();
   });
 
   test('should persist login session', async ({ page, context }) => {

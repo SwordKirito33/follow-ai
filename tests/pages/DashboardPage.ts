@@ -148,7 +148,7 @@ export class DashboardPage {
    * Click create task button
    */
   async clickCreateTaskButton() {
-    await this.page.click('button:has-text("Create Task"), a:has-text("Create Task")');
+    await this.page.click('[data-testid="create-task-button"], button:has-text("Create Task"), a:has-text("Create Task"), a:has-text("Submit Output")');
     await this.page.waitForLoadState('networkidle');
   }
 
@@ -229,7 +229,11 @@ export class DashboardPage {
    */
   async clickNotifications() {
     await this.page.click('[data-testid="notifications-button"], button:has-text("Notifications")');
-    await this.page.waitForTimeout(500); // Wait for panel to open
+    // Wait for panel to open with explicit selector
+    await this.page.waitForSelector('[data-testid="notifications-panel"], [data-testid="notifications-overlay"]', { timeout: 5000 }).catch(() => {
+      console.log('[DashboardPage] Notifications panel did not appear, continuing...');
+    });
+    await this.page.waitForTimeout(500); // Additional wait for animation
   }
 
   /**

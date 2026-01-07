@@ -22,8 +22,35 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [emailError, setEmailError] = useState('');
   
   const { login, signup } = useAuth();
+
+  // Email validation helper
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Check if form is valid for submission
+  const isFormValid = (): boolean => {
+    if (mode === 'login') {
+      return email.trim() !== '' && password.trim() !== '' && validateEmail(email);
+    } else {
+      return email.trim() !== '' && password.trim() !== '' && name.trim() !== '' && username.trim() !== '' && validateEmail(email) && password.length >= 6;
+    }
+  };
+
+  // Handle email change with validation
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+    if (value && !validateEmail(value)) {
+      setEmailError(t('auth.invalidEmail') || 'Please enter a valid email address');
+    } else {
+      setEmailError('');
+    }
+  };
   const { t } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,6 +63,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
       setName('');
       setUsername('');
       setError('');
+      setEmailError('');
       setShowPassword(false);
     }
   }, [isOpen, initialMode]);
@@ -152,9 +180,9 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          {error && (
+          {(error || emailError) && (
             <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm animate-shake" data-testid="error-message">
-              {error}
+              {error || emailError}
             </div>
           )}
 
@@ -214,8 +242,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
               <input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                onChange={handleEmailChange}
+                onBlur={() => {
+                  if (email && !validateEmail(email)) {
+                    setEmailError(t('auth.invalidEmail') || 'Please enter a valid email address');
+                  }
+                }}
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all ${emailError ? 'border-red-500' : 'border-white/20'}`}
                 placeholder={t('auth.emailPlaceholder')}
                 disabled={isSubmitting}
                 required
@@ -277,7 +310,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
             type="submit"
             variant="primary"
             size="lg"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !isFormValid()}
             isLoading={isSubmitting}
             className="w-full"
             data-testid="auth-submit-button"

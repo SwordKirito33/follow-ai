@@ -112,8 +112,8 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[10000] flex items-start justify-end p-4 pt-20 pointer-events-none">
-      <div className="glass-card rounded-2xl shadow-2xl w-full max-w-md max-h-[80vh] overflow-hidden flex flex-col pointer-events-auto">
+    <div className="fixed inset-0 z-[10000] flex items-start justify-end p-4 pt-20 pointer-events-none" data-testid="notifications-overlay">
+      <div className="glass-card rounded-2xl shadow-2xl w-full max-w-md max-h-[80vh] overflow-hidden flex flex-col pointer-events-auto" data-testid="notifications-panel">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-white/10 dark:border-gray-700">
           <div className="flex items-center gap-2">

@@ -1,0 +1,101 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "Follow-ai" [ref=e6] [cursor=pointer]:
+        - /url: "#/"
+        - generic [ref=e7]:
+          - img [ref=e8]:
+            - generic [ref=e11]: F
+          - generic [ref=e12]: Follow-ai
+      - generic [ref=e13]:
+        - link "Browse Tools" [ref=e14] [cursor=pointer]:
+          - /url: "#/rankings"
+        - link "Earn Money" [ref=e15] [cursor=pointer]:
+          - /url: "#/tasks"
+        - link "Leaderboard" [ref=e16] [cursor=pointer]:
+          - /url: "#/leaderboard"
+        - link "Hire" [ref=e17] [cursor=pointer]:
+          - /url: "#/hire"
+      - generic [ref=e18]:
+        - button "Font settings" [ref=e20] [cursor=pointer]:
+          - img [ref=e21]
+          - generic [ref=e23]: Inter
+          - img [ref=e24]
+        - button "Select Language" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+          - generic [ref=e31]: 🇺🇸 English
+          - img [ref=e32]
+        - button "Log in" [ref=e34] [cursor=pointer]:
+          - generic [ref=e35]: Log in
+        - button "Sign up" [ref=e36] [cursor=pointer]:
+          - generic [ref=e37]: Sign up
+  - main [ref=e38]:
+    - generic [ref=e40]:
+      - paragraph [ref=e41]: Please log in to view your dashboard
+      - link "Go to Home" [ref=e42] [cursor=pointer]:
+        - /url: "#/"
+        - generic [ref=e43]: Go to Home
+  - contentinfo [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - img [ref=e49]:
+              - generic [ref=e52]: F
+            - generic [ref=e53]: Follow-ai
+          - paragraph [ref=e54]: The first AI tool review platform with mandatory real work verification.
+          - generic [ref=e55]:
+            - link "Twitter" [ref=e56] [cursor=pointer]:
+              - /url: https://twitter.com/followai
+              - generic [ref=e57]: Twitter
+              - img [ref=e58]
+            - link "LinkedIn" [ref=e60] [cursor=pointer]:
+              - /url: https://linkedin.com/company/followai
+              - generic [ref=e61]: LinkedIn
+              - img [ref=e62]
+        - generic [ref=e64]:
+          - heading "Product" [level=3] [ref=e65]
+          - list [ref=e66]:
+            - listitem [ref=e67]:
+              - link "Browse Tools" [ref=e68] [cursor=pointer]:
+                - /url: "#/rankings"
+            - listitem [ref=e69]:
+              - link "Earn Money" [ref=e70] [cursor=pointer]:
+                - /url: "#/tasks"
+            - listitem [ref=e71]:
+              - link "Leaderboard" [ref=e72] [cursor=pointer]:
+                - /url: "#/rankings"
+            - listitem [ref=e73]:
+              - link "Submit Output" [ref=e74] [cursor=pointer]:
+                - /url: "#/submit"
+        - generic [ref=e75]:
+          - heading "Company" [level=3] [ref=e76]
+          - list [ref=e77]:
+            - listitem [ref=e78]:
+              - link "About" [ref=e79] [cursor=pointer]:
+                - /url: "#/about"
+            - listitem [ref=e80]:
+              - link "Blog" [ref=e81] [cursor=pointer]:
+                - /url: "#/news"
+            - listitem [ref=e82]:
+              - link "Contact" [ref=e83] [cursor=pointer]:
+                - /url: mailto:hello@follow.ai
+        - generic [ref=e84]:
+          - heading "Legal" [level=3] [ref=e85]
+          - list [ref=e86]:
+            - listitem [ref=e87]:
+              - link "Terms of Service" [ref=e88] [cursor=pointer]:
+                - /url: "#/terms"
+            - listitem [ref=e89]:
+              - link "Privacy Policy" [ref=e90] [cursor=pointer]:
+                - /url: "#/privacy"
+            - listitem [ref=e91]:
+              - link "Cookie Policy" [ref=e92] [cursor=pointer]:
+                - /url: "#/cookie-policy"
+      - generic [ref=e93]:
+        - paragraph [ref=e94]: © 2025 Follow-ai. All rights reserved.
+        - generic [ref=e96]: Made with ❤️ for the AI community
+```

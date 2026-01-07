@@ -13,6 +13,7 @@ import VisitTracker from '@/components/VisitTracker';
 import IntroAnimation from '@/components/IntroAnimation/IntroAnimation';
 import CommandPalette from '@/components/CommandPalette';
 import Footer from '@/components/Footer';
+import ProtectedRoute from '@/components/ProtectedRoute';
 import { hasSeenIntro } from '@/components/IntroAnimation/utils';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import { useGlobalErrorHandler } from '@/hooks/useGlobalErrorHandler';
@@ -220,9 +221,9 @@ const AppContent: React.FC = () => {
               <Route path="/" element={<Home />} />
               <Route path="/submit" element={<SubmitReview />} />
               <Route path="/task/:taskId/submit" element={<TaskSubmit />} />
-              <Route path="/history" element={<SubmissionHistory />} />
-              <Route path="/xp-history" element={<XpHistory />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/history" element={<ProtectedRoute><SubmissionHistory /></ProtectedRoute>} />
+              <Route path="/xp-history" element={<ProtectedRoute><XpHistory /></ProtectedRoute>} />
+              <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
               <Route path="/tasks" element={<Tasks />} />
               <Route path="/tasks/list" element={<TaskList />} />
               <Route path="/payments" element={<Payments />} />
@@ -240,8 +241,8 @@ const AppContent: React.FC = () => {
               <Route path="/hire/new" element={<HireNew />} />
               <Route path="/hire/:id" element={<HireDetail />} />
               <Route path="/onboarding" element={<Onboarding />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/wallet" element={<DeveloperWallet />} />
+              <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              <Route path="/wallet" element={<ProtectedRoute><DeveloperWallet /></ProtectedRoute>} />
               <Route path="/tasks/create" element={<CreateTask />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/admin/reviews" element={<AdminReviews />} />
