@@ -208,7 +208,7 @@ const Tasks: React.FC = () => {
 
         {/* Tasks Grid */}
         <div className="grid gap-6">
-          {loading ? (
+          {isLoading ? (
             <div className="flex items-center justify-center py-20">
               <div className="text-center">
                 <div className="w-16 h-16 border-4 border-primary-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>

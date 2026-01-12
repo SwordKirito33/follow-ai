@@ -1,7 +1,7 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { AlertCircle, RefreshCw, Home } from 'lucide-react';
 import FollowButton from './ui/follow-button';
-import { useLanguage } from '@/contexts/LanguageContext';
+// import { useLanguage } from '@/contexts/LanguageContext'; // Removed: Cannot use hooks in class components
 import { captureException } from '@/lib/sentry';
 
 interface Props {
