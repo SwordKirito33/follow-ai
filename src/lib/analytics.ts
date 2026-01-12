@@ -1,8 +1,44 @@
 /**
  * Analytics event tracking for Follow.ai
- * 
- * Structured to easily integrate with Segment, PostHog, Mixpanel, etc.
+ * Integrated with PostHog for user behavior analysis
  */
+
+import posthog from 'posthog-js';
+
+/**
+ * Analytics configuration
+ */
+export interface AnalyticsConfig {
+  apiKey: string;
+  apiHost?: string;
+  autocapture?: boolean;
+  capturePageview?: boolean;
+}
+
+/**
+ * Initialize analytics
+ */
+export function initAnalytics(config: AnalyticsConfig) {
+  if (typeof window === 'undefined') return;
+  
+  const {
+    apiKey,
+    apiHost = 'https://app.posthog.com',
+    autocapture = true,
+    capturePageview = true,
+  } = config;
+  
+  posthog.init(apiKey, {
+    api_host: apiHost,
+    autocapture,
+    capture_pageview: capturePageview,
+    loaded: (posthog) => {
+      if (import.meta.env.DEV) {
+        posthog.debug();
+      }
+    },
+  });
+}
 
 export type AnalyticsEvent =
   | 'output_submitted'
@@ -33,30 +69,45 @@ export interface AnalyticsProperties {
  * Track an analytics event
  */
 export function trackEvent(event: AnalyticsEvent, properties?: AnalyticsProperties): void {
-  // In production, integrate with your analytics provider
-  // For now, we'll log to console in development
+  if (typeof window === 'undefined') return;
+  
+  // Log to console in development
   if (import.meta.env.DEV) {
     console.log('[Analytics]', event, properties);
   }
 
-  // Example integration points:
-  // - Segment: analytics.track(event, properties)
-  // - PostHog: posthog.capture(event, properties)
-  // - Mixpanel: mixpanel.track(event, properties)
-  
-  // You can also send to your backend API
-  // fetch('/api/analytics', { method: 'POST', body: JSON.stringify({ event, properties }) })
+  // Send to PostHog
+  posthog.capture(event, properties);
 }
 
 /**
  * Identify a user
  */
 export function identifyUser(userId: string, traits?: Record<string, any>): void {
+  if (typeof window === 'undefined') return;
+  
   if (import.meta.env.DEV) {
     console.log('[Analytics] Identify', userId, traits);
   }
   
-  // Example: analytics.identify(userId, traits)
+  // Send to PostHog
+  posthog.identify(userId, traits);
+}
+
+/**
+ * Reset user identity
+ */
+export function resetUser(): void {
+  if (typeof window === 'undefined') return;
+  posthog.reset();
+}
+
+/**
+ * Set user properties
+ */
+export function setUserProperties(properties: Record<string, any>): void {
+  if (typeof window === 'undefined') return;
+  posthog.people.set(properties);
 }
 
 /**

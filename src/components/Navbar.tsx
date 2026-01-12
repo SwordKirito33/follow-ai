@@ -78,9 +78,9 @@ const Navbar: React.FC = () => {
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-1">
           <Link 
-            to="/rankings" 
+            to="/tools" 
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-              location.pathname === '/rankings' 
+              location.pathname === '/tools' 
                 ? 'text-primary-cyan bg-blue-50 dark:bg-blue-900/20' 
                 : 'text-gray-400 hover:text-white dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-800/10 dark:hover:bg-gray-800'
             }`}
@@ -251,7 +251,7 @@ const Navbar: React.FC = () => {
           <Link to="/" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.browseTools')}</Link>
           <Link to="/tasks" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.earnMoney')}</Link>
           <Link to="/payments" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.payments')}</Link>
-          <Link to="/rankings" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.rankings')}</Link>
+          <Link to="/tools" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.rankings')}</Link>
           <Link to="/news" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.aiNews')}</Link>
           <Link to="/about" onClick={toggleMobileMenu} className="text-lg font-medium">{t('nav.about')}</Link>
           {isAuthenticated && (

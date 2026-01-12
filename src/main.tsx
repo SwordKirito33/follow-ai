@@ -2,10 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from '@/App';
 import ErrorBoundary from '@/components/ErrorBoundary';
-import { initSentry } from '@/lib/sentry';
 
-// Initialize Sentry as early as possible
-initSentry();
+// Delay monitoring library initialization until after page load
+function initializeMonitoring() {
+  // Lazy load Sentry
+  import('@/lib/sentry').then(({ initSentry }) => {
+    initSentry();
+  }).catch(err => console.error('Failed to initialize Sentry:', err));
+}
+
+// Initialize monitoring after page load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('load', initializeMonitoring);
+  });
+} else {
+  window.addEventListener('load', initializeMonitoring);
+}
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -25,4 +38,3 @@ root.render(
 window.addEventListener('unhandledrejection', (event) => {
   console.error('Unhandled promise rejection:', event.reason);
 });
-

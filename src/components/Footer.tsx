@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
             <h3 className="text-sm font-semibold text-white dark:text-white mb-4">Product</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/rankings" className="text-sm text-gray-400 dark:text-gray-400 hover:text-primary-cyan dark:hover:text-blue-400 transition-colors">
+                <Link to="/tools" className="text-sm text-gray-400 dark:text-gray-400 hover:text-primary-cyan dark:hover:text-blue-400 transition-colors">
                   Browse Tools
                 </Link>
               </li>
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/rankings" className="text-sm text-gray-400 dark:text-gray-400 hover:text-primary-cyan dark:hover:text-blue-400 transition-colors">
+                <Link to="/tools" className="text-sm text-gray-400 dark:text-gray-400 hover:text-primary-cyan dark:hover:text-blue-400 transition-colors">
                   Leaderboard
                 </Link>
               </li>

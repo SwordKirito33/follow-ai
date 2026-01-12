@@ -1,6 +1,6 @@
 import React, { useEffect, lazy, Suspense, useState } from 'react';
 import { motion } from 'framer-motion';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { LanguageProvider } from '@/contexts/LanguageContext';
@@ -143,6 +143,14 @@ const SupabaseTest = lazy(() => import('@/components/SupabaseTest').catch(err =>
   console.error('Failed to load SupabaseTest:', err);
   return { default: () => <div>Failed to load page</div> };
 }));
+const Login = lazy(() => import('@/pages/Login').catch(err => {
+  console.error('Failed to load Login:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
+const NotFound = lazy(() => import('@/pages/NotFound').catch(err => {
+  console.error('Failed to load NotFound:', err);
+  return { default: () => <div>Failed to load page</div> };
+}));
 
 // Loading fallback component
 const PageLoader = () => (
@@ -227,7 +235,8 @@ const AppContent: React.FC = () => {
               <Route path="/tasks" element={<Tasks />} />
               <Route path="/tasks/list" element={<TaskList />} />
               <Route path="/payments" element={<Payments />} />
-              <Route path="/rankings" element={<RankingsPage />} />
+              <Route path="/tools" element={<RankingsPage />} />
+              <Route path="/rankings" element={<Navigate to="/tools" replace />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/admin/xp" element={<AdminXpPanelPage />} />
               <Route path="/news" element={<NewsPage />} />
@@ -248,6 +257,8 @@ const AppContent: React.FC = () => {
               <Route path="/admin/reviews" element={<AdminReviews />} />
               <Route path="/tasks/review" element={<ReviewSubmissions />} />
               <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>

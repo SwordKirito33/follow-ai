@@ -38,7 +38,7 @@ const Home: React.FC = () => {
               <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">{t('categories.title')}</h2>
               <p className="text-gray-400 text-sm font-medium mt-1">{t('categories.subtitle')}</p>
             </div>
-            <Link to="/rankings" className="text-primary-cyan text-sm font-semibold hover:text-primary-blue transition-colors">{t('categories.viewRankings')}</Link>
+            <Link to="/tools" className="text-primary-cyan text-sm font-semibold hover:text-primary-blue transition-colors">{t('categories.viewRankings')}</Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
               { icon: '🎵', title: 'Audio & Voice', stats: '67 tools • 640 reviews', badge: '' },
               { icon: '📊', title: 'Data & Analytics', stats: '72 tools • 810 reviews', badge: '' },
             ].map((cat, idx) => (
-              <Link key={cat.title} to="/rankings" className="block glass-card rounded-xl p-5 transition-all transform hover:scale-105 card-3d animate-slideUp" style={{ animationDelay: `${idx * 0.05}s` }}>
+              <Link key={cat.title} to="/tools" className="block glass-card rounded-xl p-5 transition-all transform hover:scale-105 card-3d animate-slideUp" style={{ animationDelay: `${idx * 0.05}s` }}>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-3xl transform hover:scale-110 transition-transform">{cat.icon}</span>
                   {cat.badge && <span className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-accent-gold/20 to-accent-gold/30 text-accent-gold font-semibold border border-accent-gold/50 animate-pulse">{cat.badge}</span>}

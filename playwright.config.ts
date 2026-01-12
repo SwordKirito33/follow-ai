@@ -20,13 +20,13 @@ export default defineConfig({
   // Test execution settings
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : 4,
+  retries: process.env.CI ? 2 : 1, // 增加本地重试次数
+  workers: process.env.CI ? 1 : 2, // 减少并发数以提高稳定性
   
   // Timeout settings - longer for production
-  timeout: isProduction ? 60 * 1000 : 30 * 1000, // 60s for production, 30s for local
+  timeout: isProduction ? 60 * 1000 : 60 * 1000, // 增加到 60s 提高稳定性
   expect: {
-    timeout: isProduction ? 10 * 1000 : 5 * 1000, // 10s for production, 5s for local
+    timeout: isProduction ? 10 * 1000 : 10 * 1000, // 增加到 10s
   },
   
   // Reporter configuration

@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
               {t('hero.startEarning')}
             </FollowButton>
             <FollowButton
-              to="/tasks"
+              to="/tools"
               as="link"
               variant="secondary"
               size="lg"

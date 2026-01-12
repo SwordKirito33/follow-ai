@@ -52,7 +52,7 @@ export default defineConfig({
           // 数据获取
           'query-vendor': ['@tanstack/react-query'],
           
-          // 监控和分析
+          // 监控和分析（延迟加载）
           'monitoring-vendor': ['@sentry/react', '@sentry/tracing'],
           
           // 其他库
@@ -88,6 +88,6 @@ export default defineConfig({
       '@supabase/supabase-js',
     ],
     // 排除不需要预加载的大型库
-    exclude: ['@sentry/react'],
+    exclude: ['@sentry/react', 'framer-motion'],
   },
 });

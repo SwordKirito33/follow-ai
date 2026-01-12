@@ -1,0 +1,11 @@
+# robots.txt for Follow.ai
+
+User-agent: *
+Allow: /
+
+# Disallow admin pages
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.follow-ai.com/sitemap.xml

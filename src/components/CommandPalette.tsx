@@ -45,7 +45,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       label: 'Browse Tools',
       icon: TrendingUp,
       action: () => {
-        navigate('/rankings');
+        navigate('/tools');
         onClose();
         trackEvent('command_palette_navigated', { destination: 'tools' });
       },
